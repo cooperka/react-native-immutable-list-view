@@ -1,0 +1,27 @@
+{
+  "name": "react-native-immutable-list-view",
+  "version": "0.1.0",
+  "description": "A ListView for React Native that's compatible with Immutable data",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cooperka/react-native-immutable-list-view.git"
+  },
+  "keywords": [
+    "react",
+    "listview",
+    "immutable",
+    "list",
+    "map",
+    "set"
+  ],
+  "author": "Kevin Cooper",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cooperka/react-native-immutable-list-view/issues"
+  },
+  "homepage": "https://github.com/cooperka/react-native-immutable-list-view#readme"
+}
