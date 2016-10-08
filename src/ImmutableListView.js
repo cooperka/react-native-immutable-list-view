@@ -23,10 +23,14 @@ const getValueFromKey = (key, data) => {
  */
 class ImmutableListView extends Component {
 
-  // TODO: Accept all types of Immutable data.
   static propTypes = {
+    // Pass through any props that ListView would normally take.
     ...ListView.propTypes,
-    dataSource: () => null,
+
+    // ImmutableListView handles creating the dataSource, so don't pass it in.
+    dataSource: PropTypes.oneOf([undefined]),
+
+    // TODO: Accept all types of Immutable data.
     immutableData: PropTypes.oneOfType([
       PropTypes.instanceOf(Immutable.List),
       PropTypes.instanceOf(Immutable.Map),
