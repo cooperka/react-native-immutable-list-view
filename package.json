@@ -2,9 +2,15 @@
   "name": "react-native-immutable-list-view",
   "version": "0.1.0",
   "description": "A ListView for React Native that's compatible with Immutable data",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "src"
+  ],
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "build": "babel src --out-dir lib",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -23,5 +29,14 @@
   "bugs": {
     "url": "https://github.com/cooperka/react-native-immutable-list-view/issues"
   },
-  "homepage": "https://github.com/cooperka/react-native-immutable-list-view#readme"
+  "homepage": "https://github.com/cooperka/react-native-immutable-list-view#readme",
+  "dependencies": {
+    "immutable": "~3.8.1",
+    "react": "~15.3.2",
+    "react-native": "~0.34.1"
+  },
+  "devDependencies": {
+    "babel-cli": "~6.16.0",
+    "babel-preset-react-native": "~1.9.0"
+  }
 }
