@@ -2,7 +2,7 @@
   "name": "react-native-immutable-list-view",
   "version": "0.1.0",
   "description": "A ListView for React Native that's compatible with Immutable data",
-  "main": "lib/index.js",
+  "main": "lib/ImmutableListView.js",
   "files": [
     "lib",
     "src"
