@@ -8,10 +8,14 @@
     "src"
   ],
   "scripts": {
-    "test": "test",
+    "test": "jest",
     "clean": "rm -rf lib",
     "build": "npm run clean && babel src --out-dir lib",
     "prepublish": "npm run build"
+  },
+  "jest": {
+    "preset": "jest-react-native",
+    "verbose": true
   },
   "repository": {
     "type": "git",
@@ -40,6 +44,11 @@
   },
   "devDependencies": {
     "babel-cli": "~6.16.0",
-    "babel-preset-react-native": "~1.9.0"
+    "babel-jest": "~16.0.0",
+    "babel-preset-react-native": "~1.9.0",
+    "jest": "~16.0.1",
+    "jest-react-native": "~16.0.0",
+    "lodash": "~4.16.4",
+    "react-test-renderer": "~15.3.2"
   }
 }
