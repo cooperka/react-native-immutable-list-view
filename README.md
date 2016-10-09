@@ -1,6 +1,6 @@
 # React Native Immutable ListView
 
-A ListView for React Native that's compatible with [Immutable](https://facebook.github.io/immutable-js/) data.
+An efficient ListView for React Native that's compatible with [Immutable](https://facebook.github.io/immutable-js/) data.
 
 ## Setup
 
