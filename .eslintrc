@@ -19,8 +19,10 @@
       ]
     }],
     "arrow-body-style": 0,
+    "class-methods-use-this": 0,
     "max-len": [2, 120],
 
-    "react/jsx-filename-extension": 0
+    "react/jsx-filename-extension": 0,
+    "react/prefer-stateless-function": 0
   }
 }
