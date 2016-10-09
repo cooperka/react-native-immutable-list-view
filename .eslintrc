@@ -1,0 +1,26 @@
+{
+  "parser": "babel-eslint",
+
+  "env": {
+    "jest": true
+  },
+
+  "plugins": [
+    "react",
+    "react-native"
+  ],
+
+  "extends": "airbnb",
+
+  "rules": {
+    "new-cap": [2, {
+      "capIsNewExceptions": [
+        "Map", "Set", "List" // Immutable.js
+      ]
+    }],
+    "arrow-body-style": 0,
+    "max-len": [2, 120],
+
+    "react/jsx-filename-extension": 0
+  }
+}
