@@ -17,7 +17,8 @@ but instead of passing in a `dataSource`, you should should pass in a prop calle
 containing the data you'd like to display. `ImmutableListView` will handle creating an efficient `dataSource` for you.
 
 Other than this small change, everything else will be exactly the same as `ListView`.
-An example is coming shortly.
+An example project is coming shortly. For now, you can check out the
+[tests](https://github.com/cooperka/react-native-immutable-list-view/tree/master/src/__tests__) to see how it's used.
 
 Note: Currently only `Map`s and `List`s are supported, but that will be fixed shortly. Feel free to submit a PR!
 
