@@ -38,10 +38,12 @@
     "url": "https://github.com/cooperka/react-native-immutable-list-view/issues"
   },
   "homepage": "https://github.com/cooperka/react-native-immutable-list-view#readme",
+  "peerDependencies": {
+    "react": "15.x",
+    "react-native": "0.x"
+  },
   "dependencies": {
-    "immutable": "~3.8.1",
-    "react": "~15.3.2",
-    "react-native": "~0.34.1"
+    "immutable": "~3.8.1"
   },
   "devDependencies": {
     "babel-cli": "~6.16.0",
@@ -57,6 +59,8 @@
     "jest": "~16.0.1",
     "jest-react-native": "~16.0.0",
     "lodash": "~4.16.4",
+    "react": "~15.3.2",
+    "react-native": "~0.34.1",
     "react-test-renderer": "~15.3.2"
   }
 }
