@@ -319,3 +319,103 @@ exports[`ImmutableListView renders with empty data 1`] = `
   scrollRenderAheadDistance={1000}
   stickyHeaderIndices={Array []} />
 `;
+
+exports[`ImmutableListView with delayed rendering renders basic List after interactions 1`] = `
+<ScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": NaN,
+    }
+  }
+  enableEmptySections={true}
+  immutableData={
+    Array [
+      "l",
+      "i",
+      "s",
+      "t",
+    ]
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  rowsDuringInteraction={1}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  stickyHeaderIndices={Array []}>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    \"l\"
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    \"i\"
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    \"s\"
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    \"t\"
+  </Text>
+</ScrollView>
+`;
+
+exports[`ImmutableListView with delayed rendering renders basic List during interactions 1`] = `
+<ScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": NaN,
+    }
+  }
+  enableEmptySections={true}
+  immutableData={
+    Array [
+      "l",
+      "i",
+      "s",
+      "t",
+    ]
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  rowsDuringInteraction={1}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  stickyHeaderIndices={Array []}>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    \"l\"
+  </Text>
+</ScrollView>
+`;

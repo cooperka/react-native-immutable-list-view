@@ -1,6 +1,6 @@
 import Immutable from 'immutable';
 import React, { Component, PropTypes } from 'react';
-import { ListView } from 'react-native';
+import { ListView, InteractionManager } from 'react-native';
 
 const getIdentities = (immutableData) => {
   return immutableData.keySeq().toArray();
@@ -35,6 +35,14 @@ class ImmutableListView extends Component {
       PropTypes.instanceOf(Immutable.List),
       PropTypes.instanceOf(Immutable.Map),
     ]).isRequired,
+
+    /**
+     * How many rows of data to display while waiting for interactions to finish (e.g. Navigation animations).
+     * You can use this to improve the animation performance of longer lists when pushing new routes.
+     *
+     * @see https://facebook.github.io/react-native/docs/performance.html#slow-navigator-transitions
+     */
+    rowsDuringInteraction: PropTypes.number,
   };
 
   static defaultProps = ListView.getDefaultProps();
@@ -49,27 +57,42 @@ class ImmutableListView extends Component {
       sectionHeaderHasChanged: (s1, s2) => !Immutable.is(s1, s2),
       getSectionHeaderData: (dataBlob, sectionID) => getValueFromKey(sectionID, dataBlob),
     }),
+    interactionOngoing: true,
   };
 
   componentWillMount() {
-    this.setDataFromProps(this.props);
+    this.setStateFromProps(this.props);
+
+    // If set, wait for animations etc. to complete before rendering the full list of data.
+    if (this.props.rowsDuringInteraction >= 0) {
+      InteractionManager.runAfterInteractions(() => {
+        this.setStateFromProps(this.props, true);
+      });
+    }
   }
 
   componentWillReceiveProps(newProps) {
-    this.setDataFromProps(newProps);
+    this.setStateFromProps(newProps);
   }
 
-  setDataFromProps(props) {
-    const { dataSource } = this.state;
-    const { immutableData: data, renderSectionHeader } = props;
+  setStateFromProps(props, interactionHasFinished = false) {
+    const { dataSource, interactionOngoing } = this.state;
+    const { immutableData, rowsDuringInteraction, renderSectionHeader } = props;
+
+    const shouldDisplayPartialData = rowsDuringInteraction >= 0 && interactionOngoing && !interactionHasFinished;
+
+    const displayData = (shouldDisplayPartialData
+      ? immutableData.slice(0, rowsDuringInteraction)
+      : immutableData);
 
     const hasSectionHeaders = !!renderSectionHeader;
 
     this.setState({
       dataSource: (hasSectionHeaders
-        ? dataSource.cloneWithRowsAndSections(data, getIdentities(data), getRowIdentities(data))
-        : dataSource.cloneWithRows(data, getIdentities(data))
+        ? dataSource.cloneWithRowsAndSections(displayData, getIdentities(displayData), getRowIdentities(displayData))
+        : dataSource.cloneWithRows(displayData, getIdentities(displayData))
       ),
+      interactionOngoing: interactionHasFinished ? false : interactionOngoing,
     });
   }
 

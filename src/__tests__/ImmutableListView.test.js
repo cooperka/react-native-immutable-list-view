@@ -3,7 +3,7 @@
 import _keys from 'lodash/keys';
 import Immutable from 'immutable';
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, InteractionManager } from 'react-native';
 import renderer from 'react-test-renderer';
 
 import ImmutableListView from '../ImmutableListView';
@@ -76,6 +76,36 @@ describe('ImmutableListView', () => {
         immutableData={MAP_DATA_COMPLEX}
         renderRow={renderRow}
         renderSectionHeader={renderSectionHeader}
+      />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+});
+
+describe('ImmutableListView with delayed rendering', () => {
+  it('renders basic List during interactions', () => {
+    // Mock this method to make sure it's not run.
+    InteractionManager.runAfterInteractions = () => {};
+
+    const tree = renderer.create(
+      <ImmutableListView
+        immutableData={LIST_DATA}
+        rowsDuringInteraction={1}
+        renderRow={renderRow}
+      />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('renders basic List after interactions', () => {
+    // Mock this method to make sure it runs immediately.
+    InteractionManager.runAfterInteractions = (callback) => callback();
+
+    const tree = renderer.create(
+      <ImmutableListView
+        immutableData={LIST_DATA}
+        rowsDuringInteraction={1}
+        renderRow={renderRow}
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
