@@ -1,6 +1,6 @@
 {
   "name": "react-native-immutable-list-view",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "An efficient ListView for React Native that's compatible with Immutable data.",
   "main": "lib/ImmutableListView.js",
   "files": [
@@ -17,7 +17,11 @@
   "jest": {
     "preset": "jest-react-native",
     "verbose": true,
-    "testPathIgnorePatterns": ["/node_modules/", "/example/", "/lib/"]
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/example/",
+      "/lib/"
+    ]
   },
   "repository": {
     "type": "git",
