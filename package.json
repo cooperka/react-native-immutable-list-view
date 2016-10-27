@@ -16,7 +16,8 @@
   },
   "jest": {
     "preset": "jest-react-native",
-    "verbose": true
+    "verbose": true,
+    "testPathIgnorePatterns": ["/node_modules/", "/example/", "/lib/"]
   },
   "repository": {
     "type": "git",
