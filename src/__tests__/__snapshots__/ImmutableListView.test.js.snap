@@ -186,6 +186,57 @@ exports[`ImmutableListView renders basic Map with section headers 1`] = `
 </ScrollView>
 `;
 
+exports[`ImmutableListView renders basic Set 1`] = `
+<ScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": NaN,
+    }
+  }
+  enableEmptySections={true}
+  immutableData={
+    Array [
+      "one",
+      "two",
+      "three",
+    ]
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  stickyHeaderIndices={Array []}>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    \"one\"
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    \"two\"
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    \"three\"
+  </Text>
+</ScrollView>
+`;
+
 exports[`ImmutableListView renders more complex Map with section headers 1`] = `
 <ScrollView
   dataSource={

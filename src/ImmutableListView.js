@@ -2,21 +2,40 @@ import Immutable from 'immutable';
 import React, { Component, PropTypes } from 'react';
 import { ListView, InteractionManager } from 'react-native';
 
-const getIdentities = (immutableData) => {
+/**
+ * Return the keys from a set of data.
+ *
+ * @example
+ * - getKeys({ foo: 'bar', baz: 'qux' }) will return [foo, baz]
+ * - getKeys([2, 3, 5]) will return [0, 1, 2]
+ *
+ * @param {Immutable.Iterable} immutableData
+ * @returns {Array} An array of keys for the data.
+ */
+function getKeys(immutableData) {
+  // TODO: Allow any type of arbitrary data
   return immutableData.keySeq().toArray();
-};
+}
 
-const getRowIdentities = (immutableSectionData) => {
-  const sectionKeys = immutableSectionData.map((section) => {
-    return Object.keys(section);
-  });
+/**
+ * @param immutableSectionData
+ * @returns {Array}
+ */
+// TODO: Make this getRows instead? Then pass rows into getKeys.
+function getRowIdentities(immutableSectionData) {
+  // TODO: Allow any type of arbitrary data.
+  const sectionKeys = immutableSectionData.map((section) => Object.keys(section));
   return sectionKeys.valueSeq().toArray();
-};
+}
 
-// TODO: Accept all types of Immutable data.
-const getValueFromKey = (key, data) => {
-  return (Immutable.List.isList(data) || Immutable.Map.isMap(data)) ? data.get(key) : data[key];
-};
+/**
+ * @param {String|Number} key
+ * @param {Immutable.Iterable|Object|Array} data
+ * @returns {*} The value at the given key, whether the data is Immutable or not.
+ */
+function getValueFromKey(key, data) {
+  return (typeof data.get === 'function') ? data.get(key) : data[key];
+}
 
 /**
  * A ListView capable of displaying {@link https://facebook.github.io/immutable-js/ Immutable} data.
@@ -30,11 +49,8 @@ class ImmutableListView extends Component {
     // ImmutableListView handles creating the dataSource, so don't pass it in.
     dataSource: PropTypes.oneOf([undefined]),
 
-    // TODO: Accept all types of Immutable data.
-    immutableData: PropTypes.oneOfType([
-      PropTypes.instanceOf(Immutable.List),
-      PropTypes.instanceOf(Immutable.Map),
-    ]).isRequired,
+    // TODO: Allow any type of arbitrary data.
+    immutableData: PropTypes.instanceOf(Immutable.Iterable).isRequired,
 
     /**
      * How many rows of data to display while waiting for interactions to finish (e.g. Navigation animations).
@@ -54,6 +70,7 @@ class ImmutableListView extends Component {
         const rowData = getValueFromKey(sectionID, dataBlob);
         return getValueFromKey(rowID, rowData);
       },
+      // TODO: This might still return true if just the section data has changed; verify this.
       sectionHeaderHasChanged: (s1, s2) => !Immutable.is(s1, s2),
       getSectionHeaderData: (dataBlob, sectionID) => getValueFromKey(sectionID, dataBlob),
     }),
@@ -85,12 +102,10 @@ class ImmutableListView extends Component {
       ? immutableData.slice(0, rowsDuringInteraction)
       : immutableData);
 
-    const hasSectionHeaders = !!renderSectionHeader;
-
     this.setState({
-      dataSource: (hasSectionHeaders
-        ? dataSource.cloneWithRowsAndSections(displayData, getIdentities(displayData), getRowIdentities(displayData))
-        : dataSource.cloneWithRows(displayData, getIdentities(displayData))
+      dataSource: (renderSectionHeader
+        ? dataSource.cloneWithRowsAndSections(displayData, getKeys(displayData), getRowIdentities(displayData))
+        : dataSource.cloneWithRows(displayData, getKeys(displayData))
       ),
       interactionOngoing: interactionHasFinished ? false : interactionOngoing,
     });

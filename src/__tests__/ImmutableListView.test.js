@@ -12,6 +12,7 @@ const EMPTY_DATA = Immutable.List();
 const LIST_DATA = Immutable.List(['l', 'i', 's', 't']);
 const MAP_DATA = Immutable.Map({ 1: 'm', 2: 'a', 3: 'p' });
 const MAP_DATA_COMPLEX = Immutable.Map({ first: ['m', 'a', 'p'], second: ['foo'], third: [], fourth: ['bar'] });
+const SET_DATA = Immutable.Set(['one', 'two', 'three']);
 
 /**
  * @param {*} rowData
@@ -76,6 +77,16 @@ describe('ImmutableListView', () => {
         immutableData={MAP_DATA_COMPLEX}
         renderRow={renderRow}
         renderSectionHeader={renderSectionHeader}
+      />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('renders basic Set', () => {
+    const tree = renderer.create(
+      <ImmutableListView
+        immutableData={SET_DATA}
+        renderRow={renderRow}
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
