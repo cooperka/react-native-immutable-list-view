@@ -95,6 +95,15 @@ ImmutableListView will handle this for you. Check out this example diff:
 }
 ```
 
+## Props
+
+| Property | Type | Default? | Description |
+|----------|------|----------|-------------|
+| `immutableData` | One of [`Immutable.List`, `Immutable.Map`] | Required. | The data to render |
+| `rowsDuringInteraction` | `number` | `undefined` | How many rows of data to initially display while waiting for interactions to finish (e.g. Navigation animations) |
+
+All the other props that [`ListView`](https://facebook.github.io/react-native/docs/listview.html) supports are passed through, and should work exactly the same.
+
 ## Contributing
 
 1. Fork it!
