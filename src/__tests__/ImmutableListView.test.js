@@ -1,40 +1,19 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
-import _keys from 'lodash/keys';
-import Immutable from 'immutable';
 import React from 'react';
-import { Text, InteractionManager } from 'react-native';
+import { InteractionManager } from 'react-native';
 import renderer from 'react-test-renderer';
 
 import ImmutableListView from '../ImmutableListView';
 
-const EMPTY_DATA = Immutable.List();
-const LIST_DATA = Immutable.List(['l', 'i', 's', 't']);
-const MAP_DATA = Immutable.Map({ 1: 'm', 2: 'a', 3: 'p' });
-const MAP_DATA_COMPLEX = Immutable.Map({ first: ['m', 'a', 'p'], second: ['foo'], third: [], fourth: ['bar'] });
-const SET_DATA = Immutable.Set(['one', 'two', 'three']);
-
-/**
- * @param {*} rowData
- */
-function renderRow(rowData) {
-  return <Text>{JSON.stringify(rowData)}</Text>;
-}
-
-/**
- * @param {Object} sectionData
- * @param {String} category
- */
-function renderSectionHeader(sectionData, category) {
-  return <Text header>{`${category} (${_keys(sectionData).length} items)`}</Text>;
-}
+import { data, renderers } from './testUtils';
 
 describe('ImmutableListView', () => {
   it('renders with empty data', () => {
     const tree = renderer.create(
       <ImmutableListView
-        immutableData={EMPTY_DATA}
-        renderRow={renderRow}
+        immutableData={data.EMPTY_DATA}
+        renderRow={renderers.renderRow}
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -43,8 +22,8 @@ describe('ImmutableListView', () => {
   it('renders basic List', () => {
     const tree = renderer.create(
       <ImmutableListView
-        immutableData={LIST_DATA}
-        renderRow={renderRow}
+        immutableData={data.LIST_DATA}
+        renderRow={renderers.renderRow}
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -53,8 +32,8 @@ describe('ImmutableListView', () => {
   it('renders basic Map', () => {
     const tree = renderer.create(
       <ImmutableListView
-        immutableData={MAP_DATA}
-        renderRow={renderRow}
+        immutableData={data.MAP_DATA}
+        renderRow={renderers.renderRow}
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -63,9 +42,9 @@ describe('ImmutableListView', () => {
   it('renders basic Map with section headers', () => {
     const tree = renderer.create(
       <ImmutableListView
-        immutableData={MAP_DATA}
-        renderRow={renderRow}
-        renderSectionHeader={renderSectionHeader}
+        immutableData={data.MAP_DATA}
+        renderRow={renderers.renderRow}
+        renderSectionHeader={renderers.renderSectionHeader}
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -74,9 +53,9 @@ describe('ImmutableListView', () => {
   it('renders more complex Map with section headers', () => {
     const tree = renderer.create(
       <ImmutableListView
-        immutableData={MAP_DATA_COMPLEX}
-        renderRow={renderRow}
-        renderSectionHeader={renderSectionHeader}
+        immutableData={data.MAP_DATA_COMPLEX}
+        renderRow={renderers.renderRow}
+        renderSectionHeader={renderers.renderSectionHeader}
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -85,8 +64,8 @@ describe('ImmutableListView', () => {
   it('renders basic Set', () => {
     const tree = renderer.create(
       <ImmutableListView
-        immutableData={SET_DATA}
-        renderRow={renderRow}
+        immutableData={data.SET_DATA}
+        renderRow={renderers.renderRow}
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -100,9 +79,9 @@ describe('ImmutableListView with delayed rendering', () => {
 
     const tree = renderer.create(
       <ImmutableListView
-        immutableData={LIST_DATA}
+        immutableData={data.LIST_DATA}
         rowsDuringInteraction={1}
-        renderRow={renderRow}
+        renderRow={renderers.renderRow}
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -114,9 +93,9 @@ describe('ImmutableListView with delayed rendering', () => {
 
     const tree = renderer.create(
       <ImmutableListView
-        immutableData={LIST_DATA}
+        immutableData={data.LIST_DATA}
         rowsDuringInteraction={1}
-        renderRow={renderRow}
+        renderRow={renderers.renderRow}
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
