@@ -10,16 +10,15 @@ const data = {
   EMPTY_DATA: Immutable.List(),
 
   LIST_DATA: Immutable.List([
-    'l',
-    'i',
-    's',
-    't',
+    'lists',
+    'are',
+    'great',
   ]),
 
   MAP_DATA: Immutable.Map({
-    1: 'm',
-    2: 'a',
-    3: 'p',
+    1: 'maps',
+    2: 'are',
+    great: 'too',
   }),
 
   MAP_DATA_COMPLEX: Immutable.Map({
