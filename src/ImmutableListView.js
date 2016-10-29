@@ -50,7 +50,14 @@ class ImmutableListView extends Component {
     dataSource: PropTypes.oneOf([undefined]),
 
     // TODO: Allow any type of arbitrary data.
-    immutableData: PropTypes.instanceOf(Immutable.Iterable).isRequired,
+    // eslint-disable-next-line consistent-return
+    immutableData: (props, propName, componentName) => {
+      // Note: It's not enough to simply validate PropTypes.instanceOf(Immutable.Iterable),
+      // because different imports of Immutable.js across files have different class prototypes.
+      if (!Immutable.Iterable.isIterable(props[propName])) {
+        return new Error(`Invalid prop ${propName} supplied to ${componentName}: Must be Immutable.Iterable.`);
+      }
+    },
 
     /**
      * How many rows of data to display while waiting for interactions to finish (e.g. Navigation animations).

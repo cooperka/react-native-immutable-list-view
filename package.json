@@ -20,7 +20,8 @@
     "testPathIgnorePatterns": [
       "/node_modules/",
       "/example/",
-      "/lib/"
+      "/lib/",
+      "/testUtils.js"
     ]
   },
   "repository": {
