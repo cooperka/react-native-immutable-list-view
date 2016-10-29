@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
-import ImmutableListView from 'react-native-immutable-list-view';
+import ImmutableListView from 'react-native-immutable-list-view/src/ImmutableListView';
 
 import style from './styles';
 import listData from './listData';

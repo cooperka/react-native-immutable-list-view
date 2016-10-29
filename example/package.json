@@ -9,6 +9,6 @@
     "immutable": "~3.8.1",
     "react": "15.3.2",
     "react-native": "0.35.0",
-    "react-native-immutable-list-view": "~0.1.4"
+    "react-native-immutable-list-view": ".."
   }
 }
