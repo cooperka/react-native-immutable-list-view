@@ -24,11 +24,8 @@ but instead of passing in a `dataSource`, you should should pass in a prop calle
 containing the data you'd like to display. `ImmutableListView` will handle creating an efficient `dataSource` for you.
 Other than this small change, everything else will be exactly the same as `ListView`.
 
-There's an example project [here](https://github.com/cooperka/react-native-immutable-list-view/tree/master/example)
+There's an example app [here](https://github.com/cooperka/react-native-immutable-list-view/tree/master/example)
 if you'd like to see it in action, or look at the example diff below if you want to implement it yourself.
-
-Note: Currently only Immutable's `Map` and `List` are supported, but that will be fixed shortly.
-Feel free to submit a PR!
 
 ## Example Usage
 
@@ -97,12 +94,23 @@ ImmutableListView will handle this for you. Check out this example diff:
 
 ## Props
 
-| Property | Type | Default? | Description |
-|----------|------|----------|-------------|
-| `immutableData` | One of [`Immutable.List`, `Immutable.Map`] | Required. | The data to render |
+| Prop name | Data type | Default value? | Description |
+|-----------|-----------|----------------|-------------|
+| `immutableData` | [`Immutable.Iterable`](https://facebook.github.io/immutable-js/docs/#/Iterable/isIterable) | Required. | The data to render |
 | `rowsDuringInteraction` | `number` | `undefined` | How many rows of data to initially display while waiting for interactions to finish (e.g. Navigation animations) |
 
-All the other props that [`ListView`](https://facebook.github.io/react-native/docs/listview.html) supports are passed through, and should work exactly the same.
+All the other props that [`ListView`](https://facebook.github.io/react-native/docs/listview.html)
+supports are passed through, and should work exactly the same.
+
+> Note: Currently, ImmutableListView treats certain `Immutable.Map`s differently than ListView treats plain JS `Map`s.
+> See the snapshot test output [here](https://github.com/cooperka/react-native-immutable-list-view/blob/master/src/__tests__/__snapshots__/ImmutableListView.test.js.snap)
+> for an example of how ImmutableListView behaves.
+>
+> It seems based on the [current documentation](https://facebook.github.io/react-native/releases/0.36/docs/listviewdatasource.html#constructor)
+> that ImmutableListView is behaving as expected, and in fact ListView is the one being weird.
+> I have yet to confirm this, so this behavior may change in a future update.
+>
+> Feel free to [weigh in](https://github.com/cooperka/react-native-immutable-list-view/issues/5).
 
 ## Contributing
 
