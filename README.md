@@ -37,7 +37,7 @@ if you'd like to see it in action, or look at the example diff below if you want
 You can remove all that boilerplate in your constructor, as well as methods like
 `componentWillReceiveProps` if all they're doing is updating your `dataSource`.
 ImmutableListView will handle this for you. Check out this example diff
-(note: it looks much better on [GitHub](https://github.com/cooperka/react-native-immutable-list-view) than on npm's site):
+(note: it looks much better on [GitHub](https://github.com/cooperka/react-native-immutable-list-view#example-usage) than on npm's site):
 
 ```diff
 -import { Text, View, ListView } from 'react-native';
