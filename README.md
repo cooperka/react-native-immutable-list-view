@@ -2,6 +2,11 @@
 
 An efficient ListView for React Native that's compatible with [Immutable](https://facebook.github.io/immutable-js/) data.
 
+[![Build status](https://travis-ci.org/cooperka/react-native-immutable-list-view.svg?branch=master)](https://travis-ci.org/cooperka/react-native-immutable-list-view)
+[![npm downloads](https://img.shields.io/npm/dm/react-native-immutable-list-view.svg)](https://www.npmjs.com/package/react-native-immutable-list-view)
+[![npm version](https://img.shields.io/npm/v/react-native-immutable-list-view.svg)](https://www.npmjs.com/package/react-native-immutable-list-view)
+[![Latest GitHub tag](https://img.shields.io/github/tag/cooperka/react-native-immutable-list-view.svg)](https://github.com/cooperka/react-native-immutable-list-view)
+
 - Do you find yourself re-implementing `rowHasChanged` and saving `dataSource` to your state over and over?
 - Do you listen for lifecycle events simply so you can update `dataSource`, and thus can't easily use pure functional components with lists?
 - Do you have nested objects in your state so a shallow diff won't cut it for pure rendering?
