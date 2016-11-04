@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
+
+// eslint-disable-next-line
 import ImmutableListView from 'react-native-immutable-list-view/src/ImmutableListView';
 
 import style from './styles';
