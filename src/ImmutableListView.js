@@ -94,7 +94,10 @@ class ImmutableListView extends PureComponent {
 
   state = {
     dataSource: new ListView.DataSource({
-      rowHasChanged: (prevRowData, nextRowData) => !Immutable.is(prevRowData, nextRowData),
+      rowHasChanged: (r1, r2) => {
+        console.log('? rowHasChanged ?\t\t', r1, Immutable.is(r1, r2) ? '==' : '!=', r2);
+        return !Immutable.is(r1, r2);
+      },
 
       getRowData: (dataBlob, sectionID, rowID) => {
         const rowData = getValueFromKey(sectionID, dataBlob);
