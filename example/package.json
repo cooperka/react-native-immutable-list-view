@@ -6,9 +6,9 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
-    "immutable": "~3.8.1",
+    "immutable": "3.8.1",
     "react": "15.3.2",
-    "react-native": "0.35.0",
+    "react-native": "0.37.0",
     "react-native-immutable-list-view": ".."
   }
 }
