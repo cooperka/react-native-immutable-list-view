@@ -24,7 +24,7 @@ describe('ImmutableListView vs. ListView', () => {
       <ImmutableListView
         immutableData={data.EMPTY_DATA}
         renderRow={renderers.renderRow}
-      />
+      />,
     ).toJSON();
 
     dataSource = dataSource.cloneWithRows(data.EMPTY_DATA.toJS());
@@ -32,7 +32,7 @@ describe('ImmutableListView vs. ListView', () => {
       <ListView
         dataSource={dataSource}
         renderRow={renderers.renderRow}
-      />
+      />,
     ).toJSON();
 
     expect(immutableTree).toEqual(regularTree);
@@ -43,7 +43,7 @@ describe('ImmutableListView vs. ListView', () => {
       <ImmutableListView
         immutableData={data.LIST_DATA}
         renderRow={renderers.renderRow}
-      />
+      />,
     ).toJSON();
 
     dataSource = dataSource.cloneWithRows(data.LIST_DATA.toJS());
@@ -51,7 +51,7 @@ describe('ImmutableListView vs. ListView', () => {
       <ListView
         dataSource={dataSource}
         renderRow={renderers.renderRow}
-      />
+      />,
     ).toJSON();
 
     expect(immutableTree).toEqual(regularTree);
@@ -62,7 +62,7 @@ describe('ImmutableListView vs. ListView', () => {
       <ImmutableListView
         immutableData={data.MAP_DATA}
         renderRow={renderers.renderRow}
-      />
+      />,
     ).toJSON();
 
     dataSource = dataSource.cloneWithRows(data.MAP_DATA.toJS());
@@ -70,7 +70,7 @@ describe('ImmutableListView vs. ListView', () => {
       <ListView
         dataSource={dataSource}
         renderRow={renderers.renderRow}
-      />
+      />,
     ).toJSON();
 
     expect(immutableTree).toEqual(regularTree);

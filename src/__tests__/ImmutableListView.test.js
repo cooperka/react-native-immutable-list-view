@@ -14,7 +14,7 @@ describe('ImmutableListView', () => {
       <ImmutableListView
         immutableData={data.EMPTY_DATA}
         renderRow={renderers.renderRow}
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -24,7 +24,7 @@ describe('ImmutableListView', () => {
       <ImmutableListView
         immutableData={data.LIST_DATA}
         renderRow={renderers.renderRow}
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -34,7 +34,7 @@ describe('ImmutableListView', () => {
       <ImmutableListView
         immutableData={data.MAP_DATA}
         renderRow={renderers.renderRow}
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -45,7 +45,7 @@ describe('ImmutableListView', () => {
         immutableData={data.MAP_DATA}
         renderRow={renderers.renderRow}
         renderSectionHeader={renderers.renderSectionHeader}
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -56,7 +56,7 @@ describe('ImmutableListView', () => {
         immutableData={data.MAP_DATA_COMPLEX}
         renderRow={renderers.renderRow}
         renderSectionHeader={renderers.renderSectionHeader}
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -66,7 +66,7 @@ describe('ImmutableListView', () => {
       <ImmutableListView
         immutableData={data.SET_DATA}
         renderRow={renderers.renderRow}
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -82,7 +82,7 @@ describe('ImmutableListView with delayed rendering', () => {
         immutableData={data.LIST_DATA}
         rowsDuringInteraction={1}
         renderRow={renderers.renderRow}
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -96,7 +96,7 @@ describe('ImmutableListView with delayed rendering', () => {
         immutableData={data.LIST_DATA}
         rowsDuringInteraction={1}
         renderRow={renderers.renderRow}
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
