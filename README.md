@@ -127,7 +127,7 @@ than `ListView` treats an equivalent plain JS `Map`. See the snapshot test outpu
 for an example of how `ImmutableListView` behaves.
 
 It seems based on the [current documentation](https://facebook.github.io/react-native/releases/0.37/docs/listviewdatasource.html#constructor)
-that `ImmutableListView` is behaving as expected, and in fact `ListView` is the one being weird.
+that **`ImmutableListView` is behaving as expected**, and in fact `ListView` is the one being weird.
 You should make sure to test this behavior yourself if you're using `Immutable.Map` with section headers.
 
 Other than this, the two should behave identically. You can see some relevant unit tests

@@ -76,15 +76,15 @@ describe('ImmutableListView vs. ListView', () => {
     expect(immutableTree).toEqual(regularTree);
   });
 
-  it('renders the same as ListView with Map (without section headers)', () => {
+  it('renders the same as ListView with Map: List rows, without section headers', () => {
     const immutableTree = renderer.create(
       <ImmutableListView
-        immutableData={data.MAP_DATA}
+        immutableData={data.MAP_DATA_LIST_ROWS}
         renderRow={renderers.renderRow}
       />,
     ).toJSON();
 
-    dataSource = dataSource.cloneWithRows(data.MAP_DATA.toJS());
+    dataSource = dataSource.cloneWithRows(data.MAP_DATA_LIST_ROWS.toJS());
     const regularTree = renderer.create(
       <ListView
         dataSource={dataSource}
@@ -95,16 +95,16 @@ describe('ImmutableListView vs. ListView', () => {
     expect(immutableTree).toEqual(regularTree);
   });
 
-  it('does NOT render the same as ListView with Map (WITH section headers)', () => {
+  it('does NOT render the same as ListView with Map: List rows, WITH section headers', () => {
     const immutableTree = renderer.create(
       <ImmutableListView
-        immutableData={data.MAP_DATA}
+        immutableData={data.MAP_DATA_LIST_ROWS}
         renderRow={renderers.renderRow}
         renderSectionHeader={renderers.renderSectionHeader}
       />,
     ).toJSON();
 
-    dataSource = dataSource.cloneWithRows(data.MAP_DATA.toJS());
+    dataSource = dataSource.cloneWithRows(data.MAP_DATA_LIST_ROWS.toJS());
     const regularTree = renderer.create(
       <ListView
         dataSource={dataSource}
@@ -114,6 +114,46 @@ describe('ImmutableListView vs. ListView', () => {
     ).toJSON();
 
     // This just asserts they're not equal. To see what actually renders, look at the snapshot file.
+    expect(immutableTree).not.toEqual(regularTree);
+  });
+
+  it('renders the same as ListView with Map: Map rows, without section headers', () => {
+    const immutableTree = renderer.create(
+      <ImmutableListView
+        immutableData={data.MAP_DATA_MAP_ROWS}
+        renderRow={renderers.renderRow}
+      />,
+    ).toJSON();
+
+    dataSource = dataSource.cloneWithRows(data.MAP_DATA_MAP_ROWS.toJS());
+    const regularTree = renderer.create(
+      <ListView
+        dataSource={dataSource}
+        renderRow={renderers.renderRow}
+      />,
+    ).toJSON();
+
+    expect(immutableTree).toEqual(regularTree);
+  });
+
+  it('does NOT render the same as ListView with Map: Map rows, WITH section headers', () => {
+    const immutableTree = renderer.create(
+      <ImmutableListView
+        immutableData={data.MAP_DATA_MAP_ROWS}
+        renderRow={renderers.renderRow}
+        renderSectionHeader={renderers.renderSectionHeader}
+      />,
+    ).toJSON();
+
+    dataSource = dataSource.cloneWithRows(data.MAP_DATA_MAP_ROWS.toJS());
+    const regularTree = renderer.create(
+      <ListView
+        dataSource={dataSource}
+        renderRow={renderers.renderRow}
+        renderSectionHeader={renderers.renderSectionHeader}
+      />,
+    ).toJSON();
+
     expect(immutableTree).not.toEqual(regularTree);
   });
 

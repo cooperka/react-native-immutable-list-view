@@ -1,4 +1,4 @@
-exports[`ImmutableListView renders Map with section headers 1`] = `
+exports[`ImmutableListView renders Map: List rows, with section headers 1`] = `
 <ScrollView
   dataSource={
     ListViewDataSource {
@@ -107,7 +107,7 @@ exports[`ImmutableListView renders Map with section headers 1`] = `
 </ScrollView>
 `;
 
-exports[`ImmutableListView renders Map without section headers 1`] = `
+exports[`ImmutableListView renders Map: List rows, without section headers 1`] = `
 <ScrollView
   dataSource={
     ListViewDataSource {
@@ -170,6 +170,122 @@ exports[`ImmutableListView renders Map without section headers 1`] = `
     allowFontScaling={true}
     ellipsizeMode="tail">
     [\"bar\"]
+  </Text>
+</ScrollView>
+`;
+
+exports[`ImmutableListView renders Map: Map rows, with section headers 1`] = `
+<ScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": NaN,
+    }
+  }
+  enableEmptySections={true}
+  immutableData={
+    Object {
+      "first": Object {
+        "row1": "data 1",
+        "row2": "data 2",
+      },
+      "second": Object {},
+    }
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  renderSectionHeader={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
+  stickyHeaderIndices={
+    Array [
+      0,
+      3,
+    ]
+  }>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    header={true}>
+    first (2 items)
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    \"data 1\"
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    \"data 2\"
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    header={true}>
+    second (0 items)
+  </Text>
+</ScrollView>
+`;
+
+exports[`ImmutableListView renders Map: Map rows, without section headers 1`] = `
+<ScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": NaN,
+    }
+  }
+  enableEmptySections={true}
+  immutableData={
+    Object {
+      "first": Object {
+        "row1": "data 1",
+        "row2": "data 2",
+      },
+      "second": Object {},
+    }
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
+  stickyHeaderIndices={Array []}>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    {\"row1\":\"data 1\",\"row2\":\"data 2\"}
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    {}
   </Text>
 </ScrollView>
 `;

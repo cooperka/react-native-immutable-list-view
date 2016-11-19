@@ -39,20 +39,41 @@ describe('ImmutableListView', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders Map without section headers', () => {
+  it('renders Map: List rows, without section headers', () => {
     const tree = renderer.create(
       <ImmutableListView
-        immutableData={data.MAP_DATA}
+        immutableData={data.MAP_DATA_LIST_ROWS}
         renderRow={renderers.renderRow}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders Map with section headers', () => {
+  it('renders Map: List rows, with section headers', () => {
     const tree = renderer.create(
       <ImmutableListView
-        immutableData={data.MAP_DATA}
+        immutableData={data.MAP_DATA_LIST_ROWS}
+        renderRow={renderers.renderRow}
+        renderSectionHeader={renderers.renderSectionHeader}
+      />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('renders Map: Map rows, without section headers', () => {
+    const tree = renderer.create(
+      <ImmutableListView
+        immutableData={data.MAP_DATA_MAP_ROWS}
+        renderRow={renderers.renderRow}
+      />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('renders Map: Map rows, with section headers', () => {
+    const tree = renderer.create(
+      <ImmutableListView
+        immutableData={data.MAP_DATA_MAP_ROWS}
         renderRow={renderers.renderRow}
         renderSectionHeader={renderers.renderSectionHeader}
       />,

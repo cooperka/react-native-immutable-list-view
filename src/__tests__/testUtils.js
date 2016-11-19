@@ -29,7 +29,7 @@ const data = {
     ],
   ]),
 
-  MAP_DATA: Immutable.fromJS({
+  MAP_DATA_LIST_ROWS: Immutable.fromJS({
     first: [
       'm',
       'a',
@@ -43,6 +43,14 @@ const data = {
     fourth: [
       'bar',
     ],
+  }),
+
+  MAP_DATA_MAP_ROWS: Immutable.fromJS({
+    first: {
+      row1: 'data 1',
+      row2: 'data 2',
+    },
+    second: {},
   }),
 
   SET_DATA: Immutable.Set([
