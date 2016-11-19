@@ -2,6 +2,8 @@ import Immutable from 'immutable';
 import React, { PureComponent, PropTypes } from 'react';
 import { ListView, InteractionManager } from 'react-native';
 
+const isImmutableIterable = Immutable.Iterable.isIterable;
+
 /**
  * Return the keys from a set of data.
  *
@@ -13,6 +15,10 @@ import { ListView, InteractionManager } from 'react-native';
  * @returns {Array} An array of keys for the data.
  */
 function getKeys(immutableData) {
+  if (__DEV__ && !isImmutableIterable(immutableData)) {
+    console.warn(`Can't get keys: Data is not Immutable: ${JSON.stringify(immutableData)}`);
+  }
+
   return immutableData.keySeq().toArray();
 }
 
@@ -23,10 +29,14 @@ function getKeys(immutableData) {
  * - getRowIdentities({ section1: ['row1', 'row2'], section2: ['row1'] })
  *   will return [[0, 1], [0]].
  *
- * @param immutableSectionData
+ * @param {Immutable.Iterable} immutableSectionData
  * @returns {Array}
  */
 function getRowIdentities(immutableSectionData) {
+  if (__DEV__ && !isImmutableIterable(immutableSectionData)) {
+    console.warn(`Can't get row identities: Data is not Immutable: ${JSON.stringify(immutableSectionData)}`);
+  }
+
   const sectionRowKeys = immutableSectionData.map(getKeys);
   return sectionRowKeys.valueSeq().toArray();
 }
@@ -58,7 +68,7 @@ class ImmutableListView extends PureComponent {
     immutableData: (props, propName, componentName) => {
       // Note: It's not enough to simply validate PropTypes.instanceOf(Immutable.Iterable),
       // because different imports of Immutable.js across files have different class prototypes.
-      if (!Immutable.Iterable.isIterable(props[propName])) {
+      if (!isImmutableIterable(props[propName])) {
         return new Error(`Invalid prop ${propName} supplied to ${componentName}: Must be Immutable.Iterable.`);
       }
     },
