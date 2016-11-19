@@ -7,7 +7,7 @@
 
 `ImmutableListView` is an efficient `ListView` for React Native.
 
-It easily integrates with [Immutable](https://facebook.github.io/immutable-js/) data to give you faster performance and less headaches.
+It easily integrates with [Immutable](https://facebook.github.io/immutable-js/) data to give you faster performance 🐎  and less headaches 🤕
 
 ## Motivation
 
