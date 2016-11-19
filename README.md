@@ -119,6 +119,42 @@ supports are passed through, and should work exactly the same.
 
 Simple, right?
 
+## How to format your data
+
+`ImmutableListView` accepts several [standard formats](https://facebook.github.io/react-native/releases/0.37/docs/listviewdatasource.html#constructor)
+for list data. Here are some examples:
+
+#### List
+
+```js
+[ <rowData1>, <rowData2>, ... ]
+```
+
+#### Map with List
+
+```js
+{
+    section1: [ <rowData1>, <rowData2>, ... ],
+    section2: [ <rowData1>, <rowData2>, ... ],
+    ...
+}
+```
+
+#### Map with Map
+
+```js
+{
+    section1: {
+        rowID_1: <rowData1>,
+        rowID_2: <rowData2>,
+        ...
+    },
+    ...
+}
+```
+
+To try it out yourself, you can use the [example app](https://github.com/cooperka/react-native-immutable-list-view/tree/master/example)!
+
 ## Differences from ListView
 
 When using section headers, `ImmutableListView` treats certain types of `Immutable.Map` slightly differently
@@ -127,10 +163,10 @@ than `ListView` treats an equivalent plain JS `Map`. See the snapshot test outpu
 for an example of how `ImmutableListView` behaves.
 
 It seems based on the [current documentation](https://facebook.github.io/react-native/releases/0.37/docs/listviewdatasource.html#constructor)
-that **`ImmutableListView` is behaving as expected**, and in fact `ListView` is the one being weird.
-You should make sure to test this behavior yourself if you're using `Immutable.Map` with section headers.
+that **`ImmutableListView` is behaving as expected**, and in fact regular `ListView` is the one being weird.
+In any case, you should make sure to test this behavior yourself if you're using a `Map` with section headers.
 
-Other than this, the two should behave identically. You can see some relevant unit tests
+Other than this, the two should behave identically. You can verify this with the unit tests
 [here](https://github.com/cooperka/react-native-immutable-list-view/blob/master/src/__tests__/comparison.test.js).
 
 ## Contributing
