@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 
-// eslint-disable-next-line
+// eslint-disable-next-line import/no-unresolved, import/extensions
 import ImmutableListView from 'react-native-immutable-list-view/src/ImmutableListView';
 
 import style from './styles';
@@ -10,7 +10,7 @@ import listData from './listData';
 class App extends Component {
 
   renderRow(rowData) {
-    return <Text style={style.row}>{rowData}</Text>;
+    return <Text style={style.row}>{JSON.stringify(rowData)}</Text>;
   }
 
   renderSectionHeader(sectionData, category) {

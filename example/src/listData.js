@@ -1,6 +1,6 @@
 import Immutable from 'immutable';
 
-const data = Immutable.Map({
+const data = Immutable.fromJS({
   'Section A': [
     'foo',
     'bar',

@@ -29,7 +29,7 @@ describe('ImmutableListView', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders basic Map', () => {
+  it('renders Map without section headers', () => {
     const tree = renderer.create(
       <ImmutableListView
         immutableData={data.MAP_DATA}
@@ -39,21 +39,10 @@ describe('ImmutableListView', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders basic Map with section headers', () => {
+  it('renders Map with section headers', () => {
     const tree = renderer.create(
       <ImmutableListView
         immutableData={data.MAP_DATA}
-        renderRow={renderers.renderRow}
-        renderSectionHeader={renderers.renderSectionHeader}
-      />,
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('renders more complex Map with section headers', () => {
-    const tree = renderer.create(
-      <ImmutableListView
-        immutableData={data.MAP_DATA_COMPLEX}
         renderRow={renderers.renderRow}
         renderSectionHeader={renderers.renderSectionHeader}
       />,

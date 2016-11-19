@@ -6,26 +6,29 @@ import { ListView, InteractionManager } from 'react-native';
  * Return the keys from a set of data.
  *
  * @example
- * - getKeys({ foo: 'bar', baz: 'qux' }) will return [foo, baz]
- * - getKeys([2, 3, 5]) will return [0, 1, 2]
+ * - getKeys({ foo: 'bar', baz: 'qux' }) will return [foo, baz].
+ * - getKeys([2, 3, 5]) will return [0, 1, 2].
  *
  * @param {Immutable.Iterable} immutableData
  * @returns {Array} An array of keys for the data.
  */
 function getKeys(immutableData) {
-  // TODO: Allow any type of arbitrary data
   return immutableData.keySeq().toArray();
 }
 
 /**
+ * Return a 2D array of row keys.
+ *
+ * @example
+ * - getRowIdentities({ section1: ['row1', 'row2'], section2: ['row1'] })
+ *   will return [[0, 1], [0]].
+ *
  * @param immutableSectionData
  * @returns {Array}
  */
-// TODO: Make this getRows instead? Then pass rows into getKeys.
 function getRowIdentities(immutableSectionData) {
-  // TODO: Allow any type of arbitrary data.
-  const sectionKeys = immutableSectionData.map((section) => Object.keys(section));
-  return sectionKeys.valueSeq().toArray();
+  const sectionRowKeys = immutableSectionData.map(getKeys);
+  return sectionRowKeys.valueSeq().toArray();
 }
 
 /**

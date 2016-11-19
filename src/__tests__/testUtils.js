@@ -1,6 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies, global-require */
 
-import _keys from 'lodash/keys';
 import Immutable from 'immutable';
 import React from 'react';
 import { Text } from 'react-native';
@@ -15,13 +14,7 @@ const data = {
     'great',
   ]),
 
-  MAP_DATA: Immutable.Map({
-    1: 'maps',
-    2: 'are',
-    great: 'too',
-  }),
-
-  MAP_DATA_COMPLEX: Immutable.Map({
+  MAP_DATA: Immutable.fromJS({
     first: [
       'm',
       'a',
@@ -55,11 +48,11 @@ const renderers = {
   },
 
   /**
-   * @param {Object} sectionData
+   * @param {Immutable.Iterable} sectionData
    * @param {String} category
    */
   renderSectionHeader: (sectionData, category) => {
-    return <Text header>{`${category} (${_keys(sectionData).length} items)`}</Text>;
+    return <Text header>{`${category} (${sectionData.size} items)`}</Text>;
   },
 
 };
@@ -68,6 +61,8 @@ const mocks = {
 
   /**
    * Mock ScrollView so that it doesn't contain any props when rendered by ListView.
+   * This is useful for comparison between ListView and ImmutableListView.
+   *
    * @returns {ImmutableListView}
    */
   getImmutableListViewWithoutProps() {

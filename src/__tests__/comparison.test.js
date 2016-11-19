@@ -57,7 +57,7 @@ describe('ImmutableListView vs. ListView', () => {
     expect(immutableTree).toEqual(regularTree);
   });
 
-  it('renders the same as ListView with basic Map', () => {
+  it('renders the same as ListView with Map (without section headers)', () => {
     const immutableTree = renderer.create(
       <ImmutableListView
         immutableData={data.MAP_DATA}
@@ -66,6 +66,47 @@ describe('ImmutableListView vs. ListView', () => {
     ).toJSON();
 
     dataSource = dataSource.cloneWithRows(data.MAP_DATA.toJS());
+    const regularTree = renderer.create(
+      <ListView
+        dataSource={dataSource}
+        renderRow={renderers.renderRow}
+      />,
+    ).toJSON();
+
+    expect(immutableTree).toEqual(regularTree);
+  });
+
+  it('does NOT render the same as ListView with Map (WITH section headers)', () => {
+    const immutableTree = renderer.create(
+      <ImmutableListView
+        immutableData={data.MAP_DATA}
+        renderRow={renderers.renderRow}
+        renderSectionHeader={renderers.renderSectionHeader}
+      />,
+    ).toJSON();
+
+    dataSource = dataSource.cloneWithRows(data.MAP_DATA.toJS());
+    const regularTree = renderer.create(
+      <ListView
+        dataSource={dataSource}
+        renderRow={renderers.renderRow}
+        renderSectionHeader={renderers.renderSectionHeader}
+      />,
+    ).toJSON();
+
+    // This just asserts they're not equal. To see what actually renders, look at the snapshot file.
+    expect(immutableTree).not.toEqual(regularTree);
+  });
+
+  it('renders the same as ListView with basic Set', () => {
+    const immutableTree = renderer.create(
+      <ImmutableListView
+        immutableData={data.SET_DATA}
+        renderRow={renderers.renderRow}
+      />,
+    ).toJSON();
+
+    dataSource = dataSource.cloneWithRows(data.SET_DATA.toJS());
     const regularTree = renderer.create(
       <ListView
         dataSource={dataSource}

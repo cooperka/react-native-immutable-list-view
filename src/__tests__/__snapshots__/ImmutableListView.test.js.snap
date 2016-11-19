@@ -1,278 +1,4 @@
-exports[`ImmutableListView renders basic List 1`] = `
-<ScrollView
-  dataSource={
-    ListViewDataSource {
-      "items": NaN,
-    }
-  }
-  enableEmptySections={true}
-  immutableData={
-    Array [
-      "lists",
-      "are",
-      "great",
-    ]
-  }
-  initialListSize={10}
-  onContentSizeChange={[Function]}
-  onEndReachedThreshold={1000}
-  onKeyboardDidHide={undefined}
-  onKeyboardDidShow={undefined}
-  onKeyboardWillHide={undefined}
-  onKeyboardWillShow={undefined}
-  onLayout={[Function]}
-  onScroll={[Function]}
-  pageSize={1}
-  removeClippedSubviews={true}
-  renderRow={[Function]}
-  scrollEventThrottle={50}
-  scrollRenderAheadDistance={1000}
-  stickyHeaderIndices={Array []}>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail">
-    \"lists\"
-  </Text>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail">
-    \"are\"
-  </Text>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail">
-    \"great\"
-  </Text>
-</ScrollView>
-`;
-
-exports[`ImmutableListView renders basic Map 1`] = `
-<ScrollView
-  dataSource={
-    ListViewDataSource {
-      "items": NaN,
-    }
-  }
-  enableEmptySections={true}
-  immutableData={
-    Object {
-      "1": "maps",
-      "2": "are",
-      "great": "too",
-    }
-  }
-  initialListSize={10}
-  onContentSizeChange={[Function]}
-  onEndReachedThreshold={1000}
-  onKeyboardDidHide={undefined}
-  onKeyboardDidShow={undefined}
-  onKeyboardWillHide={undefined}
-  onKeyboardWillShow={undefined}
-  onLayout={[Function]}
-  onScroll={[Function]}
-  pageSize={1}
-  removeClippedSubviews={true}
-  renderRow={[Function]}
-  scrollEventThrottle={50}
-  scrollRenderAheadDistance={1000}
-  stickyHeaderIndices={Array []}>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail">
-    \"maps\"
-  </Text>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail">
-    \"are\"
-  </Text>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail">
-    \"too\"
-  </Text>
-</ScrollView>
-`;
-
-exports[`ImmutableListView renders basic Map with section headers 1`] = `
-<ScrollView
-  dataSource={
-    ListViewDataSource {
-      "items": NaN,
-    }
-  }
-  enableEmptySections={true}
-  immutableData={
-    Object {
-      "1": "maps",
-      "2": "are",
-      "great": "too",
-    }
-  }
-  initialListSize={10}
-  onContentSizeChange={[Function]}
-  onEndReachedThreshold={1000}
-  onKeyboardDidHide={undefined}
-  onKeyboardDidShow={undefined}
-  onKeyboardWillHide={undefined}
-  onKeyboardWillShow={undefined}
-  onLayout={[Function]}
-  onScroll={[Function]}
-  pageSize={1}
-  removeClippedSubviews={true}
-  renderRow={[Function]}
-  renderSectionHeader={[Function]}
-  scrollEventThrottle={50}
-  scrollRenderAheadDistance={1000}
-  stickyHeaderIndices={
-    Array [
-      0,
-      5,
-      9,
-    ]
-  }>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    header={true}>
-    1 (4 items)
-  </Text>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail">
-    \"m\"
-  </Text>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail">
-    \"a\"
-  </Text>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail">
-    \"p\"
-  </Text>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail">
-    \"s\"
-  </Text>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    header={true}>
-    2 (3 items)
-  </Text>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail">
-    \"a\"
-  </Text>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail">
-    \"r\"
-  </Text>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail">
-    \"e\"
-  </Text>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    header={true}>
-    great (3 items)
-  </Text>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail">
-    \"t\"
-  </Text>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail">
-    \"o\"
-  </Text>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail">
-    \"o\"
-  </Text>
-</ScrollView>
-`;
-
-exports[`ImmutableListView renders basic Set 1`] = `
-<ScrollView
-  dataSource={
-    ListViewDataSource {
-      "items": NaN,
-    }
-  }
-  enableEmptySections={true}
-  immutableData={
-    Array [
-      "one",
-      "two",
-      "three",
-    ]
-  }
-  initialListSize={10}
-  onContentSizeChange={[Function]}
-  onEndReachedThreshold={1000}
-  onKeyboardDidHide={undefined}
-  onKeyboardDidShow={undefined}
-  onKeyboardWillHide={undefined}
-  onKeyboardWillShow={undefined}
-  onLayout={[Function]}
-  onScroll={[Function]}
-  pageSize={1}
-  removeClippedSubviews={true}
-  renderRow={[Function]}
-  scrollEventThrottle={50}
-  scrollRenderAheadDistance={1000}
-  stickyHeaderIndices={Array []}>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail">
-    \"one\"
-  </Text>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail">
-    \"two\"
-  </Text>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail">
-    \"three\"
-  </Text>
-</ScrollView>
-`;
-
-exports[`ImmutableListView renders more complex Map with section headers 1`] = `
+exports[`ImmutableListView renders Map with section headers 1`] = `
 <ScrollView
   dataSource={
     ListViewDataSource {
@@ -376,6 +102,174 @@ exports[`ImmutableListView renders more complex Map with section headers 1`] = `
     allowFontScaling={true}
     ellipsizeMode="tail">
     \"bar\"
+  </Text>
+</ScrollView>
+`;
+
+exports[`ImmutableListView renders Map without section headers 1`] = `
+<ScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": NaN,
+    }
+  }
+  enableEmptySections={true}
+  immutableData={
+    Object {
+      "first": Array [
+        "m",
+        "a",
+        "p",
+      ],
+      "fourth": Array [
+        "bar",
+      ],
+      "second": Array [
+        "foo",
+      ],
+      "third": Array [],
+    }
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  stickyHeaderIndices={Array []}>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    [\"m\",\"a\",\"p\"]
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    [\"foo\"]
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    []
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    [\"bar\"]
+  </Text>
+</ScrollView>
+`;
+
+exports[`ImmutableListView renders basic List 1`] = `
+<ScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": NaN,
+    }
+  }
+  enableEmptySections={true}
+  immutableData={
+    Array [
+      "lists",
+      "are",
+      "great",
+    ]
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  stickyHeaderIndices={Array []}>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    \"lists\"
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    \"are\"
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    \"great\"
+  </Text>
+</ScrollView>
+`;
+
+exports[`ImmutableListView renders basic Set 1`] = `
+<ScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": NaN,
+    }
+  }
+  enableEmptySections={true}
+  immutableData={
+    Array [
+      "one",
+      "two",
+      "three",
+    ]
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  stickyHeaderIndices={Array []}>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    \"one\"
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    \"two\"
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail">
+    \"three\"
   </Text>
 </ScrollView>
 `;
