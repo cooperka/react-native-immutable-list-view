@@ -5,7 +5,7 @@
 [![npm version](https://img.shields.io/npm/v/react-native-immutable-list-view.svg)](https://www.npmjs.com/package/react-native-immutable-list-view)
 [![Latest GitHub tag](https://img.shields.io/github/tag/cooperka/react-native-immutable-list-view.svg)](https://github.com/cooperka/react-native-immutable-list-view)
 
-`ImmutableListView` is an efficient `ListView` for React Native.
+`ImmutableListView` is an efficient ListView for React Native.
 
 It easily integrates with [Immutable](https://facebook.github.io/immutable-js/) data to give you faster performance 🐎  and less headaches 🤕
 
@@ -114,20 +114,24 @@ supports are passed through, and should work exactly the same.
 | Prop name | Data type | Default value? | Description |
 |-----------|-----------|----------------|-------------|
 | `immutableData` | [`Immutable.Iterable`](https://facebook.github.io/immutable-js/docs/#/Iterable/isIterable) | Required. | The data to render. |
-| `rowsDuringInteraction` | `number` | `undefined` | How many rows of data to initially display while waiting for interactions to finish (e.g. Navigation animations). |
+| `rowsDuringInteraction` | `number` | `undefined` | How many rows of data to initially display while waiting for interactions to finish (e.g. Navigation animations). If unspecified, this will not have any effect. |
 | `sectionHeaderHasChanged` | `func` | `(prevSectionData, nextSectionData) => false` | Return true if your section header is dependent on your row data (uncommon). See [ListViewDataSource#constructor](https://facebook.github.io/react-native/docs/listviewdatasource.html#constructor) for more info. |
 
 Simple, right?
 
-> Note: Currently, `ImmutableListView` treats certain types of `Immutable.Map` slightly differently than `ListView` treats an equivalent plain JS `Map`.
-> See the snapshot test output [here](https://github.com/cooperka/react-native-immutable-list-view/blob/master/src/__tests__/__snapshots__/ImmutableListView.test.js.snap)
-> for an example of how `ImmutableListView` behaves.
->
-> It seems based on the [current documentation](https://facebook.github.io/react-native/releases/0.36/docs/listviewdatasource.html#constructor)
-> that `ImmutableListView` is behaving as expected, and in fact `ListView` is the one being weird.
-> I have yet to confirm this, so this behavior may change slightly in a future update.
->
-> Feel free to [weigh in](https://github.com/cooperka/react-native-immutable-list-view/issues/5).
+## Differences from ListView
+
+When using section headers, `ImmutableListView` treats certain types of `Immutable.Map` slightly differently
+than `ListView` treats an equivalent plain JS `Map`. See the snapshot test output
+[here](https://github.com/cooperka/react-native-immutable-list-view/blob/master/src/__tests__/__snapshots__/ImmutableListView.test.js.snap)
+for an example of how `ImmutableListView` behaves.
+
+It seems based on the [current documentation](https://facebook.github.io/react-native/releases/0.37/docs/listviewdatasource.html#constructor)
+that `ImmutableListView` is behaving as expected, and in fact `ListView` is the one being weird.
+You should make sure to test this behavior yourself if you're using `Immutable.Map` with section headers.
+
+Other than this, the two should behave identically. You can see some relevant unit tests
+[here](https://github.com/cooperka/react-native-immutable-list-view/blob/master/src/__tests__/comparison.test.js).
 
 ## Contributing
 
