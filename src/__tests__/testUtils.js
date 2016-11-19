@@ -4,6 +4,10 @@ import Immutable from 'immutable';
 import React from 'react';
 import { Text } from 'react-native';
 
+/**
+ * Some common types of data you may want to render with ImmutableListView.
+ * @see https://facebook.github.io/react-native/docs/listviewdatasource.html#constructor
+ */
 const data = {
 
   EMPTY_DATA: Immutable.List(),
@@ -12,6 +16,17 @@ const data = {
     'lists',
     'are',
     'great',
+  ]),
+
+  LIST_DATA_NESTED: Immutable.List([
+    [
+      'so',
+      'are',
+    ],
+    [
+      'nested',
+      'lists',
+    ],
   ]),
 
   MAP_DATA: Immutable.fromJS({

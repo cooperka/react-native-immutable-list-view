@@ -29,6 +29,16 @@ describe('ImmutableListView', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('renders nested List', () => {
+    const tree = renderer.create(
+      <ImmutableListView
+        immutableData={data.LIST_DATA_NESTED}
+        renderRow={renderers.renderRow}
+      />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it('renders Map without section headers', () => {
     const tree = renderer.create(
       <ImmutableListView

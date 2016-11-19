@@ -57,6 +57,25 @@ describe('ImmutableListView vs. ListView', () => {
     expect(immutableTree).toEqual(regularTree);
   });
 
+  it('renders the same as ListView with nested List', () => {
+    const immutableTree = renderer.create(
+      <ImmutableListView
+        immutableData={data.LIST_DATA_NESTED}
+        renderRow={renderers.renderRow}
+      />,
+    ).toJSON();
+
+    dataSource = dataSource.cloneWithRows(data.LIST_DATA_NESTED.toJS());
+    const regularTree = renderer.create(
+      <ListView
+        dataSource={dataSource}
+        renderRow={renderers.renderRow}
+      />,
+    ).toJSON();
+
+    expect(immutableTree).toEqual(regularTree);
+  });
+
   it('renders the same as ListView with Map (without section headers)', () => {
     const immutableTree = renderer.create(
       <ImmutableListView
