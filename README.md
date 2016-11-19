@@ -110,8 +110,9 @@ supports are passed through, and should work exactly the same.
 
 | Prop name | Data type | Default value? | Description |
 |-----------|-----------|----------------|-------------|
-| `immutableData` | [`Immutable.Iterable`](https://facebook.github.io/immutable-js/docs/#/Iterable/isIterable) | Required. | The data to render |
-| `rowsDuringInteraction` | `number` | `undefined` | How many rows of data to initially display while waiting for interactions to finish (e.g. Navigation animations) |
+| `immutableData` | [`Immutable.Iterable`](https://facebook.github.io/immutable-js/docs/#/Iterable/isIterable) | Required. | The data to render. |
+| `rowsDuringInteraction` | `number` | `undefined` | How many rows of data to initially display while waiting for interactions to finish (e.g. Navigation animations). |
+| `sectionHeaderHasChanged` | `func` | `(prevSectionData, nextSectionData) => false` | Return true if your section header is dependent on your row data (uncommon). See [ListViewDataSource#constructor](https://facebook.github.io/react-native/docs/listviewdatasource.html#constructor) for more info. |
 
 Simple, right?
 

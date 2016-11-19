@@ -37,6 +37,7 @@ exports[`ImmutableListView renders Map with section headers 1`] = `
   renderSectionHeader={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={
     Array [
       0,
@@ -144,6 +145,7 @@ exports[`ImmutableListView renders Map without section headers 1`] = `
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []}>
   <Text
     accessible={true}
@@ -201,6 +203,7 @@ exports[`ImmutableListView renders basic List 1`] = `
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []}>
   <Text
     accessible={true}
@@ -252,6 +255,7 @@ exports[`ImmutableListView renders basic Set 1`] = `
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []}>
   <Text
     accessible={true}
@@ -297,6 +301,7 @@ exports[`ImmutableListView renders with empty data 1`] = `
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []} />
 `;
 
@@ -330,6 +335,7 @@ exports[`ImmutableListView with delayed rendering renders basic List after inter
   rowsDuringInteraction={1}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []}>
   <Text
     accessible={true}
@@ -382,6 +388,7 @@ exports[`ImmutableListView with delayed rendering renders basic List during inte
   rowsDuringInteraction={1}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []}>
   <Text
     accessible={true}

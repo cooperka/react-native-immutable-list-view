@@ -73,6 +73,8 @@ class ImmutableListView extends PureComponent {
       }
     },
 
+    sectionHeaderHasChanged: PropTypes.func,
+
     /**
      * How many rows of data to display while waiting for interactions to finish (e.g. Navigation animations).
      * You can use this to improve the animation performance of longer lists when pushing new routes.
@@ -82,19 +84,24 @@ class ImmutableListView extends PureComponent {
     rowsDuringInteraction: PropTypes.number,
   };
 
-  static defaultProps = ListView.getDefaultProps();
+  static defaultProps = {
+    ...ListView.getDefaultProps(),
+
+    // The data contained in the section generally doesn't affect the header text, so return false.
+    // eslint-disable-next-line no-unused-vars
+    sectionHeaderHasChanged: (prevSectionData, nextSectionData) => false,
+  };
 
   state = {
     dataSource: new ListView.DataSource({
-      rowHasChanged: (r1, r2) => !Immutable.is(r1, r2),
+      rowHasChanged: (prevRowData, nextRowData) => !Immutable.is(prevRowData, nextRowData),
 
       getRowData: (dataBlob, sectionID, rowID) => {
         const rowData = getValueFromKey(sectionID, dataBlob);
         return getValueFromKey(rowID, rowData);
       },
 
-      // TODO: This might still return true if just the section data has changed; verify this.
-      sectionHeaderHasChanged: (s1, s2) => !Immutable.is(s1, s2),
+      sectionHeaderHasChanged: this.props.sectionHeaderHasChanged,
 
       getSectionHeaderData: (dataBlob, sectionID) => getValueFromKey(sectionID, dataBlob),
     }),
