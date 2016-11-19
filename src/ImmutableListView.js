@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import { ListView, InteractionManager } from 'react-native';
 
 /**
@@ -41,7 +41,7 @@ function getValueFromKey(key, data) {
  * A ListView capable of displaying {@link https://facebook.github.io/immutable-js/ Immutable} data
  * out of the box.
  */
-class ImmutableListView extends Component {
+class ImmutableListView extends PureComponent {
 
   static propTypes = {
     // Pass through any props that ListView would normally take.
