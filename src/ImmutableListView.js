@@ -38,7 +38,8 @@ function getValueFromKey(key, data) {
 }
 
 /**
- * A ListView capable of displaying {@link https://facebook.github.io/immutable-js/ Immutable} data.
+ * A ListView capable of displaying {@link https://facebook.github.io/immutable-js/ Immutable} data
+ * out of the box.
  */
 class ImmutableListView extends Component {
 
@@ -73,37 +74,46 @@ class ImmutableListView extends Component {
   state = {
     dataSource: new ListView.DataSource({
       rowHasChanged: (r1, r2) => !Immutable.is(r1, r2),
+
       getRowData: (dataBlob, sectionID, rowID) => {
         const rowData = getValueFromKey(sectionID, dataBlob);
         return getValueFromKey(rowID, rowData);
       },
+
       // TODO: This might still return true if just the section data has changed; verify this.
       sectionHeaderHasChanged: (s1, s2) => !Immutable.is(s1, s2),
+
       getSectionHeaderData: (dataBlob, sectionID) => getValueFromKey(sectionID, dataBlob),
     }),
+
     interactionOngoing: true,
   };
 
   componentWillMount() {
-    this.setStateFromProps(this.props);
+    this.setStateFromPropsAfterInteraction(this.props);
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.setStateFromPropsAfterInteraction(newProps);
+  }
+
+  setStateFromPropsAfterInteraction(props) {
+    // Always set state right away before the interaction.
+    this.setStateFromProps(props, false);
 
     // If set, wait for animations etc. to complete before rendering the full list of data.
-    if (this.props.rowsDuringInteraction >= 0) {
+    if (props.rowsDuringInteraction >= 0) {
       InteractionManager.runAfterInteractions(() => {
-        this.setStateFromProps(this.props, true);
+        this.setStateFromProps(props, true);
       });
     }
   }
 
-  componentWillReceiveProps(newProps) {
-    this.setStateFromProps(newProps);
-  }
-
-  setStateFromProps(props, interactionHasFinished = false) {
+  setStateFromProps(props, interactionHasJustFinished) {
     const { dataSource, interactionOngoing } = this.state;
     const { immutableData, rowsDuringInteraction, renderSectionHeader } = props;
 
-    const shouldDisplayPartialData = rowsDuringInteraction >= 0 && interactionOngoing && !interactionHasFinished;
+    const shouldDisplayPartialData = rowsDuringInteraction >= 0 && interactionOngoing && !interactionHasJustFinished;
 
     const displayData = (shouldDisplayPartialData
       ? immutableData.slice(0, rowsDuringInteraction)
@@ -114,7 +124,7 @@ class ImmutableListView extends Component {
         ? dataSource.cloneWithRowsAndSections(displayData, getKeys(displayData), getRowIdentities(displayData))
         : dataSource.cloneWithRows(displayData, getKeys(displayData))
       ),
-      interactionOngoing: interactionHasFinished ? false : interactionOngoing,
+      interactionOngoing: interactionHasJustFinished ? false : interactionOngoing,
     });
   }
 
