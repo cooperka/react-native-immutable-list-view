@@ -130,17 +130,20 @@ for list data. Here are some examples:
 [ <rowData1>, <rowData2>, ... ]
 ```
 
-#### Map with List
+#### Map of Lists
 
 ```js
 {
-    section1: [ <rowData1>, <rowData2>, ... ],
-    section2: [ <rowData1>, <rowData2>, ... ],
+    section1: [
+        <rowData1>,
+        <rowData2>,
+        ...
+    ],
     ...
 }
 ```
 
-#### Map with Map
+#### Map of Maps
 
 ```js
 {
