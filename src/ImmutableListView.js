@@ -110,11 +110,16 @@ class ImmutableListView extends PureComponent {
   };
 
   componentWillMount() {
+    this.canSetState = true;
     this.setStateFromPropsAfterInteraction(this.props);
   }
 
   componentWillReceiveProps(newProps) {
     this.setStateFromPropsAfterInteraction(newProps);
+  }
+
+  componentWillUnmount() {
+    this.canSetState = false;
   }
 
   setStateFromPropsAfterInteraction(props) {
@@ -130,6 +135,9 @@ class ImmutableListView extends PureComponent {
   }
 
   setStateFromProps(props, interactionHasJustFinished) {
+    // In some cases the component will have been unmounted as we receive new props, causing a warning.
+    if (!this.canSetState) return;
+
     const { dataSource, interactionOngoing } = this.state;
     const { immutableData, rowsDuringInteraction, renderSectionHeader } = props;
 
