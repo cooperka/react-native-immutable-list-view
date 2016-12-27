@@ -5,9 +5,9 @@
 [![npm version](https://img.shields.io/npm/v/react-native-immutable-list-view.svg)](https://www.npmjs.com/package/react-native-immutable-list-view)
 [![Latest GitHub tag](https://img.shields.io/github/tag/cooperka/react-native-immutable-list-view.svg)](https://github.com/cooperka/react-native-immutable-list-view)
 
-`ImmutableListView` is an efficient ListView for React Native.
+A drop-in replacement for React Native's `ListView`.
 
-It easily integrates with [Immutable](https://facebook.github.io/immutable-js/) data to give you faster performance 🐎  and less headaches 🤕
+It supports [Immutable](https://facebook.github.io/immutable-js/) data out-of-the-box to give you faster performance :racehorse: and less headaches :face_with_head_bandage:.
 
 ## Motivation
 
