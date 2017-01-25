@@ -45,11 +45,11 @@
   },
   "homepage": "https://github.com/cooperka/react-native-immutable-list-view#readme",
   "peerDependencies": {
-    "react": "15.x",
-    "react-native": "0.x"
+    "react": ">=15.1",
+    "react-native": ">=0.28",
+    "immutable": ">=3.5"
   },
   "dependencies": {
-    "immutable": "~3.8.1"
   },
   "devDependencies": {
     "babel-cli": "~6.22.2",
