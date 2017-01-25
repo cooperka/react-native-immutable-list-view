@@ -7,8 +7,8 @@
   },
   "dependencies": {
     "immutable": "3.8.1",
-    "react": "15.3.2",
-    "react-native": "0.37.0",
-    "react-native-immutable-list-view": ".."
+    "react": "15.4.2",
+    "react-native": "0.40.0",
+    "react-native-immutable-list-view": "file:.."
   }
 }
