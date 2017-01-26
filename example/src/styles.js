@@ -10,7 +10,11 @@ const style = StyleSheet.create({
   welcome: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    margin: 20,
+  },
+  button: {
+    padding: 20,
+    paddingTop: 0,
   },
   row: {
     fontSize: 13,
