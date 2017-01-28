@@ -5,9 +5,19 @@
 [![npm version](https://img.shields.io/npm/v/react-native-immutable-list-view.svg)](https://www.npmjs.com/package/react-native-immutable-list-view)
 [![Latest GitHub tag](https://img.shields.io/github/tag/cooperka/react-native-immutable-list-view.svg)](https://github.com/cooperka/react-native-immutable-list-view)
 
-A drop-in replacement for React Native's `ListView`.
+A drop-in replacement for React Native's [`ListView`](https://facebook.github.io/react-native/docs/listview.html).
 
-It supports [Immutable](https://facebook.github.io/immutable-js/) data out-of-the-box to give you faster performance :racehorse: and less headaches :face_with_head_bandage:.
+It supports [Immutable](https://facebook.github.io/immutable-js/) data out-of-the-box to give you
+faster performance :racehorse: and less headaches :face_with_head_bandage:.
+
+## Code
+
+```jsx
+<ImmutableListView
+  immutableData={this.state.listData}
+  renderRow={this.renderRow}
+/>
+```
 
 ## Motivation
 
@@ -17,35 +27,40 @@ It supports [Immutable](https://facebook.github.io/immutable-js/) data out-of-th
 - Do you have nested objects in your state so a shallow diff won't cut it for pure rendering?
 - Do you use a navigator and want better performance while animating?
 
-If you answered yes to ANY of these questions, this project will surely be of help. Check out the examples below!
-
-## Setup
-
-```console
-npm install --save react-native-immutable-list-view
-```
+If you answered yes to ANY of these questions, this project will surely help.
+Check out the [examples](https://github.com/cooperka/react-native-immutable-list-view#how-to-format-your-data) below!
 
 ## Usage
 
-```js
-import ImmutableListView from 'react-native-immutable-list-view';
-```
+1. Install:
+    - Using [npm](https://www.npmjs.com/#getting-started): `npm install react-native-immutable-list-view --save`
+    - Using [Yarn](https://yarnpkg.com/): `yarn add react-native-immutable-list-view`
 
-`ImmutableListView` supports all the props of React Native's [ListView](https://facebook.github.io/react-native/docs/listview.html),
-but instead of passing in a `dataSource`, you should should pass in a prop called `immutableData`
-consisting of the data you'd like to display. `ImmutableListView` will handle creating an efficient `dataSource` for you.
+2. Import it in your JS:
+
+    ```js
+    import ImmutableListView from 'react-native-immutable-list-view';
+    ```
+
+It supports all the props of React Native's [`ListView`](https://facebook.github.io/react-native/docs/listview.html#props),
+but instead of passing in a `dataSource`, you should should pass in a prop called `immutableData`.
+
+This prop is just the raw data you'd like to display -- `ImmutableListView` will handle creating an efficient `dataSource` for you.
 Other than this small change, everything else will be exactly the same as `ListView`.
 
 There's an example app [here](https://github.com/cooperka/react-native-immutable-list-view/tree/master/example)
-if you'd like to see it in action; have a look at the example diff below if you want to implement it yourself.
+if you'd like to see it in action.
 
 ## Example Usage
 
-You can remove all that boilerplate in your constructor, as well as methods like
+You can remove all that boilerplate in your constructor, as well as lifecycle methods like
 `componentWillReceiveProps` if all they're doing is updating your `dataSource`.
-`ImmutableListView` will handle this for you. Check out this example diff:
+`ImmutableListView` will handle all of this for you.
 
-> Note: it looks much better on [GitHub](https://github.com/cooperka/react-native-immutable-list-view#example-usage) than on npm's site.
+Check out this example diff:
+
+> Note: This looks much better on [GitHub](https://github.com/cooperka/react-native-immutable-list-view#example-usage) than on npm's site.
+> Red means delete, green means add.
 
 ```diff
 -import { Text, View, ListView } from 'react-native';
@@ -108,16 +123,16 @@ You can remove all that boilerplate in your constructor, as well as methods like
 
 ## Props
 
-All the props that React Native's [`ListView`](https://facebook.github.io/react-native/docs/listview.html)
-supports are passed through, and should work exactly the same.
+All the props supported by React Native's [`ListView`](https://facebook.github.io/react-native/docs/listview.html#props)
+are simply passed through, and should work exactly the same.
+
+Simple, right?
 
 | Prop name | Data type | Default value? | Description |
 |-----------|-----------|----------------|-------------|
-| `immutableData` | [`Immutable.Iterable`](https://facebook.github.io/immutable-js/docs/#/Iterable/isIterable) | Required. | The data to render. |
-| `rowsDuringInteraction` | `number` | `undefined` | How many rows of data to initially display while waiting for interactions to finish (e.g. Navigation animations). If unspecified, this will not have any effect. |
-| `sectionHeaderHasChanged` | `func` | `(prevSectionData, nextSectionData) => false` | Return true if your section header is dependent on your row data (uncommon). See [ListViewDataSource#constructor](https://facebook.github.io/react-native/docs/listviewdatasource.html#constructor) for more info. |
-
-Simple, right?
+| `immutableData` | Any [`Immutable.Iterable`](https://facebook.github.io/immutable-js/docs/#/Iterable/isIterable) | Required. | The data to render. See below for some examples. |
+| `rowsDuringInteraction` | `number` | `undefined` | How many rows of data to initially display while waiting for interactions to finish (e.g. Navigation animations). |
+| `sectionHeaderHasChanged` | `func` | `(prevSectionData, nextSectionData) => false` | Return true if your section header is dependent on your row data (uncommon; see [`ListViewDataSource`'s constructor](https://facebook.github.io/react-native/docs/listviewdatasource.html#constructor) for more info). |
 
 ## How to format your data
 
@@ -127,7 +142,7 @@ for list data. Here are some examples:
 #### List
 
 ```js
-[ <rowData1>, <rowData2>, ... ]
+[rowData1, rowData2, ...]
 ```
 
 #### Map of Lists
@@ -135,8 +150,8 @@ for list data. Here are some examples:
 ```js
 {
     section1: [
-        <rowData1>,
-        <rowData2>,
+        rowData1,
+        rowData2,
         ...
     ],
     ...
@@ -148,8 +163,8 @@ for list data. Here are some examples:
 ```js
 {
     section1: {
-        rowID_1: <rowData1>,
-        rowID_2: <rowData2>,
+        rowId1: rowData1,
+        rowId2: rowData2,
         ...
     },
     ...
@@ -163,7 +178,7 @@ To try it out yourself, you can use the [example app](https://github.com/cooperk
 When using section headers, `ImmutableListView` treats certain types of `Immutable.Map` slightly differently
 than `ListView` treats an equivalent plain JS `Map`. See the snapshot test output
 [here](https://github.com/cooperka/react-native-immutable-list-view/blob/master/src/__tests__/__snapshots__/ImmutableListView.test.js.snap)
-for an example of how `ImmutableListView` behaves.
+for an example of how `ImmutableListView` behaves, or try it for yourself.
 
 It seems based on the [current documentation](https://facebook.github.io/react-native/releases/0.37/docs/listviewdatasource.html#constructor)
 that **`ImmutableListView` is behaving as expected**, and in fact regular `ListView` is the one being weird.
@@ -171,11 +186,3 @@ In any case, you should make sure to test this behavior yourself if you're using
 
 Other than this, the two should behave identically. You can verify this with the unit tests
 [here](https://github.com/cooperka/react-native-immutable-list-view/blob/master/src/__tests__/comparison.test.js).
-
-## Contributing
-
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
