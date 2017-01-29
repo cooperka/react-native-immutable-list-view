@@ -2,6 +2,8 @@ import Immutable from 'immutable';
 import React, { Component } from 'react';
 import { Text, View, Button } from 'react-native';
 
+// ESLint can't resolve the module location when running on Travis, so ignore these lints.
+// eslint-disable-next-line import/no-unresolved, import/extensions
 import ImmutableListView from 'react-native-immutable-list-view';
 
 import style from './styles';
