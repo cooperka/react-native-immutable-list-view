@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies, global-require */
-
 import React from 'react';
 import { ListView } from 'react-native';
 import renderer from 'react-test-renderer';

@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { Text, View, Button } from 'react-native';
-
-// eslint-disable-next-line import/no-unresolved, import/extensions
-import ImmutableListView from 'react-native-immutable-list-view/src/ImmutableListView';
+import ImmutableListView from 'react-native-immutable-list-view';
 
 import style from './styles';
-import mockData from './listData';
+import mockData from './mockData';
 
 class App extends Component {
 
@@ -31,7 +29,7 @@ class App extends Component {
     return (
       <View style={style.container}>
         <Text style={style.welcome}>
-          Welcome to React Native!
+          ImmutableListView Example
         </Text>
         <View style={style.button}>
           <Button

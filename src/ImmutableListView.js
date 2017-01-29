@@ -14,19 +14,25 @@ class ImmutableListView extends PureComponent {
     // Pass through any props that ListView would normally take.
     ...ListView.propTypes,
 
-    // ImmutableListView handles creating the dataSource, so don't pass it in.
+    // ImmutableListView handles creating the dataSource, so don't allow it to be passed in.
     dataSource: PropTypes.oneOf([undefined]),
 
-    // TODO: Allow any type of arbitrary data.
+    /**
+     * The immutable data to be rendered in a ListView.
+     */
     // eslint-disable-next-line consistent-return
     immutableData: (props, propName, componentName) => {
       // Note: It's not enough to simply validate PropTypes.instanceOf(Immutable.Iterable),
       // because different imports of Immutable.js across files have different class prototypes.
       if (!utils.isImmutableIterable(props[propName])) {
-        return new Error(`Invalid prop ${propName} supplied to ${componentName}: Must be Immutable.Iterable.`);
+        return new Error(`Invalid prop ${propName} supplied to ${componentName}: Must be instance of Immutable.Iterable.`);
       }
     },
 
+    /**
+     * A function taking (prevSectionData, nextSectionData)
+     * and returning true if the section header will change.
+     */
     sectionHeaderHasChanged: PropTypes.func,
 
     /**
@@ -89,7 +95,8 @@ class ImmutableListView extends PureComponent {
   }
 
   setStateFromProps(props, interactionHasJustFinished) {
-    // In some cases the component will have been unmounted as we receive new props, causing a warning.
+    // In some cases the component will have been unmounted before executing
+    // InteractionManager.runAfterInteractions, causing a warning if we try to set state.
     if (!this.canSetState) return;
 
     const { dataSource, interactionOngoing } = this.state;

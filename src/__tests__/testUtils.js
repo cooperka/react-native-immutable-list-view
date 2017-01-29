@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies, global-require */
-
 import Immutable from 'immutable';
 import React from 'react';
 import { Text } from 'react-native';
@@ -95,6 +93,7 @@ const mocks = {
     const mockScrollView = (props) => React.createElement('ScrollView', {}, props.children);
     jest.doMock('ScrollView', () => mockScrollView);
 
+    // eslint-disable-next-line global-require
     return require('../ImmutableListView').default;
   },
 
