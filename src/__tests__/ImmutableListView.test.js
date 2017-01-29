@@ -4,89 +4,39 @@ import renderer from 'react-test-renderer';
 
 import ImmutableListView from '../ImmutableListView';
 
-import { data, renderers } from './testUtils';
+import { data, renderers, expectors } from './testUtils';
 
 describe('ImmutableListView', () => {
   it('renders with empty data', () => {
-    const tree = renderer.create(
-      <ImmutableListView
-        immutableData={data.EMPTY_DATA}
-        renderRow={renderers.renderRow}
-      />,
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+    expectors.expectToMatchSnapshotWithData(data.EMPTY_DATA);
   });
 
   it('renders basic List', () => {
-    const tree = renderer.create(
-      <ImmutableListView
-        immutableData={data.LIST_DATA}
-        renderRow={renderers.renderRow}
-      />,
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+    expectors.expectToMatchSnapshotWithData(data.LIST_DATA);
   });
 
   it('renders nested List', () => {
-    const tree = renderer.create(
-      <ImmutableListView
-        immutableData={data.LIST_DATA_NESTED}
-        renderRow={renderers.renderRow}
-      />,
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+    expectors.expectToMatchSnapshotWithData(data.LIST_DATA_NESTED);
   });
 
   it('renders Map: List rows, without section headers', () => {
-    const tree = renderer.create(
-      <ImmutableListView
-        immutableData={data.MAP_DATA_LIST_ROWS}
-        renderRow={renderers.renderRow}
-      />,
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+    expectors.expectToMatchSnapshotWithData(data.MAP_DATA_LIST_ROWS);
   });
 
   it('renders Map: List rows, with section headers', () => {
-    const tree = renderer.create(
-      <ImmutableListView
-        immutableData={data.MAP_DATA_LIST_ROWS}
-        renderRow={renderers.renderRow}
-        renderSectionHeader={renderers.renderSectionHeader}
-      />,
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+    expectors.expectToMatchSnapshotWithData(data.MAP_DATA_LIST_ROWS, true);
   });
 
   it('renders Map: Map rows, without section headers', () => {
-    const tree = renderer.create(
-      <ImmutableListView
-        immutableData={data.MAP_DATA_MAP_ROWS}
-        renderRow={renderers.renderRow}
-      />,
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+    expectors.expectToMatchSnapshotWithData(data.MAP_DATA_MAP_ROWS);
   });
 
   it('renders Map: Map rows, with section headers', () => {
-    const tree = renderer.create(
-      <ImmutableListView
-        immutableData={data.MAP_DATA_MAP_ROWS}
-        renderRow={renderers.renderRow}
-        renderSectionHeader={renderers.renderSectionHeader}
-      />,
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+    expectors.expectToMatchSnapshotWithData(data.MAP_DATA_MAP_ROWS, true);
   });
 
   it('renders basic Set', () => {
-    const tree = renderer.create(
-      <ImmutableListView
-        immutableData={data.SET_DATA}
-        renderRow={renderers.renderRow}
-      />,
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+    expectors.expectToMatchSnapshotWithData(data.SET_DATA);
   });
 });
 

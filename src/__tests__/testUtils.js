@@ -1,6 +1,9 @@
 import Immutable from 'immutable';
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, ListView } from 'react-native';
+import renderer from 'react-test-renderer';
+
+import ImmutableListView from '../ImmutableListView';
 
 /**
  * Some common types of data you may want to render with ImmutableListView.
@@ -99,8 +102,60 @@ const mocks = {
 
 };
 
+const expectors = {
+
+  expectToMatchSnapshotWithData(immutableData, shouldRenderSectionHeaders) {
+    const renderSectionHeaderProps = shouldRenderSectionHeaders
+      ? { renderSectionHeader: renderers.renderSectionHeader }
+      : {};
+
+    const tree = renderer.create(
+      <ImmutableListView
+        immutableData={immutableData}
+        renderRow={renderers.renderRow}
+        {...renderSectionHeaderProps}
+      />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  },
+
+  expectToMatchListViewWithData(immutableData, shouldRenderSectionHeaders) {
+    const MockedImmutableListView = mocks.getImmutableListViewWithoutProps();
+
+    const dataSource = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2,
+      sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
+    });
+
+    const renderSectionHeaderProps = shouldRenderSectionHeaders
+      ? { renderSectionHeader: renderers.renderSectionHeader }
+      : {};
+
+    const immutableTree = renderer.create(
+      <MockedImmutableListView
+        immutableData={immutableData}
+        renderRow={renderers.renderRow}
+        {...renderSectionHeaderProps}
+      />,
+    ).toJSON();
+
+    const updatedDataSource = dataSource.cloneWithRows(immutableData.toJS());
+    const regularTree = renderer.create(
+      <ListView
+        dataSource={updatedDataSource}
+        renderRow={renderers.renderRow}
+        {...renderSectionHeaderProps}
+      />,
+    ).toJSON();
+
+    expect(immutableTree).toEqual(regularTree);
+  },
+
+};
+
 export {
   data,
   renderers,
   mocks,
+  expectors,
 };
