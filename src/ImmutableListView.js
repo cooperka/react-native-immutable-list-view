@@ -2,53 +2,7 @@ import Immutable from 'immutable';
 import React, { PureComponent, PropTypes } from 'react';
 import { ListView, InteractionManager } from 'react-native';
 
-const isImmutableIterable = Immutable.Iterable.isIterable;
-
-/**
- * Return the keys from a set of data.
- *
- * @example
- * - getKeys({ foo: 'bar', baz: 'qux' }) will return [foo, baz].
- * - getKeys([2, 3, 5]) will return [0, 1, 2].
- *
- * @param {Immutable.Iterable} immutableData
- * @returns {Array} An array of keys for the data.
- */
-function getKeys(immutableData) {
-  if (__DEV__ && !isImmutableIterable(immutableData)) {
-    console.warn(`Can't get keys: Data is not Immutable: ${JSON.stringify(immutableData)}`);
-  }
-
-  return immutableData.keySeq().toArray();
-}
-
-/**
- * Return a 2D array of row keys.
- *
- * @example
- * - getRowIdentities({ section1: ['row1', 'row2'], section2: ['row1'] })
- *   will return [[0, 1], [0]].
- *
- * @param {Immutable.Iterable} immutableSectionData
- * @returns {Array}
- */
-function getRowIdentities(immutableSectionData) {
-  if (__DEV__ && !isImmutableIterable(immutableSectionData)) {
-    console.warn(`Can't get row identities: Data is not Immutable: ${JSON.stringify(immutableSectionData)}`);
-  }
-
-  const sectionRowKeys = immutableSectionData.map(getKeys);
-  return sectionRowKeys.valueSeq().toArray();
-}
-
-/**
- * @param {String|Number} key
- * @param {Immutable.Iterable|Object|Array} data
- * @returns {*} The value at the given key, whether the data is Immutable or not.
- */
-function getValueFromKey(key, data) {
-  return (typeof data.get === 'function') ? data.get(key) : data[key];
-}
+import utils from './utils';
 
 /**
  * A ListView capable of displaying {@link https://facebook.github.io/immutable-js/ Immutable} data
@@ -68,7 +22,7 @@ class ImmutableListView extends PureComponent {
     immutableData: (props, propName, componentName) => {
       // Note: It's not enough to simply validate PropTypes.instanceOf(Immutable.Iterable),
       // because different imports of Immutable.js across files have different class prototypes.
-      if (!isImmutableIterable(props[propName])) {
+      if (!utils.isImmutableIterable(props[propName])) {
         return new Error(`Invalid prop ${propName} supplied to ${componentName}: Must be Immutable.Iterable.`);
       }
     },
@@ -97,13 +51,13 @@ class ImmutableListView extends PureComponent {
       rowHasChanged: (prevRowData, nextRowData) => !Immutable.is(prevRowData, nextRowData),
 
       getRowData: (dataBlob, sectionID, rowID) => {
-        const rowData = getValueFromKey(sectionID, dataBlob);
-        return getValueFromKey(rowID, rowData);
+        const rowData = utils.getValueFromKey(sectionID, dataBlob);
+        return utils.getValueFromKey(rowID, rowData);
       },
 
       sectionHeaderHasChanged: this.props.sectionHeaderHasChanged,
 
-      getSectionHeaderData: (dataBlob, sectionID) => getValueFromKey(sectionID, dataBlob),
+      getSectionHeaderData: (dataBlob, sectionID) => utils.getValueFromKey(sectionID, dataBlob),
     }),
 
     interactionOngoing: true,
@@ -147,11 +101,14 @@ class ImmutableListView extends PureComponent {
       ? immutableData.slice(0, rowsDuringInteraction)
       : immutableData);
 
+    const updatedDataSource = (renderSectionHeader
+      ? dataSource.cloneWithRowsAndSections(
+          displayData, utils.getKeys(displayData), utils.getRowIdentities(displayData))
+      : dataSource.cloneWithRows(
+          displayData, utils.getKeys(displayData)));
+
     this.setState({
-      dataSource: (renderSectionHeader
-        ? dataSource.cloneWithRowsAndSections(displayData, getKeys(displayData), getRowIdentities(displayData))
-        : dataSource.cloneWithRows(displayData, getKeys(displayData))
-      ),
+      dataSource: updatedDataSource,
       interactionOngoing: interactionHasJustFinished ? false : interactionOngoing,
     });
   }
