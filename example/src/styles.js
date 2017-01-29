@@ -7,7 +7,7 @@ const style = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
+  title: {
     fontSize: 20,
     textAlign: 'center',
     margin: 20,
@@ -16,17 +16,24 @@ const style = StyleSheet.create({
     padding: 20,
     paddingTop: 0,
   },
-  row: {
+  listRow: {
     fontSize: 13,
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
   },
-  header: {
+  listHeader: {
     fontSize: 16,
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
+  },
+  sideBySideLists: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  list: {
+    flex: 1,
   },
 });
 
