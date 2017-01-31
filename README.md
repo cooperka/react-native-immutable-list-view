@@ -10,7 +10,7 @@ A drop-in replacement for React Native's [`ListView`](https://facebook.github.io
 ![ImmutableListView screenshot](example/screenshots/listview-cropped.png "ImmutableListView screenshot")
 
 It supports [Immutable](https://facebook.github.io/immutable-js/) data out-of-the-box to give you
-faster performance :racehorse: and less headaches :face_with_head_bandage:.
+faster performance and less headaches.
 
 ## Code
 
