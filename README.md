@@ -7,6 +7,8 @@
 
 A drop-in replacement for React Native's [`ListView`](https://facebook.github.io/react-native/docs/listview.html).
 
+![ImmutableListView screenshot](example/screenshots/listview-cropped.png "ImmutableListView screenshot")
+
 It supports [Immutable](https://facebook.github.io/immutable-js/) data out-of-the-box to give you
 faster performance :racehorse: and less headaches :face_with_head_bandage:.
 
@@ -17,6 +19,27 @@ faster performance :racehorse: and less headaches :face_with_head_bandage:.
   immutableData={this.state.listData}
   renderRow={this.renderRow}
 />
+```
+
+The screenshot above shows two different lists. The first simply uses this data:
+
+```js
+Immutable.fromJS({
+  'Section A': [
+    'foo',
+    'bar',
+  ],
+  'Section B': [
+    'fizz',
+    'buzz',
+  ],
+})
+```
+
+The second list is even simpler:
+
+```js
+Immutable.Range(1, 100)
 ```
 
 ## Motivation
