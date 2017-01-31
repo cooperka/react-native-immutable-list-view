@@ -5,6 +5,6 @@
 1. `npm install`
 2. `react-native run-android`
 
-Screenshot:
+## Screenshot
 
-![ImmutableListView screenshot](example/screenshots/listview.png)
+![ImmutableListView screenshot](screenshots/listview.png)
