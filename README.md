@@ -146,10 +146,13 @@ Check out this example diff:
 
 ## Props
 
-All the props supported by React Native's [`ListView`](https://facebook.github.io/react-native/docs/listview.html#props)
-are simply passed through, and should work exactly the same.
+All the props supported by React Native's `ListView` are simply passed through, and should work exactly the same.
+You can read about them [here](https://facebook.github.io/react-native/docs/listview.html#props).
 
-Simple, right?
+You can fully customize the look of your list by implementing [`renderRow`](https://facebook.github.io/react-native/docs/listview.html#renderrow)
+and, optionally, [`renderSectionHeader`](https://facebook.github.io/react-native/docs/listview.html#rendersectionheader).
+
+Here are the additional props that `ImmutableListView` accepts:
 
 | Prop name | Data type | Default value? | Description |
 |-----------|-----------|----------------|-------------|
