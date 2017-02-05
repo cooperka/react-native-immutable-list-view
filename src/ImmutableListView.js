@@ -45,7 +45,7 @@ class ImmutableListView extends PureComponent {
   };
 
   static defaultProps = {
-    ...ListView.getDefaultProps(),
+    ...ListView.defaultProps,
 
     // The data contained in the section generally doesn't affect the header text, so return false.
     // eslint-disable-next-line no-unused-vars
