@@ -1,10 +1,12 @@
 import Immutable from 'immutable';
 import React, { Component } from 'react';
-import { Text, View, Button } from 'react-native';
+import { Text, View } from 'react-native';
 
 // ESLint can't resolve the module location when running on Travis, so ignore these lints.
-// eslint-disable-next-line import/no-unresolved, import/extensions
+/* eslint-disable import/no-unresolved, import/extensions */
+import Button from 'react-native-button';
 import ImmutableListView from 'react-native-immutable-list-view';
+/* eslint-enable */
 
 import style from './styles';
 import mockData from './mockData';
@@ -49,8 +51,9 @@ class App extends Component {
             <View style={style.button}>
               <Button
                 onPress={() => this.changeDataA()}
-                title="Update Data"
-              />
+              >
+                Update Data
+              </Button>
             </View>
             <ImmutableListView
               immutableData={listDataA}
@@ -63,7 +66,9 @@ class App extends Component {
               <Button
                 onPress={() => this.changeDataB()}
                 title="Update Data"
-              />
+              >
+                Update Data
+              </Button>
             </View>
             <ImmutableListView
               immutableData={listDataB}
