@@ -16,13 +16,17 @@
   },
   "jest": {
     "preset": "react-native",
-    "verbose": true,
+    "setupFiles": [
+      "./src/__tests__/setup.js"
+    ],
     "testPathIgnorePatterns": [
       "/node_modules/",
       "/example/",
       "/lib/",
-      "/testUtils.js"
-    ]
+      "/testUtils.js",
+      "/setup.js"
+    ],
+    "verbose": true
   },
   "repository": {
     "type": "git",
