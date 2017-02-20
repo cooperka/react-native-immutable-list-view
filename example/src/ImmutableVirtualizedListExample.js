@@ -4,21 +4,20 @@ import { Text, View, Button } from 'react-native';
 
 // ESLint can't resolve the module location when running on Travis, so ignore these lints.
 // eslint-disable-next-line import/no-unresolved, import/extensions
-import ImmutableListView from 'react-native-immutable-list-view';
+import ImmutableVirtualizedList from 'react-native-immutable-list-view/lib/Experimental/ImmutableVirtualizedList';
 
 import style from './styles';
-import mockData from './mockData';
 
-class ImmutableListViewExample extends Component {
+class ImmutableVirtualizedListExample extends Component {
 
   state = {
-    listDataA: mockData,
+    listDataA: Immutable.List(['Simple', 'List', 'of', 'Items']),
     listDataB: Immutable.Range(1, 100),
   };
 
   changeDataA() {
     this.setState({
-      listDataA: mockData.setIn(['Section A', 1], 'This value was changed!'),
+      listDataA: this.state.listDataA.set(3, 'This value was changed!'),
     });
   }
 
@@ -28,12 +27,8 @@ class ImmutableListViewExample extends Component {
     });
   }
 
-  renderRow(rowData) {
-    return <Text style={style.listRow}>{rowData}</Text>;
-  }
-
-  renderSectionHeader(sectionData, category) {
-    return <Text style={style.listHeader}>{category}</Text>;
+  renderItemComponent({ item }) {
+    return <Text style={style.listRow}>{item}</Text>;
   }
 
   render() {
@@ -52,10 +47,9 @@ class ImmutableListViewExample extends Component {
                 title="Update Data"
               />
             </View>
-            <ImmutableListView
+            <ImmutableVirtualizedList
               immutableData={listDataA}
-              renderRow={this.renderRow}
-              renderSectionHeader={this.renderSectionHeader}
+              ItemComponent={this.renderItemComponent}
             />
           </View>
           <View style={style.list}>
@@ -65,9 +59,9 @@ class ImmutableListViewExample extends Component {
                 title="Update Data"
               />
             </View>
-            <ImmutableListView
+            <ImmutableVirtualizedList
               immutableData={listDataB}
-              renderRow={this.renderRow}
+              ItemComponent={this.renderItemComponent}
             />
           </View>
         </View>
@@ -77,4 +71,4 @@ class ImmutableListViewExample extends Component {
 
 }
 
-export default ImmutableListViewExample;
+export default ImmutableVirtualizedListExample;
