@@ -215,20 +215,30 @@ In any case, you should make sure to test this behavior yourself if you're using
 Other than this, the two should behave identically. You can verify this with the unit tests
 [here](https://github.com/cooperka/react-native-immutable-list-view/blob/master/src/__tests__/comparison.test.js).
 
----
-
 ## ImmutableFlatList
 
 This component is considered "experimental" by React Native, and isn't intended for production use.
 Here's how you can test it out for yourself:
 
-```js
-import ImmutableFlatList from 'react-native-immutable-list-view/Experimental/ImmutableFlatList';
-```
+1.
 
-```jsx
-<ImmutableFlatList
-  immutableData={this.state.listData}
-  ItemComponent={this.renderItemComponent}
-/>
-```
+    ```bash
+    for file in 'FlatList' 'MetroListView' 'VirtualizedList' 'VirtualizeUtils'; \
+      do curl https://raw.githubusercontent.com/facebook/react-native/master/Libraries/Experimental/${file}.js > node_modules/react-native/Libraries/Experimental/${file}.js; \
+      done
+    ```
+
+2.
+
+    ```js
+    import ImmutableFlatList from 'react-native-immutable-list-view/Experimental/ImmutableFlatList';
+    ```
+
+3.
+
+    ```jsx
+    <ImmutableFlatList
+      immutableData={this.state.listData}
+      ItemComponent={this.renderItemComponent}
+    />
+    ```
