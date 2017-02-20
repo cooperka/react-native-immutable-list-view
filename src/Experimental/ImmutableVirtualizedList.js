@@ -1,16 +1,23 @@
 import Immutable from 'immutable';
 import React, { PureComponent } from 'react';
-
-// eslint-disable-next-line import/no-unresolved, import/extensions
-import VirtualizedList from 'react-native/Libraries/Experimental/VirtualizedList';
+import { View } from 'react-native';
 
 import utils from '../utils';
 
-if (!VirtualizedList) {
-  console.error('Error: VirtualizedList could not be imported.' +
-    ' Please make sure you\'ve downloaded it along with its other dependencies.' +
-    ' See the react-native-immutable-list-view README for instructions.');
+function optionalRequire(module) {
+  try {
+    // eslint-disable-next-line import/no-dynamic-require, global-require
+    return require(module);
+  } catch (err) {
+    console.error('Error: VirtualizedList could not be imported.' +
+      ' Please make sure you\'ve downloaded it along with its other dependencies.' +
+      ' See the react-native-immutable-list-view README for instructions.');
+
+    return () => <View />;
+  }
 }
+
+const VirtualizedList = optionalRequire('react-native/Libraries/Experimental/VirtualizedList');
 
 /**
  * A VirtualizedList capable of displaying {@link https://facebook.github.io/immutable-js/ Immutable} data
