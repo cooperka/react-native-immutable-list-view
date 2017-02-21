@@ -1,8 +1,8 @@
 language: node_js
 
 node_js:
+ - "7"
  - "6"
- - "5"
 
 before_script:
  - npm run download-flatlist
