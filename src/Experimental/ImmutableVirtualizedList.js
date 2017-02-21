@@ -8,10 +8,10 @@ function optionalRequire(module) {
   try {
     // eslint-disable-next-line import/no-dynamic-require, global-require
     return require(module);
-  } catch (err) {
+  } catch (error) {
     console.error('Error: VirtualizedList could not be imported.' +
       ' Please make sure you\'ve downloaded it along with its other dependencies.' +
-      ' See the react-native-immutable-list-view README for instructions.');
+      ' See the react-native-immutable-list-view README for instructions.', error);
 
     return () => <View />;
   }
