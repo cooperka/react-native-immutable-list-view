@@ -228,12 +228,18 @@ The short version of the setup instructions is below.
 `VirtualizedList` is considered "experimental" by React Native, and isn't intended for production use.
 That said, here's how you can test it out for yourself:
 
-1. Download the required files into your `node_modules` (since they're not published yet):
+1. Download the required files into your app's `node_modules` (since these components aren't published yet):
 
     ```bash
     for file in 'FlatList' 'MetroListView' 'VirtualizedList' 'VirtualizeUtils'; \
       do curl https://raw.githubusercontent.com/facebook/react-native/master/Libraries/Experimental/${file}.js > node_modules/react-native/Libraries/Experimental/${file}.js; \
       done
+    ```
+
+    or
+
+    ```bash
+    npm run download-flatlist
     ```
 
 2. Import the new component:
