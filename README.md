@@ -12,7 +12,7 @@ A drop-in replacement for React Native's [`ListView`](https://facebook.github.io
 It supports [Immutable](https://facebook.github.io/immutable-js/) data out-of-the-box to give you
 faster performance and less headaches.
 
-NEW! It also supports the experimental `VirtualizedList` component (the underlying component used by `FlatList`) as of `v0.2.6`;
+NEW! It also supports the experimental `VirtualizedList` component (the underlying component used by `FlatList`) as of `v0.3.0`;
 see the [instructions at the bottom](#immutablevirtualizedlist) for more details.
 
 ## Code
