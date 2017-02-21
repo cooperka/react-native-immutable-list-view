@@ -4,6 +4,7 @@ import { Text, ListView } from 'react-native';
 import renderer from 'react-test-renderer';
 
 import ImmutableListView from '../ImmutableListView';
+import ImmutableVirtualizedList from '../Experimental/ImmutableVirtualizedList';
 
 /**
  * Some common types of data you may want to render with ImmutableListView.
@@ -67,15 +68,20 @@ const renderers = {
   /**
    * @param {*} rowData
    */
-  renderRow: (rowData) => {
+  renderRow(rowData) {
     return <Text>{JSON.stringify(rowData)}</Text>;
+  },
+
+  // eslint-disable-next-line react/prop-types
+  renderItemComponent({ item }) {
+    return <Text>{JSON.stringify(item)}</Text>;
   },
 
   /**
    * @param {Immutable.Iterable} sectionData
    * @param {String} category
    */
-  renderSectionHeader: (sectionData, category) => {
+  renderSectionHeader(sectionData, category) {
     return <Text header>{`${category} (${sectionData.size} items)`}</Text>;
   },
 
@@ -114,6 +120,16 @@ const expectors = {
         immutableData={immutableData}
         renderRow={renderers.renderRow}
         {...renderSectionHeaderProps}
+      />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  },
+
+  expectVirtualizedToMatchSnapshotWithData(immutableData) {
+    const tree = renderer.create(
+      <ImmutableVirtualizedList
+        immutableData={immutableData}
+        ItemComponent={renderers.renderItemComponent}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();

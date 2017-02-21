@@ -1,0 +1,89 @@
+exports[`ImmutableListView renders basic List 1`] = `
+<RCTScrollView>
+  <View>
+    <View
+      onLayout={[Function]}>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail">
+        \"lists\"
+      </Text>
+    </View>
+    <View
+      onLayout={[Function]}>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail">
+        \"are\"
+      </Text>
+    </View>
+    <View
+      onLayout={[Function]}>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail">
+        \"great\"
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`ImmutableListView renders basic Set 1`] = `
+<RCTScrollView>
+  <View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail">
+      \"one\"
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail">
+      \"two\"
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail">
+      \"three\"
+    </Text>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`ImmutableListView renders nested List 1`] = `
+<RCTScrollView>
+  <View>
+    <View
+      onLayout={[Function]}>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail">
+        [\"so\",\"are\"]
+      </Text>
+    </View>
+    <View
+      onLayout={[Function]}>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail">
+        [\"nested\",\"lists\"]
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`ImmutableListView renders with empty data 1`] = `
+<RCTScrollView>
+  <View />
+</RCTScrollView>
+`;
