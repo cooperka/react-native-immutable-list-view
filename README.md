@@ -12,7 +12,8 @@ A drop-in replacement for React Native's [`ListView`](https://facebook.github.io
 It supports [Immutable](https://facebook.github.io/immutable-js/) data out-of-the-box to give you
 faster performance and less headaches.
 
-NEW! It also supports the experimental `FlatList` component as of `v0.2.6`; see [instructions at the bottom](#immutableflatlist) for more details.
+NEW! It also supports the experimental `VirtualizedList` component (the underlying component used by `FlatList`) as of `v0.2.6`;
+see the [instructions at the bottom](#immutablevirtualizedlist) for more details.
 
 ## Code
 
@@ -215,12 +216,19 @@ In any case, you should make sure to test this behavior yourself if you're using
 Other than this, the two should behave identically. You can verify this with the unit tests
 [here](https://github.com/cooperka/react-native-immutable-list-view/blob/master/src/__tests__/comparison.test.js).
 
-## ImmutableFlatList
+## ImmutableVirtualizedList
 
-This component is considered "experimental" by React Native, and isn't intended for production use.
-Here's how you can test it out for yourself:
+Just as the `ImmutableListView` component helps render a `ListView` using Immutable data,
+`ImmutableVirtualizedList` helps render the new and improved `VirtualizedList` component.
+This is the underlying component that `FlatList` uses.
 
-1. Download required files:
+There's a [Medium article about it](https://medium.com/@cooperka/react-native-new-flatlist-component-30db558c7a5b) if you'd like more context.
+The short version of the setup instructions is below.
+
+`VirtualizedList` is considered "experimental" by React Native, and isn't intended for production use.
+That said, here's how you can test it out for yourself:
+
+1. Download the required files into your `node_modules` (since they're not published yet):
 
     ```bash
     for file in 'FlatList' 'MetroListView' 'VirtualizedList' 'VirtualizeUtils'; \
@@ -231,14 +239,17 @@ Here's how you can test it out for yourself:
 2. Import the new component:
 
     ```js
-    import ImmutableFlatList from 'react-native-immutable-list-view/Experimental/ImmutableFlatList';
+    import ImmutableVirtualizedList from 'react-native-immutable-list-view/lib/Experimental/ImmutableVirtualizedList';
     ```
 
 3. Render it:
 
     ```jsx
-    <ImmutableFlatList
+    <ImmutableVirtualizedList
       immutableData={this.state.listData}
       ItemComponent={this.renderItemComponent}
     />
     ```
+
+See the [example app](https://github.com/cooperka/react-native-immutable-list-view/tree/master/example) for a working demo,
+or [React Native's `FlatListExample`](https://github.com/facebook/react-native/blob/master/Examples/UIExplorer/js/FlatListExample.js) for an idea of what features are possible.
