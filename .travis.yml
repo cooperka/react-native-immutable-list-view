@@ -4,6 +4,9 @@ node_js:
  - "6"
  - "5"
 
+before_script:
+ - npm run download-flatlist
+
 script:
  - npm test
  - npm run lint
