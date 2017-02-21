@@ -13,7 +13,7 @@ describe('ImmutableListView', () => {
     expectors.expectVirtualizedToMatchSnapshotWithData(data.LIST_DATA_NESTED);
   });
 
-  it('renders basic Set', () => {
-    expectors.expectToMatchSnapshotWithData(data.SET_DATA);
+  it('renders basic Range', () => {
+    expectors.expectVirtualizedToMatchSnapshotWithData(data.RANGE_DATA);
   });
 });

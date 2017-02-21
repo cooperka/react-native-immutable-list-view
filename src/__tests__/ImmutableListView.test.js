@@ -38,6 +38,10 @@ describe('ImmutableListView', () => {
   it('renders basic Set', () => {
     expectors.expectToMatchSnapshotWithData(data.SET_DATA);
   });
+
+  it('renders basic Range', () => {
+    expectors.expectToMatchSnapshotWithData(data.RANGE_DATA);
+  });
 });
 
 describe('ImmutableListView with delayed rendering', () => {

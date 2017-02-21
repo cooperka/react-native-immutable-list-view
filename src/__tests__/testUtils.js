@@ -61,6 +61,8 @@ const data = {
     'three',
   ]),
 
+  RANGE_DATA: Immutable.Range(3, 10, 3),
+
 };
 
 const renderers = {

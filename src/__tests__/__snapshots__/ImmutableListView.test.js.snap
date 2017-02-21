@@ -171,6 +171,31 @@ exports[`ImmutableListView renders basic List 1`] = `
 </RCTScrollView>
 `;
 
+exports[`ImmutableListView renders basic Range 1`] = `
+<RCTScrollView>
+  <View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail">
+      3
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail">
+      6
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail">
+      9
+    </Text>
+  </View>
+</RCTScrollView>
+`;
+
 exports[`ImmutableListView renders basic Set 1`] = `
 <RCTScrollView>
   <View>
