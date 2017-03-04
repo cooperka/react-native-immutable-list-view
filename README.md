@@ -230,13 +230,9 @@ That said, here's how you can test it out for yourself:
 
 1. Download the required files into your app's `node_modules` (since these components aren't published yet):
 
-    ```bash
-    for file in 'FlatList' 'MetroListView' 'VirtualizedList' 'VirtualizeUtils'; \
-      do curl https://raw.githubusercontent.com/facebook/react-native/master/Libraries/Experimental/${file}.js > node_modules/react-native/Libraries/Experimental/${file}.js; \
-      done
-    ```
+    https://gist.github.com/cooperka/c5dd3ab11f588044d4d6ba22d52c4ab0
 
-    or
+    or, using the [shell script](https://github.com/cooperka/react-native-immutable-list-view/blob/master/bin/download-flatlist.sh) from this library:
 
     ```bash
     npm run download-flatlist
