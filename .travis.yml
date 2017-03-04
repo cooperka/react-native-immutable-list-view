@@ -5,8 +5,8 @@ node_js:
  - "6"
 
 before_script:
- - npm run download-flatlist
+ - yarn run download-flatlist
 
 script:
- - npm test
- - npm run lint
+ - yarn test
+ - yarn run lint
