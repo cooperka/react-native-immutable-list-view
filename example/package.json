@@ -5,7 +5,7 @@
   "scripts": {
     "preinstall": "cd .. && npm run build",
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "download-flatlist": "for file in 'FlatList' 'MetroListView' 'VirtualizedList' 'VirtualizeUtils'; do curl https://raw.githubusercontent.com/facebook/react-native/master/Libraries/Experimental/${file}.js > node_modules/react-native/Libraries/Experimental/${file}.js; done"
+    "download-flatlist": "chmod +x ../bin/download-flatlist.sh && ../bin/download-flatlist.sh"
   },
   "dependencies": {
     "immutable": "3.8.1",

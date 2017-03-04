@@ -10,7 +10,7 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint src example/src --ext .js,.jsx",
-    "download-flatlist": "for file in 'FlatList' 'MetroListView' 'VirtualizedList' 'VirtualizeUtils'; do curl https://raw.githubusercontent.com/facebook/react-native/master/Libraries/Experimental/${file}.js > node_modules/react-native/Libraries/Experimental/${file}.js; done",
+    "download-flatlist": "chmod +x bin/download-flatlist.sh && bin/download-flatlist.sh",
     "clean": "rm -rf lib",
     "build": "npm run clean && babel src --out-dir lib --ignore src/__tests__",
     "prepublish": "npm run build"
