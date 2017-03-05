@@ -75,7 +75,7 @@ const renderers = {
   },
 
   // eslint-disable-next-line react/prop-types
-  renderItemComponent({ item }) {
+  renderItem({ item }) {
     return <Text>{JSON.stringify(item)}</Text>;
   },
 
@@ -131,7 +131,7 @@ const expectors = {
     const tree = renderer.create(
       <ImmutableVirtualizedList
         immutableData={immutableData}
-        ItemComponent={renderers.renderItemComponent}
+        renderItem={renderers.renderItem}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();

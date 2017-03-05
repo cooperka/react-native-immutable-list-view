@@ -1,4 +1,4 @@
-exports[`ImmutableListView renders basic List 1`] = `
+exports[`ImmutableVirtualizedList renders basic List 1`] = `
 <RCTScrollView>
   <View>
     <View
@@ -32,7 +32,7 @@ exports[`ImmutableListView renders basic List 1`] = `
 </RCTScrollView>
 `;
 
-exports[`ImmutableListView renders basic Range 1`] = `
+exports[`ImmutableVirtualizedList renders basic Range 1`] = `
 <RCTScrollView>
   <View>
     <View
@@ -66,7 +66,7 @@ exports[`ImmutableListView renders basic Range 1`] = `
 </RCTScrollView>
 `;
 
-exports[`ImmutableListView renders nested List 1`] = `
+exports[`ImmutableVirtualizedList renders nested List 1`] = `
 <RCTScrollView>
   <View>
     <View
@@ -91,7 +91,7 @@ exports[`ImmutableListView renders nested List 1`] = `
 </RCTScrollView>
 `;
 
-exports[`ImmutableListView renders with empty data 1`] = `
+exports[`ImmutableVirtualizedList renders with empty data 1`] = `
 <RCTScrollView>
   <View />
 </RCTScrollView>

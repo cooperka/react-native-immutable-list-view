@@ -27,7 +27,7 @@ class ImmutableVirtualizedListExample extends Component {
     });
   }
 
-  renderItemComponent({ item }) {
+  renderItem({ item }) {
     return <Text style={style.listRow}>{item}</Text>;
   }
 
@@ -37,7 +37,7 @@ class ImmutableVirtualizedListExample extends Component {
     return (
       <View style={style.container}>
         <Text style={style.title}>
-          ImmutableListView Example
+          ImmutableVirtualizedList Example
         </Text>
         <View style={style.sideBySideLists}>
           <View style={style.list}>
@@ -49,7 +49,7 @@ class ImmutableVirtualizedListExample extends Component {
             </View>
             <ImmutableVirtualizedList
               immutableData={listDataA}
-              ItemComponent={this.renderItemComponent}
+              renderItem={this.renderItem}
             />
           </View>
           <View style={style.list}>
@@ -61,7 +61,7 @@ class ImmutableVirtualizedListExample extends Component {
             </View>
             <ImmutableVirtualizedList
               immutableData={listDataB}
-              ItemComponent={this.renderItemComponent}
+              renderItem={this.renderItem}
             />
           </View>
         </View>

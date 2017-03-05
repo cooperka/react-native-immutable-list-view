@@ -1,6 +1,6 @@
 import { data, expectors } from './testUtils';
 
-describe('ImmutableListView', () => {
+describe('ImmutableVirtualizedList', () => {
   it('renders with empty data', () => {
     expectors.expectVirtualizedToMatchSnapshotWithData(data.EMPTY_DATA);
   });
