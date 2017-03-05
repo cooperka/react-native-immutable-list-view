@@ -1,15 +1,17 @@
-# ImmutableListView Example
-
-## Usage
-
-1. `(cd .. && npm install)` to install in the parent directory
-2. `npm install` here
-3. `react-native run-android`
+# ImmutableListView Examples
 
 ## VirtualizedList
 
 By default, the example app uses an `ImmutableListView`. If you want to try out the new `ImmutableVirtualizedList`,
 you can simply uncomment the line in `index.android.js` or `index.ios.js` and it will use that component instead.
+
+## Usage
+
+You can also use `yarn`, but make sure to follow the troubleshooting steps below if you do.
+
+1. `(cd .. && npm install)` to install in the parent directory
+2. `npm install` here
+3. `react-native run-android`
 
 ## Troubleshooting
 
