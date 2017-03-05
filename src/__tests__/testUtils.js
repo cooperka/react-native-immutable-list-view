@@ -4,7 +4,7 @@ import { Text, ListView } from 'react-native';
 import renderer from 'react-test-renderer';
 
 import ImmutableListView from '../ImmutableListView';
-import ImmutableVirtualizedList from '../Experimental/ImmutableVirtualizedList';
+import ImmutableVirtualizedList from '../ImmutableVirtualizedList';
 
 /**
  * Some common types of data you may want to render with ImmutableListView.

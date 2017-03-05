@@ -7,7 +7,7 @@ import React, { PureComponent } from 'react';
 // eslint-disable-next-line import/no-unresolved, import/extensions
 import VirtualizedList from 'react-native/Libraries/CustomComponents/Lists/VirtualizedList';
 
-import utils from '../utils';
+import utils from './utils';
 
 /**
  * A VirtualizedList capable of displaying {@link https://facebook.github.io/immutable-js/ Immutable} data
