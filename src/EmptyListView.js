@@ -25,6 +25,12 @@ class EmptyListView extends PureComponent {
     // Pass through any props that ListView would normally take.
     ...ListView.propTypes,
 
+    // ImmutableListView handles creating the dataSource, so don't allow it to be passed in.
+    dataSource: PropTypes.oneOf([undefined]),
+
+    // Make this prop optional instead of required.
+    renderRow: PropTypes.func,
+
     emptyText: PropTypes.string,
   };
 
