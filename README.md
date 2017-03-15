@@ -162,7 +162,7 @@ Here are the additional props that `ImmutableListView` accepts:
 | `immutableData` | Any [`Immutable.Iterable`](https://facebook.github.io/immutable-js/docs/#/Iterable/isIterable) | Required. | The data to render. See below for some examples. |
 | `rowsDuringInteraction` | `number` | `undefined` | How many rows of data to initially display while waiting for interactions to finish (e.g. Navigation animations). |
 | `sectionHeaderHasChanged` | `func` | `(prevSectionData, nextSectionData) => false` | Only needed if your section header is dependent on your row data (uncommon; see [`ListViewDataSource`'s constructor](https://facebook.github.io/react-native/docs/listviewdatasource.html#constructor) for details). |
-| `renderEmpty` | `func` | `() => `[`React.PropTypes.node`](https://facebook.github.io/react/docs/typechecking-with-proptypes.html#react.proptypes) | If your data is empty (e.g. `null`, `[]`, `{}`) and this prop is defined, then the result of this function will be rendered instead of a `ListView`. |
+| `renderEmpty` | `func` | `() => `[`React.PropTypes.node`](https://facebook.github.io/react/docs/typechecking-with-proptypes.html#react.proptypes) | If your data is empty (e.g. `null`, `[]`, `{}`) and this prop is defined, then the result of this function will be rendered instead. For example, you can use the [`EmptyListView` component](#emptylistview) for this. |
 
 ## How to format your data
 
@@ -216,6 +216,26 @@ In any case, you should make sure to test this behavior yourself if you're using
 
 Other than this, the two should behave identically. You can verify this with the unit tests
 [here](https://github.com/cooperka/react-native-immutable-list-view/blob/master/src/__tests__/comparison.test.js).
+
+## EmptyListView
+
+This component takes an optional `emptyText` prop and renders an `ImmutableListView` with only a single list item with the text you specified.
+By default, this string is simply `'No data.'`.
+
+Example:
+
+```jsx
+import ImmutableListView, { EmptyListView } from 'react-native-immutable-list-view';
+
+<ImmutableListView
+  immutableData={this.state.listData}
+  renderRow={this.renderRow}
+  renderEmpty={() => <EmptyListView emptyText="Nothing to see here!" />}
+/>
+```
+
+If you need more flexibility, instead of passing `emptyText` to `EmptyListView`, you can pass `renderRow` and display anything you want.
+`EmptyListView` will pass all your props through to `ImmutableListView` (and then through to `ListView`).
 
 ## ImmutableVirtualizedList
 
