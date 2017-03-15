@@ -1,0 +1,66 @@
+exports[`EmptyListView renders with custom renderRow 1`] = `
+<RCTScrollView>
+  <View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail">
+      \"Overridden!\"
+    </Text>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`EmptyListView renders with custom text 1`] = `
+<RCTScrollView>
+  <View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+        }
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 14,
+            "margin": 12,
+          }
+        }>
+        Nothing. Nothing at all.
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`EmptyListView renders with default text 1`] = `
+<RCTScrollView>
+  <View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+        }
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 14,
+            "margin": 12,
+          }
+        }>
+        No data.
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;
