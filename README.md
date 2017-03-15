@@ -161,7 +161,8 @@ Here are the additional props that `ImmutableListView` accepts:
 |-----------|-----------|----------------|-------------|
 | `immutableData` | Any [`Immutable.Iterable`](https://facebook.github.io/immutable-js/docs/#/Iterable/isIterable) | Required. | The data to render. See below for some examples. |
 | `rowsDuringInteraction` | `number` | `undefined` | How many rows of data to initially display while waiting for interactions to finish (e.g. Navigation animations). |
-| `sectionHeaderHasChanged` | `func` | `(prevSectionData, nextSectionData) => false` | Return true if your section header is dependent on your row data (uncommon; see [`ListViewDataSource`'s constructor](https://facebook.github.io/react-native/docs/listviewdatasource.html#constructor) for more info). |
+| `sectionHeaderHasChanged` | `func` | `(prevSectionData, nextSectionData) => false` | Only needed if your section header is dependent on your row data (uncommon; see [`ListViewDataSource`'s constructor](https://facebook.github.io/react-native/docs/listviewdatasource.html#constructor) for details). |
+| `renderEmpty` | `func` | `() => `[`React.PropTypes.node`](https://facebook.github.io/react/docs/typechecking-with-proptypes.html#react.proptypes) | If your data is empty (e.g. `null`, `[]`, `{}`) and this prop is defined, then the result of this function will be rendered instead of a `ListView`. |
 
 ## How to format your data
 

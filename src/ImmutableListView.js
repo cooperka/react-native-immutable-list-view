@@ -42,6 +42,11 @@ class ImmutableListView extends PureComponent {
      * @see https://facebook.github.io/react-native/docs/performance.html#slow-navigator-transitions
      */
     rowsDuringInteraction: PropTypes.number,
+
+    /**
+     * A function that returns some {@link PropTypes.node} to be rendered when there are no items in the list.
+     */
+    renderEmpty: PropTypes.func,
   };
 
   static defaultProps = {
@@ -122,6 +127,11 @@ class ImmutableListView extends PureComponent {
 
   render() {
     const { dataSource } = this.state;
+    const { immutableData, renderEmpty } = this.props;
+
+    if (renderEmpty && (!immutableData || immutableData.isEmpty())) {
+      return renderEmpty();
+    }
 
     // Note: enableEmptySections is being used to mimic the default behavior of the upcoming version.
     return (
