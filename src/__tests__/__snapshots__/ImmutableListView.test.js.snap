@@ -283,3 +283,37 @@ exports[`ImmutableListView with delayed rendering renders basic List during inte
   </View>
 </RCTScrollView>
 `;
+
+exports[`ImmutableListView with renderEmpty renders empty when there are no items 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  ellipsizeMode="tail">
+  \"Empty\"
+</Text>
+`;
+
+exports[`ImmutableListView with renderEmpty renders normally when there are some items 1`] = `
+<RCTScrollView>
+  <View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail">
+      \"lists\"
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail">
+      \"are\"
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail">
+      \"great\"
+    </Text>
+  </View>
+</RCTScrollView>
+`;

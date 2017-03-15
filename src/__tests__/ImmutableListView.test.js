@@ -73,3 +73,27 @@ describe('ImmutableListView with delayed rendering', () => {
     expect(tree).toMatchSnapshot();
   });
 });
+
+describe('ImmutableListView with renderEmpty', () => {
+  it('renders normally when there are some items', () => {
+    const tree = renderer.create(
+      <ImmutableListView
+        immutableData={data.LIST_DATA}
+        renderRow={renderers.renderRow}
+        renderEmpty={() => renderers.renderRow('Empty')}
+      />,
+    );
+    expect(tree.toJSON()).toMatchSnapshot();
+  });
+
+  it('renders empty when there are no items', () => {
+    const tree = renderer.create(
+      <ImmutableListView
+        immutableData={data.EMPTY_DATA}
+        renderRow={renderers.renderRow}
+        renderEmpty={() => renderers.renderRow('Empty')}
+      />,
+    );
+    expect(tree.toJSON()).toMatchSnapshot();
+  });
+});
