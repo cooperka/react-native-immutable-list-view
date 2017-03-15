@@ -44,7 +44,7 @@ class ImmutableListView extends PureComponent {
     rowsDuringInteraction: PropTypes.number,
 
     /**
-     * A function that returns some {@link PropTypes.node} to be rendered when there are no items in the list.
+     * A function that returns some {@link PropTypes.element} to be rendered when there are no items in the list.
      */
     renderEmpty: PropTypes.func,
   };
