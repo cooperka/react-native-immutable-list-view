@@ -136,6 +136,7 @@ class ImmutableListView extends PureComponent {
     // Note: enableEmptySections is being used to mimic the default behavior of the upcoming version.
     return (
       <ListView
+        ref={(c) => { this.nativeListViewRef = c; }}
         dataSource={dataSource}
         enableEmptySections
         {...this.props}
