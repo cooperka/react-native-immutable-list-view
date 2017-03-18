@@ -150,6 +150,7 @@ Check out this example diff:
 ## Props
 
 All the props supported by React Native's `ListView` are simply passed through, and should work exactly the same.
+Methods such as `scrollTo` and `scrollToEnd` are also passed through.
 You can read about them [here](https://facebook.github.io/react-native/docs/listview.html#props).
 
 You can fully customize the look of your list by implementing [`renderRow`](https://facebook.github.io/react-native/docs/listview.html#renderrow)
