@@ -1,18 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`EmptyListView renders with custom renderRow 1`] = `
-<RCTScrollView>
+<RCTScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": 1,
+    }
+  }
+  emptyText="Nothing. Nothing at all."
+  enableEmptySections={true}
+  immutableData={
+    Array [
+      "",
+    ]
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
+  stickyHeaderIndices={Array []}
+  stickySectionHeadersEnabled={true}
+>
   <View>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      \"Overridden!\"
+      ellipsizeMode="tail"
+    >
+      "Overridden!"
     </Text>
   </View>
 </RCTScrollView>
 `;
 
 exports[`EmptyListView renders with custom text 1`] = `
-<RCTScrollView>
+<RCTScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": 1,
+    }
+  }
+  emptyText="Nothing. Nothing at all."
+  enableEmptySections={true}
+  immutableData={
+    Array [
+      "",
+    ]
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
+  stickyHeaderIndices={Array []}
+  stickySectionHeadersEnabled={true}
+>
   <View>
     <View
       style={
@@ -20,7 +83,8 @@ exports[`EmptyListView renders with custom text 1`] = `
           "alignItems": "center",
           "justifyContent": "center",
         }
-      }>
+      }
+    >
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -30,7 +94,8 @@ exports[`EmptyListView renders with custom text 1`] = `
             "fontSize": 14,
             "margin": 12,
           }
-        }>
+        }
+      >
         Nothing. Nothing at all.
       </Text>
     </View>
@@ -39,7 +104,37 @@ exports[`EmptyListView renders with custom text 1`] = `
 `;
 
 exports[`EmptyListView renders with default text 1`] = `
-<RCTScrollView>
+<RCTScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": 1,
+    }
+  }
+  emptyText="No data."
+  enableEmptySections={true}
+  immutableData={
+    Array [
+      "",
+    ]
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
+  stickyHeaderIndices={Array []}
+  stickySectionHeadersEnabled={true}
+>
   <View>
     <View
       style={
@@ -47,7 +142,8 @@ exports[`EmptyListView renders with default text 1`] = `
           "alignItems": "center",
           "justifyContent": "center",
         }
-      }>
+      }
+    >
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -57,7 +153,8 @@ exports[`EmptyListView renders with default text 1`] = `
             "fontSize": 14,
             "margin": 12,
           }
-        }>
+        }
+      >
         No data.
       </Text>
     </View>

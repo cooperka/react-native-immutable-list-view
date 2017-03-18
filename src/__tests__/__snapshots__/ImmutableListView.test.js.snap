@@ -1,126 +1,272 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`ImmutableListView renders Map: List rows, with section headers 1`] = `
-<RCTScrollView>
+<RCTScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": NaN,
+    }
+  }
+  enableEmptySections={true}
+  immutableData={
+    Object {
+      "first": Array [
+        "m",
+        "a",
+        "p",
+      ],
+      "fourth": Array [
+        "bar",
+      ],
+      "second": Array [
+        "foo",
+      ],
+      "third": Array [],
+    }
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  renderSectionHeader={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
+  stickyHeaderIndices={
+    Array [
+      0,
+      4,
+      6,
+      7,
+    ]
+  }
+  stickySectionHeadersEnabled={true}
+>
   <View>
     <Text
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
-      header={true}>
+      header={true}
+    >
       first (3 items)
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      \"m\"
-    </Text>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail">
-      \"a\"
-    </Text>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail">
-      \"p\"
+      ellipsizeMode="tail"
+    >
+      "m"
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
-      header={true}>
+    >
+      "a"
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      "p"
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      header={true}
+    >
       second (1 items)
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      \"foo\"
+      ellipsizeMode="tail"
+    >
+      "foo"
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
-      header={true}>
+      header={true}
+    >
       third (0 items)
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
-      header={true}>
+      header={true}
+    >
       fourth (1 items)
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      \"bar\"
+      ellipsizeMode="tail"
+    >
+      "bar"
     </Text>
   </View>
 </RCTScrollView>
 `;
 
 exports[`ImmutableListView renders Map: List rows, without section headers 1`] = `
-<RCTScrollView>
+<RCTScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": 4,
+    }
+  }
+  enableEmptySections={true}
+  immutableData={
+    Object {
+      "first": Array [
+        "m",
+        "a",
+        "p",
+      ],
+      "fourth": Array [
+        "bar",
+      ],
+      "second": Array [
+        "foo",
+      ],
+      "third": Array [],
+    }
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
+  stickyHeaderIndices={Array []}
+  stickySectionHeadersEnabled={true}
+>
   <View>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      [\"m\",\"a\",\"p\"]
+      ellipsizeMode="tail"
+    >
+      ["m","a","p"]
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      [\"foo\"]
+      ellipsizeMode="tail"
+    >
+      ["foo"]
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
+      ellipsizeMode="tail"
+    >
       []
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      [\"bar\"]
+      ellipsizeMode="tail"
+    >
+      ["bar"]
     </Text>
   </View>
 </RCTScrollView>
 `;
 
 exports[`ImmutableListView renders Map: Map rows, with section headers 1`] = `
-<RCTScrollView>
+<RCTScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": NaN,
+    }
+  }
+  enableEmptySections={true}
+  immutableData={
+    Object {
+      "first": Object {
+        "row1": "data 1",
+        "row2": "data 2",
+      },
+      "second": Object {},
+    }
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  renderSectionHeader={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
+  stickyHeaderIndices={
+    Array [
+      0,
+      3,
+    ]
+  }
+  stickySectionHeadersEnabled={true}
+>
   <View>
     <Text
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
-      header={true}>
+      header={true}
+    >
       first (2 items)
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      \"data 1\"
-    </Text>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail">
-      \"data 2\"
+      ellipsizeMode="tail"
+    >
+      "data 1"
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
       ellipsizeMode="tail"
-      header={true}>
+    >
+      "data 2"
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      header={true}
+    >
       second (0 items)
     </Text>
   </View>
@@ -128,18 +274,53 @@ exports[`ImmutableListView renders Map: Map rows, with section headers 1`] = `
 `;
 
 exports[`ImmutableListView renders Map: Map rows, without section headers 1`] = `
-<RCTScrollView>
+<RCTScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": 2,
+    }
+  }
+  enableEmptySections={true}
+  immutableData={
+    Object {
+      "first": Object {
+        "row1": "data 1",
+        "row2": "data 2",
+      },
+      "second": Object {},
+    }
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
+  stickyHeaderIndices={Array []}
+  stickySectionHeadersEnabled={true}
+>
   <View>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      {\"row1\":\"data 1\",\"row2\":\"data 2\"}
+      ellipsizeMode="tail"
+    >
+      {"row1":"data 1","row2":"data 2"}
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
+      ellipsizeMode="tail"
+    >
       {}
     </Text>
   </View>
@@ -147,49 +328,117 @@ exports[`ImmutableListView renders Map: Map rows, without section headers 1`] = 
 `;
 
 exports[`ImmutableListView renders basic List 1`] = `
-<RCTScrollView>
+<RCTScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": 3,
+    }
+  }
+  enableEmptySections={true}
+  immutableData={
+    Array [
+      "lists",
+      "are",
+      "great",
+    ]
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
+  stickyHeaderIndices={Array []}
+  stickySectionHeadersEnabled={true}
+>
   <View>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      \"lists\"
+      ellipsizeMode="tail"
+    >
+      "lists"
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      \"are\"
+      ellipsizeMode="tail"
+    >
+      "are"
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      \"great\"
+      ellipsizeMode="tail"
+    >
+      "great"
     </Text>
   </View>
 </RCTScrollView>
 `;
 
 exports[`ImmutableListView renders basic Range 1`] = `
-<RCTScrollView>
+<RCTScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": 3,
+    }
+  }
+  enableEmptySections={true}
+  immutableData={
+    Array [
+      3,
+      6,
+      9,
+    ]
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
+  stickyHeaderIndices={Array []}
+  stickySectionHeadersEnabled={true}
+>
   <View>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
+      ellipsizeMode="tail"
+    >
       3
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
+      ellipsizeMode="tail"
+    >
       6
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
+      ellipsizeMode="tail"
+    >
       9
     </Text>
   </View>
@@ -197,88 +446,253 @@ exports[`ImmutableListView renders basic Range 1`] = `
 `;
 
 exports[`ImmutableListView renders basic Set 1`] = `
-<RCTScrollView>
+<RCTScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": 3,
+    }
+  }
+  enableEmptySections={true}
+  immutableData={
+    Array [
+      "one",
+      "two",
+      "three",
+    ]
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
+  stickyHeaderIndices={Array []}
+  stickySectionHeadersEnabled={true}
+>
   <View>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      \"one\"
+      ellipsizeMode="tail"
+    >
+      "one"
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      \"two\"
+      ellipsizeMode="tail"
+    >
+      "two"
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      \"three\"
+      ellipsizeMode="tail"
+    >
+      "three"
     </Text>
   </View>
 </RCTScrollView>
 `;
 
 exports[`ImmutableListView renders nested List 1`] = `
-<RCTScrollView>
+<RCTScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": 2,
+    }
+  }
+  enableEmptySections={true}
+  immutableData={
+    Array [
+      Array [
+        "so",
+        "are",
+      ],
+      Array [
+        "nested",
+        "lists",
+      ],
+    ]
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
+  stickyHeaderIndices={Array []}
+  stickySectionHeadersEnabled={true}
+>
   <View>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      [\"so\",\"are\"]
+      ellipsizeMode="tail"
+    >
+      ["so","are"]
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      [\"nested\",\"lists\"]
+      ellipsizeMode="tail"
+    >
+      ["nested","lists"]
     </Text>
   </View>
 </RCTScrollView>
 `;
 
 exports[`ImmutableListView renders with empty data 1`] = `
-<RCTScrollView>
+<RCTScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": 0,
+    }
+  }
+  enableEmptySections={true}
+  immutableData={Array []}
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
+  stickyHeaderIndices={Array []}
+  stickySectionHeadersEnabled={true}
+>
   <View />
 </RCTScrollView>
 `;
 
 exports[`ImmutableListView with delayed rendering renders basic List after interactions 1`] = `
-<RCTScrollView>
+<RCTScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": 3,
+    }
+  }
+  enableEmptySections={true}
+  immutableData={
+    Array [
+      "lists",
+      "are",
+      "great",
+    ]
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  rowsDuringInteraction={1}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
+  stickyHeaderIndices={Array []}
+  stickySectionHeadersEnabled={true}
+>
   <View>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      \"lists\"
+      ellipsizeMode="tail"
+    >
+      "lists"
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      \"are\"
+      ellipsizeMode="tail"
+    >
+      "are"
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      \"great\"
+      ellipsizeMode="tail"
+    >
+      "great"
     </Text>
   </View>
 </RCTScrollView>
 `;
 
 exports[`ImmutableListView with delayed rendering renders basic List during interactions 1`] = `
-<RCTScrollView>
+<RCTScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": 1,
+    }
+  }
+  enableEmptySections={true}
+  immutableData={
+    Array [
+      "lists",
+      "are",
+      "great",
+    ]
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  rowsDuringInteraction={1}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
+  stickyHeaderIndices={Array []}
+  stickySectionHeadersEnabled={true}
+>
   <View>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      \"lists\"
+      ellipsizeMode="tail"
+    >
+      "lists"
     </Text>
   </View>
 </RCTScrollView>
@@ -288,31 +702,67 @@ exports[`ImmutableListView with renderEmpty renders empty when there are no item
 <Text
   accessible={true}
   allowFontScaling={true}
-  ellipsizeMode="tail">
-  \"Empty\"
+  ellipsizeMode="tail"
+>
+  "Empty"
 </Text>
 `;
 
 exports[`ImmutableListView with renderEmpty renders normally when there are some items 1`] = `
-<RCTScrollView>
+<RCTScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": 3,
+    }
+  }
+  enableEmptySections={true}
+  immutableData={
+    Array [
+      "lists",
+      "are",
+      "great",
+    ]
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderEmpty={[Function]}
+  renderRow={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
+  stickyHeaderIndices={Array []}
+  stickySectionHeadersEnabled={true}
+>
   <View>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      \"lists\"
+      ellipsizeMode="tail"
+    >
+      "lists"
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      \"are\"
+      ellipsizeMode="tail"
+    >
+      "are"
     </Text>
     <Text
       accessible={true}
       allowFontScaling={true}
-      ellipsizeMode="tail">
-      \"great\"
+      ellipsizeMode="tail"
+    >
+      "great"
     </Text>
   </View>
 </RCTScrollView>

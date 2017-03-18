@@ -1,31 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`ImmutableVirtualizedList renders basic List 1`] = `
-<RCTScrollView>
+<RCTScrollView
+  data={
+    Array [
+      "lists",
+      "are",
+      "great",
+    ]
+  }
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  immutableData={
+    Array [
+      "lists",
+      "are",
+      "great",
+    ]
+  }
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReached={[Function]}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  removeClippedSubviews={true}
+  renderItem={[Function]}
+  renderScrollComponent={[Function]}
+  scrollEventThrottle={50}
+  shouldItemUpdate={[Function]}
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+>
   <View>
     <View
-      onLayout={[Function]}>
+      onLayout={[Function]}
+    >
       <Text
         accessible={true}
         allowFontScaling={true}
-        ellipsizeMode="tail">
-        \"lists\"
+        ellipsizeMode="tail"
+      >
+        "lists"
       </Text>
     </View>
     <View
-      onLayout={[Function]}>
+      onLayout={[Function]}
+    >
       <Text
         accessible={true}
         allowFontScaling={true}
-        ellipsizeMode="tail">
-        \"are\"
+        ellipsizeMode="tail"
+      >
+        "are"
       </Text>
     </View>
     <View
-      onLayout={[Function]}>
+      onLayout={[Function]}
+    >
       <Text
         accessible={true}
         allowFontScaling={true}
-        ellipsizeMode="tail">
-        \"great\"
+        ellipsizeMode="tail"
+      >
+        "great"
       </Text>
     </View>
   </View>
@@ -33,32 +76,73 @@ exports[`ImmutableVirtualizedList renders basic List 1`] = `
 `;
 
 exports[`ImmutableVirtualizedList renders basic Range 1`] = `
-<RCTScrollView>
+<RCTScrollView
+  data={
+    Array [
+      3,
+      6,
+      9,
+    ]
+  }
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  immutableData={
+    Array [
+      3,
+      6,
+      9,
+    ]
+  }
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReached={[Function]}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  removeClippedSubviews={true}
+  renderItem={[Function]}
+  renderScrollComponent={[Function]}
+  scrollEventThrottle={50}
+  shouldItemUpdate={[Function]}
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+>
   <View>
     <View
-      onLayout={[Function]}>
+      onLayout={[Function]}
+    >
       <Text
         accessible={true}
         allowFontScaling={true}
-        ellipsizeMode="tail">
+        ellipsizeMode="tail"
+      >
         3
       </Text>
     </View>
     <View
-      onLayout={[Function]}>
+      onLayout={[Function]}
+    >
       <Text
         accessible={true}
         allowFontScaling={true}
-        ellipsizeMode="tail">
+        ellipsizeMode="tail"
+      >
         6
       </Text>
     </View>
     <View
-      onLayout={[Function]}>
+      onLayout={[Function]}
+    >
       <Text
         accessible={true}
         allowFontScaling={true}
-        ellipsizeMode="tail">
+        ellipsizeMode="tail"
+      >
         9
       </Text>
     </View>
@@ -67,24 +151,73 @@ exports[`ImmutableVirtualizedList renders basic Range 1`] = `
 `;
 
 exports[`ImmutableVirtualizedList renders nested List 1`] = `
-<RCTScrollView>
+<RCTScrollView
+  data={
+    Array [
+      Array [
+        "so",
+        "are",
+      ],
+      Array [
+        "nested",
+        "lists",
+      ],
+    ]
+  }
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  immutableData={
+    Array [
+      Array [
+        "so",
+        "are",
+      ],
+      Array [
+        "nested",
+        "lists",
+      ],
+    ]
+  }
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReached={[Function]}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  removeClippedSubviews={true}
+  renderItem={[Function]}
+  renderScrollComponent={[Function]}
+  scrollEventThrottle={50}
+  shouldItemUpdate={[Function]}
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+>
   <View>
     <View
-      onLayout={[Function]}>
+      onLayout={[Function]}
+    >
       <Text
         accessible={true}
         allowFontScaling={true}
-        ellipsizeMode="tail">
-        [\"so\",\"are\"]
+        ellipsizeMode="tail"
+      >
+        ["so","are"]
       </Text>
     </View>
     <View
-      onLayout={[Function]}>
+      onLayout={[Function]}
+    >
       <Text
         accessible={true}
         allowFontScaling={true}
-        ellipsizeMode="tail">
-        [\"nested\",\"lists\"]
+        ellipsizeMode="tail"
+      >
+        ["nested","lists"]
       </Text>
     </View>
   </View>
@@ -92,7 +225,30 @@ exports[`ImmutableVirtualizedList renders nested List 1`] = `
 `;
 
 exports[`ImmutableVirtualizedList renders with empty data 1`] = `
-<RCTScrollView>
+<RCTScrollView
+  data={Array []}
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  immutableData={Array []}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReached={[Function]}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  removeClippedSubviews={true}
+  renderItem={[Function]}
+  renderScrollComponent={[Function]}
+  scrollEventThrottle={50}
+  shouldItemUpdate={[Function]}
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+>
   <View />
 </RCTScrollView>
 `;
