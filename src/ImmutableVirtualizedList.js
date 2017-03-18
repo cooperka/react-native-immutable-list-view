@@ -36,11 +36,32 @@ class ImmutableVirtualizedList extends PureComponent {
     },
   };
 
+  scrollToEnd(...args) {
+    return this.virtualizedListRef && this.virtualizedListRef.scrollToEnd(...args);
+  }
+
+  scrollToIndex(...args) {
+    return this.virtualizedListRef && this.virtualizedListRef.scrollToIndex(...args);
+  }
+
+  scrollToItem(...args) {
+    return this.virtualizedListRef && this.virtualizedListRef.scrollToItem(...args);
+  }
+
+  scrollToOffset(...args) {
+    return this.virtualizedListRef && this.virtualizedListRef.scrollToOffset(...args);
+  }
+
+  recordInteraction(...args) {
+    return this.virtualizedListRef && this.virtualizedListRef.recordInteraction(...args);
+  }
+
   render() {
     const { immutableData } = this.props;
 
     return (
       <VirtualizedList
+        ref={(virtualizedList) => { this.virtualizedListRef = virtualizedList; }}
         data={immutableData}
         getItem={(items, index) => utils.getValueFromKey(index, items)}
         getItemCount={(items) => (items.size || items.length || 0)}
