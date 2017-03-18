@@ -49,7 +49,7 @@ const utils = {
    * @returns {*} The value at the given key, whether the data is Immutable or not.
    */
   getValueFromKey(key, data) {
-    return (typeof data.get === 'function') ? data.get(key) : data[key];
+    return data.get ? data.get(key) : data[key];
   },
 
 };
