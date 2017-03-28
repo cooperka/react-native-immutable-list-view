@@ -33,7 +33,7 @@ exports[`ImmutableVirtualizedList renders basic List 1`] = `
   renderItem={[Function]}
   renderScrollComponent={[Function]}
   scrollEventThrottle={50}
-  shouldItemUpdate={[Function]}
+  stickyHeaderIndices={Array []}
   updateCellsBatchingPeriod={50}
   windowSize={21}
 >
@@ -108,7 +108,7 @@ exports[`ImmutableVirtualizedList renders basic Range 1`] = `
   renderItem={[Function]}
   renderScrollComponent={[Function]}
   scrollEventThrottle={50}
-  shouldItemUpdate={[Function]}
+  stickyHeaderIndices={Array []}
   updateCellsBatchingPeriod={50}
   windowSize={21}
 >
@@ -193,7 +193,7 @@ exports[`ImmutableVirtualizedList renders nested List 1`] = `
   renderItem={[Function]}
   renderScrollComponent={[Function]}
   scrollEventThrottle={50}
-  shouldItemUpdate={[Function]}
+  stickyHeaderIndices={Array []}
   updateCellsBatchingPeriod={50}
   windowSize={21}
 >
@@ -245,7 +245,7 @@ exports[`ImmutableVirtualizedList renders with empty data 1`] = `
   renderItem={[Function]}
   renderScrollComponent={[Function]}
   scrollEventThrottle={50}
-  shouldItemUpdate={[Function]}
+  stickyHeaderIndices={Array []}
   updateCellsBatchingPeriod={50}
   windowSize={21}
 >

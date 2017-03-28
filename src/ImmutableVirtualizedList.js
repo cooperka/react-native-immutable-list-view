@@ -5,7 +5,7 @@ import React, { PureComponent } from 'react';
 // See the README for instructions.
 //
 // eslint-disable-next-line import/no-unresolved, import/extensions
-import VirtualizedList from 'react-native/Libraries/CustomComponents/Lists/VirtualizedList';
+import VirtualizedList from 'react-native/Libraries/Lists/VirtualizedList';
 
 import utils from './utils';
 
