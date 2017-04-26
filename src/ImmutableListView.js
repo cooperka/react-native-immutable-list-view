@@ -146,11 +146,14 @@ class ImmutableListView extends PureComponent {
     }
 
     // Note: enableEmptySections is being used to mimic the default behavior of the upcoming version.
+    // Note: removeClippedSubviews is disabled to work around a long-standing bug:
+    //   https://github.com/facebook/react-native/issues/1831
     return (
       <ListView
         ref={(listView) => { this.listViewRef = listView; }}
         dataSource={dataSource}
         enableEmptySections
+        removeClippedSubviews={false}
         {...this.props}
       />
     );
