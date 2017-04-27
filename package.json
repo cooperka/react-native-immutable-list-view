@@ -50,7 +50,7 @@
   },
   "homepage": "https://github.com/cooperka/react-native-immutable-list-view#readme",
   "peerDependencies": {
-    "react": ">=15.1",
+    "react": ">=15.1 || >=16.0.0-alpha.6",
     "react-native": ">=0.28"
   },
   "dependencies": {
