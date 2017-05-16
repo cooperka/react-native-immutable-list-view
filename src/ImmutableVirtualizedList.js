@@ -43,14 +43,14 @@ class ImmutableVirtualizedList extends PureComponent {
    */
   getScrollResponder() {
     if (this.virtualizedListRef && this.virtualizedListRef.getScrollResponder) {
-      return this.virtualizedListRef.getScrollResponder();
+      return this.listViewRef.getScrollResponder();
     }
     return null;
   }
 
   getScrollableNode() {
     if (this.virtualizedListRef && this.virtualizedListRef.getScrollableNode) {
-      return this.virtualizedListRef.getScrollableNode();
+      return this.listViewRef.getScrollableNode();
     }
     return null;
   }
