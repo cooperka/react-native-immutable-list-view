@@ -36,25 +36,6 @@ class ImmutableVirtualizedList extends PureComponent {
     },
   };
 
-  /**
-   * Provides a handle to the underlying scroll responder.
-   * Note that `this.virtualizedListRef` might not be a `ScrollView`, so we
-   * need to check that it responds to `getScrollResponder` before calling it.
-   */
-  getScrollResponder() {
-    if (this.virtualizedListRef && this.virtualizedListRef.getScrollResponder) {
-      return this.listViewRef.getScrollResponder();
-    }
-    return null;
-  }
-
-  getScrollableNode() {
-    if (this.virtualizedListRef && this.virtualizedListRef.getScrollableNode) {
-      return this.listViewRef.getScrollableNode();
-    }
-    return null;
-  }
-
   scrollToEnd(...args) {
     return this.virtualizedListRef && this.virtualizedListRef.scrollToEnd(...args);
   }

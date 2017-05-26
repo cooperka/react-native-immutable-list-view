@@ -87,38 +87,6 @@ class ImmutableListView extends PureComponent {
     this.canSetState = false;
   }
 
-  setNativeProps(props) {
-    if (this.listViewRef && this.listViewRef.setNativeProps) {
-      this.listViewRef.setNativeProps(props);
-    }
-  }
-
-  getInnerViewNode() {
-    if (this.listViewRef && this.listViewRef.getInnerViewNode) {
-      return this.listViewRef.getInnerViewNode();
-    }
-    return null;
-  }
-
-  /**
-   * Provides a handle to the underlying scroll responder.
-   * Note that `this.listViewRef` might not be a `ScrollView`, so we
-   * need to check that it responds to `getScrollResponder` before calling it.
-   */
-  getScrollResponder() {
-    if (this.listViewRef && this.listViewRef.getScrollResponder) {
-      return this.listViewRef.getScrollResponder();
-    }
-    return null;
-  }
-
-  getScrollableNode() {
-    if (this.listViewRef && this.listViewRef.getScrollableNode) {
-      return this.listViewRef.getScrollableNode();
-    }
-    return null;
-  }
-
   setStateFromPropsAfterInteraction(props) {
     // Always set state right away before the interaction.
     this.setStateFromProps(props, false);
