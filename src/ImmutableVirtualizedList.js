@@ -56,6 +56,10 @@ class ImmutableVirtualizedList extends PureComponent {
     return this.virtualizedListRef && this.virtualizedListRef.recordInteraction(...args);
   }
 
+  getVirtualizedList() {
+    return this.virtualizedListRef;
+  }
+
   render() {
     const { immutableData } = this.props;
 

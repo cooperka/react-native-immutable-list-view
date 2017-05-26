@@ -137,6 +137,10 @@ class ImmutableListView extends PureComponent {
     return this.listViewRef && this.listViewRef.scrollToEnd(...args);
   }
 
+  getListView() {
+    return this.listViewRef;
+  }
+
   render() {
     const { dataSource } = this.state;
     const { immutableData, renderEmpty } = this.props;
