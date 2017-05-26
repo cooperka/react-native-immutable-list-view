@@ -165,6 +165,18 @@ Here are the additional props that `ImmutableListView` accepts:
 | `sectionHeaderHasChanged` | `func` | `(prevSectionData, nextSectionData) => false` | Only needed if your section header is dependent on your row data (uncommon; see [`ListViewDataSource`'s constructor](https://facebook.github.io/react-native/docs/listviewdatasource.html#constructor) for details). |
 | `renderEmpty` | `func` | `(originalProps) => `[`React.PropTypes.element`](https://facebook.github.io/react/docs/typechecking-with-proptypes.html#react.proptypes) | If your data is empty (e.g. `null`, `[]`, `{}`) and this prop is defined, then the result of this function will be rendered instead. For example, you can use the [`EmptyListView` component](#emptylistview) for this. |
 
+## Functions
+
+The references of ListView and VirtualizedList are available with two functions:
+
+- `getListView` and `getVirtualizedList`
+
+Theses references will allow you to access to all functions of the mother component like:
+
+| ListView | VirtualizedList |
+|-----------|-----------|
+| `setNativeProps`, `getInnerViewNode`, `getScrollResponder`, `getScrollableNode` | `getScrollResponder`, `getScrollableNode`|
+
 ## How to format your data
 
 `ImmutableListView` accepts several [standard formats](https://facebook.github.io/react-native/releases/0.37/docs/listviewdatasource.html#constructor)
