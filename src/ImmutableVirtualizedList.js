@@ -36,6 +36,10 @@ class ImmutableVirtualizedList extends PureComponent {
     },
   };
 
+  getVirtualizedList() {
+    return this.virtualizedListRef;
+  }
+
   scrollToEnd(...args) {
     return this.virtualizedListRef && this.virtualizedListRef.scrollToEnd(...args);
   }
@@ -54,10 +58,6 @@ class ImmutableVirtualizedList extends PureComponent {
 
   recordInteraction(...args) {
     return this.virtualizedListRef && this.virtualizedListRef.recordInteraction(...args);
-  }
-
-  getVirtualizedList() {
-    return this.virtualizedListRef;
   }
 
   render() {
