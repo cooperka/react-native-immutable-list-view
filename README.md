@@ -171,11 +171,7 @@ The references of ListView and VirtualizedList are available with two functions:
 
 - `getListView` and `getVirtualizedList`
 
-Theses references will allow you to access to all functions of the mother component like:
-
-| ListView | VirtualizedList |
-|-----------|-----------|
-| `setNativeProps`, `getInnerViewNode`, `getScrollResponder`, `getScrollableNode` | `getScrollResponder`, `getScrollableNode`|
+These references allow you to access any other methods on the List component that you might need.
 
 ## How to format your data
 
