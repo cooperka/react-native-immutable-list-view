@@ -125,6 +125,10 @@ class ImmutableListView extends PureComponent {
     });
   }
 
+  getListView() {
+    return this.listViewRef;
+  }
+
   getMetrics(...args) {
     return this.listViewRef && this.listViewRef.getMetrics(...args);
   }
