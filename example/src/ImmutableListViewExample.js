@@ -33,7 +33,11 @@ class ImmutableListViewExample extends Component {
   }
 
   renderSectionHeader(sectionData, category) {
-    return <Text style={style.listHeader}>{category}</Text>;
+    return (
+      <View>
+        <Text style={style.listHeader}>{category}</Text>
+      </View>
+    );
   }
 
   render() {
