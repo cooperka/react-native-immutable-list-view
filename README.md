@@ -8,7 +8,7 @@
 A drop-in replacement for React Native's [`ListView`](https://facebook.github.io/react-native/docs/listview.html).
 
 :sparkles: NEW! It also supports the new `VirtualizedList` component (the underlying component used by `FlatList`) as of `v0.3.0`;
-see the [instructions at the bottom](#immutablevirtualizedlist) for more details.
+see the [instructions at the bottom](#immutablevirtualizedlist) for more details and version requirements.
 
 ![ImmutableListView screenshot](example/screenshots/listview-cropped.png "ImmutableListView screenshot")
 
@@ -270,7 +270,19 @@ This is the underlying component that `FlatList` uses.
 There's a [Medium article about it](https://medium.com/@cooperka/react-native-new-flatlist-component-30db558c7a5b) if you'd like more context.
 The short version of the setup instructions is below:
 
-1. Download the required files into your app's `node_modules` (since these components aren't published in a release quite yet):
+#### With React Native v0.43
+
+1. Make sure you're using `v0.5.x` of this library
+2. Import the component:
+
+    ```js
+    import { ImmutableVirtualizedList } from 'react-native-immutable-list-view';
+    ```
+
+#### With React Native v0.42 or less
+
+1. Make sure you're using `v0.4.x` of this library
+2. Download the required files into your app's `node_modules` (since these components aren't published in a release quite yet):
 
     https://gist.github.com/cooperka/c5dd3ab11f588044d4d6ba22d52c4ab0
 
@@ -280,13 +292,15 @@ The short version of the setup instructions is below:
     npm run download-flatlist
     ```
 
-2. Import the new component:
+3. Import the component:
 
     ```js
     import ImmutableVirtualizedList from 'react-native-immutable-list-view/lib/ImmutableVirtualizedList';
     ```
 
-3. Render it:
+#### All React Native versions
+
+After following the above steps, simply render it:
 
     ```jsx
     <ImmutableVirtualizedList
