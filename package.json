@@ -19,13 +19,7 @@
     "setupFiles": [
       "./src/__tests__/setup.js"
     ],
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/example/",
-      "/lib/",
-      "/testUtils.js",
-      "/setup.js"
-    ],
+    "testRegex": "/src/.*__tests__/.+\\.test\\.js$",
     "verbose": true
   },
   "repository": {
