@@ -302,12 +302,12 @@ The short version of the setup instructions is below:
 
 After following the above steps, simply render it:
 
-    ```jsx
-    <ImmutableVirtualizedList
-      immutableData={this.state.listData}
-      renderItem={this.renderItem}
-    />
-    ```
+```jsx
+<ImmutableVirtualizedList
+  immutableData={this.state.listData}
+  renderItem={this.renderItem}
+/>
+```
 
 See the [example app](https://github.com/cooperka/react-native-immutable-list-view/tree/master/example) for a working demo,
 or [React Native's `FlatListExample`](https://github.com/facebook/react-native/blob/master/Examples/UIExplorer/js/FlatListExample.js) for an idea of what features are possible.
