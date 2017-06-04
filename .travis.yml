@@ -4,9 +4,6 @@ node_js:
  - "7"
  - "6"
 
-before_script:
- - yarn run download-flatlist
-
 script:
  - yarn test
  - yarn run lint

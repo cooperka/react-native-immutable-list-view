@@ -1,11 +1,6 @@
 import Immutable from 'immutable';
 import React, { PureComponent } from 'react';
-
-// This file and its related dependencies needs to be downloaded into your app's `node_modules`.
-// See the README for instructions.
-//
-// eslint-disable-next-line import/no-unresolved, import/extensions
-import VirtualizedList from 'react-native/Libraries/Lists/VirtualizedList';
+import { VirtualizedList } from 'react-native';
 
 import utils from './utils';
 
