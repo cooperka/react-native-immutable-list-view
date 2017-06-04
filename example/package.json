@@ -9,7 +9,7 @@
   "dependencies": {
     "immutable": "3.8.1",
     "react": "16.0.0-alpha.6",
-    "react-native": "0.43.4",
+    "react-native": "0.44.2",
     "react-native-immutable-list-view": "file:.."
   }
 }
