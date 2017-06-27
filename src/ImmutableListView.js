@@ -141,11 +141,34 @@ class ImmutableListView extends PureComponent {
     return this.listViewRef && this.listViewRef.scrollToEnd(...args);
   }
 
+  isEmptyList() {
+    const { immutableData } = this.props;
+
+    if (!immutableData) {
+      return true;
+    }
+
+    if (Immutable.List.isList(immutableData)) {
+      return immutableData.isEmpty();
+    }
+
+    const keys = immutableData.keySeq().toArray();
+    let empty = true;
+
+    keys.forEach((key) => {
+      if (immutableData.get(key) && !immutableData.get(key).isEmpty()) {
+        empty = false;
+      }
+    });
+
+    return empty;
+  }
+
   render() {
     const { dataSource } = this.state;
-    const { immutableData, renderEmpty } = this.props;
+    const { renderEmpty } = this.props;
 
-    if (renderEmpty && (!immutableData || immutableData.isEmpty())) {
+    if (renderEmpty && this.isEmptyList()) {
       return renderEmpty(this.props);
     }
 
