@@ -141,27 +141,11 @@ class ImmutableListView extends PureComponent {
     return this.listViewRef && this.listViewRef.scrollToEnd(...args);
   }
 
-  /**
-   * Returns true if the data would render as empty in a ListView: that is,
-   * if it either has no items, or only section headers with no section data.
-   */
-  isEmptyListView(immutableData) {
-    if (!immutableData || immutableData.isEmpty()) {
-      return true;
-    }
-
-    if (!Immutable.Map.isMap(immutableData)) {
-      return false;
-    }
-
-    return immutableData.every((item) => !item || item.isEmpty());
-  }
-
   render() {
     const { dataSource } = this.state;
     const { immutableData, renderEmpty } = this.props;
 
-    if (renderEmpty && this.isEmptyListView(immutableData)) {
+    if (renderEmpty && utils.isEmptyListView(immutableData)) {
       return renderEmpty(this.props);
     }
 
