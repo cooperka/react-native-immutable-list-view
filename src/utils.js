@@ -52,6 +52,22 @@ const utils = {
     return data.get ? data.get(key) : data[key];
   },
 
+  /**
+   * Returns true if the data would render as empty in a ListView: that is,
+   * if it either has no items, or only section headers with no section data.
+   */
+  isEmptyListView(immutableData, enableEmptySections) {
+    if (!immutableData || immutableData.isEmpty()) {
+      return true;
+    }
+
+    if (!Immutable.Map.isMap(immutableData) || enableEmptySections) {
+      return false;
+    }
+
+    return immutableData.every((item) => !item || item.isEmpty());
+  },
+
 };
 
 export default utils;

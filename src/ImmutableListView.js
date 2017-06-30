@@ -55,6 +55,13 @@ class ImmutableListView extends PureComponent {
     // The data contained in the section generally doesn't affect the header text, so return false.
     // eslint-disable-next-line no-unused-vars
     sectionHeaderHasChanged: (prevSectionData, nextSectionData) => false,
+
+    // Note: enableEmptySections is being used to mimic the default behavior of the upcoming version.
+    enableEmptySections: true,
+
+    // Note: removeClippedSubviews is disabled to work around a long-standing bug:
+    //   https://github.com/facebook/react-native/issues/1831
+    removeClippedSubviews: false,
   };
 
   state = {
@@ -143,21 +150,16 @@ class ImmutableListView extends PureComponent {
 
   render() {
     const { dataSource } = this.state;
-    const { immutableData, renderEmpty } = this.props;
+    const { immutableData, enableEmptySections, renderEmpty } = this.props;
 
-    if (renderEmpty && (!immutableData || immutableData.isEmpty())) {
+    if (renderEmpty && utils.isEmptyListView(immutableData, enableEmptySections)) {
       return renderEmpty(this.props);
     }
 
-    // Note: enableEmptySections is being used to mimic the default behavior of the upcoming version.
-    // Note: removeClippedSubviews is disabled to work around a long-standing bug:
-    //   https://github.com/facebook/react-native/issues/1831
     return (
       <ListView
         ref={(listView) => { this.listViewRef = listView; }}
         dataSource={dataSource}
-        enableEmptySections
-        removeClippedSubviews={false}
         {...this.props}
       />
     );
