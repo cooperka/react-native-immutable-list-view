@@ -285,7 +285,7 @@ The short version of the setup instructions is below:
 
     https://gist.github.com/cooperka/c5dd3ab11f588044d4d6ba22d52c4ab0
 
-    or, using the [shell script](https://github.com/cooperka/react-native-immutable-list-view/blob/master/bin/download-flatlist.sh) from this library:
+    or, using the [shell script](https://github.com/cooperka/react-native-immutable-list-view/blob/v0.4.5/bin/download-flatlist.sh) from this library:
 
     ```bash
     npm run download-flatlist
@@ -309,4 +309,4 @@ After following the above steps, simply render it:
 ```
 
 See the [example app](https://github.com/cooperka/react-native-immutable-list-view/tree/master/example) for a working demo,
-or [React Native's `FlatListExample`](https://github.com/facebook/react-native/blob/master/Examples/UIExplorer/js/FlatListExample.js) for an idea of what features are possible.
+or [React Native's `FlatListExample`](https://github.com/facebook/react-native/blob/master/RNTester/js/FlatListExample.js) for an idea of what features are possible.
