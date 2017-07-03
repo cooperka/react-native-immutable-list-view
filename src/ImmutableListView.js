@@ -1,5 +1,6 @@
 import Immutable from 'immutable';
-import React, { PureComponent, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react';
 import { ListView, InteractionManager } from 'react-native';
 
 import utils from './utils';

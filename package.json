@@ -50,7 +50,8 @@
     "react-native": ">=0.28"
   },
   "dependencies": {
-    "immutable": ">=3.8"
+    "immutable": ">=3.8",
+    "prop-types": "^15.5.10"
   },
   "devDependencies": {
     "babel-cli": "6.24.1",
