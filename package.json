@@ -20,6 +20,9 @@
       "./src/__tests__/setup.js"
     ],
     "testRegex": "/src/.*__tests__/.+\\.test\\.js$",
+    "modulePathIgnorePatterns": [
+      "<rootDir>/example/"
+    ],
     "verbose": true
   },
   "repository": {
