@@ -9,19 +9,20 @@ exports[`ImmutableListView renders Map: List rows, with section headers 1`] = `
   }
   enableEmptySections={true}
   immutableData={
-    Object {
-      "first": Array [
+    Immutable.Map {
+      first: Immutable.List [
         "m",
         "a",
         "p",
       ],
-      "fourth": Array [
-        "bar",
-      ],
-      "second": Array [
+      second: Immutable.List [
         "foo",
       ],
-      "third": Array [],
+      third: Immutable.List [
+      ],
+      fourth: Immutable.List [
+        "bar",
+      ],
     }
   }
   initialListSize={10}
@@ -54,6 +55,7 @@ exports[`ImmutableListView renders Map: List rows, with section headers 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
       header={true}
     >
@@ -62,6 +64,7 @@ exports[`ImmutableListView renders Map: List rows, with section headers 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       "m"
@@ -69,6 +72,7 @@ exports[`ImmutableListView renders Map: List rows, with section headers 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       "a"
@@ -76,6 +80,7 @@ exports[`ImmutableListView renders Map: List rows, with section headers 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       "p"
@@ -83,6 +88,7 @@ exports[`ImmutableListView renders Map: List rows, with section headers 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
       header={true}
     >
@@ -91,6 +97,7 @@ exports[`ImmutableListView renders Map: List rows, with section headers 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       "foo"
@@ -98,6 +105,7 @@ exports[`ImmutableListView renders Map: List rows, with section headers 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
       header={true}
     >
@@ -106,6 +114,7 @@ exports[`ImmutableListView renders Map: List rows, with section headers 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
       header={true}
     >
@@ -114,6 +123,7 @@ exports[`ImmutableListView renders Map: List rows, with section headers 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       "bar"
@@ -131,19 +141,20 @@ exports[`ImmutableListView renders Map: List rows, without section headers 1`] =
   }
   enableEmptySections={true}
   immutableData={
-    Object {
-      "first": Array [
+    Immutable.Map {
+      first: Immutable.List [
         "m",
         "a",
         "p",
       ],
-      "fourth": Array [
-        "bar",
-      ],
-      "second": Array [
+      second: Immutable.List [
         "foo",
       ],
-      "third": Array [],
+      third: Immutable.List [
+      ],
+      fourth: Immutable.List [
+        "bar",
+      ],
     }
   }
   initialListSize={10}
@@ -168,6 +179,7 @@ exports[`ImmutableListView renders Map: List rows, without section headers 1`] =
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       ["m","a","p"]
@@ -175,6 +187,7 @@ exports[`ImmutableListView renders Map: List rows, without section headers 1`] =
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       ["foo"]
@@ -182,6 +195,7 @@ exports[`ImmutableListView renders Map: List rows, without section headers 1`] =
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       []
@@ -189,6 +203,7 @@ exports[`ImmutableListView renders Map: List rows, without section headers 1`] =
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       ["bar"]
@@ -206,12 +221,13 @@ exports[`ImmutableListView renders Map: Map rows, with section headers 1`] = `
   }
   enableEmptySections={true}
   immutableData={
-    Object {
-      "first": Object {
-        "row1": "data 1",
-        "row2": "data 2",
+    Immutable.Map {
+      first: Immutable.Map {
+        row1: "data 1",
+        row2: "data 2",
       },
-      "second": Object {},
+      second: Immutable.Map {
+      },
     }
   }
   initialListSize={10}
@@ -242,6 +258,7 @@ exports[`ImmutableListView renders Map: Map rows, with section headers 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
       header={true}
     >
@@ -250,6 +267,7 @@ exports[`ImmutableListView renders Map: Map rows, with section headers 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       "data 1"
@@ -257,6 +275,7 @@ exports[`ImmutableListView renders Map: Map rows, with section headers 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       "data 2"
@@ -264,6 +283,7 @@ exports[`ImmutableListView renders Map: Map rows, with section headers 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
       header={true}
     >
@@ -282,12 +302,13 @@ exports[`ImmutableListView renders Map: Map rows, without section headers 1`] = 
   }
   enableEmptySections={true}
   immutableData={
-    Object {
-      "first": Object {
-        "row1": "data 1",
-        "row2": "data 2",
+    Immutable.Map {
+      first: Immutable.Map {
+        row1: "data 1",
+        row2: "data 2",
       },
-      "second": Object {},
+      second: Immutable.Map {
+      },
     }
   }
   initialListSize={10}
@@ -312,6 +333,7 @@ exports[`ImmutableListView renders Map: Map rows, without section headers 1`] = 
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       {"row1":"data 1","row2":"data 2"}
@@ -319,6 +341,7 @@ exports[`ImmutableListView renders Map: Map rows, without section headers 1`] = 
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       {}
@@ -336,7 +359,7 @@ exports[`ImmutableListView renders basic List 1`] = `
   }
   enableEmptySections={true}
   immutableData={
-    Array [
+    Immutable.List [
       "lists",
       "are",
       "great",
@@ -364,6 +387,7 @@ exports[`ImmutableListView renders basic List 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       "lists"
@@ -371,6 +395,7 @@ exports[`ImmutableListView renders basic List 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       "are"
@@ -378,6 +403,7 @@ exports[`ImmutableListView renders basic List 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       "great"
@@ -423,6 +449,7 @@ exports[`ImmutableListView renders basic Range 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       3
@@ -430,6 +457,7 @@ exports[`ImmutableListView renders basic Range 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       6
@@ -437,6 +465,7 @@ exports[`ImmutableListView renders basic Range 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       9
@@ -454,7 +483,7 @@ exports[`ImmutableListView renders basic Set 1`] = `
   }
   enableEmptySections={true}
   immutableData={
-    Array [
+    Immutable.Set [
       "one",
       "two",
       "three",
@@ -482,6 +511,7 @@ exports[`ImmutableListView renders basic Set 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       "one"
@@ -489,6 +519,7 @@ exports[`ImmutableListView renders basic Set 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       "two"
@@ -496,6 +527,7 @@ exports[`ImmutableListView renders basic Set 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       "three"
@@ -513,7 +545,7 @@ exports[`ImmutableListView renders nested List 1`] = `
   }
   enableEmptySections={true}
   immutableData={
-    Array [
+    Immutable.List [
       Array [
         "so",
         "are",
@@ -546,6 +578,7 @@ exports[`ImmutableListView renders nested List 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       ["so","are"]
@@ -553,6 +586,7 @@ exports[`ImmutableListView renders nested List 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       ["nested","lists"]
@@ -569,7 +603,10 @@ exports[`ImmutableListView renders with empty data 1`] = `
     }
   }
   enableEmptySections={true}
-  immutableData={Array []}
+  immutableData={
+    Immutable.List [
+    ]
+  }
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -601,7 +638,7 @@ exports[`ImmutableListView with delayed rendering renders basic List after inter
   }
   enableEmptySections={true}
   immutableData={
-    Array [
+    Immutable.List [
       "lists",
       "are",
       "great",
@@ -630,6 +667,7 @@ exports[`ImmutableListView with delayed rendering renders basic List after inter
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       "lists"
@@ -637,6 +675,7 @@ exports[`ImmutableListView with delayed rendering renders basic List after inter
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       "are"
@@ -644,6 +683,7 @@ exports[`ImmutableListView with delayed rendering renders basic List after inter
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       "great"
@@ -661,7 +701,7 @@ exports[`ImmutableListView with delayed rendering renders basic List during inte
   }
   enableEmptySections={true}
   immutableData={
-    Array [
+    Immutable.List [
       "lists",
       "are",
       "great",
@@ -690,6 +730,7 @@ exports[`ImmutableListView with delayed rendering renders basic List during inte
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       "lists"
@@ -702,6 +743,7 @@ exports[`ImmutableListView with renderEmpty renders empty when there are no item
 <Text
   accessible={true}
   allowFontScaling={true}
+  disabled={false}
   ellipsizeMode="tail"
 >
   "Empty"
@@ -717,7 +759,7 @@ exports[`ImmutableListView with renderEmpty renders normally when there are some
   }
   enableEmptySections={true}
   immutableData={
-    Array [
+    Immutable.List [
       "lists",
       "are",
       "great",
@@ -746,6 +788,7 @@ exports[`ImmutableListView with renderEmpty renders normally when there are some
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       "lists"
@@ -753,6 +796,7 @@ exports[`ImmutableListView with renderEmpty renders normally when there are some
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       "are"
@@ -760,6 +804,7 @@ exports[`ImmutableListView with renderEmpty renders normally when there are some
     <Text
       accessible={true}
       allowFontScaling={true}
+      disabled={false}
       ellipsizeMode="tail"
     >
       "great"

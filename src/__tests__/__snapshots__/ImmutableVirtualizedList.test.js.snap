@@ -3,7 +3,7 @@
 exports[`ImmutableVirtualizedList renders basic List 1`] = `
 <RCTScrollView
   data={
-    Array [
+    Immutable.List [
       "lists",
       "are",
       "great",
@@ -14,7 +14,7 @@ exports[`ImmutableVirtualizedList renders basic List 1`] = `
   getItemCount={[Function]}
   horizontal={false}
   immutableData={
-    Array [
+    Immutable.List [
       "lists",
       "are",
       "great",
@@ -24,12 +24,12 @@ exports[`ImmutableVirtualizedList renders basic List 1`] = `
   keyExtractor={[Function]}
   maxToRenderPerBatch={10}
   onContentSizeChange={[Function]}
-  onEndReached={[Function]}
   onEndReachedThreshold={2}
   onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
   onScroll={[Function]}
   onScrollBeginDrag={[Function]}
-  removeClippedSubviews={true}
+  onScrollEndDrag={[Function]}
   renderItem={[Function]}
   renderScrollComponent={[Function]}
   scrollEventThrottle={50}
@@ -44,6 +44,7 @@ exports[`ImmutableVirtualizedList renders basic List 1`] = `
       <Text
         accessible={true}
         allowFontScaling={true}
+        disabled={false}
         ellipsizeMode="tail"
       >
         "lists"
@@ -55,6 +56,7 @@ exports[`ImmutableVirtualizedList renders basic List 1`] = `
       <Text
         accessible={true}
         allowFontScaling={true}
+        disabled={false}
         ellipsizeMode="tail"
       >
         "are"
@@ -66,6 +68,7 @@ exports[`ImmutableVirtualizedList renders basic List 1`] = `
       <Text
         accessible={true}
         allowFontScaling={true}
+        disabled={false}
         ellipsizeMode="tail"
       >
         "great"
@@ -99,12 +102,12 @@ exports[`ImmutableVirtualizedList renders basic Range 1`] = `
   keyExtractor={[Function]}
   maxToRenderPerBatch={10}
   onContentSizeChange={[Function]}
-  onEndReached={[Function]}
   onEndReachedThreshold={2}
   onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
   onScroll={[Function]}
   onScrollBeginDrag={[Function]}
-  removeClippedSubviews={true}
+  onScrollEndDrag={[Function]}
   renderItem={[Function]}
   renderScrollComponent={[Function]}
   scrollEventThrottle={50}
@@ -119,6 +122,7 @@ exports[`ImmutableVirtualizedList renders basic Range 1`] = `
       <Text
         accessible={true}
         allowFontScaling={true}
+        disabled={false}
         ellipsizeMode="tail"
       >
         3
@@ -130,6 +134,7 @@ exports[`ImmutableVirtualizedList renders basic Range 1`] = `
       <Text
         accessible={true}
         allowFontScaling={true}
+        disabled={false}
         ellipsizeMode="tail"
       >
         6
@@ -141,6 +146,7 @@ exports[`ImmutableVirtualizedList renders basic Range 1`] = `
       <Text
         accessible={true}
         allowFontScaling={true}
+        disabled={false}
         ellipsizeMode="tail"
       >
         9
@@ -153,7 +159,7 @@ exports[`ImmutableVirtualizedList renders basic Range 1`] = `
 exports[`ImmutableVirtualizedList renders nested List 1`] = `
 <RCTScrollView
   data={
-    Array [
+    Immutable.List [
       Array [
         "so",
         "are",
@@ -169,7 +175,7 @@ exports[`ImmutableVirtualizedList renders nested List 1`] = `
   getItemCount={[Function]}
   horizontal={false}
   immutableData={
-    Array [
+    Immutable.List [
       Array [
         "so",
         "are",
@@ -184,12 +190,12 @@ exports[`ImmutableVirtualizedList renders nested List 1`] = `
   keyExtractor={[Function]}
   maxToRenderPerBatch={10}
   onContentSizeChange={[Function]}
-  onEndReached={[Function]}
   onEndReachedThreshold={2}
   onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
   onScroll={[Function]}
   onScrollBeginDrag={[Function]}
-  removeClippedSubviews={true}
+  onScrollEndDrag={[Function]}
   renderItem={[Function]}
   renderScrollComponent={[Function]}
   scrollEventThrottle={50}
@@ -204,6 +210,7 @@ exports[`ImmutableVirtualizedList renders nested List 1`] = `
       <Text
         accessible={true}
         allowFontScaling={true}
+        disabled={false}
         ellipsizeMode="tail"
       >
         ["so","are"]
@@ -215,6 +222,7 @@ exports[`ImmutableVirtualizedList renders nested List 1`] = `
       <Text
         accessible={true}
         allowFontScaling={true}
+        disabled={false}
         ellipsizeMode="tail"
       >
         ["nested","lists"]
@@ -226,22 +234,28 @@ exports[`ImmutableVirtualizedList renders nested List 1`] = `
 
 exports[`ImmutableVirtualizedList renders with empty data 1`] = `
 <RCTScrollView
-  data={Array []}
+  data={
+    Immutable.List [
+    ]
+  }
   disableVirtualization={false}
   getItem={[Function]}
   getItemCount={[Function]}
   horizontal={false}
-  immutableData={Array []}
+  immutableData={
+    Immutable.List [
+    ]
+  }
   initialNumToRender={10}
   keyExtractor={[Function]}
   maxToRenderPerBatch={10}
   onContentSizeChange={[Function]}
-  onEndReached={[Function]}
   onEndReachedThreshold={2}
   onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
   onScroll={[Function]}
   onScrollBeginDrag={[Function]}
-  removeClippedSubviews={true}
+  onScrollEndDrag={[Function]}
   renderItem={[Function]}
   renderScrollComponent={[Function]}
   scrollEventThrottle={50}
