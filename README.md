@@ -15,7 +15,18 @@ see the [instructions at the bottom](#immutablevirtualizedlist) for more details
 It supports [Immutable](https://facebook.github.io/immutable-js/) data out-of-the-box to give you
 faster performance and less headaches.
 
-## Code
+## Motivation
+
+- Do you find yourself re-implementing `rowHasChanged` and saving `dataSource` to your state over and over?
+- Do you use Immutable data, only to write wrappers for data access in order to use them with a ListView?
+- Do you listen for lifecycle events simply so you can update `dataSource` -- and thus you can't easily use pure functional components with lists?
+- Do you have nested objects in your state so a shallow diff won't cut it for pure rendering?
+- Do you use a navigator and want better performance while animating?
+
+If you answered yes to ANY of these questions, this project will surely help.
+Check out the [examples](https://github.com/cooperka/react-native-immutable-list-view#how-to-format-your-data) below!
+
+## How it works
 
 ```jsx
 <ImmutableListView
@@ -45,18 +56,16 @@ The second list is even simpler:
 Immutable.Range(1, 100)
 ```
 
-## Motivation
+It supports all the props of React Native's [`ListView`](https://facebook.github.io/react-native/docs/listview.html#props),
+but instead of passing in a `dataSource`, you pass in a prop called `immutableData`.
 
-- Do you find yourself re-implementing `rowHasChanged` and saving `dataSource` to your state over and over?
-- Do you use Immutable data, only to write wrappers for data access in order to use them with a ListView?
-- Do you listen for lifecycle events simply so you can update `dataSource` -- and thus you can't easily use pure functional components with lists?
-- Do you have nested objects in your state so a shallow diff won't cut it for pure rendering?
-- Do you use a navigator and want better performance while animating?
+This prop is just the raw data you'd like to display -- `ImmutableListView` will handle creating an efficient `dataSource` for you.
+Other than this small change, everything else will be exactly the same as `ListView`.
 
-If you answered yes to ANY of these questions, this project will surely help.
-Check out the [examples](https://github.com/cooperka/react-native-immutable-list-view#how-to-format-your-data) below!
+There's an example app [here](https://github.com/cooperka/react-native-immutable-list-view/tree/master/example)
+if you'd like to see it in action.
 
-## Usage
+## Installation
 
 1. Install:
     - Using [npm](https://www.npmjs.com/#getting-started): `npm install react-native-immutable-list-view --save`
@@ -67,15 +76,6 @@ Check out the [examples](https://github.com/cooperka/react-native-immutable-list
     ```js
     import ImmutableListView from 'react-native-immutable-list-view';
     ```
-
-It supports all the props of React Native's [`ListView`](https://facebook.github.io/react-native/docs/listview.html#props),
-but instead of passing in a `dataSource`, you should should pass in a prop called `immutableData`.
-
-This prop is just the raw data you'd like to display -- `ImmutableListView` will handle creating an efficient `dataSource` for you.
-Other than this small change, everything else will be exactly the same as `ListView`.
-
-There's an example app [here](https://github.com/cooperka/react-native-immutable-list-view/tree/master/example)
-if you'd like to see it in action.
 
 ## Example Usage
 
@@ -147,10 +147,9 @@ Check out this example diff:
 }
 ```
 
-## Props
+## Customization
 
 All the props supported by React Native's `ListView` are simply passed through, and should work exactly the same.
-Methods such as `scrollTo` and `scrollToEnd` are also passed through.
 You can read about them [here](https://facebook.github.io/react-native/docs/listview.html#props).
 
 You can fully customize the look of your list by implementing [`renderRow`](https://facebook.github.io/react-native/docs/listview.html#renderrow)
@@ -165,12 +164,12 @@ Here are the additional props that `ImmutableListView` accepts:
 | `sectionHeaderHasChanged` | `func` | `(prevSectionData, nextSectionData) => false` | Only needed if your section header is dependent on your row data (uncommon; see [`ListViewDataSource`'s constructor](https://facebook.github.io/react-native/docs/listviewdatasource.html#constructor) for details). |
 | `renderEmpty` | `func` | `(originalProps) => `[`React.PropTypes.element`](https://facebook.github.io/react/docs/typechecking-with-proptypes.html#react.proptypes) | If your data is empty (e.g. `null`, `[]`, `{}`) and this prop is defined, then the result of this function will be rendered instead. For example, you can use the [`EmptyListView` component](#emptylistview) for this. |
 
-## Functions
+## Methods
 
-The references of ListView and VirtualizedList are available with two functions:
+Methods such as `scrollTo` and `scrollToEnd` are passed through just like the props described above.
+You can read about them [here](https://facebook.github.io/react-native/docs/listview.html#methods).
 
-- `getListView` and `getVirtualizedList`
-
+The references to `ListView` and `VirtualizedList` are available via `getListView()` and `getVirtualizedList()`.
 These references allow you to access any other methods on the List component that you might need.
 
 ## How to format your data
