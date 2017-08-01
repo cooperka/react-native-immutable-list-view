@@ -1,55 +1,51 @@
-import Immutable from 'immutable';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Text, View, Button } from 'react-native';
 
-// ESLint can't resolve the module location when running on Travis, so ignore these lints.
-// eslint-disable-next-line import/no-unresolved, import/extensions
-import { ImmutableListView } from 'react-native-immutable-list-view';
-
 import style from './styles';
-import mockData from './mockData';
 
-class ImmutableListViewExample extends Component {
+class GenericListExample extends Component {
 
-  state = {
-    listDataA: mockData,
-    // OR to see EmptyListView:
-    // listDataA: Immutable.List(),
-
-    listDataB: Immutable.Range(1, 100),
+  static propTypes = {
+    ListComponent: PropTypes.oneOfType([PropTypes.func, PropTypes.element]).isRequired,
+    listComponentProps: PropTypes.object.isRequired,
+    extraPropsA: PropTypes.object,
+    extraPropsB: PropTypes.object,
+    initialDataA: PropTypes.object.isRequired,
+    initialDataB: PropTypes.object.isRequired,
+    dataMutatorA: PropTypes.func.isRequired,
+    dataMutatorB: PropTypes.func.isRequired,
   };
+
+  componentWillMount() {
+    const { initialDataA, initialDataB } = this.props;
+
+    this.setState({
+      listDataA: initialDataA,
+      listDataB: initialDataB,
+    });
+  }
 
   changeDataA() {
     this.setState({
-      listDataA: mockData.setIn(['Section A', 1], 'This value was changed!'),
+      listDataA: this.props.dataMutatorA(this.state.listDataA),
     });
   }
 
   changeDataB() {
     this.setState({
-      listDataB: this.state.listDataB.toSeq().map((n) => n * 2),
+      listDataB: this.props.dataMutatorB(this.state.listDataB),
     });
-  }
-
-  renderRow(rowData) {
-    return <Text style={style.listRow}>{rowData}</Text>;
-  }
-
-  renderSectionHeader(sectionData, category) {
-    return (
-      <View>
-        <Text style={style.listHeader}>{category}</Text>
-      </View>
-    );
   }
 
   render() {
     const { listDataA, listDataB } = this.state;
+    const { ListComponent, extraPropsA, extraPropsB, listComponentProps } = this.props;
 
     return (
       <View style={style.container}>
         <Text style={style.title}>
-          ImmutableListView Example
+          {ListComponent.displayName || ListComponent.name}
         </Text>
         <View style={style.sideBySideLists}>
           <View style={style.list}>
@@ -59,10 +55,10 @@ class ImmutableListViewExample extends Component {
                 title="Update Data"
               />
             </View>
-            <ImmutableListView
+            <ListComponent
               immutableData={listDataA}
-              renderRow={this.renderRow}
-              renderSectionHeader={this.renderSectionHeader}
+              {...listComponentProps}
+              {...extraPropsA}
             />
           </View>
           <View style={style.list}>
@@ -72,9 +68,10 @@ class ImmutableListViewExample extends Component {
                 title="Update Data"
               />
             </View>
-            <ImmutableListView
+            <ListComponent
               immutableData={listDataB}
-              renderRow={this.renderRow}
+              {...listComponentProps}
+              {...extraPropsB}
             />
           </View>
         </View>
@@ -84,4 +81,4 @@ class ImmutableListViewExample extends Component {
 
 }
 
-export default ImmutableListViewExample;
+export default GenericListExample;

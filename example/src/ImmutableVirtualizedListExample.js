@@ -1,79 +1,30 @@
 import Immutable from 'immutable';
-import React, { Component } from 'react';
-import { Text, View, Button } from 'react-native';
+import React from 'react';
 
 // ESLint can't resolve the module location when running on Travis, so ignore these lints.
 // eslint-disable-next-line import/no-unresolved, import/extensions
 import { ImmutableVirtualizedList } from 'react-native-immutable-list-view';
 
-import style from './styles';
+import GenericListExample from './GenericListExample';
 
-class ImmutableVirtualizedListExample extends Component {
+import utils from './utils';
 
-  state = {
-    listDataA: Immutable.List(['Simple', 'List', 'of', 'Items']),
-    // OR to see EmptyListView:
-    // listDataA: Immutable.List(),
+function ImmutableVirtualizedListExample() {
+  return (
+    <GenericListExample
+      ListComponent={ImmutableVirtualizedList}
+      listComponentProps={{
+        renderItem: utils.renderItem,
+        keyExtractor: utils.trivialKeyExtractor,
+      }}
 
-    listDataB: Immutable.Range(1, 100),
-  };
+      initialDataA={Immutable.List(['Simple', 'List', 'of', 'Items'])}
+      initialDataB={Immutable.Range(1, 100)}
 
-  changeDataA() {
-    this.setState({
-      listDataA: this.state.listDataA.set(3, 'This value was changed!'),
-    });
-  }
-
-  changeDataB() {
-    this.setState({
-      listDataB: this.state.listDataB.toSeq().map((n) => n * 2),
-    });
-  }
-
-  renderItem({ item }) {
-    return <Text style={style.listRow}>{item}</Text>;
-  }
-
-  render() {
-    const { listDataA, listDataB } = this.state;
-
-    return (
-      <View style={style.container}>
-        <Text style={style.title}>
-          ImmutableVirtualizedList Example
-        </Text>
-        <View style={style.sideBySideLists}>
-          <View style={style.list}>
-            <View style={style.button}>
-              <Button
-                onPress={() => this.changeDataA()}
-                title="Update Data"
-              />
-            </View>
-            <ImmutableVirtualizedList
-              immutableData={listDataA}
-              renderItem={this.renderItem}
-              keyExtractor={(_, index) => String(index)}
-            />
-          </View>
-          <View style={style.list}>
-            <View style={style.button}>
-              <Button
-                onPress={() => this.changeDataB()}
-                title="Update Data"
-              />
-            </View>
-            <ImmutableVirtualizedList
-              immutableData={listDataB}
-              renderItem={this.renderItem}
-              keyExtractor={(_, index) => String(index)}
-            />
-          </View>
-        </View>
-      </View>
-    );
-  }
-
+      dataMutatorA={(data) => data.set(3, 'This value was changed!')}
+      dataMutatorB={(data) => data.toSeq().map((n) => n * 2)}
+    />
+  );
 }
 
 export default ImmutableVirtualizedListExample;
