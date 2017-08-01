@@ -6,6 +6,7 @@ import { Text, VirtualizedList } from 'react-native';
 import ImmutableVirtualizedList from './ImmutableVirtualizedList';
 
 import styles from './styles';
+import utils from './utils';
 
 /**
  * A VirtualizedList that displays a single item showing that there is nothing to display.
@@ -32,8 +33,7 @@ class EmptyVirtualizedList extends PureComponent {
   };
 
   state = {
-    // Contains exactly one item.
-    listData: Immutable.List([1]),
+    listData: utils.UNITARY_LIST,
   };
 
   componentWillMount() {

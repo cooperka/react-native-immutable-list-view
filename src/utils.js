@@ -4,6 +4,9 @@ const isImmutableIterable = Immutable.Iterable.isIterable;
 
 const utils = {
 
+  /** Contains exactly one item. */
+  UNITARY_LIST: Immutable.List(['empty_list']),
+
   isImmutableIterable,
 
   /**

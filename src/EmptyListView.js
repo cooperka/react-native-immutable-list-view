@@ -6,6 +6,7 @@ import { Text, ListView } from 'react-native';
 import ImmutableListView from './ImmutableListView';
 
 import styles from './styles';
+import utils from './utils';
 
 /**
  * A ListView that displays a single item showing that there is nothing to display.
@@ -33,8 +34,7 @@ class EmptyListView extends PureComponent {
   };
 
   state = {
-    // Contains exactly one item.
-    listData: Immutable.List([1]),
+    listData: utils.UNITARY_LIST,
   };
 
   componentWillMount() {
