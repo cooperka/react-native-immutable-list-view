@@ -30,7 +30,7 @@ exports[`ImmutableVirtualizedList renders basic List 1`] = `
   onScroll={[Function]}
   onScrollBeginDrag={[Function]}
   onScrollEndDrag={[Function]}
-  renderEmpty="No data."
+  renderEmptyInList="No data."
   renderItem={[Function]}
   renderScrollComponent={[Function]}
   scrollEventThrottle={50}
@@ -109,7 +109,7 @@ exports[`ImmutableVirtualizedList renders basic Range 1`] = `
   onScroll={[Function]}
   onScrollBeginDrag={[Function]}
   onScrollEndDrag={[Function]}
-  renderEmpty="No data."
+  renderEmptyInList="No data."
   renderItem={[Function]}
   renderScrollComponent={[Function]}
   scrollEventThrottle={50}
@@ -198,7 +198,7 @@ exports[`ImmutableVirtualizedList renders nested List 1`] = `
   onScroll={[Function]}
   onScrollBeginDrag={[Function]}
   onScrollEndDrag={[Function]}
-  renderEmpty="No data."
+  renderEmptyInList="No data."
   renderItem={[Function]}
   renderScrollComponent={[Function]}
   scrollEventThrottle={50}
@@ -236,23 +236,61 @@ exports[`ImmutableVirtualizedList renders nested List 1`] = `
 `;
 
 exports[`ImmutableVirtualizedList renders with empty data 1`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  disabled={false}
-  ellipsizeMode="tail"
-  style={
-    Array [
-      Object {
-        "padding": 8,
-        "textAlign": "center",
-      },
-      undefined,
+<RCTScrollView
+  data={
+    Immutable.List [
+      1,
     ]
   }
+  disableVirtualization={false}
+  emptyText="No data."
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  immutableData={
+    Immutable.List [
+      1,
+    ]
+  }
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  renderEmptyInList="No data."
+  renderItem={[Function]}
+  renderScrollComponent={[Function]}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={Array []}
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
 >
-  No data.
-</Text>
+  <View>
+    <View
+      onLayout={[Function]}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "padding": 8,
+            "textAlign": "center",
+          }
+        }
+      >
+        No data.
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
 `;
 
 exports[`ImmutableVirtualizedList with renderEmpty doesn't render empty with null 1`] = `
@@ -280,6 +318,7 @@ exports[`ImmutableVirtualizedList with renderEmpty doesn't render empty with nul
   onScrollBeginDrag={[Function]}
   onScrollEndDrag={[Function]}
   renderEmpty={null}
+  renderEmptyInList={null}
   renderItem={[Function]}
   renderScrollComponent={[Function]}
   scrollEventThrottle={50}
@@ -355,6 +394,238 @@ exports[`ImmutableVirtualizedList with renderEmpty renders normally when there a
   onScrollBeginDrag={[Function]}
   onScrollEndDrag={[Function]}
   renderEmpty={[Function]}
+  renderEmptyInList="No data."
+  renderItem={[Function]}
+  renderScrollComponent={[Function]}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={Array []}
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+>
+  <View>
+    <View
+      onLayout={[Function]}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+      >
+        {"item":"lists","index":0,"separators":{}}
+      </Text>
+    </View>
+    <View
+      onLayout={[Function]}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+      >
+        {"item":"are","index":1,"separators":{}}
+      </Text>
+    </View>
+    <View
+      onLayout={[Function]}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+      >
+        {"item":"great","index":2,"separators":{}}
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`ImmutableVirtualizedList with renderEmptyInList doesn't render empty with null 1`] = `
+<RCTScrollView
+  data={
+    Immutable.List [
+    ]
+  }
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  immutableData={
+    Immutable.List [
+    ]
+  }
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  renderEmpty={null}
+  renderEmptyInList={null}
+  renderItem={[Function]}
+  renderScrollComponent={[Function]}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={Array []}
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+>
+  <View />
+</RCTScrollView>
+`;
+
+exports[`ImmutableVirtualizedList with renderEmptyInList renders empty with a function 1`] = `
+<RCTScrollView
+  data={
+    Immutable.List [
+      1,
+    ]
+  }
+  disableVirtualization={false}
+  emptyText="No data."
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  immutableData={
+    Immutable.List [
+      1,
+    ]
+  }
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  renderEmptyInList="No data."
+  renderItem={[Function]}
+  renderScrollComponent={[Function]}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={Array []}
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+>
+  <View>
+    <View
+      onLayout={[Function]}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+      >
+        "No items"
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`ImmutableVirtualizedList with renderEmptyInList renders empty with a string 1`] = `
+<RCTScrollView
+  contentContainerStyle={
+    Object {
+      "color": "red",
+    }
+  }
+  data={
+    Immutable.List [
+      1,
+    ]
+  }
+  disableVirtualization={false}
+  emptyText="No items"
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  immutableData={
+    Immutable.List [
+      1,
+    ]
+  }
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  renderEmptyInList="No data."
+  renderItem={[Function]}
+  renderScrollComponent={[Function]}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={Array []}
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+>
+  <View>
+    <View
+      onLayout={[Function]}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "padding": 8,
+            "textAlign": "center",
+          }
+        }
+      >
+        No items
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`ImmutableVirtualizedList with renderEmptyInList renders normally when there are some items 1`] = `
+<RCTScrollView
+  data={
+    Immutable.List [
+      "lists",
+      "are",
+      "great",
+    ]
+  }
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  immutableData={
+    Immutable.List [
+      "lists",
+      "are",
+      "great",
+    ]
+  }
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  renderEmptyInList={[Function]}
   renderItem={[Function]}
   renderScrollComponent={[Function]}
   scrollEventThrottle={50}

@@ -153,7 +153,7 @@ const expectors = {
       <MockedImmutableListView
         immutableData={immutableData}
         renderRow={renderers.renderRow}
-        renderEmpty={null}
+        renderEmptyInList={null}
         {...renderSectionHeaderProps}
       />,
     ).toJSON();

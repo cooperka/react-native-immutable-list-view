@@ -6,6 +6,8 @@ import { Text, ListView, InteractionManager } from 'react-native';
 import styles from './styles';
 import utils from './utils';
 
+import EmptyListView from './EmptyListView';
+
 /**
  * A ListView capable of displaying {@link https://facebook.github.io/immutable-js/ Immutable} data
  * out of the box.
@@ -47,11 +49,24 @@ class ImmutableListView extends PureComponent {
 
     /**
      * A plain string, or a function that returns some {@link PropTypes.element}
-     * to be rendered when there are no items in the list.
+     * to be rendered in place of a `ListView` when there are no items in the list.
+     *
+     * Things like pull-refresh functionality will be lost unless explicitly supported by your custom component.
+     * Consider `renderEmptyInList` instead if you want this.
      *
      * It will be passed all the original props of the ImmutableListView.
      */
     renderEmpty: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+
+    /**
+     * A plain string, or a function that returns some {@link PropTypes.element}
+     * to be rendered inside of an `EmptyListView` when there are no items in the list.
+     *
+     * This allows pull-refresh functionality to be preserved.
+     *
+     * It will be passed all the original props of the ImmutableListView.
+     */
+    renderEmptyInList: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   };
 
   static defaultProps = {
@@ -68,7 +83,7 @@ class ImmutableListView extends PureComponent {
     //   https://github.com/facebook/react-native/issues/1831
     removeClippedSubviews: false,
 
-    renderEmpty: 'No data.',
+    renderEmptyInList: 'No data.',
   };
 
   state = {
@@ -157,14 +172,22 @@ class ImmutableListView extends PureComponent {
 
   render() {
     const { dataSource } = this.state;
-    const { immutableData, enableEmptySections, renderEmpty, contentContainerStyle } = this.props;
+    const { immutableData, enableEmptySections, renderEmpty, renderEmptyInList, contentContainerStyle } = this.props;
 
-    if (renderEmpty && utils.isEmptyListView(immutableData, enableEmptySections)) {
-      if (typeof renderEmpty === 'string') {
-        return <Text style={[styles.emptyText, contentContainerStyle]}>{renderEmpty}</Text>;
+    if ((renderEmpty || renderEmptyInList) && utils.isEmptyListView(immutableData, enableEmptySections)) {
+      if (renderEmpty) {
+        if (typeof renderEmpty === 'string') {
+          return <Text style={[styles.emptyText, contentContainerStyle]}>{renderEmpty}</Text>;
+        }
+        return renderEmpty(this.props);
       }
-
-      return renderEmpty(this.props);
+      if (renderEmptyInList) {
+        if (typeof renderEmptyInList === 'string') {
+          const { renderRow, ...passThroughProps } = this.props;
+          return <EmptyListView {...passThroughProps} emptyText={renderEmptyInList} />;
+        }
+        return <EmptyListView {...this.props} renderRow={() => renderEmptyInList(this.props)} />;
+      }
     }
 
     return (

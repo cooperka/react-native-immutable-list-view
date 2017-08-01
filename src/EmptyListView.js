@@ -53,11 +53,12 @@ class EmptyListView extends PureComponent {
 
   render() {
     const { listData } = this.state;
+    const { renderEmpty, renderEmptyInList, ...passThroughProps } = this.props;
 
     return (
       <ImmutableListView
         renderRow={() => this.renderRow()}
-        {...this.props}
+        {...passThroughProps}
         immutableData={listData}
       />
     );

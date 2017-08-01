@@ -36,7 +36,7 @@ exports[`ImmutableListView renders Map: List rows, with section headers 1`] = `
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmpty="No data."
+  renderEmptyInList="No data."
   renderRow={[Function]}
   renderSectionHeader={[Function]}
   scrollEventThrottle={50}
@@ -169,7 +169,7 @@ exports[`ImmutableListView renders Map: List rows, without section headers 1`] =
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmpty="No data."
+  renderEmptyInList="No data."
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
@@ -243,7 +243,7 @@ exports[`ImmutableListView renders Map: Map rows, with section headers 1`] = `
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmpty="No data."
+  renderEmptyInList="No data."
   renderRow={[Function]}
   renderSectionHeader={[Function]}
   scrollEventThrottle={50}
@@ -325,7 +325,7 @@ exports[`ImmutableListView renders Map: Map rows, without section headers 1`] = 
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmpty="No data."
+  renderEmptyInList="No data."
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
@@ -380,7 +380,7 @@ exports[`ImmutableListView renders basic List 1`] = `
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmpty="No data."
+  renderEmptyInList="No data."
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
@@ -443,7 +443,7 @@ exports[`ImmutableListView renders basic Range 1`] = `
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmpty="No data."
+  renderEmptyInList="No data."
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
@@ -506,7 +506,7 @@ exports[`ImmutableListView renders basic Set 1`] = `
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmpty="No data."
+  renderEmptyInList="No data."
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
@@ -574,7 +574,7 @@ exports[`ImmutableListView renders nested List 1`] = `
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmpty="No data."
+  renderEmptyInList="No data."
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
@@ -604,23 +604,55 @@ exports[`ImmutableListView renders nested List 1`] = `
 `;
 
 exports[`ImmutableListView renders with empty data 1`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  disabled={false}
-  ellipsizeMode="tail"
-  style={
-    Array [
-      Object {
-        "padding": 8,
-        "textAlign": "center",
-      },
-      undefined,
+<RCTScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": 1,
+    }
+  }
+  emptyText="No data."
+  enableEmptySections={true}
+  immutableData={
+    Immutable.List [
+      1,
     ]
   }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={false}
+  renderEmptyInList="No data."
+  renderRow={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
+  stickyHeaderIndices={Array []}
+  stickySectionHeadersEnabled={true}
 >
-  No data.
-</Text>
+  <View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "padding": 8,
+          "textAlign": "center",
+        }
+      }
+    >
+      No data.
+    </Text>
+  </View>
+</RCTScrollView>
 `;
 
 exports[`ImmutableListView with delayed rendering renders basic List after interactions 1`] = `
@@ -649,7 +681,7 @@ exports[`ImmutableListView with delayed rendering renders basic List after inter
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmpty="No data."
+  renderEmptyInList="No data."
   renderRow={[Function]}
   rowsDuringInteraction={1}
   scrollEventThrottle={50}
@@ -713,7 +745,7 @@ exports[`ImmutableListView with delayed rendering renders basic List during inte
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmpty="No data."
+  renderEmptyInList="No data."
   renderRow={[Function]}
   rowsDuringInteraction={1}
   scrollEventThrottle={50}
@@ -759,6 +791,7 @@ exports[`ImmutableListView with renderEmpty doesn't render empty with null 1`] =
   pageSize={1}
   removeClippedSubviews={false}
   renderEmpty={null}
+  renderEmptyInList={null}
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
@@ -830,6 +863,209 @@ exports[`ImmutableListView with renderEmpty renders normally when there are some
   pageSize={1}
   removeClippedSubviews={false}
   renderEmpty={[Function]}
+  renderEmptyInList="No data."
+  renderRow={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
+  stickyHeaderIndices={Array []}
+  stickySectionHeadersEnabled={true}
+>
+  <View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+    >
+      "lists"
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+    >
+      "are"
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+    >
+      "great"
+    </Text>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`ImmutableListView with renderEmptyInList doesn't render empty with null 1`] = `
+<RCTScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": 0,
+    }
+  }
+  enableEmptySections={true}
+  immutableData={
+    Immutable.List [
+    ]
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={false}
+  renderEmpty={null}
+  renderEmptyInList={null}
+  renderRow={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
+  stickyHeaderIndices={Array []}
+  stickySectionHeadersEnabled={true}
+>
+  <View />
+</RCTScrollView>
+`;
+
+exports[`ImmutableListView with renderEmptyInList renders empty with a function 1`] = `
+<RCTScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": 1,
+    }
+  }
+  emptyText="No data."
+  enableEmptySections={true}
+  immutableData={
+    Immutable.List [
+      1,
+    ]
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={false}
+  renderEmptyInList="No data."
+  renderRow={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
+  stickyHeaderIndices={Array []}
+  stickySectionHeadersEnabled={true}
+>
+  <View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+    >
+      "No items"
+    </Text>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`ImmutableListView with renderEmptyInList renders empty with a string 1`] = `
+<RCTScrollView
+  contentContainerStyle={
+    Object {
+      "color": "red",
+    }
+  }
+  dataSource={
+    ListViewDataSource {
+      "items": 1,
+    }
+  }
+  emptyText="No items"
+  enableEmptySections={true}
+  immutableData={
+    Immutable.List [
+      1,
+    ]
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={false}
+  renderEmptyInList="No data."
+  renderRow={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  sectionHeaderHasChanged={[Function]}
+  stickyHeaderIndices={Array []}
+  stickySectionHeadersEnabled={true}
+>
+  <View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "padding": 8,
+          "textAlign": "center",
+        }
+      }
+    >
+      No items
+    </Text>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`ImmutableListView with renderEmptyInList renders normally when there are some items 1`] = `
+<RCTScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": 3,
+    }
+  }
+  enableEmptySections={true}
+  immutableData={
+    Immutable.List [
+      "lists",
+      "are",
+      "great",
+    ]
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={false}
+  renderEmptyInList={[Function]}
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}

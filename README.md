@@ -17,10 +17,11 @@ faster performance and less headaches.
 
 ## Motivation
 
-- Do you find yourself re-implementing `rowHasChanged` and saving `dataSource` to your state over and over?
+- Do you find yourself re-implementing `rowHasChanged` and setting `dataSource` over and over?
 - Do you use Immutable data, only to write wrappers for data access in order to use them with a ListView?
 - Do you listen for lifecycle events simply so you can update `dataSource` -- and thus you can't easily use pure functional components with lists?
 - Do you have nested objects in your state so a shallow diff won't cut it for pure rendering?
+- Do you show 'Loading...', 'Empty', and 'Error!' states in your lists?
 - Do you use a navigator and want better performance while animating?
 
 If you answered yes to ANY of these questions, this project will surely help.
@@ -162,7 +163,8 @@ Here are the additional props that `ImmutableListView` accepts:
 | `immutableData` | Any [`Immutable.Iterable`](https://facebook.github.io/immutable-js/docs/#/Iterable/isIterable) | Required. | The data to render. See below for some examples. |
 | `rowsDuringInteraction` | `number` | `undefined` | How many rows of data to initially display while waiting for interactions to finish (e.g. Navigation animations). |
 | `sectionHeaderHasChanged` | `func` | `(prevSectionData, nextSectionData) => false` | Only needed if your section header is dependent on your row data (uncommon; see [`ListViewDataSource`'s constructor](https://facebook.github.io/react-native/docs/listviewdatasource.html#constructor) for details). |
-| `renderEmpty` | `string` or `func` | `'No data.'` | If your data is empty (e.g. `null`, `[]`, `{}`) and this prop is defined, then the result of this function will be rendered instead. You can use [`EmptyListView`](#emptylistview) here for even more flexibility. |
+| `renderEmpty` | `string` or `func` | `undefined` | If your data is empty (e.g. `null`, `[]`, `{}`) and this prop is defined, then this will be rendered instead. Pull-refresh and scrolling functionality will be **lost**. |
+| `renderEmptyInList` | `string` or `func` | `'No data.'` | If your data is empty (e.g. `null`, `[]`, `{}`) and this prop is defined, then this will be rendered instead (inside of an [`EmptyListView`](#emptylistview)). Pull-refresh and scrolling functionality will be **kept**! |
 
 ## Methods
 

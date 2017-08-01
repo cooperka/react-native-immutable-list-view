@@ -6,6 +6,8 @@ import { Text, VirtualizedList } from 'react-native';
 import styles from './styles';
 import utils from './utils';
 
+import EmptyVirtualizedList from './EmptyVirtualizedList';
+
 /**
  * A VirtualizedList capable of displaying {@link https://facebook.github.io/immutable-js/ Immutable} data
  * out of the box.
@@ -34,17 +36,30 @@ class ImmutableVirtualizedList extends PureComponent {
 
     /**
      * A plain string, or a function that returns some {@link PropTypes.element}
-     * to be rendered when there are no items in the list.
+     * to be rendered in place of a `VirtualizedList` when there are no items in the list.
      *
-     * It will be passed all the original props of the ImmutableListView.
+     * Things like pull-refresh functionality will be lost unless explicitly supported by your custom component.
+     * Consider `renderEmptyInList` instead if you want this.
+     *
+     * It will be passed all the original props of the ImmutableVirtualizedList.
      */
     renderEmpty: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+
+    /**
+     * A plain string, or a function that returns some {@link PropTypes.element}
+     * to be rendered inside of an `EmptyVirtualizedList` when there are no items in the list.
+     *
+     * This allows pull-refresh functionality to be preserved.
+     *
+     * It will be passed all the original props of the ImmutableVirtualizedList.
+     */
+    renderEmptyInList: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   };
 
   static defaultProps = {
     ...VirtualizedList.defaultProps,
 
-    renderEmpty: 'No data.',
+    renderEmptyInList: 'No data.',
   };
 
   getVirtualizedList() {
@@ -72,14 +87,22 @@ class ImmutableVirtualizedList extends PureComponent {
   }
 
   render() {
-    const { immutableData, renderEmpty, contentContainerStyle } = this.props;
+    const { immutableData, renderEmpty, renderEmptyInList, contentContainerStyle } = this.props;
 
-    if (renderEmpty && utils.isEmptyListView(immutableData)) {
-      if (typeof renderEmpty === 'string') {
-        return <Text style={[styles.emptyText, contentContainerStyle]}>{renderEmpty}</Text>;
+    if ((renderEmpty || renderEmptyInList) && utils.isEmptyListView(immutableData)) {
+      if (renderEmpty) {
+        if (typeof renderEmpty === 'string') {
+          return <Text style={[styles.emptyText, contentContainerStyle]}>{renderEmpty}</Text>;
+        }
+        return renderEmpty(this.props);
       }
-
-      return renderEmpty(this.props);
+      if (renderEmptyInList) {
+        if (typeof renderEmptyInList === 'string') {
+          const { renderItem, ...passThroughProps } = this.props;
+          return <EmptyVirtualizedList {...passThroughProps} emptyText={renderEmptyInList} />;
+        }
+        return <EmptyVirtualizedList {...this.props} renderItem={() => renderEmptyInList(this.props)} />;
+      }
     }
 
     return (

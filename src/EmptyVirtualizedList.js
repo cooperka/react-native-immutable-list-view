@@ -52,11 +52,12 @@ class EmptyVirtualizedList extends PureComponent {
 
   render() {
     const { listData } = this.state;
+    const { renderEmpty, renderEmptyInList, ...passThroughProps } = this.props;
 
     return (
       <ImmutableVirtualizedList
         renderItem={() => this.renderItem()}
-        {...this.props}
+        {...passThroughProps}
         immutableData={listData}
       />
     );

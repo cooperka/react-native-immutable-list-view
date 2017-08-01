@@ -117,6 +117,57 @@ describe('ImmutableListView with renderEmpty', () => {
         immutableData={data.EMPTY_DATA}
         renderRow={renderers.renderRow}
         renderEmpty={null}
+        renderEmptyInList={null}
+      />,
+    );
+    expect(tree.toJSON()).toMatchSnapshot();
+  });
+});
+
+describe('ImmutableListView with renderEmptyInList', () => {
+  it('renders normally when there are some items', () => {
+    const tree = renderer.create(
+      <ImmutableListView
+        immutableData={data.LIST_DATA}
+        renderRow={renderers.renderRow}
+        renderEmptyInList={() => renderers.renderRow('No items')}
+      />,
+    );
+    expect(tree.toJSON()).toMatchSnapshot();
+  });
+
+  it('renders empty with a function', () => {
+    const tree = renderer.create(
+      <ImmutableListView
+        immutableData={data.EMPTY_DATA}
+        renderRow={renderers.renderRow}
+        renderEmptyInList={() => renderers.renderRow('No items')}
+      />,
+    );
+    expect(tree.toJSON()).toMatchSnapshot();
+  });
+
+  it('renders empty with a string', () => {
+    const color = 'red';
+
+    const tree = renderer.create(
+      <ImmutableListView
+        immutableData={data.EMPTY_DATA}
+        renderRow={renderers.renderRow}
+        renderEmptyInList="No items"
+        contentContainerStyle={{ color }}
+      />,
+    );
+    expect(tree.toJSON()).toMatchSnapshot();
+  });
+
+  it('doesn\'t render empty with null', () => {
+    const tree = renderer.create(
+      <ImmutableListView
+        immutableData={data.EMPTY_DATA}
+        renderRow={renderers.renderRow}
+        renderEmpty={null}
+        renderEmptyInList={null}
       />,
     );
     expect(tree.toJSON()).toMatchSnapshot();
