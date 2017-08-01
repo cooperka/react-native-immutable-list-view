@@ -50,6 +50,7 @@ class ImmutableVirtualizedListExample extends Component {
             <ImmutableVirtualizedList
               immutableData={listDataA}
               renderItem={this.renderItem}
+              keyExtractor={(_, index) => String(index)}
             />
           </View>
           <View style={style.list}>
@@ -62,6 +63,7 @@ class ImmutableVirtualizedListExample extends Component {
             <ImmutableVirtualizedList
               immutableData={listDataB}
               renderItem={this.renderItem}
+              keyExtractor={(_, index) => String(index)}
             />
           </View>
         </View>
