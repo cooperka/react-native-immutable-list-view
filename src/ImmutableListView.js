@@ -1,7 +1,7 @@
 import Immutable from 'immutable';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import { ListView, InteractionManager } from 'react-native';
+import { Text, ListView, InteractionManager } from 'react-native';
 
 import utils from './utils';
 
@@ -45,9 +45,12 @@ class ImmutableListView extends PureComponent {
     rowsDuringInteraction: PropTypes.number,
 
     /**
-     * A function that returns some {@link PropTypes.element} to be rendered when there are no items in the list.
+     * A plain string, or a function that returns some {@link PropTypes.element}
+     * to be rendered when there are no items in the list.
+     *
+     * It will be passed all the original props of the ImmutableListView.
      */
-    renderEmpty: PropTypes.func,
+    renderEmpty: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   };
 
   static defaultProps = {
@@ -63,6 +66,8 @@ class ImmutableListView extends PureComponent {
     // Note: removeClippedSubviews is disabled to work around a long-standing bug:
     //   https://github.com/facebook/react-native/issues/1831
     removeClippedSubviews: false,
+
+    renderEmpty: 'No data.',
   };
 
   state = {
@@ -151,9 +156,13 @@ class ImmutableListView extends PureComponent {
 
   render() {
     const { dataSource } = this.state;
-    const { immutableData, enableEmptySections, renderEmpty } = this.props;
+    const { immutableData, enableEmptySections, renderEmpty, contentContainerStyle } = this.props;
 
     if (renderEmpty && utils.isEmptyListView(immutableData, enableEmptySections)) {
+      if (typeof renderEmpty === 'string') {
+        return <Text style={contentContainerStyle}>{renderEmpty}</Text>;
+      }
+
       return renderEmpty(this.props);
     }
 
