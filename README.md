@@ -74,7 +74,7 @@ if you'd like to see it in action.
 2. Import it in your JS:
 
     ```js
-    import ImmutableListView from 'react-native-immutable-list-view';
+    import { ImmutableListView } from 'react-native-immutable-list-view';
     ```
 
 ## Example Usage
@@ -91,7 +91,7 @@ Check out this example diff:
 ```diff
 -import { Text, View, ListView } from 'react-native';
 +import { Text, View } from 'react-native';
-+import ImmutableListView from 'react-native-immutable-list-view';
++import { ImmutableListView } from 'react-native-immutable-list-view';
 
  import style from './styles';
  import listData from './listData';
@@ -233,7 +233,7 @@ By default, this string is simply `'No data.'`.
 Example:
 
 ```jsx
-import ImmutableListView, { EmptyListView } from 'react-native-immutable-list-view';
+import { ImmutableListView, EmptyListView } from 'react-native-immutable-list-view';
 
 <ImmutableListView
   immutableData={this.state.listData}
@@ -291,7 +291,7 @@ The short version of the setup instructions is below:
     npm run download-flatlist
     ```
 
-3. Import the component:
+3. Import the component directly:
 
     ```js
     import ImmutableVirtualizedList from 'react-native-immutable-list-view/lib/ImmutableVirtualizedList';
