@@ -1,6 +1,7 @@
 import Immutable from 'immutable';
+import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import { VirtualizedList } from 'react-native';
+import { Text, VirtualizedList } from 'react-native';
 
 import utils from './utils';
 
@@ -29,6 +30,20 @@ class ImmutableVirtualizedList extends PureComponent {
         return new Error(`Invalid prop ${propName} supplied to ${componentName}: Must be instance of Immutable.Iterable.`);
       }
     },
+
+    /**
+     * A plain string, or a function that returns some {@link PropTypes.element}
+     * to be rendered when there are no items in the list.
+     *
+     * It will be passed all the original props of the ImmutableListView.
+     */
+    renderEmpty: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  };
+
+  static defaultProps = {
+    ...VirtualizedList.defaultProps,
+
+    renderEmpty: 'No data.',
   };
 
   getVirtualizedList() {
@@ -56,7 +71,15 @@ class ImmutableVirtualizedList extends PureComponent {
   }
 
   render() {
-    const { immutableData } = this.props;
+    const { immutableData, renderEmpty, contentContainerStyle } = this.props;
+
+    if (renderEmpty && utils.isEmptyListView(immutableData)) {
+      if (typeof renderEmpty === 'string') {
+        return <Text style={contentContainerStyle}>{renderEmpty}</Text>;
+      }
+
+      return renderEmpty(this.props);
+    }
 
     return (
       <VirtualizedList
