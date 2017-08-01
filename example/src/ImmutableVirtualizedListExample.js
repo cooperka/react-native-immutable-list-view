@@ -12,6 +12,9 @@ class ImmutableVirtualizedListExample extends Component {
 
   state = {
     listDataA: Immutable.List(['Simple', 'List', 'of', 'Items']),
+    // OR to see EmptyListView:
+    // listDataA: Immutable.List(),
+
     listDataB: Immutable.Range(1, 100),
   };
 

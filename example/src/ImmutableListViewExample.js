@@ -13,6 +13,9 @@ class ImmutableListViewExample extends Component {
 
   state = {
     listDataA: mockData,
+    // OR to see EmptyListView:
+    // listDataA: Immutable.List(),
+
     listDataB: Immutable.Range(1, 100),
   };
 
