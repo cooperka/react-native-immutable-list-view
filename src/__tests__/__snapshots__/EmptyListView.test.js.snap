@@ -11,7 +11,7 @@ exports[`EmptyListView renders with custom renderRow 1`] = `
   enableEmptySections={true}
   immutableData={
     Immutable.List [
-      "",
+      1,
     ]
   }
   initialListSize={10}
@@ -57,7 +57,7 @@ exports[`EmptyListView renders with custom text 1`] = `
   enableEmptySections={true}
   immutableData={
     Immutable.List [
-      "",
+      1,
     ]
   }
   initialListSize={10}
@@ -80,29 +80,20 @@ exports[`EmptyListView renders with custom text 1`] = `
   stickySectionHeadersEnabled={true}
 >
   <View>
-    <View
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
       style={
         Object {
-          "alignItems": "center",
-          "justifyContent": "center",
+          "padding": 8,
+          "textAlign": "center",
         }
       }
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 14,
-            "margin": 12,
-          }
-        }
-      >
-        Nothing. Nothing at all.
-      </Text>
-    </View>
+      Nothing. Nothing at all.
+    </Text>
   </View>
 </RCTScrollView>
 `;
@@ -118,7 +109,7 @@ exports[`EmptyListView renders with default text 1`] = `
   enableEmptySections={true}
   immutableData={
     Immutable.List [
-      "",
+      1,
     ]
   }
   initialListSize={10}
@@ -141,29 +132,20 @@ exports[`EmptyListView renders with default text 1`] = `
   stickySectionHeadersEnabled={true}
 >
   <View>
-    <View
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
       style={
         Object {
-          "alignItems": "center",
-          "justifyContent": "center",
+          "padding": 8,
+          "textAlign": "center",
         }
       }
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={false}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 14,
-            "margin": 12,
-          }
-        }
-      >
-        No data.
-      </Text>
-    </View>
+      No data.
+    </Text>
   </View>
 </RCTScrollView>
 `;

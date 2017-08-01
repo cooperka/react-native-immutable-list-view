@@ -1,33 +1,32 @@
 import Immutable from 'immutable';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import { Text, ListView } from 'react-native';
+import { Text, VirtualizedList } from 'react-native';
 
-import ImmutableListView from './ImmutableListView';
+import ImmutableVirtualizedList from './ImmutableVirtualizedList';
 
 import styles from './styles';
 
 /**
- * A ListView that displays a single item showing that there is nothing to display.
+ * A VirtualizedList that displays a single item showing that there is nothing to display.
  * Useful e.g. for preserving the ability to pull-refresh an empty list.
  */
-class EmptyListView extends PureComponent {
+class EmptyVirtualizedList extends PureComponent {
 
   static propTypes = {
-    // Pass through any props that ListView would normally take.
-    ...ListView.propTypes,
-
-    // ImmutableListView handles creating the dataSource, so don't allow it to be passed in.
-    dataSource: PropTypes.oneOf([undefined]),
+    // Pass through any props that VirtualizedList would normally take.
+    ...VirtualizedList.propTypes,
 
     // Make this prop optional instead of required.
-    renderRow: PropTypes.func,
+    renderItem: PropTypes.func,
 
     emptyText: PropTypes.string,
   };
 
   static defaultProps = {
-    ...ListView.defaultProps,
+    ...VirtualizedList.defaultProps,
+
+    keyExtractor: (_, index) => String(index),
 
     emptyText: 'No data.',
   };
@@ -39,9 +38,9 @@ class EmptyListView extends PureComponent {
 
   /**
    * Returns a simple text element showing the `emptyText` string.
-   * This method can be overridden by passing in your own `renderRow` prop instead.
+   * This method can be overridden by passing in your own `renderItem` prop instead.
    */
-  renderRow() {
+  renderItem() {
     const { emptyText } = this.props;
 
     return (
@@ -55,9 +54,9 @@ class EmptyListView extends PureComponent {
     const { listData } = this.state;
 
     return (
-      <ImmutableListView
+      <ImmutableVirtualizedList
         immutableData={listData}
-        renderRow={() => this.renderRow()}
+        renderItem={() => this.renderItem()}
         {...this.props}
       />
     );
@@ -65,4 +64,4 @@ class EmptyListView extends PureComponent {
 
 }
 
-export default EmptyListView;
+export default EmptyVirtualizedList;

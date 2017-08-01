@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmptyVirtualizedList renders with custom renderRow 1`] = `
+<RCTScrollView
+  data={
+    Immutable.List [
+      1,
+    ]
+  }
+  disableVirtualization={false}
+  emptyText="Nothing. Nothing at all."
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  immutableData={
+    Immutable.List [
+      1,
+    ]
+  }
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  renderEmpty="No data."
+  renderItem={[Function]}
+  renderScrollComponent={[Function]}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={Array []}
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+>
+  <View>
+    <View
+      onLayout={[Function]}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+      >
+        "Overridden!"
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`EmptyVirtualizedList renders with custom text 1`] = `
+<RCTScrollView
+  data={
+    Immutable.List [
+      1,
+    ]
+  }
+  disableVirtualization={false}
+  emptyText="Nothing. Nothing at all."
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  immutableData={
+    Immutable.List [
+      1,
+    ]
+  }
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  renderEmpty="No data."
+  renderItem={[Function]}
+  renderScrollComponent={[Function]}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={Array []}
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+>
+  <View>
+    <View
+      onLayout={[Function]}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "padding": 8,
+            "textAlign": "center",
+          }
+        }
+      >
+        Nothing. Nothing at all.
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`EmptyVirtualizedList renders with default text 1`] = `
+<RCTScrollView
+  data={
+    Immutable.List [
+      1,
+    ]
+  }
+  disableVirtualization={false}
+  emptyText="No data."
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  immutableData={
+    Immutable.List [
+      1,
+    ]
+  }
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  renderEmpty="No data."
+  renderItem={[Function]}
+  renderScrollComponent={[Function]}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={Array []}
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+>
+  <View>
+    <View
+      onLayout={[Function]}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "padding": 8,
+            "textAlign": "center",
+          }
+        }
+      >
+        No data.
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;
