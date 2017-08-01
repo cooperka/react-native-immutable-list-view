@@ -609,7 +609,15 @@ exports[`ImmutableListView renders with empty data 1`] = `
   allowFontScaling={true}
   disabled={false}
   ellipsizeMode="tail"
-  style={undefined}
+  style={
+    Array [
+      Object {
+        "padding": 8,
+        "textAlign": "center",
+      },
+      undefined,
+    ]
+  }
 >
   No data.
 </Text>
@@ -780,9 +788,15 @@ exports[`ImmutableListView with renderEmpty renders empty with a string 1`] = `
   disabled={false}
   ellipsizeMode="tail"
   style={
-    Object {
-      "color": "red",
-    }
+    Array [
+      Object {
+        "padding": 8,
+        "textAlign": "center",
+      },
+      Object {
+        "color": "red",
+      },
+    ]
   }
 >
   No items

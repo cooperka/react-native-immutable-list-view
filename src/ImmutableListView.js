@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import { Text, ListView, InteractionManager } from 'react-native';
 
+import styles from './styles';
 import utils from './utils';
 
 /**
@@ -160,7 +161,7 @@ class ImmutableListView extends PureComponent {
 
     if (renderEmpty && utils.isEmptyListView(immutableData, enableEmptySections)) {
       if (typeof renderEmpty === 'string') {
-        return <Text style={contentContainerStyle}>{renderEmpty}</Text>;
+        return <Text style={[styles.emptyText, contentContainerStyle]}>{renderEmpty}</Text>;
       }
 
       return renderEmpty(this.props);

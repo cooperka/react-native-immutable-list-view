@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import { Text, VirtualizedList } from 'react-native';
 
+import styles from './styles';
 import utils from './utils';
 
 /**
@@ -75,7 +76,7 @@ class ImmutableVirtualizedList extends PureComponent {
 
     if (renderEmpty && utils.isEmptyListView(immutableData)) {
       if (typeof renderEmpty === 'string') {
-        return <Text style={contentContainerStyle}>{renderEmpty}</Text>;
+        return <Text style={[styles.emptyText, contentContainerStyle]}>{renderEmpty}</Text>;
       }
 
       return renderEmpty(this.props);
