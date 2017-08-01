@@ -56,9 +56,9 @@ class EmptyListView extends PureComponent {
 
     return (
       <ImmutableListView
-        immutableData={listData}
         renderRow={() => this.renderRow()}
         {...this.props}
+        immutableData={listData}
       />
     );
   }

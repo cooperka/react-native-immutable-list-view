@@ -55,9 +55,9 @@ class EmptyVirtualizedList extends PureComponent {
 
     return (
       <ImmutableVirtualizedList
-        immutableData={listData}
         renderItem={() => this.renderItem()}
         {...this.props}
+        immutableData={listData}
       />
     );
   }
