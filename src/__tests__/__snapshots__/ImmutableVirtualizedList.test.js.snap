@@ -239,7 +239,11 @@ exports[`ImmutableVirtualizedList renders with empty data 1`] = `
 <RCTScrollView
   data={
     Immutable.List [
-      1,
+      Immutable.List [
+        undefined,
+        "No data.",
+        "No data.",
+      ],
     ]
   }
   disableVirtualization={false}
@@ -249,7 +253,11 @@ exports[`ImmutableVirtualizedList renders with empty data 1`] = `
   horizontal={false}
   immutableData={
     Immutable.List [
-      1,
+      Immutable.List [
+        undefined,
+        "No data.",
+        "No data.",
+      ],
     ]
   }
   initialNumToRender={10}
@@ -484,7 +492,11 @@ exports[`ImmutableVirtualizedList with renderEmptyInList renders empty with a fu
 <RCTScrollView
   data={
     Immutable.List [
-      1,
+      Immutable.List [
+        undefined,
+        [Function],
+        "No data.",
+      ],
     ]
   }
   disableVirtualization={false}
@@ -494,7 +506,11 @@ exports[`ImmutableVirtualizedList with renderEmptyInList renders empty with a fu
   horizontal={false}
   immutableData={
     Immutable.List [
-      1,
+      Immutable.List [
+        undefined,
+        [Function],
+        "No data.",
+      ],
     ]
   }
   initialNumToRender={10}
@@ -541,7 +557,11 @@ exports[`ImmutableVirtualizedList with renderEmptyInList renders empty with a st
   }
   data={
     Immutable.List [
-      1,
+      Immutable.List [
+        undefined,
+        "No items",
+        "No items",
+      ],
     ]
   }
   disableVirtualization={false}
@@ -551,7 +571,11 @@ exports[`ImmutableVirtualizedList with renderEmptyInList renders empty with a st
   horizontal={false}
   immutableData={
     Immutable.List [
-      1,
+      Immutable.List [
+        undefined,
+        "No items",
+        "No items",
+      ],
     ]
   }
   initialNumToRender={10}

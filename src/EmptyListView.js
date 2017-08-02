@@ -37,6 +37,24 @@ class EmptyListView extends PureComponent {
     listData: Immutable.List([1]),
   };
 
+  componentWillMount() {
+    this.setListDataFromProps(this.props);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setListDataFromProps(nextProps);
+  }
+
+  setListDataFromProps(props) {
+    const { listData } = this.state;
+    const { renderEmpty, renderEmptyInList, emptyText } = props;
+
+    // Update the data to make sure the list re-renders if any of the relevant props have changed.
+    this.setState({
+      listData: listData.set(0, Immutable.fromJS([renderEmpty, renderEmptyInList, emptyText])),
+    });
+  }
+
   /**
    * Returns a simple text element showing the `emptyText` string.
    * This method can be overridden by passing in your own `renderRow` prop instead.
@@ -57,7 +75,6 @@ class EmptyListView extends PureComponent {
 
     return (
       <ImmutableListView
-        key="empty_list"
         renderRow={() => this.renderRow()}
         {...passThroughProps}
         immutableData={listData}

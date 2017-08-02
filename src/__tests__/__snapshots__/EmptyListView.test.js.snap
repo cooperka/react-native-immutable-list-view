@@ -11,7 +11,11 @@ exports[`EmptyListView renders with custom renderRow 1`] = `
   enableEmptySections={true}
   immutableData={
     Immutable.List [
-      1,
+      Immutable.List [
+        undefined,
+        undefined,
+        "Nothing. Nothing at all.",
+      ],
     ]
   }
   initialListSize={10}
@@ -57,7 +61,11 @@ exports[`EmptyListView renders with custom text 1`] = `
   enableEmptySections={true}
   immutableData={
     Immutable.List [
-      1,
+      Immutable.List [
+        undefined,
+        undefined,
+        "Nothing. Nothing at all.",
+      ],
     ]
   }
   initialListSize={10}
@@ -109,7 +117,11 @@ exports[`EmptyListView renders with default text 1`] = `
   enableEmptySections={true}
   immutableData={
     Immutable.List [
-      1,
+      Immutable.List [
+        undefined,
+        undefined,
+        "No data.",
+      ],
     ]
   }
   initialListSize={10}

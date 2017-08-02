@@ -614,7 +614,11 @@ exports[`ImmutableListView renders with empty data 1`] = `
   enableEmptySections={true}
   immutableData={
     Immutable.List [
-      1,
+      Immutable.List [
+        undefined,
+        "No data.",
+        "No data.",
+      ],
     ]
   }
   initialListSize={10}
@@ -947,7 +951,11 @@ exports[`ImmutableListView with renderEmptyInList renders empty with a function 
   enableEmptySections={true}
   immutableData={
     Immutable.List [
-      1,
+      Immutable.List [
+        undefined,
+        [Function],
+        "No data.",
+      ],
     ]
   }
   initialListSize={10}
@@ -998,7 +1006,11 @@ exports[`ImmutableListView with renderEmptyInList renders empty with a string 1`
   enableEmptySections={true}
   immutableData={
     Immutable.List [
-      1,
+      Immutable.List [
+        undefined,
+        "No items",
+        "No items",
+      ],
     ]
   }
   initialListSize={10}

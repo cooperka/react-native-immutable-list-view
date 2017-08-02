@@ -36,6 +36,24 @@ class EmptyVirtualizedList extends PureComponent {
     listData: Immutable.List([1]),
   };
 
+  componentWillMount() {
+    this.setListDataFromProps(this.props);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setListDataFromProps(nextProps);
+  }
+
+  setListDataFromProps(props) {
+    const { listData } = this.state;
+    const { renderEmpty, renderEmptyInList, emptyText } = props;
+
+    // Update the data to make sure the list re-renders if any of the relevant props have changed.
+    this.setState({
+      listData: listData.set(0, Immutable.fromJS([renderEmpty, renderEmptyInList, emptyText])),
+    });
+  }
+
   /**
    * Returns a simple text element showing the `emptyText` string.
    * This method can be overridden by passing in your own `renderItem` prop instead.
@@ -56,7 +74,6 @@ class EmptyVirtualizedList extends PureComponent {
 
     return (
       <ImmutableVirtualizedList
-        key="empty_list"
         renderItem={() => this.renderItem()}
         {...passThroughProps}
         immutableData={listData}
