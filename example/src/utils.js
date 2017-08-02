@@ -6,18 +6,18 @@ import style from './styles';
 const utils = {
 
   renderRow(rowData) {
-    return <Text style={style.listRow}>{rowData}</Text>;
+    return <Text style={style.listRowItem}>{rowData}</Text>;
   },
 
   // eslint-disable-next-line react/prop-types
   renderItem({ item }) {
-    return <Text style={style.listRow}>{item}</Text>;
+    return <Text style={style.listRowItem}>{item}</Text>;
   },
 
   renderSectionHeader(sectionData, category) {
     return (
       <View>
-        <Text style={style.listHeader}>{category}</Text>
+        <Text style={style.listHeaderItem}>{category}</Text>
       </View>
     );
   },

@@ -10,30 +10,43 @@ const style = StyleSheet.create({
   title: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 20,
+    padding: 24,
   },
-  button: {
-    padding: 20,
-    paddingTop: 0,
+  controlPanelContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 12,
+    borderWidth: 2,
+    borderRadius: 8,
+    borderColor: 'black',
+    backgroundColor: 'transparent',
   },
-  listRow: {
-    fontSize: 13,
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  controlPanelLabel: {
+    fontSize: 18,
+    padding: 8,
   },
-  listHeader: {
-    fontSize: 16,
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-  sideBySideLists: {
+  listContainer: {
     flex: 1,
     flexDirection: 'row',
   },
   list: {
     flex: 1,
+  },
+  listButton: {
+    margin: 4,
+  },
+  listRowItem: {
+    fontSize: 14,
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+  listHeaderItem: {
+    fontSize: 16,
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
   },
 });
 
