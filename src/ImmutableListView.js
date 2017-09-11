@@ -172,7 +172,16 @@ class ImmutableListView extends PureComponent {
 
   render() {
     const { dataSource } = this.state;
-    const { immutableData, enableEmptySections, renderEmpty, renderEmptyInList, contentContainerStyle, rowsDuringInteraction, sectionHeaderHasChanged, ...passThroughProps } = this.props;
+    const { 
+      immutableData, 
+      enableEmptySections, 
+      renderEmpty, 
+      renderEmptyInList, 
+      contentContainerStyle, 
+      rowsDuringInteraction, 
+      sectionHeaderHasChanged, 
+      ...passThroughProps,
+    } = this.props;
 
     if ((renderEmpty || renderEmptyInList) && utils.isEmptyListView(immutableData, enableEmptySections)) {
       if (renderEmpty) {
