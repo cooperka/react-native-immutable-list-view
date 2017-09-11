@@ -172,7 +172,7 @@ class ImmutableListView extends PureComponent {
 
   render() {
     const { dataSource } = this.state;
-    const { immutableData, enableEmptySections, renderEmpty, renderEmptyInList, contentContainerStyle } = this.props;
+    const { immutableData, enableEmptySections, renderEmpty, renderEmptyInList, contentContainerStyle, ...passThroughProps } = this.props;
 
     if ((renderEmpty || renderEmptyInList) && utils.isEmptyListView(immutableData, enableEmptySections)) {
       if (renderEmpty) {
@@ -182,11 +182,11 @@ class ImmutableListView extends PureComponent {
         return renderEmpty(this.props);
       }
       if (renderEmptyInList) {
+        const { renderRow, ...passThroughPropsEmpty } = this.props;
         if (typeof renderEmptyInList === 'string') {
-          const { renderRow, ...passThroughProps } = this.props;
-          return <EmptyListView {...passThroughProps} emptyText={renderEmptyInList} />;
+          return <EmptyListView {...passThroughPropsEmpty} emptyText={renderEmptyInList} />;
         }
-        return <EmptyListView {...this.props} renderRow={() => renderEmptyInList(this.props)} />;
+        return <EmptyListView {...passThroughPropsEmpty} renderRow={() => renderEmptyInList(this.props)} />;
       }
     }
 
@@ -194,7 +194,7 @@ class ImmutableListView extends PureComponent {
       <ListView
         ref={(listView) => { this.listViewRef = listView; }}
         dataSource={dataSource}
-        {...this.props}
+        {...passThroughProps}
       />
     );
   }
