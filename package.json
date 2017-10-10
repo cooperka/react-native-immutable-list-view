@@ -17,7 +17,7 @@
   "jest": {
     "preset": "react-native",
     "setupFiles": [
-      "./src/__tests__/setup.js"
+      "./scripts/setup-jest.js"
     ],
     "testRegex": "/src/.*__tests__/.+\\.test\\.js$",
     "modulePathIgnorePatterns": [

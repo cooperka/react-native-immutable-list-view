@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import { Text, VirtualizedList } from 'react-native';
 
-import styles from './styles';
-import utils from './utils';
+import styles from '../styles';
+import utils from '../utils';
 
-import EmptyVirtualizedList from './EmptyVirtualizedList';
+import { EmptyVirtualizedList } from './EmptyVirtualizedList';
 
 /**
  * A VirtualizedList capable of displaying {@link https://facebook.github.io/immutable-js/ Immutable} data

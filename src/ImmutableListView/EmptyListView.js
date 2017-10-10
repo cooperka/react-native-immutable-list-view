@@ -5,8 +5,8 @@ import { Text, ListView } from 'react-native';
 
 import ImmutableListView from './ImmutableListView';
 
-import styles from './styles';
-import utils from './utils';
+import styles from '../styles';
+import utils from '../utils';
 
 /**
  * A ListView that displays a single item showing that there is nothing to display.
@@ -84,4 +84,4 @@ class EmptyListView extends PureComponent {
 
 }
 
-export default EmptyListView;
+export { EmptyListView };

@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import { Text, ListView, InteractionManager } from 'react-native';
 
-import styles from './styles';
-import utils from './utils';
+import styles from '../styles';
+import utils from '../utils';
 
-import EmptyListView from './EmptyListView';
+import { EmptyListView } from './EmptyListView';
 
 /**
  * A ListView capable of displaying {@link https://facebook.github.io/immutable-js/ Immutable} data
