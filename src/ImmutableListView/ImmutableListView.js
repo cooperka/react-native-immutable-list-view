@@ -167,11 +167,11 @@ class ImmutableListView extends PureComponent {
   scrollToEnd = (...args) =>
     this.listViewRef && this.listViewRef.scrollToEnd(...args);
 
-  render() {
-    const { dataSource } = this.state;
+  renderEmpty() {
     const { immutableData, enableEmptySections, renderEmpty, renderEmptyInList, contentContainerStyle } = this.props;
 
-    if ((renderEmpty || renderEmptyInList) && utils.isEmptyListView(immutableData, enableEmptySections)) {
+    const shouldTryToRenderEmpty = renderEmpty || renderEmptyInList;
+    if (shouldTryToRenderEmpty && utils.isEmptyListView(immutableData, enableEmptySections)) {
       if (renderEmpty) {
         if (typeof renderEmpty === 'string') {
           return <Text style={[styles.emptyText, contentContainerStyle]}>{renderEmpty}</Text>;
@@ -187,7 +187,13 @@ class ImmutableListView extends PureComponent {
       }
     }
 
-    return (
+    return null;
+  }
+
+  render() {
+    const { dataSource } = this.state;
+
+    return this.renderEmpty() || (
       <ListView
         ref={(component) => { this.listViewRef = component; }}
         dataSource={dataSource}
