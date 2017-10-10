@@ -13,12 +13,14 @@ class GenericListExample extends Component {
   static propTypes = {
     ListComponent: PropTypes.oneOfType([PropTypes.func, PropTypes.element]).isRequired,
     listComponentProps: PropTypes.object.isRequired,
-    extraPropsA: PropTypes.object,
-    extraPropsB: PropTypes.object,
+
     initialDataA: PropTypes.object.isRequired,
-    initialDataB: PropTypes.object.isRequired,
     dataMutatorA: PropTypes.func.isRequired,
+    extraPropsA: PropTypes.object,
+
+    initialDataB: PropTypes.object.isRequired,
     dataMutatorB: PropTypes.func.isRequired,
+    extraPropsB: PropTypes.object,
   };
 
   componentWillMount() {

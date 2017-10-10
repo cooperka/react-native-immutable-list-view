@@ -9,6 +9,16 @@ import GenericListExample from './GenericListExample';
 
 import utils from './utils';
 
+/**
+ *
+ * Note: This code is NOT a good example for use in your own app.
+ * It's only written this way because the example apps are complex
+ * and need to be repeated for every type of list.
+ *
+ * For working example code to use in your own app, please see the
+ * extensive documentation in the README.
+ *
+ */
 function ImmutableVirtualizedListExample() {
   return (
     <GenericListExample
@@ -19,9 +29,9 @@ function ImmutableVirtualizedListExample() {
       }}
 
       initialDataA={Immutable.List(['Simple', 'List', 'of', 'Items'])}
-      initialDataB={Immutable.Range(1, 100)}
-
       dataMutatorA={(data) => data.set(3, 'This value was changed!')}
+
+      initialDataB={Immutable.Range(1, 100)}
       dataMutatorB={(data) => data.toSeq().map((n) => n * 2)}
     />
   );
