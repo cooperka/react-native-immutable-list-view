@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
 const style = StyleSheet.create({
   container: {
@@ -25,6 +25,9 @@ const style = StyleSheet.create({
   controlPanelLabel: {
     fontSize: 18,
     padding: 8,
+  },
+  controlPanelSpacer: {
+    width: Platform.OS === 'android' ? 4 : 0,
   },
   listContainer: {
     flex: 1,

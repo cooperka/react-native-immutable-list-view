@@ -160,23 +160,26 @@ class GenericListExample extends Component {
           </Text>
           <Button
             onPress={() => this.toggleDefaultState()}
-            title="'Default'"
+            title="Default"
           />
+          <View style={style.controlPanelSpacer} />
           <Button
             onPress={() => this.toggleLoadingState()}
-            title="'Loading'"
+            title="Loading"
           />
+          <View style={style.controlPanelSpacer} />
           <Button
             onPress={() => this.toggleErrorState()}
-            title="'Error'"
+            title="Error"
           />
+          <View style={style.controlPanelSpacer} />
         </View>
         <View style={style.listContainer}>
           <View style={style.list}>
             <View style={style.listButton}>
               <Button
                 onPress={() => this.changeDataA()}
-                title="Update Data (or pull-refresh)"
+                title="Update data (or pull-refresh)"
               />
             </View>
             <ListComponent
@@ -196,7 +199,7 @@ class GenericListExample extends Component {
             <View style={style.listButton}>
               <Button
                 onPress={() => this.changeDataB()}
-                title="Update Data (or pull-refresh)"
+                title="Update data (or pull-refresh)"
               />
             </View>
             <ListComponent
