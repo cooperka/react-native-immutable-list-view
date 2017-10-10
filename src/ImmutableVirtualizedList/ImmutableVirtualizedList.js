@@ -66,25 +66,20 @@ class ImmutableVirtualizedList extends PureComponent {
     return this.virtualizedListRef;
   }
 
-  scrollToEnd(...args) {
-    return this.virtualizedListRef && this.virtualizedListRef.scrollToEnd(...args);
-  }
+  scrollToEnd = (...args) =>
+    this.virtualizedListRef && this.virtualizedListRef.scrollToEnd(...args);
 
-  scrollToIndex(...args) {
-    return this.virtualizedListRef && this.virtualizedListRef.scrollToIndex(...args);
-  }
+  scrollToIndex = (...args) =>
+    this.virtualizedListRef && this.virtualizedListRef.scrollToIndex(...args);
 
-  scrollToItem(...args) {
-    return this.virtualizedListRef && this.virtualizedListRef.scrollToItem(...args);
-  }
+  scrollToItem = (...args) =>
+    this.virtualizedListRef && this.virtualizedListRef.scrollToItem(...args);
 
-  scrollToOffset(...args) {
-    return this.virtualizedListRef && this.virtualizedListRef.scrollToOffset(...args);
-  }
+  scrollToOffset = (...args) =>
+    this.virtualizedListRef && this.virtualizedListRef.scrollToOffset(...args);
 
-  recordInteraction(...args) {
-    return this.virtualizedListRef && this.virtualizedListRef.recordInteraction(...args);
-  }
+  recordInteraction = (...args) =>
+    this.virtualizedListRef && this.virtualizedListRef.recordInteraction(...args);
 
   render() {
     const { immutableData, renderEmpty, renderEmptyInList, contentContainerStyle } = this.props;
@@ -107,7 +102,7 @@ class ImmutableVirtualizedList extends PureComponent {
 
     return (
       <VirtualizedList
-        ref={(virtualizedList) => { this.virtualizedListRef = virtualizedList; }}
+        ref={(component) => { this.virtualizedListRef = component; }}
         data={immutableData}
         getItem={(items, index) => utils.getValueFromKey(index, items)}
         getItemCount={(items) => (items.size || 0)}

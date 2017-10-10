@@ -158,17 +158,14 @@ class ImmutableListView extends PureComponent {
     return this.listViewRef;
   }
 
-  getMetrics(...args) {
-    return this.listViewRef && this.listViewRef.getMetrics(...args);
-  }
+  getMetrics = (...args) =>
+    this.listViewRef && this.listViewRef.getMetrics(...args);
 
-  scrollTo(...args) {
-    return this.listViewRef && this.listViewRef.scrollTo(...args);
-  }
+  scrollTo = (...args) =>
+    this.listViewRef && this.listViewRef.scrollTo(...args);
 
-  scrollToEnd(...args) {
-    return this.listViewRef && this.listViewRef.scrollToEnd(...args);
-  }
+  scrollToEnd = (...args) =>
+    this.listViewRef && this.listViewRef.scrollToEnd(...args);
 
   render() {
     const { dataSource } = this.state;
@@ -192,7 +189,7 @@ class ImmutableListView extends PureComponent {
 
     return (
       <ListView
-        ref={(listView) => { this.listViewRef = listView; }}
+        ref={(component) => { this.listViewRef = component; }}
         dataSource={dataSource}
         {...this.props}
       />
