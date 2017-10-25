@@ -2,6 +2,7 @@
 
 exports[`ImmutableListView renders Map: List rows, with section headers 1`] = `
 <RCTScrollView
+  DEPRECATED_sendUpdatedChildFrames={true}
   dataSource={
     ListViewDataSource {
       "items": NaN,
@@ -10,17 +11,16 @@ exports[`ImmutableListView renders Map: List rows, with section headers 1`] = `
   enableEmptySections={true}
   immutableData={
     Immutable.Map {
-      first: Immutable.List [
+      "first": Immutable.List [
         "m",
         "a",
         "p",
       ],
-      second: Immutable.List [
+      "second": Immutable.List [
         "foo",
       ],
-      third: Immutable.List [
-      ],
-      fourth: Immutable.List [
+      "third": Immutable.List [],
+      "fourth": Immutable.List [
         "bar",
       ],
     }
@@ -135,6 +135,7 @@ exports[`ImmutableListView renders Map: List rows, with section headers 1`] = `
 
 exports[`ImmutableListView renders Map: List rows, without section headers 1`] = `
 <RCTScrollView
+  DEPRECATED_sendUpdatedChildFrames={true}
   dataSource={
     ListViewDataSource {
       "items": 4,
@@ -143,17 +144,16 @@ exports[`ImmutableListView renders Map: List rows, without section headers 1`] =
   enableEmptySections={true}
   immutableData={
     Immutable.Map {
-      first: Immutable.List [
+      "first": Immutable.List [
         "m",
         "a",
         "p",
       ],
-      second: Immutable.List [
+      "second": Immutable.List [
         "foo",
       ],
-      third: Immutable.List [
-      ],
-      fourth: Immutable.List [
+      "third": Immutable.List [],
+      "fourth": Immutable.List [
         "bar",
       ],
     }
@@ -216,6 +216,7 @@ exports[`ImmutableListView renders Map: List rows, without section headers 1`] =
 
 exports[`ImmutableListView renders Map: Map rows, with section headers 1`] = `
 <RCTScrollView
+  DEPRECATED_sendUpdatedChildFrames={true}
   dataSource={
     ListViewDataSource {
       "items": NaN,
@@ -224,12 +225,11 @@ exports[`ImmutableListView renders Map: Map rows, with section headers 1`] = `
   enableEmptySections={true}
   immutableData={
     Immutable.Map {
-      first: Immutable.Map {
-        row1: "data 1",
-        row2: "data 2",
+      "first": Immutable.Map {
+        "row1": "data 1",
+        "row2": "data 2",
       },
-      second: Immutable.Map {
-      },
+      "second": Immutable.Map {},
     }
   }
   initialListSize={10}
@@ -298,6 +298,7 @@ exports[`ImmutableListView renders Map: Map rows, with section headers 1`] = `
 
 exports[`ImmutableListView renders Map: Map rows, without section headers 1`] = `
 <RCTScrollView
+  DEPRECATED_sendUpdatedChildFrames={true}
   dataSource={
     ListViewDataSource {
       "items": 2,
@@ -306,12 +307,11 @@ exports[`ImmutableListView renders Map: Map rows, without section headers 1`] = 
   enableEmptySections={true}
   immutableData={
     Immutable.Map {
-      first: Immutable.Map {
-        row1: "data 1",
-        row2: "data 2",
+      "first": Immutable.Map {
+        "row1": "data 1",
+        "row2": "data 2",
       },
-      second: Immutable.Map {
-      },
+      "second": Immutable.Map {},
     }
   }
   initialListSize={10}
@@ -356,6 +356,7 @@ exports[`ImmutableListView renders Map: Map rows, without section headers 1`] = 
 
 exports[`ImmutableListView renders basic List 1`] = `
 <RCTScrollView
+  DEPRECATED_sendUpdatedChildFrames={true}
   dataSource={
     ListViewDataSource {
       "items": 3,
@@ -419,19 +420,14 @@ exports[`ImmutableListView renders basic List 1`] = `
 
 exports[`ImmutableListView renders basic Range 1`] = `
 <RCTScrollView
+  DEPRECATED_sendUpdatedChildFrames={true}
   dataSource={
     ListViewDataSource {
       "items": 3,
     }
   }
   enableEmptySections={true}
-  immutableData={
-    Array [
-      3,
-      6,
-      9,
-    ]
-  }
+  immutableData={Immutable.Seq […]}
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -482,6 +478,7 @@ exports[`ImmutableListView renders basic Range 1`] = `
 
 exports[`ImmutableListView renders basic Set 1`] = `
 <RCTScrollView
+  DEPRECATED_sendUpdatedChildFrames={true}
   dataSource={
     ListViewDataSource {
       "items": 3,
@@ -545,6 +542,7 @@ exports[`ImmutableListView renders basic Set 1`] = `
 
 exports[`ImmutableListView renders nested List 1`] = `
 <RCTScrollView
+  DEPRECATED_sendUpdatedChildFrames={true}
   dataSource={
     ListViewDataSource {
       "items": 2,
@@ -605,6 +603,7 @@ exports[`ImmutableListView renders nested List 1`] = `
 
 exports[`ImmutableListView renders with empty data 1`] = `
 <RCTScrollView
+  DEPRECATED_sendUpdatedChildFrames={true}
   dataSource={
     ListViewDataSource {
       "items": 1,
@@ -661,6 +660,7 @@ exports[`ImmutableListView renders with empty data 1`] = `
 
 exports[`ImmutableListView with delayed rendering renders basic List after interactions 1`] = `
 <RCTScrollView
+  DEPRECATED_sendUpdatedChildFrames={true}
   dataSource={
     ListViewDataSource {
       "items": 3,
@@ -725,6 +725,7 @@ exports[`ImmutableListView with delayed rendering renders basic List after inter
 
 exports[`ImmutableListView with delayed rendering renders basic List during interactions 1`] = `
 <RCTScrollView
+  DEPRECATED_sendUpdatedChildFrames={true}
   dataSource={
     ListViewDataSource {
       "items": 1,
@@ -773,16 +774,14 @@ exports[`ImmutableListView with delayed rendering renders basic List during inte
 
 exports[`ImmutableListView with renderEmpty doesn't render empty with null 1`] = `
 <RCTScrollView
+  DEPRECATED_sendUpdatedChildFrames={true}
   dataSource={
     ListViewDataSource {
       "items": 0,
     }
   }
   enableEmptySections={true}
-  immutableData={
-    Immutable.List [
-    ]
-  }
+  immutableData={Immutable.List []}
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -842,6 +841,7 @@ exports[`ImmutableListView with renderEmpty renders empty with a string 1`] = `
 
 exports[`ImmutableListView with renderEmpty renders normally when there are some items 1`] = `
 <RCTScrollView
+  DEPRECATED_sendUpdatedChildFrames={true}
   dataSource={
     ListViewDataSource {
       "items": 3,
@@ -906,16 +906,14 @@ exports[`ImmutableListView with renderEmpty renders normally when there are some
 
 exports[`ImmutableListView with renderEmptyInList doesn't render empty with null 1`] = `
 <RCTScrollView
+  DEPRECATED_sendUpdatedChildFrames={true}
   dataSource={
     ListViewDataSource {
       "items": 0,
     }
   }
   enableEmptySections={true}
-  immutableData={
-    Immutable.List [
-    ]
-  }
+  immutableData={Immutable.List []}
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -942,6 +940,7 @@ exports[`ImmutableListView with renderEmptyInList doesn't render empty with null
 
 exports[`ImmutableListView with renderEmptyInList renders empty with a function 1`] = `
 <RCTScrollView
+  DEPRECATED_sendUpdatedChildFrames={true}
   dataSource={
     ListViewDataSource {
       "items": 1,
@@ -992,6 +991,7 @@ exports[`ImmutableListView with renderEmptyInList renders empty with a function 
 
 exports[`ImmutableListView with renderEmptyInList renders empty with a string 1`] = `
 <RCTScrollView
+  DEPRECATED_sendUpdatedChildFrames={true}
   contentContainerStyle={
     Object {
       "color": "red",
@@ -1053,6 +1053,7 @@ exports[`ImmutableListView with renderEmptyInList renders empty with a string 1`
 
 exports[`ImmutableListView with renderEmptyInList renders normally when there are some items 1`] = `
 <RCTScrollView
+  DEPRECATED_sendUpdatedChildFrames={true}
   dataSource={
     ListViewDataSource {
       "items": 3,
