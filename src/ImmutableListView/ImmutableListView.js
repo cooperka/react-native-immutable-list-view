@@ -144,9 +144,11 @@ class ImmutableListView extends PureComponent {
 
     const updatedDataSource = (renderSectionHeader
       ? dataSource.cloneWithRowsAndSections(
-          displayData, utils.getKeys(displayData), utils.getRowIdentities(displayData))
+        displayData, utils.getKeys(displayData), utils.getRowIdentities(displayData),
+      )
       : dataSource.cloneWithRows(
-          displayData, utils.getKeys(displayData)));
+        displayData, utils.getKeys(displayData),
+      ));
 
     this.setState({
       dataSource: updatedDataSource,
@@ -168,7 +170,9 @@ class ImmutableListView extends PureComponent {
     this.listViewRef && this.listViewRef.scrollToEnd(...args);
 
   renderEmpty() {
-    const { immutableData, enableEmptySections, renderEmpty, renderEmptyInList, contentContainerStyle } = this.props;
+    const {
+      immutableData, enableEmptySections, renderEmpty, renderEmptyInList, contentContainerStyle,
+    } = this.props;
 
     const shouldTryToRenderEmpty = renderEmpty || renderEmptyInList;
     if (shouldTryToRenderEmpty && utils.isEmptyListView(immutableData, enableEmptySections)) {

@@ -144,7 +144,9 @@ class GenericListExample extends Component {
 
   render() {
     const { listA, listB } = this.state;
-    const { ListComponent, extraPropsA, extraPropsB, listComponentProps } = this.props;
+    const {
+      ListComponent, extraPropsA, extraPropsB, listComponentProps,
+    } = this.props;
 
     const emptyTextA = listA.isLoading ? 'Loading...' : listA.errorMsg;
     const emptyTextB = listB.isLoading ? 'Loading...' : listB.errorMsg;

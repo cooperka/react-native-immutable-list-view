@@ -82,7 +82,9 @@ class ImmutableVirtualizedList extends PureComponent {
     this.virtualizedListRef && this.virtualizedListRef.recordInteraction(...args);
 
   renderEmpty() {
-    const { immutableData, renderEmpty, renderEmptyInList, contentContainerStyle } = this.props;
+    const {
+      immutableData, renderEmpty, renderEmptyInList, contentContainerStyle,
+    } = this.props;
 
     const shouldTryToRenderEmpty = renderEmpty || renderEmptyInList;
     if (shouldTryToRenderEmpty && utils.isEmptyListView(immutableData)) {
