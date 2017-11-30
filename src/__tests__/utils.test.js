@@ -1,6 +1,6 @@
 import Immutable from 'immutable';
 
-import { data } from './testUtils';
+import { data } from '../test-utils';
 
 import utils from '../utils';
 

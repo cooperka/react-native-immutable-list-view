@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { data, renderers, expectors } from './testUtils';
+import { data, renderers, expectors } from '../../test-utils';
 
 import ImmutableVirtualizedList from '../ImmutableVirtualizedList';
 

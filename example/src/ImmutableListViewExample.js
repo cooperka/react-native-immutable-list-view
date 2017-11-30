@@ -10,6 +10,16 @@ import GenericListExample from './GenericListExample';
 import utils from './utils';
 import mockData from './mockData';
 
+/**
+ *
+ * Note: This code is NOT a good example for use in your own app.
+ * It's only written this way because the example apps are complex
+ * and need to be repeated for every type of list.
+ *
+ * For working example code to use in your own app, please see the
+ * extensive documentation in the README.
+ *
+ */
 function ImmutableListViewExample() {
   return (
     <GenericListExample
@@ -17,14 +27,14 @@ function ImmutableListViewExample() {
       listComponentProps={{
         renderRow: utils.renderRow,
       }}
+
+      initialDataA={mockData}
+      dataMutatorA={(data) => data.setIn(['Section A', 1], 'This value was changed!')}
       extraPropsA={{
         renderSectionHeader: utils.renderSectionHeader,
       }}
 
-      initialDataA={mockData}
       initialDataB={Immutable.Range(1, 100)}
-
-      dataMutatorA={(data) => data.setIn(['Section A', 1], 'This value was changed!')}
       dataMutatorB={(data) => data.toSeq().map((n) => n * 2)}
     />
   );

@@ -1,21 +1,21 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { renderers } from './testUtils';
+import { renderers } from '../../test-utils';
 
-import EmptyListView from '../EmptyListView';
+import { EmptyVirtualizedList } from '../EmptyVirtualizedList';
 
-describe('EmptyListView', () => {
+describe('EmptyVirtualizedList', () => {
   it('renders with default text', () => {
     const tree = renderer.create(
-      <EmptyListView />,
+      <EmptyVirtualizedList />,
     );
     expect(tree.toJSON()).toMatchSnapshot();
   });
 
   it('renders with custom text', () => {
     const tree = renderer.create(
-      <EmptyListView
+      <EmptyVirtualizedList
         emptyText="Nothing. Nothing at all."
       />,
     );
@@ -24,9 +24,9 @@ describe('EmptyListView', () => {
 
   it('renders with custom renderRow', () => {
     const tree = renderer.create(
-      <EmptyListView
+      <EmptyVirtualizedList
         emptyText="Nothing. Nothing at all."
-        renderRow={() => renderers.renderRow('Overridden!')}
+        renderItem={() => renderers.renderRow('Overridden!')}
       />,
     );
     expect(tree.toJSON()).toMatchSnapshot();

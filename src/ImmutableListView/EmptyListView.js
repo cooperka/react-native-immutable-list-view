@@ -5,8 +5,8 @@ import { Text, ListView } from 'react-native';
 
 import ImmutableListView from './ImmutableListView';
 
-import styles from './styles';
-import utils from './utils';
+import styles from '../styles';
+import utils from '../utils';
 
 /**
  * A ListView that displays a single item showing that there is nothing to display.
@@ -71,17 +71,19 @@ class EmptyListView extends PureComponent {
 
   render() {
     const { listData } = this.state;
-    const { renderEmpty, renderEmptyInList, renderSectionHeader, emptyText, ...passThroughProps } = this.props;
+    const {
+      renderEmpty, renderEmptyInList, renderSectionHeader, emptyText, ...passThroughProps
+    } = this.props;
 
     return (
       <ImmutableListView
         renderRow={() => this.renderRow()}
         {...passThroughProps}
         immutableData={listData}
-      />
+        />
     );
   }
 
 }
 
-export default EmptyListView;
+export { EmptyListView };

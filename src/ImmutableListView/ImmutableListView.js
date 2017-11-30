@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import { Text, ListView, InteractionManager } from 'react-native';
 
-import styles from './styles';
-import utils from './utils';
+import styles from '../styles';
+import utils from '../utils';
 
-import EmptyListView from './EmptyListView';
+import { EmptyListView } from './EmptyListView';
 
 /**
  * A ListView capable of displaying {@link https://facebook.github.io/immutable-js/ Immutable} data
@@ -144,9 +144,11 @@ class ImmutableListView extends PureComponent {
 
     const updatedDataSource = (renderSectionHeader
       ? dataSource.cloneWithRowsAndSections(
-          displayData, utils.getKeys(displayData), utils.getRowIdentities(displayData))
+        displayData, utils.getKeys(displayData), utils.getRowIdentities(displayData),
+      )
       : dataSource.cloneWithRows(
-          displayData, utils.getKeys(displayData)));
+        displayData, utils.getKeys(displayData),
+      ));
 
     this.setState({
       dataSource: updatedDataSource,
@@ -158,32 +160,22 @@ class ImmutableListView extends PureComponent {
     return this.listViewRef;
   }
 
-  getMetrics(...args) {
-    return this.listViewRef && this.listViewRef.getMetrics(...args);
-  }
+  getMetrics = (...args) =>
+    this.listViewRef && this.listViewRef.getMetrics(...args);
 
-  scrollTo(...args) {
-    return this.listViewRef && this.listViewRef.scrollTo(...args);
-  }
+  scrollTo = (...args) =>
+    this.listViewRef && this.listViewRef.scrollTo(...args);
 
-  scrollToEnd(...args) {
-    return this.listViewRef && this.listViewRef.scrollToEnd(...args);
-  }
+  scrollToEnd = (...args) =>
+    this.listViewRef && this.listViewRef.scrollToEnd(...args);
 
-  render() {
-    const { dataSource } = this.state;
-    const { 
-      immutableData, 
-      enableEmptySections, 
-      renderEmpty, 
-      renderEmptyInList, 
-      contentContainerStyle, 
-      rowsDuringInteraction, 
-      sectionHeaderHasChanged, 
-      ...passThroughProps,
+  renderEmpty() {
+    const {
+      immutableData, enableEmptySections, renderEmpty, renderEmptyInList, contentContainerStyle,
     } = this.props;
 
-    if ((renderEmpty || renderEmptyInList) && utils.isEmptyListView(immutableData, enableEmptySections)) {
+    const shouldTryToRenderEmpty = renderEmpty || renderEmptyInList;
+    if (shouldTryToRenderEmpty && utils.isEmptyListView(immutableData, enableEmptySections)) {
       if (renderEmpty) {
         if (typeof renderEmpty === 'string') {
           return <Text style={[styles.emptyText, contentContainerStyle]}>{renderEmpty}</Text>;
@@ -191,20 +183,29 @@ class ImmutableListView extends PureComponent {
         return renderEmpty(this.props);
       }
       if (renderEmptyInList) {
-        const { renderRow, ...passThroughPropsEmpty } = this.props;
         if (typeof renderEmptyInList === 'string') {
-          return <EmptyListView {...passThroughPropsEmpty} emptyText={renderEmptyInList} />;
+          const { renderRow, ...passThroughProps } = this.props;
+          return <EmptyListView {...passThroughProps} emptyText={renderEmptyInList} />;
         }
-        return <EmptyListView {...passThroughPropsEmpty} renderRow={() => renderEmptyInList(this.props)} />;
+        return <EmptyListView {...this.props} renderRow={() => renderEmptyInList(this.props)} />;
       }
     }
 
-    return (
+    return null;
+  }
+
+  render() {
+    const { dataSource } = this.state;
+    const {
+      immutableData, renderEmpty, renderEmptyInList, rowsDuringInteraction, sectionHeaderHasChanged, ...passThroughProps
+    } = this.props;
+
+    return this.renderEmpty() || (
       <ListView
-        ref={(listView) => { this.listViewRef = listView; }}
+        ref={(component) => { this.listViewRef = component; } }
         dataSource={dataSource}
         {...passThroughProps}
-      />
+        />
     );
   }
 

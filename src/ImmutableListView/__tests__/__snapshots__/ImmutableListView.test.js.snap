@@ -8,23 +8,6 @@ exports[`ImmutableListView renders Map: List rows, with section headers 1`] = `
     }
   }
   enableEmptySections={true}
-  immutableData={
-    Immutable.Map {
-      first: Immutable.List [
-        "m",
-        "a",
-        "p",
-      ],
-      second: Immutable.List [
-        "foo",
-      ],
-      third: Immutable.List [
-      ],
-      fourth: Immutable.List [
-        "bar",
-      ],
-    }
-  }
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -36,12 +19,10 @@ exports[`ImmutableListView renders Map: List rows, with section headers 1`] = `
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmptyInList="No data."
   renderRow={[Function]}
   renderSectionHeader={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
-  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={
     Array [
       0,
@@ -141,23 +122,6 @@ exports[`ImmutableListView renders Map: List rows, without section headers 1`] =
     }
   }
   enableEmptySections={true}
-  immutableData={
-    Immutable.Map {
-      first: Immutable.List [
-        "m",
-        "a",
-        "p",
-      ],
-      second: Immutable.List [
-        "foo",
-      ],
-      third: Immutable.List [
-      ],
-      fourth: Immutable.List [
-        "bar",
-      ],
-    }
-  }
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -169,11 +133,9 @@ exports[`ImmutableListView renders Map: List rows, without section headers 1`] =
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmptyInList="No data."
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
-  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []}
   stickySectionHeadersEnabled={true}
 >
@@ -222,16 +184,6 @@ exports[`ImmutableListView renders Map: Map rows, with section headers 1`] = `
     }
   }
   enableEmptySections={true}
-  immutableData={
-    Immutable.Map {
-      first: Immutable.Map {
-        row1: "data 1",
-        row2: "data 2",
-      },
-      second: Immutable.Map {
-      },
-    }
-  }
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -243,12 +195,10 @@ exports[`ImmutableListView renders Map: Map rows, with section headers 1`] = `
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmptyInList="No data."
   renderRow={[Function]}
   renderSectionHeader={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
-  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={
     Array [
       0,
@@ -304,16 +254,6 @@ exports[`ImmutableListView renders Map: Map rows, without section headers 1`] = 
     }
   }
   enableEmptySections={true}
-  immutableData={
-    Immutable.Map {
-      first: Immutable.Map {
-        row1: "data 1",
-        row2: "data 2",
-      },
-      second: Immutable.Map {
-      },
-    }
-  }
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -325,11 +265,9 @@ exports[`ImmutableListView renders Map: Map rows, without section headers 1`] = 
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmptyInList="No data."
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
-  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []}
   stickySectionHeadersEnabled={true}
 >
@@ -362,13 +300,6 @@ exports[`ImmutableListView renders basic List 1`] = `
     }
   }
   enableEmptySections={true}
-  immutableData={
-    Immutable.List [
-      "lists",
-      "are",
-      "great",
-    ]
-  }
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -380,11 +311,9 @@ exports[`ImmutableListView renders basic List 1`] = `
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmptyInList="No data."
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
-  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []}
   stickySectionHeadersEnabled={true}
 >
@@ -425,13 +354,6 @@ exports[`ImmutableListView renders basic Range 1`] = `
     }
   }
   enableEmptySections={true}
-  immutableData={
-    Array [
-      3,
-      6,
-      9,
-    ]
-  }
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -443,11 +365,9 @@ exports[`ImmutableListView renders basic Range 1`] = `
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmptyInList="No data."
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
-  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []}
   stickySectionHeadersEnabled={true}
 >
@@ -488,13 +408,6 @@ exports[`ImmutableListView renders basic Set 1`] = `
     }
   }
   enableEmptySections={true}
-  immutableData={
-    Immutable.Set [
-      "one",
-      "two",
-      "three",
-    ]
-  }
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -506,11 +419,9 @@ exports[`ImmutableListView renders basic Set 1`] = `
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmptyInList="No data."
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
-  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []}
   stickySectionHeadersEnabled={true}
 >
@@ -551,18 +462,6 @@ exports[`ImmutableListView renders nested List 1`] = `
     }
   }
   enableEmptySections={true}
-  immutableData={
-    Immutable.List [
-      Array [
-        "so",
-        "are",
-      ],
-      Array [
-        "nested",
-        "lists",
-      ],
-    ]
-  }
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -574,11 +473,9 @@ exports[`ImmutableListView renders nested List 1`] = `
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmptyInList="No data."
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
-  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []}
   stickySectionHeadersEnabled={true}
 >
@@ -610,17 +507,7 @@ exports[`ImmutableListView renders with empty data 1`] = `
       "items": 1,
     }
   }
-  emptyText="No data."
   enableEmptySections={true}
-  immutableData={
-    Immutable.List [
-      Immutable.List [
-        undefined,
-        "No data.",
-        "No data.",
-      ],
-    ]
-  }
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -632,11 +519,9 @@ exports[`ImmutableListView renders with empty data 1`] = `
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmptyInList="No data."
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
-  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []}
   stickySectionHeadersEnabled={true}
 >
@@ -667,13 +552,6 @@ exports[`ImmutableListView with delayed rendering renders basic List after inter
     }
   }
   enableEmptySections={true}
-  immutableData={
-    Immutable.List [
-      "lists",
-      "are",
-      "great",
-    ]
-  }
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -685,12 +563,9 @@ exports[`ImmutableListView with delayed rendering renders basic List after inter
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmptyInList="No data."
   renderRow={[Function]}
-  rowsDuringInteraction={1}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
-  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []}
   stickySectionHeadersEnabled={true}
 >
@@ -731,13 +606,6 @@ exports[`ImmutableListView with delayed rendering renders basic List during inte
     }
   }
   enableEmptySections={true}
-  immutableData={
-    Immutable.List [
-      "lists",
-      "are",
-      "great",
-    ]
-  }
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -749,12 +617,9 @@ exports[`ImmutableListView with delayed rendering renders basic List during inte
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmptyInList="No data."
   renderRow={[Function]}
-  rowsDuringInteraction={1}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
-  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []}
   stickySectionHeadersEnabled={true}
 >
@@ -779,10 +644,6 @@ exports[`ImmutableListView with renderEmpty doesn't render empty with null 1`] =
     }
   }
   enableEmptySections={true}
-  immutableData={
-    Immutable.List [
-    ]
-  }
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -794,12 +655,9 @@ exports[`ImmutableListView with renderEmpty doesn't render empty with null 1`] =
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmpty={null}
-  renderEmptyInList={null}
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
-  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []}
   stickySectionHeadersEnabled={true}
 >
@@ -848,13 +706,6 @@ exports[`ImmutableListView with renderEmpty renders normally when there are some
     }
   }
   enableEmptySections={true}
-  immutableData={
-    Immutable.List [
-      "lists",
-      "are",
-      "great",
-    ]
-  }
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -866,12 +717,9 @@ exports[`ImmutableListView with renderEmpty renders normally when there are some
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmpty={[Function]}
-  renderEmptyInList="No data."
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
-  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []}
   stickySectionHeadersEnabled={true}
 >
@@ -912,10 +760,6 @@ exports[`ImmutableListView with renderEmptyInList doesn't render empty with null
     }
   }
   enableEmptySections={true}
-  immutableData={
-    Immutable.List [
-    ]
-  }
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -927,12 +771,9 @@ exports[`ImmutableListView with renderEmptyInList doesn't render empty with null
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmpty={null}
-  renderEmptyInList={null}
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
-  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []}
   stickySectionHeadersEnabled={true}
 >
@@ -947,17 +788,7 @@ exports[`ImmutableListView with renderEmptyInList renders empty with a function 
       "items": 1,
     }
   }
-  emptyText="No data."
   enableEmptySections={true}
-  immutableData={
-    Immutable.List [
-      Immutable.List [
-        undefined,
-        [Function],
-        "No data.",
-      ],
-    ]
-  }
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -969,11 +800,9 @@ exports[`ImmutableListView with renderEmptyInList renders empty with a function 
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmptyInList="No data."
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
-  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []}
   stickySectionHeadersEnabled={true}
 >
@@ -1002,17 +831,7 @@ exports[`ImmutableListView with renderEmptyInList renders empty with a string 1`
       "items": 1,
     }
   }
-  emptyText="No items"
   enableEmptySections={true}
-  immutableData={
-    Immutable.List [
-      Immutable.List [
-        undefined,
-        "No items",
-        "No items",
-      ],
-    ]
-  }
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -1024,11 +843,9 @@ exports[`ImmutableListView with renderEmptyInList renders empty with a string 1`
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmptyInList="No data."
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
-  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []}
   stickySectionHeadersEnabled={true}
 >
@@ -1059,13 +876,6 @@ exports[`ImmutableListView with renderEmptyInList renders normally when there ar
     }
   }
   enableEmptySections={true}
-  immutableData={
-    Immutable.List [
-      "lists",
-      "are",
-      "great",
-    ]
-  }
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -1077,11 +887,9 @@ exports[`ImmutableListView with renderEmptyInList renders normally when there ar
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmptyInList={[Function]}
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
-  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []}
   stickySectionHeadersEnabled={true}
 >

@@ -13,12 +13,14 @@ class GenericListExample extends Component {
   static propTypes = {
     ListComponent: PropTypes.oneOfType([PropTypes.func, PropTypes.element]).isRequired,
     listComponentProps: PropTypes.object.isRequired,
-    extraPropsA: PropTypes.object,
-    extraPropsB: PropTypes.object,
+
     initialDataA: PropTypes.object.isRequired,
-    initialDataB: PropTypes.object.isRequired,
     dataMutatorA: PropTypes.func.isRequired,
+    extraPropsA: PropTypes.object,
+
+    initialDataB: PropTypes.object.isRequired,
     dataMutatorB: PropTypes.func.isRequired,
+    extraPropsB: PropTypes.object,
   };
 
   componentWillMount() {
@@ -142,7 +144,9 @@ class GenericListExample extends Component {
 
   render() {
     const { listA, listB } = this.state;
-    const { ListComponent, extraPropsA, extraPropsB, listComponentProps } = this.props;
+    const {
+      ListComponent, extraPropsA, extraPropsB, listComponentProps,
+    } = this.props;
 
     const emptyTextA = listA.isLoading ? 'Loading...' : listA.errorMsg;
     const emptyTextB = listB.isLoading ? 'Loading...' : listB.errorMsg;
@@ -158,23 +162,26 @@ class GenericListExample extends Component {
           </Text>
           <Button
             onPress={() => this.toggleDefaultState()}
-            title="'Default'"
+            title="Default"
           />
+          <View style={style.controlPanelSpacer} />
           <Button
             onPress={() => this.toggleLoadingState()}
-            title="'Loading'"
+            title="Loading"
           />
+          <View style={style.controlPanelSpacer} />
           <Button
             onPress={() => this.toggleErrorState()}
-            title="'Error'"
+            title="Error"
           />
+          <View style={style.controlPanelSpacer} />
         </View>
         <View style={style.listContainer}>
           <View style={style.list}>
             <View style={style.listButton}>
               <Button
                 onPress={() => this.changeDataA()}
-                title="Update Data (or pull-refresh)"
+                title="Update data (or pull-refresh)"
               />
             </View>
             <ListComponent
@@ -194,7 +201,7 @@ class GenericListExample extends Component {
             <View style={style.listButton}>
               <Button
                 onPress={() => this.changeDataB()}
-                title="Update Data (or pull-refresh)"
+                title="Update data (or pull-refresh)"
               />
             </View>
             <ListComponent

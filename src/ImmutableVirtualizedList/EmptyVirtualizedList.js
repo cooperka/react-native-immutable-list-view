@@ -5,8 +5,8 @@ import { Text, VirtualizedList } from 'react-native';
 
 import ImmutableVirtualizedList from './ImmutableVirtualizedList';
 
-import styles from './styles';
-import utils from './utils';
+import styles from '../styles';
+import utils from '../utils';
 
 /**
  * A VirtualizedList that displays a single item showing that there is nothing to display.
@@ -83,4 +83,4 @@ class EmptyVirtualizedList extends PureComponent {
 
 }
 
-export default EmptyVirtualizedList;
+export { EmptyVirtualizedList };

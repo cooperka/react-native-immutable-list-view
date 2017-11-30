@@ -1,10 +1,12 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import Immutable from 'immutable';
 import React from 'react';
 import { Text, ListView } from 'react-native';
 import renderer from 'react-test-renderer';
+/* eslint-enable */
 
-import ImmutableListView from '../ImmutableListView';
-import ImmutableVirtualizedList from '../ImmutableVirtualizedList';
+import ImmutableListView from './ImmutableListView';
+import ImmutableVirtualizedList from './ImmutableVirtualizedList';
 
 /**
  * Some common types of data you may want to render with ImmutableListView.
@@ -105,7 +107,7 @@ const mocks = {
     jest.doMock('ScrollView', () => mockScrollView);
 
     // eslint-disable-next-line global-require
-    return require('../ImmutableListView').default;
+    return require('./ImmutableListView').default;
   },
 
 };

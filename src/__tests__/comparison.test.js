@@ -1,4 +1,4 @@
-import { data, expectors } from './testUtils';
+import { data, expectors } from '../test-utils';
 
 describe('ImmutableListView vs. ListView', () => {
   it('renders the same as ListView with empty data', () => {

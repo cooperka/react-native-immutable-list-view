@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 
 import ImmutableListView from '../ImmutableListView';
 
-import { data, renderers, expectors } from './testUtils';
+import { data, renderers, expectors } from '../../test-utils';
 
 describe('ImmutableListView', () => {
   it('renders with empty data', () => {

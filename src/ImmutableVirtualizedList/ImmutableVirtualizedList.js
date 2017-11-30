@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import { Text, VirtualizedList } from 'react-native';
 
-import styles from './styles';
-import utils from './utils';
+import styles from '../styles';
+import utils from '../utils';
 
-import EmptyVirtualizedList from './EmptyVirtualizedList';
+import { EmptyVirtualizedList } from './EmptyVirtualizedList';
 
 /**
  * A VirtualizedList capable of displaying {@link https://facebook.github.io/immutable-js/ Immutable} data
@@ -66,30 +66,28 @@ class ImmutableVirtualizedList extends PureComponent {
     return this.virtualizedListRef;
   }
 
-  scrollToEnd(...args) {
-    return this.virtualizedListRef && this.virtualizedListRef.scrollToEnd(...args);
-  }
+  scrollToEnd = (...args) =>
+    this.virtualizedListRef && this.virtualizedListRef.scrollToEnd(...args);
 
-  scrollToIndex(...args) {
-    return this.virtualizedListRef && this.virtualizedListRef.scrollToIndex(...args);
-  }
+  scrollToIndex = (...args) =>
+    this.virtualizedListRef && this.virtualizedListRef.scrollToIndex(...args);
 
-  scrollToItem(...args) {
-    return this.virtualizedListRef && this.virtualizedListRef.scrollToItem(...args);
-  }
+  scrollToItem = (...args) =>
+    this.virtualizedListRef && this.virtualizedListRef.scrollToItem(...args);
 
-  scrollToOffset(...args) {
-    return this.virtualizedListRef && this.virtualizedListRef.scrollToOffset(...args);
-  }
+  scrollToOffset = (...args) =>
+    this.virtualizedListRef && this.virtualizedListRef.scrollToOffset(...args);
 
-  recordInteraction(...args) {
-    return this.virtualizedListRef && this.virtualizedListRef.recordInteraction(...args);
-  }
+  recordInteraction = (...args) =>
+    this.virtualizedListRef && this.virtualizedListRef.recordInteraction(...args);
 
-  render() {
-    const { immutableData, renderEmpty, renderEmptyInList, contentContainerStyle } = this.props;
+  renderEmpty() {
+    const {
+      immutableData, renderEmpty, renderEmptyInList, contentContainerStyle,
+    } = this.props;
 
-    if ((renderEmpty || renderEmptyInList) && utils.isEmptyListView(immutableData)) {
+    const shouldTryToRenderEmpty = renderEmpty || renderEmptyInList;
+    if (shouldTryToRenderEmpty && utils.isEmptyListView(immutableData)) {
       if (renderEmpty) {
         if (typeof renderEmpty === 'string') {
           return <Text style={[styles.emptyText, contentContainerStyle]}>{renderEmpty}</Text>;
@@ -105,9 +103,15 @@ class ImmutableVirtualizedList extends PureComponent {
       }
     }
 
-    return (
+    return null;
+  }
+
+  render() {
+    const { immutableData } = this.props;
+
+    return this.renderEmpty() || (
       <VirtualizedList
-        ref={(virtualizedList) => { this.virtualizedListRef = virtualizedList; }}
+        ref={(component) => { this.virtualizedListRef = component; }}
         data={immutableData}
         getItem={(items, index) => utils.getValueFromKey(index, items)}
         getItemCount={(items) => (items.size || 0)}
