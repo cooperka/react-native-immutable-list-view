@@ -202,10 +202,10 @@ class ImmutableListView extends PureComponent {
 
     return this.renderEmpty() || (
       <ListView
-        ref={(component) => { this.listViewRef = component; } }
+        ref={(component) => { this.listViewRef = component; }}
         dataSource={dataSource}
         {...passThroughProps}
-        />
+      />
     );
   }
 
