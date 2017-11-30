@@ -2,7 +2,6 @@
 
 exports[`EmptyListView renders with custom renderRow 1`] = `
 <RCTScrollView
-  DEPRECATED_sendUpdatedChildFrames={true}
   dataSource={
     ListViewDataSource {
       "items": 1,
@@ -41,7 +40,6 @@ exports[`EmptyListView renders with custom renderRow 1`] = `
 
 exports[`EmptyListView renders with custom text 1`] = `
 <RCTScrollView
-  DEPRECATED_sendUpdatedChildFrames={true}
   dataSource={
     ListViewDataSource {
       "items": 1,
@@ -86,7 +84,6 @@ exports[`EmptyListView renders with custom text 1`] = `
 
 exports[`EmptyListView renders with default text 1`] = `
 <RCTScrollView
-  DEPRECATED_sendUpdatedChildFrames={true}
   dataSource={
     ListViewDataSource {
       "items": 1,
