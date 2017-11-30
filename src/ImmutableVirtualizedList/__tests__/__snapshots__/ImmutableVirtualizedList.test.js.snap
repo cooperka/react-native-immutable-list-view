@@ -32,6 +32,7 @@ exports[`ImmutableVirtualizedList renders basic List 1`] = `
   onScrollEndDrag={[Function]}
   renderEmptyInList="No data."
   renderItem={[Function]}
+  renderScrollComponent={[Function]}
   scrollEventThrottle={50}
   stickyHeaderIndices={Array []}
   updateCellsBatchingPeriod={50}
@@ -40,7 +41,6 @@ exports[`ImmutableVirtualizedList renders basic List 1`] = `
   <View>
     <View
       onLayout={[Function]}
-      style={null}
     >
       <Text
         accessible={true}
@@ -53,7 +53,6 @@ exports[`ImmutableVirtualizedList renders basic List 1`] = `
     </View>
     <View
       onLayout={[Function]}
-      style={null}
     >
       <Text
         accessible={true}
@@ -66,7 +65,6 @@ exports[`ImmutableVirtualizedList renders basic List 1`] = `
     </View>
     <View
       onLayout={[Function]}
-      style={null}
     >
       <Text
         accessible={true}
@@ -83,12 +81,24 @@ exports[`ImmutableVirtualizedList renders basic List 1`] = `
 
 exports[`ImmutableVirtualizedList renders basic Range 1`] = `
 <RCTScrollView
-  data={Immutable.Seq […]}
+  data={
+    Array [
+      3,
+      6,
+      9,
+    ]
+  }
   disableVirtualization={false}
   getItem={[Function]}
   getItemCount={[Function]}
   horizontal={false}
-  immutableData={Immutable.Seq […]}
+  immutableData={
+    Array [
+      3,
+      6,
+      9,
+    ]
+  }
   initialNumToRender={10}
   keyExtractor={[Function]}
   maxToRenderPerBatch={10}
@@ -101,6 +111,7 @@ exports[`ImmutableVirtualizedList renders basic Range 1`] = `
   onScrollEndDrag={[Function]}
   renderEmptyInList="No data."
   renderItem={[Function]}
+  renderScrollComponent={[Function]}
   scrollEventThrottle={50}
   stickyHeaderIndices={Array []}
   updateCellsBatchingPeriod={50}
@@ -109,7 +120,6 @@ exports[`ImmutableVirtualizedList renders basic Range 1`] = `
   <View>
     <View
       onLayout={[Function]}
-      style={null}
     >
       <Text
         accessible={true}
@@ -122,7 +132,6 @@ exports[`ImmutableVirtualizedList renders basic Range 1`] = `
     </View>
     <View
       onLayout={[Function]}
-      style={null}
     >
       <Text
         accessible={true}
@@ -135,7 +144,6 @@ exports[`ImmutableVirtualizedList renders basic Range 1`] = `
     </View>
     <View
       onLayout={[Function]}
-      style={null}
     >
       <Text
         accessible={true}
@@ -192,6 +200,7 @@ exports[`ImmutableVirtualizedList renders nested List 1`] = `
   onScrollEndDrag={[Function]}
   renderEmptyInList="No data."
   renderItem={[Function]}
+  renderScrollComponent={[Function]}
   scrollEventThrottle={50}
   stickyHeaderIndices={Array []}
   updateCellsBatchingPeriod={50}
@@ -200,7 +209,6 @@ exports[`ImmutableVirtualizedList renders nested List 1`] = `
   <View>
     <View
       onLayout={[Function]}
-      style={null}
     >
       <Text
         accessible={true}
@@ -213,7 +221,6 @@ exports[`ImmutableVirtualizedList renders nested List 1`] = `
     </View>
     <View
       onLayout={[Function]}
-      style={null}
     >
       <Text
         accessible={true}
@@ -265,6 +272,7 @@ exports[`ImmutableVirtualizedList renders with empty data 1`] = `
   onScrollEndDrag={[Function]}
   renderEmptyInList="No data."
   renderItem={[Function]}
+  renderScrollComponent={[Function]}
   scrollEventThrottle={50}
   stickyHeaderIndices={Array []}
   updateCellsBatchingPeriod={50}
@@ -273,7 +281,6 @@ exports[`ImmutableVirtualizedList renders with empty data 1`] = `
   <View>
     <View
       onLayout={[Function]}
-      style={null}
     >
       <Text
         accessible={true}
@@ -296,12 +303,18 @@ exports[`ImmutableVirtualizedList renders with empty data 1`] = `
 
 exports[`ImmutableVirtualizedList with renderEmpty doesn't render empty with null 1`] = `
 <RCTScrollView
-  data={Immutable.List []}
+  data={
+    Immutable.List [
+    ]
+  }
   disableVirtualization={false}
   getItem={[Function]}
   getItemCount={[Function]}
   horizontal={false}
-  immutableData={Immutable.List []}
+  immutableData={
+    Immutable.List [
+    ]
+  }
   initialNumToRender={10}
   keyExtractor={[Function]}
   maxToRenderPerBatch={10}
@@ -315,6 +328,7 @@ exports[`ImmutableVirtualizedList with renderEmpty doesn't render empty with nul
   renderEmpty={null}
   renderEmptyInList={null}
   renderItem={[Function]}
+  renderScrollComponent={[Function]}
   scrollEventThrottle={50}
   stickyHeaderIndices={Array []}
   updateCellsBatchingPeriod={50}
@@ -390,6 +404,7 @@ exports[`ImmutableVirtualizedList with renderEmpty renders normally when there a
   renderEmpty={[Function]}
   renderEmptyInList="No data."
   renderItem={[Function]}
+  renderScrollComponent={[Function]}
   scrollEventThrottle={50}
   stickyHeaderIndices={Array []}
   updateCellsBatchingPeriod={50}
@@ -398,7 +413,6 @@ exports[`ImmutableVirtualizedList with renderEmpty renders normally when there a
   <View>
     <View
       onLayout={[Function]}
-      style={null}
     >
       <Text
         accessible={true}
@@ -411,7 +425,6 @@ exports[`ImmutableVirtualizedList with renderEmpty renders normally when there a
     </View>
     <View
       onLayout={[Function]}
-      style={null}
     >
       <Text
         accessible={true}
@@ -424,7 +437,6 @@ exports[`ImmutableVirtualizedList with renderEmpty renders normally when there a
     </View>
     <View
       onLayout={[Function]}
-      style={null}
     >
       <Text
         accessible={true}
@@ -441,12 +453,18 @@ exports[`ImmutableVirtualizedList with renderEmpty renders normally when there a
 
 exports[`ImmutableVirtualizedList with renderEmptyInList doesn't render empty with null 1`] = `
 <RCTScrollView
-  data={Immutable.List []}
+  data={
+    Immutable.List [
+    ]
+  }
   disableVirtualization={false}
   getItem={[Function]}
   getItemCount={[Function]}
   horizontal={false}
-  immutableData={Immutable.List []}
+  immutableData={
+    Immutable.List [
+    ]
+  }
   initialNumToRender={10}
   keyExtractor={[Function]}
   maxToRenderPerBatch={10}
@@ -460,6 +478,7 @@ exports[`ImmutableVirtualizedList with renderEmptyInList doesn't render empty wi
   renderEmpty={null}
   renderEmptyInList={null}
   renderItem={[Function]}
+  renderScrollComponent={[Function]}
   scrollEventThrottle={50}
   stickyHeaderIndices={Array []}
   updateCellsBatchingPeriod={50}
@@ -506,6 +525,7 @@ exports[`ImmutableVirtualizedList with renderEmptyInList renders empty with a fu
   onScrollEndDrag={[Function]}
   renderEmptyInList="No data."
   renderItem={[Function]}
+  renderScrollComponent={[Function]}
   scrollEventThrottle={50}
   stickyHeaderIndices={Array []}
   updateCellsBatchingPeriod={50}
@@ -514,7 +534,6 @@ exports[`ImmutableVirtualizedList with renderEmptyInList renders empty with a fu
   <View>
     <View
       onLayout={[Function]}
-      style={null}
     >
       <Text
         accessible={true}
@@ -571,6 +590,7 @@ exports[`ImmutableVirtualizedList with renderEmptyInList renders empty with a st
   onScrollEndDrag={[Function]}
   renderEmptyInList="No data."
   renderItem={[Function]}
+  renderScrollComponent={[Function]}
   scrollEventThrottle={50}
   stickyHeaderIndices={Array []}
   updateCellsBatchingPeriod={50}
@@ -579,7 +599,6 @@ exports[`ImmutableVirtualizedList with renderEmptyInList renders empty with a st
   <View>
     <View
       onLayout={[Function]}
-      style={null}
     >
       <Text
         accessible={true}
@@ -632,6 +651,7 @@ exports[`ImmutableVirtualizedList with renderEmptyInList renders normally when t
   onScrollEndDrag={[Function]}
   renderEmptyInList={[Function]}
   renderItem={[Function]}
+  renderScrollComponent={[Function]}
   scrollEventThrottle={50}
   stickyHeaderIndices={Array []}
   updateCellsBatchingPeriod={50}
@@ -640,7 +660,6 @@ exports[`ImmutableVirtualizedList with renderEmptyInList renders normally when t
   <View>
     <View
       onLayout={[Function]}
-      style={null}
     >
       <Text
         accessible={true}
@@ -653,7 +672,6 @@ exports[`ImmutableVirtualizedList with renderEmptyInList renders normally when t
     </View>
     <View
       onLayout={[Function]}
-      style={null}
     >
       <Text
         accessible={true}
@@ -666,7 +684,6 @@ exports[`ImmutableVirtualizedList with renderEmptyInList renders normally when t
     </View>
     <View
       onLayout={[Function]}
-      style={null}
     >
       <Text
         accessible={true}

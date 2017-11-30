@@ -37,6 +37,7 @@ exports[`EmptyVirtualizedList renders with custom renderRow 1`] = `
   onScrollEndDrag={[Function]}
   renderEmptyInList="No data."
   renderItem={[Function]}
+  renderScrollComponent={[Function]}
   scrollEventThrottle={50}
   stickyHeaderIndices={Array []}
   updateCellsBatchingPeriod={50}
@@ -45,7 +46,6 @@ exports[`EmptyVirtualizedList renders with custom renderRow 1`] = `
   <View>
     <View
       onLayout={[Function]}
-      style={null}
     >
       <Text
         accessible={true}
@@ -97,6 +97,7 @@ exports[`EmptyVirtualizedList renders with custom text 1`] = `
   onScrollEndDrag={[Function]}
   renderEmptyInList="No data."
   renderItem={[Function]}
+  renderScrollComponent={[Function]}
   scrollEventThrottle={50}
   stickyHeaderIndices={Array []}
   updateCellsBatchingPeriod={50}
@@ -105,7 +106,6 @@ exports[`EmptyVirtualizedList renders with custom text 1`] = `
   <View>
     <View
       onLayout={[Function]}
-      style={null}
     >
       <Text
         accessible={true}
@@ -163,6 +163,7 @@ exports[`EmptyVirtualizedList renders with default text 1`] = `
   onScrollEndDrag={[Function]}
   renderEmptyInList="No data."
   renderItem={[Function]}
+  renderScrollComponent={[Function]}
   scrollEventThrottle={50}
   stickyHeaderIndices={Array []}
   updateCellsBatchingPeriod={50}
@@ -171,7 +172,6 @@ exports[`EmptyVirtualizedList renders with default text 1`] = `
   <View>
     <View
       onLayout={[Function]}
-      style={null}
     >
       <Text
         accessible={true}
