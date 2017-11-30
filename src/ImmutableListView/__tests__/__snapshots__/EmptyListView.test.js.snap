@@ -2,6 +2,7 @@
 
 exports[`EmptyListView renders with custom renderRow 1`] = `
 <RCTScrollView
+  DEPRECATED_sendUpdatedChildFrames={true}
   dataSource={
     ListViewDataSource {
       "items": 1,
