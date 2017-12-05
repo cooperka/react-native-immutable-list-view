@@ -45,7 +45,6 @@ exports[`ImmutableVirtualizedList renders basic List 1`] = `
       <Text
         accessible={true}
         allowFontScaling={true}
-        disabled={false}
         ellipsizeMode="tail"
       >
         "lists"
@@ -58,7 +57,6 @@ exports[`ImmutableVirtualizedList renders basic List 1`] = `
       <Text
         accessible={true}
         allowFontScaling={true}
-        disabled={false}
         ellipsizeMode="tail"
       >
         "are"
@@ -71,7 +69,6 @@ exports[`ImmutableVirtualizedList renders basic List 1`] = `
       <Text
         accessible={true}
         allowFontScaling={true}
-        disabled={false}
         ellipsizeMode="tail"
       >
         "great"
@@ -114,7 +111,6 @@ exports[`ImmutableVirtualizedList renders basic Range 1`] = `
       <Text
         accessible={true}
         allowFontScaling={true}
-        disabled={false}
         ellipsizeMode="tail"
       >
         3
@@ -127,7 +123,6 @@ exports[`ImmutableVirtualizedList renders basic Range 1`] = `
       <Text
         accessible={true}
         allowFontScaling={true}
-        disabled={false}
         ellipsizeMode="tail"
       >
         6
@@ -140,7 +135,6 @@ exports[`ImmutableVirtualizedList renders basic Range 1`] = `
       <Text
         accessible={true}
         allowFontScaling={true}
-        disabled={false}
         ellipsizeMode="tail"
       >
         9
@@ -205,7 +199,6 @@ exports[`ImmutableVirtualizedList renders nested List 1`] = `
       <Text
         accessible={true}
         allowFontScaling={true}
-        disabled={false}
         ellipsizeMode="tail"
       >
         ["so","are"]
@@ -218,7 +211,6 @@ exports[`ImmutableVirtualizedList renders nested List 1`] = `
       <Text
         accessible={true}
         allowFontScaling={true}
-        disabled={false}
         ellipsizeMode="tail"
       >
         ["nested","lists"]
@@ -278,7 +270,6 @@ exports[`ImmutableVirtualizedList renders with empty data 1`] = `
       <Text
         accessible={true}
         allowFontScaling={true}
-        disabled={false}
         ellipsizeMode="tail"
         style={
           Object {
@@ -328,7 +319,6 @@ exports[`ImmutableVirtualizedList with renderEmpty renders empty with a function
 <Text
   accessible={true}
   allowFontScaling={true}
-  disabled={false}
   ellipsizeMode="tail"
 >
   "No items"
@@ -339,7 +329,6 @@ exports[`ImmutableVirtualizedList with renderEmpty renders empty with a string 1
 <Text
   accessible={true}
   allowFontScaling={true}
-  disabled={false}
   ellipsizeMode="tail"
   style={
     Array [
@@ -403,7 +392,6 @@ exports[`ImmutableVirtualizedList with renderEmpty renders normally when there a
       <Text
         accessible={true}
         allowFontScaling={true}
-        disabled={false}
         ellipsizeMode="tail"
       >
         {"item":"lists","index":0,"separators":{}}
@@ -416,7 +404,6 @@ exports[`ImmutableVirtualizedList with renderEmpty renders normally when there a
       <Text
         accessible={true}
         allowFontScaling={true}
-        disabled={false}
         ellipsizeMode="tail"
       >
         {"item":"are","index":1,"separators":{}}
@@ -429,7 +416,6 @@ exports[`ImmutableVirtualizedList with renderEmpty renders normally when there a
       <Text
         accessible={true}
         allowFontScaling={true}
-        disabled={false}
         ellipsizeMode="tail"
       >
         {"item":"great","index":2,"separators":{}}
@@ -519,7 +505,6 @@ exports[`ImmutableVirtualizedList with renderEmptyInList renders empty with a fu
       <Text
         accessible={true}
         allowFontScaling={true}
-        disabled={false}
         ellipsizeMode="tail"
       >
         "No items"
@@ -584,7 +569,6 @@ exports[`ImmutableVirtualizedList with renderEmptyInList renders empty with a st
       <Text
         accessible={true}
         allowFontScaling={true}
-        disabled={false}
         ellipsizeMode="tail"
         style={
           Object {
@@ -645,7 +629,6 @@ exports[`ImmutableVirtualizedList with renderEmptyInList renders normally when t
       <Text
         accessible={true}
         allowFontScaling={true}
-        disabled={false}
         ellipsizeMode="tail"
       >
         {"item":"lists","index":0,"separators":{}}
@@ -658,7 +641,6 @@ exports[`ImmutableVirtualizedList with renderEmptyInList renders normally when t
       <Text
         accessible={true}
         allowFontScaling={true}
-        disabled={false}
         ellipsizeMode="tail"
       >
         {"item":"are","index":1,"separators":{}}
@@ -671,7 +653,6 @@ exports[`ImmutableVirtualizedList with renderEmptyInList renders normally when t
       <Text
         accessible={true}
         allowFontScaling={true}
-        disabled={false}
         ellipsizeMode="tail"
       >
         {"item":"great","index":2,"separators":{}}

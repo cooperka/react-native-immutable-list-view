@@ -42,7 +42,6 @@ exports[`EmptyListView renders with custom renderRow 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
-      disabled={false}
       ellipsizeMode="tail"
     >
       "Overridden!"
@@ -93,7 +92,6 @@ exports[`EmptyListView renders with custom text 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
-      disabled={false}
       ellipsizeMode="tail"
       style={
         Object {
@@ -150,7 +148,6 @@ exports[`EmptyListView renders with default text 1`] = `
     <Text
       accessible={true}
       allowFontScaling={true}
-      disabled={false}
       ellipsizeMode="tail"
       style={
         Object {
