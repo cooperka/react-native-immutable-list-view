@@ -1,12 +1,12 @@
-import Immutable from "immutable";
-import PropTypes from "prop-types";
-import React, { PureComponent } from "react";
-import { Text, VirtualizedList } from "react-native";
+import Immutable from 'immutable';
+import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react';
+import { Text, VirtualizedList } from 'react-native';
 
-import styles from "../styles";
-import utils from "../utils";
+import styles from '../styles';
+import utils from '../utils';
 
-import { EmptyVirtualizedList } from "./EmptyVirtualizedList";
+import { EmptyVirtualizedList } from './EmptyVirtualizedList';
 
 /**
  * A VirtualizedList capable of displaying {@link https://facebook.github.io/immutable-js/ Immutable} data
@@ -56,13 +56,13 @@ class ImmutableVirtualizedList extends PureComponent {
      *
      * It will be passed all the original props of the ImmutableVirtualizedList.
      */
-    renderEmptyInList: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+    renderEmptyInList: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   };
 
   static defaultProps = {
     ...VirtualizedList.defaultProps,
 
-    renderEmptyInList: "No data."
+    renderEmptyInList: 'No data.',
   };
 
   getVirtualizedList() {
@@ -90,13 +90,13 @@ class ImmutableVirtualizedList extends PureComponent {
       immutableData,
       renderEmpty,
       renderEmptyInList,
-      contentContainerStyle
+      contentContainerStyle,
     } = this.props;
 
     const shouldTryToRenderEmpty = renderEmpty || renderEmptyInList;
     if (shouldTryToRenderEmpty && utils.isEmptyListView(immutableData)) {
       if (renderEmpty) {
-        if (typeof renderEmpty === "string") {
+        if (typeof renderEmpty === 'string') {
           return (
             <Text style={[styles.emptyText, contentContainerStyle]}>
               {renderEmpty}
@@ -106,7 +106,7 @@ class ImmutableVirtualizedList extends PureComponent {
         return renderEmpty(this.props);
       }
       if (renderEmptyInList) {
-        if (typeof renderEmptyInList === "string") {
+        if (typeof renderEmptyInList === 'string') {
           const { renderItem, ...passThroughProps } = this.props;
           return (
             <EmptyVirtualizedList

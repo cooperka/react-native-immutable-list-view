@@ -3,7 +3,6 @@ import Immutable from 'immutable';
 const isImmutableIterable = Immutable.Iterable.isIterable;
 
 const utils = {
-
   /** Contains exactly one item. */
   UNITARY_LIST: Immutable.List(['empty_list']),
 
@@ -21,7 +20,11 @@ const utils = {
    */
   getKeys(immutableData) {
     if (__DEV__ && !isImmutableIterable(immutableData)) {
-      console.warn(`Can't get keys: Data is not Immutable: ${JSON.stringify(immutableData)}`);
+      console.warn(
+        `Can't get keys: Data is not Immutable: ${JSON.stringify(
+          immutableData
+        )}`
+      );
     }
 
     return immutableData.keySeq().toArray();
@@ -39,7 +42,11 @@ const utils = {
    */
   getRowIdentities(immutableSectionData) {
     if (__DEV__ && !isImmutableIterable(immutableSectionData)) {
-      console.warn(`Can't get row identities: Data is not Immutable: ${JSON.stringify(immutableSectionData)}`);
+      console.warn(
+        `Can't get row identities: Data is not Immutable: ${JSON.stringify(
+          immutableSectionData
+        )}`
+      );
     }
 
     const sectionRowKeys = immutableSectionData.map(this.getKeys);
@@ -68,9 +75,8 @@ const utils = {
       return false;
     }
 
-    return immutableData.every((item) => !item || item.isEmpty());
+    return immutableData.every(item => !item || item.isEmpty());
   },
-
 };
 
 export default utils;

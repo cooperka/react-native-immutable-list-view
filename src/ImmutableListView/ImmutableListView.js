@@ -13,7 +13,6 @@ import { EmptyListView } from './EmptyListView';
  * out of the box.
  */
 class ImmutableListView extends PureComponent {
-
   static propTypes = {
     // Pass through any props that ListView would normally take.
     ...ListView.propTypes,
@@ -29,7 +28,9 @@ class ImmutableListView extends PureComponent {
       // Note: It's not enough to simply validate PropTypes.instanceOf(Immutable.Iterable),
       // because different imports of Immutable.js across files have different class prototypes.
       if (!utils.isImmutableIterable(props[propName])) {
-        return new Error(`Invalid prop ${propName} supplied to ${componentName}: Must be instance of Immutable.Iterable.`);
+        return new Error(
+          `Invalid prop ${propName} supplied to ${componentName}: Must be instance of Immutable.Iterable.`
+        );
       }
     },
 
@@ -88,7 +89,8 @@ class ImmutableListView extends PureComponent {
 
   state = {
     dataSource: new ListView.DataSource({
-      rowHasChanged: (prevRowData, nextRowData) => !Immutable.is(prevRowData, nextRowData),
+      rowHasChanged: (prevRowData, nextRowData) =>
+        !Immutable.is(prevRowData, nextRowData),
 
       getRowData: (dataBlob, sectionID, rowID) => {
         const rowData = utils.getValueFromKey(sectionID, dataBlob);
@@ -97,7 +99,8 @@ class ImmutableListView extends PureComponent {
 
       sectionHeaderHasChanged: this.props.sectionHeaderHasChanged,
 
-      getSectionHeaderData: (dataBlob, sectionID) => utils.getValueFromKey(sectionID, dataBlob),
+      getSectionHeaderData: (dataBlob, sectionID) =>
+        utils.getValueFromKey(sectionID, dataBlob),
     }),
 
     interactionOngoing: true,
@@ -136,23 +139,28 @@ class ImmutableListView extends PureComponent {
     const { dataSource, interactionOngoing } = this.state;
     const { immutableData, rowsDuringInteraction, renderSectionHeader } = props;
 
-    const shouldDisplayPartialData = rowsDuringInteraction >= 0 && interactionOngoing && !interactionHasJustFinished;
+    const shouldDisplayPartialData =
+      rowsDuringInteraction >= 0 &&
+      interactionOngoing &&
+      !interactionHasJustFinished;
 
-    const displayData = (shouldDisplayPartialData
+    const displayData = shouldDisplayPartialData
       ? immutableData.slice(0, rowsDuringInteraction)
-      : immutableData);
+      : immutableData;
 
-    const updatedDataSource = (renderSectionHeader
+    const updatedDataSource = renderSectionHeader
       ? dataSource.cloneWithRowsAndSections(
-        displayData, utils.getKeys(displayData), utils.getRowIdentities(displayData),
-      )
-      : dataSource.cloneWithRows(
-        displayData, utils.getKeys(displayData),
-      ));
+          displayData,
+          utils.getKeys(displayData),
+          utils.getRowIdentities(displayData)
+        )
+      : dataSource.cloneWithRows(displayData, utils.getKeys(displayData));
 
     this.setState({
       dataSource: updatedDataSource,
-      interactionOngoing: interactionHasJustFinished ? false : interactionOngoing,
+      interactionOngoing: interactionHasJustFinished
+        ? false
+        : interactionOngoing,
     });
   }
 
@@ -171,23 +179,44 @@ class ImmutableListView extends PureComponent {
 
   renderEmpty() {
     const {
-      immutableData, enableEmptySections, renderEmpty, renderEmptyInList, contentContainerStyle,
+      immutableData,
+      enableEmptySections,
+      renderEmpty,
+      renderEmptyInList,
+      contentContainerStyle,
     } = this.props;
 
     const shouldTryToRenderEmpty = renderEmpty || renderEmptyInList;
-    if (shouldTryToRenderEmpty && utils.isEmptyListView(immutableData, enableEmptySections)) {
+    if (
+      shouldTryToRenderEmpty &&
+      utils.isEmptyListView(immutableData, enableEmptySections)
+    ) {
       if (renderEmpty) {
         if (typeof renderEmpty === 'string') {
-          return <Text style={[styles.emptyText, contentContainerStyle]}>{renderEmpty}</Text>;
+          return (
+            <Text style={[styles.emptyText, contentContainerStyle]}>
+              {renderEmpty}
+            </Text>
+          );
         }
         return renderEmpty(this.props);
       }
       if (renderEmptyInList) {
         if (typeof renderEmptyInList === 'string') {
           const { renderRow, ...passThroughProps } = this.props;
-          return <EmptyListView {...passThroughProps} emptyText={renderEmptyInList} />;
+          return (
+            <EmptyListView
+              {...passThroughProps}
+              emptyText={renderEmptyInList}
+            />
+          );
         }
-        return <EmptyListView {...this.props} renderRow={() => renderEmptyInList(this.props)} />;
+        return (
+          <EmptyListView
+            {...this.props}
+            renderRow={() => renderEmptyInList(this.props)}
+          />
+        );
       }
     }
 
@@ -197,18 +226,26 @@ class ImmutableListView extends PureComponent {
   render() {
     const { dataSource } = this.state;
     const {
-      immutableData, renderEmpty, renderEmptyInList, rowsDuringInteraction, sectionHeaderHasChanged, ...passThroughProps
+      immutableData,
+      renderEmpty,
+      renderEmptyInList,
+      rowsDuringInteraction,
+      sectionHeaderHasChanged,
+      ...passThroughProps
     } = this.props;
 
-    return this.renderEmpty() || (
-      <ListView
-        ref={(component) => { this.listViewRef = component; }}
-        dataSource={dataSource}
-        {...passThroughProps}
-      />
+    return (
+      this.renderEmpty() || (
+        <ListView
+          ref={component => {
+            this.listViewRef = component;
+          }}
+          dataSource={dataSource}
+          {...passThroughProps}
+        />
+      )
     );
   }
-
 }
 
 export default ImmutableListView;

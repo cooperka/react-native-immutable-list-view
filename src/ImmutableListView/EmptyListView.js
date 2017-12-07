@@ -13,7 +13,6 @@ import utils from '../utils';
  * Useful e.g. for preserving the ability to pull-refresh an empty list.
  */
 class EmptyListView extends PureComponent {
-
   static propTypes = {
     // Pass through any props that ListView would normally take.
     ...ListView.propTypes,
@@ -51,7 +50,10 @@ class EmptyListView extends PureComponent {
 
     // Update the data to make sure the list re-renders if any of the relevant props have changed.
     this.setState({
-      listData: listData.set(0, Immutable.fromJS([renderEmpty, renderEmptyInList, emptyText])),
+      listData: listData.set(
+        0,
+        Immutable.fromJS([renderEmpty, renderEmptyInList, emptyText])
+      ),
     });
   }
 
@@ -62,17 +64,17 @@ class EmptyListView extends PureComponent {
   renderRow() {
     const { emptyText } = this.props;
 
-    return (
-      <Text style={styles.emptyText}>
-        {emptyText}
-      </Text>
-    );
+    return <Text style={styles.emptyText}>{emptyText}</Text>;
   }
 
   render() {
     const { listData } = this.state;
     const {
-      renderEmpty, renderEmptyInList, renderSectionHeader, emptyText, ...passThroughProps
+      renderEmpty,
+      renderEmptyInList,
+      renderSectionHeader,
+      emptyText,
+      ...passThroughProps
     } = this.props;
 
     return (
@@ -83,7 +85,6 @@ class EmptyListView extends PureComponent {
       />
     );
   }
-
 }
 
 export { EmptyListView };
