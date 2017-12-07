@@ -28,9 +28,13 @@ class ImmutableVirtualizedList extends PureComponent {
       // because different imports of Immutable.js across files have different class prototypes.
       // TODO: Add support for Immutable.Map, etc.
       if (Immutable.Map.isMap(props[propName])) {
-        return new Error(`Invalid prop ${propName} supplied to ${componentName}: Support for Immutable.Map is coming soon. For now, try an Immutable List, Set, or Range.`);
+        return new Error(
+          `Invalid prop ${propName} supplied to ${componentName}: Support for Immutable.Map is coming soon. For now, try an Immutable List, Set, or Range.`,
+        );
       } else if (!utils.isImmutableIterable(props[propName])) {
-        return new Error(`Invalid prop ${propName} supplied to ${componentName}: Must be instance of Immutable.Iterable.`);
+        return new Error(
+          `Invalid prop ${propName} supplied to ${componentName}: Must be instance of Immutable.Iterable.`,
+        );
       }
     },
 
@@ -66,25 +70,18 @@ class ImmutableVirtualizedList extends PureComponent {
     return this.virtualizedListRef;
   }
 
-  scrollToEnd = (...args) =>
-    this.virtualizedListRef && this.virtualizedListRef.scrollToEnd(...args);
+  scrollToEnd = (...args) => this.virtualizedListRef && this.virtualizedListRef.scrollToEnd(...args);
 
-  scrollToIndex = (...args) =>
-    this.virtualizedListRef && this.virtualizedListRef.scrollToIndex(...args);
+  scrollToIndex = (...args) => this.virtualizedListRef && this.virtualizedListRef.scrollToIndex(...args);
 
-  scrollToItem = (...args) =>
-    this.virtualizedListRef && this.virtualizedListRef.scrollToItem(...args);
+  scrollToItem = (...args) => this.virtualizedListRef && this.virtualizedListRef.scrollToItem(...args);
 
-  scrollToOffset = (...args) =>
-    this.virtualizedListRef && this.virtualizedListRef.scrollToOffset(...args);
+  scrollToOffset = (...args) => this.virtualizedListRef && this.virtualizedListRef.scrollToOffset(...args);
 
-  recordInteraction = (...args) =>
-    this.virtualizedListRef && this.virtualizedListRef.recordInteraction(...args);
+  recordInteraction = (...args) => this.virtualizedListRef && this.virtualizedListRef.recordInteraction(...args);
 
   renderEmpty() {
-    const {
-      immutableData, renderEmpty, renderEmptyInList, contentContainerStyle,
-    } = this.props;
+    const { immutableData, renderEmpty, renderEmptyInList, contentContainerStyle } = this.props;
 
     const shouldTryToRenderEmpty = renderEmpty || renderEmptyInList;
     if (shouldTryToRenderEmpty && utils.isEmptyListView(immutableData)) {
@@ -107,17 +104,21 @@ class ImmutableVirtualizedList extends PureComponent {
   }
 
   render() {
-    const { immutableData } = this.props;
+    const { immutableData, renderEmpty, renderEmptyInList, ...passThroughProps } = this.props;
 
-    return this.renderEmpty() || (
-      <VirtualizedList
-        ref={(component) => { this.virtualizedListRef = component; }}
-        data={immutableData}
-        getItem={(items, index) => utils.getValueFromKey(index, items)}
-        getItemCount={(items) => (items.size || 0)}
-        keyExtractor={(item, index) => String(index)}
-        {...this.props}
-      />
+    return (
+      this.renderEmpty() || (
+        <VirtualizedList
+          ref={(component) => {
+            this.virtualizedListRef = component;
+          }}
+          data={immutableData}
+          getItem={(items, index) => utils.getValueFromKey(index, items)}
+          getItemCount={(items) => items.size || 0}
+          keyExtractor={(item, index) => String(index)}
+          {...passThroughProps}
+        />
+      )
     );
   }
 

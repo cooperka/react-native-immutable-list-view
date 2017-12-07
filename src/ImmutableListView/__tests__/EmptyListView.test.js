@@ -7,17 +7,13 @@ import { EmptyListView } from '../EmptyListView';
 
 describe('EmptyListView', () => {
   it('renders with default text', () => {
-    const tree = renderer.create(
-      <EmptyListView />,
-    );
+    const tree = renderer.create(<EmptyListView />);
     expect(tree.toJSON()).toMatchSnapshot();
   });
 
   it('renders with custom text', () => {
     const tree = renderer.create(
-      <EmptyListView
-        emptyText="Nothing. Nothing at all."
-      />,
+      <EmptyListView emptyText="Nothing. Nothing at all." />,
     );
     expect(tree.toJSON()).toMatchSnapshot();
   });

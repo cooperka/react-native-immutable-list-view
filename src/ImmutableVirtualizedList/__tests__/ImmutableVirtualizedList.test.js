@@ -60,7 +60,7 @@ describe('ImmutableVirtualizedList with renderEmpty', () => {
     expect(tree.toJSON()).toMatchSnapshot();
   });
 
-  it('doesn\'t render empty with null', () => {
+  it("doesn't render empty with null", () => {
     const tree = renderer.create(
       <ImmutableVirtualizedList
         immutableData={data.EMPTY_DATA}
@@ -110,7 +110,7 @@ describe('ImmutableVirtualizedList with renderEmptyInList', () => {
     expect(tree.toJSON()).toMatchSnapshot();
   });
 
-  it('doesn\'t render empty with null', () => {
+  it("doesn't render empty with null", () => {
     const tree = renderer.create(
       <ImmutableVirtualizedList
         immutableData={data.EMPTY_DATA}

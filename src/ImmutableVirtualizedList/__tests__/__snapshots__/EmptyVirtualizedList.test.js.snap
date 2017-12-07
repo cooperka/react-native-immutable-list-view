@@ -16,15 +16,6 @@ exports[`EmptyVirtualizedList renders with custom renderRow 1`] = `
   getItem={[Function]}
   getItemCount={[Function]}
   horizontal={false}
-  immutableData={
-    Immutable.List [
-      Immutable.List [
-        undefined,
-        undefined,
-        "Nothing. Nothing at all.",
-      ],
-    ]
-  }
   initialNumToRender={10}
   keyExtractor={[Function]}
   maxToRenderPerBatch={10}
@@ -35,7 +26,6 @@ exports[`EmptyVirtualizedList renders with custom renderRow 1`] = `
   onScroll={[Function]}
   onScrollBeginDrag={[Function]}
   onScrollEndDrag={[Function]}
-  renderEmptyInList="No data."
   renderItem={[Function]}
   scrollEventThrottle={50}
   stickyHeaderIndices={Array []}
@@ -75,15 +65,6 @@ exports[`EmptyVirtualizedList renders with custom text 1`] = `
   getItem={[Function]}
   getItemCount={[Function]}
   horizontal={false}
-  immutableData={
-    Immutable.List [
-      Immutable.List [
-        undefined,
-        undefined,
-        "Nothing. Nothing at all.",
-      ],
-    ]
-  }
   initialNumToRender={10}
   keyExtractor={[Function]}
   maxToRenderPerBatch={10}
@@ -94,7 +75,6 @@ exports[`EmptyVirtualizedList renders with custom text 1`] = `
   onScroll={[Function]}
   onScrollBeginDrag={[Function]}
   onScrollEndDrag={[Function]}
-  renderEmptyInList="No data."
   renderItem={[Function]}
   scrollEventThrottle={50}
   stickyHeaderIndices={Array []}
@@ -140,15 +120,6 @@ exports[`EmptyVirtualizedList renders with default text 1`] = `
   getItem={[Function]}
   getItemCount={[Function]}
   horizontal={false}
-  immutableData={
-    Immutable.List [
-      Immutable.List [
-        undefined,
-        undefined,
-        "No data.",
-      ],
-    ]
-  }
   initialNumToRender={10}
   keyExtractor={[Function]}
   maxToRenderPerBatch={10}
@@ -159,7 +130,6 @@ exports[`EmptyVirtualizedList renders with default text 1`] = `
   onScroll={[Function]}
   onScrollBeginDrag={[Function]}
   onScrollEndDrag={[Function]}
-  renderEmptyInList="No data."
   renderItem={[Function]}
   scrollEventThrottle={50}
   stickyHeaderIndices={Array []}

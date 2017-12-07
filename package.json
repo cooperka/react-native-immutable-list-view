@@ -1,14 +1,13 @@
 {
   "name": "react-native-immutable-list-view",
   "version": "0.6.2",
-  "description": "A drop-in replacement for React Native's ListView, FlatList, and VirtualizedList.",
+  "description":
+    "A drop-in replacement for React Native's ListView, FlatList, and VirtualizedList.",
   "main": "lib/index.js",
-  "files": [
-    "lib",
-    "src"
-  ],
+  "files": ["lib", "src"],
   "scripts": {
     "test": "jest",
+    "format": "prettier-eslint --write src/**/*.js",
     "lint": "eslint src example/src --ext .js,.jsx",
     "clean": "rm -rf lib",
     "build": "npm run clean && babel src --out-dir lib --ignore src/__tests__",
@@ -16,18 +15,15 @@
   },
   "jest": {
     "preset": "react-native",
-    "setupFiles": [
-      "./scripts/setup-jest.js"
-    ],
+    "setupFiles": ["./scripts/setup-jest.js"],
     "testRegex": "/src/.*__tests__/.+\\.test\\.js$",
-    "modulePathIgnorePatterns": [
-      "<rootDir>/example/"
-    ],
+    "modulePathIgnorePatterns": ["<rootDir>/example/"],
     "verbose": true
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cooperka/react-native-immutable-list-view.git"
+    "url":
+      "git+https://github.com/cooperka/react-native-immutable-list-view.git"
   },
   "keywords": [
     "react",
@@ -44,14 +40,15 @@
   "bugs": {
     "url": "https://github.com/cooperka/react-native-immutable-list-view/issues"
   },
-  "homepage": "https://github.com/cooperka/react-native-immutable-list-view#readme",
+  "homepage":
+    "https://github.com/cooperka/react-native-immutable-list-view#readme",
   "peerDependencies": {
     "react": ">=15.1 || >=16.0.0-alpha.6",
     "react-native": ">=0.28"
   },
   "dependencies": {
     "immutable": ">=3.8",
-    "prop-types": "^15.5.10"
+    "prop-types": "^15.6.0"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
@@ -67,8 +64,9 @@
     "eslint-plugin-react-native": "3.2.0",
     "jest": "21.2.1",
     "lodash": "4.17.4",
+    "prettier-eslint-cli": "^4.4.2",
     "react": "16.2.0",
-    "react-native": "0.50.4",
+    "react-native": "0.51.0",
     "react-test-renderer": "16.2.0"
   }
 }

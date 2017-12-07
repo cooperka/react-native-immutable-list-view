@@ -49,13 +49,15 @@ describe('ImmutableListView with delayed rendering', () => {
     // Mock this method to make sure it's not run.
     InteractionManager.runAfterInteractions = () => {};
 
-    const tree = renderer.create(
-      <ImmutableListView
-        immutableData={data.LIST_DATA}
-        rowsDuringInteraction={1}
-        renderRow={renderers.renderRow}
-      />,
-    ).toJSON();
+    const tree = renderer
+      .create(
+        <ImmutableListView
+          immutableData={data.LIST_DATA}
+          rowsDuringInteraction={1}
+          renderRow={renderers.renderRow}
+        />,
+      )
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -63,13 +65,15 @@ describe('ImmutableListView with delayed rendering', () => {
     // Mock this method to make sure it runs immediately.
     InteractionManager.runAfterInteractions = (callback) => callback();
 
-    const tree = renderer.create(
-      <ImmutableListView
-        immutableData={data.LIST_DATA}
-        rowsDuringInteraction={1}
-        renderRow={renderers.renderRow}
-      />,
-    ).toJSON();
+    const tree = renderer
+      .create(
+        <ImmutableListView
+          immutableData={data.LIST_DATA}
+          rowsDuringInteraction={1}
+          renderRow={renderers.renderRow}
+        />,
+      )
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
@@ -111,7 +115,7 @@ describe('ImmutableListView with renderEmpty', () => {
     expect(tree.toJSON()).toMatchSnapshot();
   });
 
-  it('doesn\'t render empty with null', () => {
+  it("doesn't render empty with null", () => {
     const tree = renderer.create(
       <ImmutableListView
         immutableData={data.EMPTY_DATA}
@@ -161,7 +165,7 @@ describe('ImmutableListView with renderEmptyInList', () => {
     expect(tree.toJSON()).toMatchSnapshot();
   });
 
-  it('doesn\'t render empty with null', () => {
+  it("doesn't render empty with null", () => {
     const tree = renderer.create(
       <ImmutableListView
         immutableData={data.EMPTY_DATA}

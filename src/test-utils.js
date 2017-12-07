@@ -13,40 +13,17 @@ import ImmutableVirtualizedList from './ImmutableVirtualizedList';
  * @see https://facebook.github.io/react-native/docs/listviewdatasource.html#constructor
  */
 const data = {
-
   EMPTY_DATA: Immutable.List(),
 
-  LIST_DATA: Immutable.List([
-    'lists',
-    'are',
-    'great',
-  ]),
+  LIST_DATA: Immutable.List(['lists', 'are', 'great']),
 
-  LIST_DATA_NESTED: Immutable.List([
-    [
-      'so',
-      'are',
-    ],
-    [
-      'nested',
-      'lists',
-    ],
-  ]),
+  LIST_DATA_NESTED: Immutable.List([['so', 'are'], ['nested', 'lists']]),
 
   MAP_DATA_LIST_ROWS: Immutable.fromJS({
-    first: [
-      'm',
-      'a',
-      'p',
-    ],
-    second: [
-      'foo',
-    ],
-    third: [
-    ],
-    fourth: [
-      'bar',
-    ],
+    first: ['m', 'a', 'p'],
+    second: ['foo'],
+    third: [],
+    fourth: ['bar'],
   }),
 
   MAP_DATA_MAP_ROWS: Immutable.fromJS({
@@ -57,18 +34,12 @@ const data = {
     second: {},
   }),
 
-  SET_DATA: Immutable.Set([
-    'one',
-    'two',
-    'three',
-  ]),
+  SET_DATA: Immutable.Set(['one', 'two', 'three']),
 
   RANGE_DATA: Immutable.Range(3, 10, 3),
-
 };
 
 const renderers = {
-
   /**
    * @param {*} rowData
    */
@@ -88,11 +59,9 @@ const renderers = {
   renderSectionHeader(sectionData, category) {
     return <Text header>{`${category} (${sectionData.size} items)`}</Text>;
   },
-
 };
 
 const mocks = {
-
   /**
    * Mock ScrollView so that it doesn't contain any props when rendered by ListView.
    * This is useful for comparison between ListView and ImmutableListView.
@@ -102,40 +71,44 @@ const mocks = {
   getImmutableListViewWithoutProps() {
     jest.resetModules();
 
-    // eslint-disable-next-line react/prop-types
-    const mockScrollView = (props) => React.createElement('ScrollView', {}, props.children);
+    const mockScrollView = (props) => {
+      // eslint-disable-next-line react/prop-types
+      return React.createElement('ScrollView', {}, props.children);
+    };
     jest.doMock('ScrollView', () => mockScrollView);
 
     // eslint-disable-next-line global-require
     return require('./ImmutableListView').default;
   },
-
 };
 
 const expectors = {
-
   expectToMatchSnapshotWithData(immutableData, shouldRenderSectionHeaders) {
     const renderSectionHeaderProps = shouldRenderSectionHeaders
       ? { renderSectionHeader: renderers.renderSectionHeader }
       : {};
 
-    const tree = renderer.create(
-      <ImmutableListView
-        immutableData={immutableData}
-        renderRow={renderers.renderRow}
-        {...renderSectionHeaderProps}
-      />,
-    ).toJSON();
+    const tree = renderer
+      .create(
+        <ImmutableListView
+          immutableData={immutableData}
+          renderRow={renderers.renderRow}
+          {...renderSectionHeaderProps}
+        />,
+      )
+      .toJSON();
     expect(tree).toMatchSnapshot();
   },
 
   expectVirtualizedToMatchSnapshotWithData(immutableData) {
-    const tree = renderer.create(
-      <ImmutableVirtualizedList
-        immutableData={immutableData}
-        renderItem={renderers.renderItem}
-      />,
-    ).toJSON();
+    const tree = renderer
+      .create(
+        <ImmutableVirtualizedList
+          immutableData={immutableData}
+          renderItem={renderers.renderItem}
+        />,
+      )
+      .toJSON();
     expect(tree).toMatchSnapshot();
   },
 
@@ -151,32 +124,30 @@ const expectors = {
       ? { renderSectionHeader: renderers.renderSectionHeader }
       : {};
 
-    const immutableTree = renderer.create(
-      <MockedImmutableListView
-        immutableData={immutableData}
-        renderRow={renderers.renderRow}
-        renderEmptyInList={null}
-        {...renderSectionHeaderProps}
-      />,
-    ).toJSON();
+    const immutableTree = renderer
+      .create(
+        <MockedImmutableListView
+          immutableData={immutableData}
+          renderRow={renderers.renderRow}
+          renderEmptyInList={null}
+          {...renderSectionHeaderProps}
+        />,
+      )
+      .toJSON();
 
     const updatedDataSource = dataSource.cloneWithRows(immutableData.toJS());
-    const regularTree = renderer.create(
-      <ListView
-        dataSource={updatedDataSource}
-        renderRow={renderers.renderRow}
-        {...renderSectionHeaderProps}
-      />,
-    ).toJSON();
+    const regularTree = renderer
+      .create(
+        <ListView
+          dataSource={updatedDataSource}
+          renderRow={renderers.renderRow}
+          {...renderSectionHeaderProps}
+        />,
+      )
+      .toJSON();
 
     expect(immutableTree).toEqual(regularTree);
   },
-
 };
 
-export {
-  data,
-  renderers,
-  mocks,
-  expectors,
-};
+export { data, renderers, mocks, expectors };

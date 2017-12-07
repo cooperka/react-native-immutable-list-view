@@ -1,15 +1,13 @@
 language: node_js
-
 node_js:
- - "8"
- - "6"
-
+  - '8'
+  - '6'
 cache:
   yarn: true
   directories:
     - node_modules
     - jest-cache
-
 script:
- - yarn run lint
- - yarn test -- --cacheDirectory="jest-cache"
+  - yarn run format
+  - yarn run lint
+  - yarn test -- --cacheDirectory="jest-cache"

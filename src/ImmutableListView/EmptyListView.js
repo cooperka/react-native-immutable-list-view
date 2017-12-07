@@ -62,26 +62,14 @@ class EmptyListView extends PureComponent {
   renderRow() {
     const { emptyText } = this.props;
 
-    return (
-      <Text style={styles.emptyText}>
-        {emptyText}
-      </Text>
-    );
+    return <Text style={styles.emptyText}>{emptyText}</Text>;
   }
 
   render() {
     const { listData } = this.state;
-    const {
-      renderEmpty, renderEmptyInList, renderSectionHeader, ...passThroughProps
-    } = this.props;
+    const { renderEmpty, renderEmptyInList, renderSectionHeader, emptyText, ...passThroughProps } = this.props;
 
-    return (
-      <ImmutableListView
-        renderRow={() => this.renderRow()}
-        {...passThroughProps}
-        immutableData={listData}
-      />
-    );
+    return <ImmutableListView renderRow={() => this.renderRow()} {...passThroughProps} immutableData={listData} />;
   }
 
 }

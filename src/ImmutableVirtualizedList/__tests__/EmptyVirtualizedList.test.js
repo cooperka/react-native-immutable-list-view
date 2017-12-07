@@ -7,17 +7,13 @@ import { EmptyVirtualizedList } from '../EmptyVirtualizedList';
 
 describe('EmptyVirtualizedList', () => {
   it('renders with default text', () => {
-    const tree = renderer.create(
-      <EmptyVirtualizedList />,
-    );
+    const tree = renderer.create(<EmptyVirtualizedList />);
     expect(tree.toJSON()).toMatchSnapshot();
   });
 
   it('renders with custom text', () => {
     const tree = renderer.create(
-      <EmptyVirtualizedList
-        emptyText="Nothing. Nothing at all."
-      />,
+      <EmptyVirtualizedList emptyText="Nothing. Nothing at all." />,
     );
     expect(tree.toJSON()).toMatchSnapshot();
   });

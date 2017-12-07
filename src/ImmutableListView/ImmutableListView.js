@@ -29,7 +29,9 @@ class ImmutableListView extends PureComponent {
       // Note: It's not enough to simply validate PropTypes.instanceOf(Immutable.Iterable),
       // because different imports of Immutable.js across files have different class prototypes.
       if (!utils.isImmutableIterable(props[propName])) {
-        return new Error(`Invalid prop ${propName} supplied to ${componentName}: Must be instance of Immutable.Iterable.`);
+        return new Error(
+          `Invalid prop ${propName} supplied to ${componentName}: Must be instance of Immutable.Iterable.`,
+        );
       }
     },
 
@@ -138,17 +140,15 @@ class ImmutableListView extends PureComponent {
 
     const shouldDisplayPartialData = rowsDuringInteraction >= 0 && interactionOngoing && !interactionHasJustFinished;
 
-    const displayData = (shouldDisplayPartialData
-      ? immutableData.slice(0, rowsDuringInteraction)
-      : immutableData);
+    const displayData = shouldDisplayPartialData ? immutableData.slice(0, rowsDuringInteraction) : immutableData;
 
-    const updatedDataSource = (renderSectionHeader
+    const updatedDataSource = renderSectionHeader
       ? dataSource.cloneWithRowsAndSections(
-        displayData, utils.getKeys(displayData), utils.getRowIdentities(displayData),
+        displayData,
+        utils.getKeys(displayData),
+        utils.getRowIdentities(displayData),
       )
-      : dataSource.cloneWithRows(
-        displayData, utils.getKeys(displayData),
-      ));
+      : dataSource.cloneWithRows(displayData, utils.getKeys(displayData));
 
     this.setState({
       dataSource: updatedDataSource,
@@ -160,19 +160,14 @@ class ImmutableListView extends PureComponent {
     return this.listViewRef;
   }
 
-  getMetrics = (...args) =>
-    this.listViewRef && this.listViewRef.getMetrics(...args);
+  getMetrics = (...args) => this.listViewRef && this.listViewRef.getMetrics(...args);
 
-  scrollTo = (...args) =>
-    this.listViewRef && this.listViewRef.scrollTo(...args);
+  scrollTo = (...args) => this.listViewRef && this.listViewRef.scrollTo(...args);
 
-  scrollToEnd = (...args) =>
-    this.listViewRef && this.listViewRef.scrollToEnd(...args);
+  scrollToEnd = (...args) => this.listViewRef && this.listViewRef.scrollToEnd(...args);
 
   renderEmpty() {
-    const {
-      immutableData, enableEmptySections, renderEmpty, renderEmptyInList, contentContainerStyle,
-    } = this.props;
+    const { immutableData, enableEmptySections, renderEmpty, renderEmptyInList, contentContainerStyle } = this.props;
 
     const shouldTryToRenderEmpty = renderEmpty || renderEmptyInList;
     if (shouldTryToRenderEmpty && utils.isEmptyListView(immutableData, enableEmptySections)) {
@@ -196,13 +191,25 @@ class ImmutableListView extends PureComponent {
 
   render() {
     const { dataSource } = this.state;
+    const {
+      immutableData,
+      renderEmpty,
+      renderEmptyInList,
+      rowsDuringInteraction,
+      sectionHeaderHasChanged,
+      ...passThroughProps
+    } = this.props;
 
-    return this.renderEmpty() || (
-      <ListView
-        ref={(component) => { this.listViewRef = component; }}
-        dataSource={dataSource}
-        {...this.props}
-      />
+    return (
+      this.renderEmpty() || (
+        <ListView
+          ref={(component) => {
+            this.listViewRef = component;
+          }}
+          dataSource={dataSource}
+          {...passThroughProps}
+        />
+      )
     );
   }
 
