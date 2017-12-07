@@ -1,12 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import Immutable from "immutable";
-import React from "react";
-import { Text, ListView } from "react-native";
-import renderer from "react-test-renderer";
+import Immutable from 'immutable';
+import React from 'react';
+import { Text, ListView } from 'react-native';
+import renderer from 'react-test-renderer';
 /* eslint-enable */
 
-import ImmutableListView from "./ImmutableListView";
-import ImmutableVirtualizedList from "./ImmutableVirtualizedList";
+import ImmutableListView from './ImmutableListView';
+import ImmutableVirtualizedList from './ImmutableVirtualizedList';
 
 /**
  * Some common types of data you may want to render with ImmutableListView.
@@ -15,28 +15,28 @@ import ImmutableVirtualizedList from "./ImmutableVirtualizedList";
 const data = {
   EMPTY_DATA: Immutable.List(),
 
-  LIST_DATA: Immutable.List(["lists", "are", "great"]),
+  LIST_DATA: Immutable.List(['lists', 'are', 'great']),
 
-  LIST_DATA_NESTED: Immutable.List([["so", "are"], ["nested", "lists"]]),
+  LIST_DATA_NESTED: Immutable.List([['so', 'are'], ['nested', 'lists']]),
 
   MAP_DATA_LIST_ROWS: Immutable.fromJS({
-    first: ["m", "a", "p"],
-    second: ["foo"],
+    first: ['m', 'a', 'p'],
+    second: ['foo'],
     third: [],
-    fourth: ["bar"]
+    fourth: ['bar'],
   }),
 
   MAP_DATA_MAP_ROWS: Immutable.fromJS({
     first: {
-      row1: "data 1",
-      row2: "data 2"
+      row1: 'data 1',
+      row2: 'data 2',
     },
-    second: {}
+    second: {},
   }),
 
-  SET_DATA: Immutable.Set(["one", "two", "three"]),
+  SET_DATA: Immutable.Set(['one', 'two', 'three']),
 
-  RANGE_DATA: Immutable.Range(3, 10, 3)
+  RANGE_DATA: Immutable.Range(3, 10, 3),
 };
 
 const renderers = {
@@ -58,7 +58,7 @@ const renderers = {
    */
   renderSectionHeader(sectionData, category) {
     return <Text header>{`${category} (${sectionData.size} items)`}</Text>;
-  }
+  },
 };
 
 const mocks = {
@@ -73,12 +73,12 @@ const mocks = {
 
     // eslint-disable-next-line react/prop-types
     const mockScrollView = props =>
-      React.createElement("ScrollView", {}, props.children);
-    jest.doMock("ScrollView", () => mockScrollView);
+      React.createElement('ScrollView', {}, props.children);
+    jest.doMock('ScrollView', () => mockScrollView);
 
     // eslint-disable-next-line global-require
-    return require("./ImmutableListView").default;
-  }
+    return require('./ImmutableListView').default;
+  },
 };
 
 const expectors = {
@@ -116,7 +116,7 @@ const expectors = {
 
     const dataSource = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2,
-      sectionHeaderHasChanged: (s1, s2) => s1 !== s2
+      sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
     });
 
     const renderSectionHeaderProps = shouldRenderSectionHeaders
@@ -146,7 +146,7 @@ const expectors = {
       .toJSON();
 
     expect(immutableTree).toEqual(regularTree);
-  }
+  },
 };
 
 export { data, renderers, mocks, expectors };
