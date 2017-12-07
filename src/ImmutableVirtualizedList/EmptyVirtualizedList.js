@@ -50,10 +50,7 @@ class EmptyVirtualizedList extends PureComponent {
 
     // Update the data to make sure the list re-renders if any of the relevant props have changed.
     this.setState({
-      listData: listData.set(
-        0,
-        Immutable.fromJS([renderEmpty, renderEmptyInList, emptyText]),
-      ),
+      listData: listData.set(0, Immutable.fromJS([renderEmpty, renderEmptyInList, emptyText])),
     });
   }
 
@@ -72,11 +69,7 @@ class EmptyVirtualizedList extends PureComponent {
     const { renderEmpty, renderEmptyInList, ...passThroughProps } = this.props;
 
     return (
-      <ImmutableVirtualizedList
-        renderItem={() => this.renderItem()}
-        {...passThroughProps}
-        immutableData={listData}
-      />
+      <ImmutableVirtualizedList renderItem={() => this.renderItem()} {...passThroughProps} immutableData={listData} />
     );
   }
 

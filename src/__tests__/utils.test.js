@@ -10,9 +10,7 @@ describe('Utils', () => {
   Object.keys(data).forEach((dataType) => {
     const shouldBeEmpty = data[dataType] === data.EMPTY_DATA;
 
-    it(`determines that ${dataType} ${shouldBeEmpty
-      ? 'is'
-      : 'is NOT'} empty`, () => {
+    it(`determines that ${dataType} ${shouldBeEmpty ? 'is' : 'is NOT'} empty`, () => {
       const isEmpty = utils.isEmptyListView(data[dataType]);
       expect(isEmpty).toBe(shouldBeEmpty);
     });

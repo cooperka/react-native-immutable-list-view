@@ -51,10 +51,7 @@ class EmptyListView extends PureComponent {
 
     // Update the data to make sure the list re-renders if any of the relevant props have changed.
     this.setState({
-      listData: listData.set(
-        0,
-        Immutable.fromJS([renderEmpty, renderEmptyInList, emptyText]),
-      ),
+      listData: listData.set(0, Immutable.fromJS([renderEmpty, renderEmptyInList, emptyText])),
     });
   }
 
@@ -70,21 +67,9 @@ class EmptyListView extends PureComponent {
 
   render() {
     const { listData } = this.state;
-    const {
-      renderEmpty,
-      renderEmptyInList,
-      renderSectionHeader,
-      emptyText,
-      ...passThroughProps
-    } = this.props;
+    const { renderEmpty, renderEmptyInList, renderSectionHeader, emptyText, ...passThroughProps } = this.props;
 
-    return (
-      <ImmutableListView
-        renderRow={() => this.renderRow()}
-        {...passThroughProps}
-        immutableData={listData}
-      />
-    );
+    return <ImmutableListView renderRow={() => this.renderRow()} {...passThroughProps} immutableData={listData} />;
   }
 
 }

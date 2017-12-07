@@ -70,58 +70,33 @@ class ImmutableVirtualizedList extends PureComponent {
     return this.virtualizedListRef;
   }
 
-  scrollToEnd = (...args) =>
-    this.virtualizedListRef && this.virtualizedListRef.scrollToEnd(...args);
+  scrollToEnd = (...args) => this.virtualizedListRef && this.virtualizedListRef.scrollToEnd(...args);
 
-  scrollToIndex = (...args) =>
-    this.virtualizedListRef && this.virtualizedListRef.scrollToIndex(...args);
+  scrollToIndex = (...args) => this.virtualizedListRef && this.virtualizedListRef.scrollToIndex(...args);
 
-  scrollToItem = (...args) =>
-    this.virtualizedListRef && this.virtualizedListRef.scrollToItem(...args);
+  scrollToItem = (...args) => this.virtualizedListRef && this.virtualizedListRef.scrollToItem(...args);
 
-  scrollToOffset = (...args) =>
-    this.virtualizedListRef && this.virtualizedListRef.scrollToOffset(...args);
+  scrollToOffset = (...args) => this.virtualizedListRef && this.virtualizedListRef.scrollToOffset(...args);
 
-  recordInteraction = (...args) =>
-    this.virtualizedListRef &&
-    this.virtualizedListRef.recordInteraction(...args);
+  recordInteraction = (...args) => this.virtualizedListRef && this.virtualizedListRef.recordInteraction(...args);
 
   renderEmpty() {
-    const {
-      immutableData,
-      renderEmpty,
-      renderEmptyInList,
-      contentContainerStyle,
-    } = this.props;
+    const { immutableData, renderEmpty, renderEmptyInList, contentContainerStyle } = this.props;
 
     const shouldTryToRenderEmpty = renderEmpty || renderEmptyInList;
     if (shouldTryToRenderEmpty && utils.isEmptyListView(immutableData)) {
       if (renderEmpty) {
         if (typeof renderEmpty === 'string') {
-          return (
-            <Text style={[styles.emptyText, contentContainerStyle]}>
-              {renderEmpty}
-            </Text>
-          );
+          return <Text style={[styles.emptyText, contentContainerStyle]}>{renderEmpty}</Text>;
         }
         return renderEmpty(this.props);
       }
       if (renderEmptyInList) {
         if (typeof renderEmptyInList === 'string') {
           const { renderItem, ...passThroughProps } = this.props;
-          return (
-            <EmptyVirtualizedList
-              {...passThroughProps}
-              emptyText={renderEmptyInList}
-            />
-          );
+          return <EmptyVirtualizedList {...passThroughProps} emptyText={renderEmptyInList} />;
         }
-        return (
-          <EmptyVirtualizedList
-            {...this.props}
-            renderItem={() => renderEmptyInList(this.props)}
-          />
-        );
+        return <EmptyVirtualizedList {...this.props} renderItem={() => renderEmptyInList(this.props)} />;
       }
     }
 
@@ -129,12 +104,7 @@ class ImmutableVirtualizedList extends PureComponent {
   }
 
   render() {
-    const {
-      immutableData,
-      renderEmpty,
-      renderEmptyInList,
-      ...passThroughProps
-    } = this.props;
+    const { immutableData, renderEmpty, renderEmptyInList, ...passThroughProps } = this.props;
 
     return (
       this.renderEmpty() || (
