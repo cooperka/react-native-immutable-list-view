@@ -196,13 +196,25 @@ class ImmutableListView extends PureComponent {
 
   render() {
     const { dataSource } = this.state;
+    const {
+      immutableData,
+      renderEmpty,
+      renderEmptyInList,
+      rowsDuringInteraction,
+      sectionHeaderHasChanged,
+      ...passThroughProps
+    } = this.props;
 
-    return this.renderEmpty() || (
-      <ListView
-        ref={(component) => { this.listViewRef = component; }}
-        dataSource={dataSource}
-        {...this.props}
-      />
+    return (
+      this.renderEmpty() || (
+        <ListView
+          ref={(component) => {
+            this.listViewRef = component;
+          }}
+          dataSource={dataSource}
+          {...passThroughProps}
+        />
+      )
     );
   }
 

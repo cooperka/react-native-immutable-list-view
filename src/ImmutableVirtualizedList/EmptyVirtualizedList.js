@@ -73,11 +73,7 @@ class EmptyVirtualizedList extends PureComponent {
     const { renderEmpty, renderEmptyInList, ...passThroughProps } = this.props;
 
     return (
-      <ImmutableVirtualizedList
-        renderItem={() => this.renderItem()}
-        {...passThroughProps}
-        immutableData={listData}
-      />
+      <ImmutableVirtualizedList renderItem={() => this.renderItem()} {...passThroughProps} immutableData={listData} />
     );
   }
 
