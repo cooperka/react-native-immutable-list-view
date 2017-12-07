@@ -1,12 +1,12 @@
-import Immutable from 'immutable';
-import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
-import { Text, VirtualizedList } from 'react-native';
+import Immutable from "immutable";
+import PropTypes from "prop-types";
+import React, { PureComponent } from "react";
+import { Text, VirtualizedList } from "react-native";
 
-import styles from '../styles';
-import utils from '../utils';
+import styles from "../styles";
+import utils from "../utils";
 
-import { EmptyVirtualizedList } from './EmptyVirtualizedList';
+import { EmptyVirtualizedList } from "./EmptyVirtualizedList";
 
 /**
  * A VirtualizedList capable of displaying {@link https://facebook.github.io/immutable-js/ Immutable} data
@@ -14,7 +14,6 @@ import { EmptyVirtualizedList } from './EmptyVirtualizedList';
  */
 // eslint-disable-next-line react/prefer-stateless-function
 class ImmutableVirtualizedList extends PureComponent {
-
   static propTypes = {
     // Pass through any props that VirtualizedList would normally take.
     ...VirtualizedList.propTypes,
@@ -28,9 +27,13 @@ class ImmutableVirtualizedList extends PureComponent {
       // because different imports of Immutable.js across files have different class prototypes.
       // TODO: Add support for Immutable.Map, etc.
       if (Immutable.Map.isMap(props[propName])) {
-        return new Error(`Invalid prop ${propName} supplied to ${componentName}: Support for Immutable.Map is coming soon. For now, try an Immutable List, Set, or Range.`);
+        return new Error(
+          `Invalid prop ${propName} supplied to ${componentName}: Support for Immutable.Map is coming soon. For now, try an Immutable List, Set, or Range.`
+        );
       } else if (!utils.isImmutableIterable(props[propName])) {
-        return new Error(`Invalid prop ${propName} supplied to ${componentName}: Must be instance of Immutable.Iterable.`);
+        return new Error(
+          `Invalid prop ${propName} supplied to ${componentName}: Must be instance of Immutable.Iterable.`
+        );
       }
     },
 
@@ -53,13 +56,13 @@ class ImmutableVirtualizedList extends PureComponent {
      *
      * It will be passed all the original props of the ImmutableVirtualizedList.
      */
-    renderEmptyInList: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    renderEmptyInList: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
   };
 
   static defaultProps = {
     ...VirtualizedList.defaultProps,
 
-    renderEmptyInList: 'No data.',
+    renderEmptyInList: "No data."
   };
 
   getVirtualizedList() {
@@ -79,27 +82,45 @@ class ImmutableVirtualizedList extends PureComponent {
     this.virtualizedListRef && this.virtualizedListRef.scrollToOffset(...args);
 
   recordInteraction = (...args) =>
-    this.virtualizedListRef && this.virtualizedListRef.recordInteraction(...args);
+    this.virtualizedListRef &&
+    this.virtualizedListRef.recordInteraction(...args);
 
   renderEmpty() {
     const {
-      immutableData, renderEmpty, renderEmptyInList, contentContainerStyle,
+      immutableData,
+      renderEmpty,
+      renderEmptyInList,
+      contentContainerStyle
     } = this.props;
 
     const shouldTryToRenderEmpty = renderEmpty || renderEmptyInList;
     if (shouldTryToRenderEmpty && utils.isEmptyListView(immutableData)) {
       if (renderEmpty) {
-        if (typeof renderEmpty === 'string') {
-          return <Text style={[styles.emptyText, contentContainerStyle]}>{renderEmpty}</Text>;
+        if (typeof renderEmpty === "string") {
+          return (
+            <Text style={[styles.emptyText, contentContainerStyle]}>
+              {renderEmpty}
+            </Text>
+          );
         }
         return renderEmpty(this.props);
       }
       if (renderEmptyInList) {
-        if (typeof renderEmptyInList === 'string') {
+        if (typeof renderEmptyInList === "string") {
           const { renderItem, ...passThroughProps } = this.props;
-          return <EmptyVirtualizedList {...passThroughProps} emptyText={renderEmptyInList} />;
+          return (
+            <EmptyVirtualizedList
+              {...passThroughProps}
+              emptyText={renderEmptyInList}
+            />
+          );
         }
-        return <EmptyVirtualizedList {...this.props} renderItem={() => renderEmptyInList(this.props)} />;
+        return (
+          <EmptyVirtualizedList
+            {...this.props}
+            renderItem={() => renderEmptyInList(this.props)}
+          />
+        );
       }
     }
 
@@ -107,20 +128,28 @@ class ImmutableVirtualizedList extends PureComponent {
   }
 
   render() {
-    const { immutableData } = this.props;
+    const {
+      immutableData,
+      renderEmpty,
+      renderEmptyInList,
+      ...passThroughProps
+    } = this.props;
 
-    return this.renderEmpty() || (
-      <VirtualizedList
-        ref={(component) => { this.virtualizedListRef = component; }}
-        data={immutableData}
-        getItem={(items, index) => utils.getValueFromKey(index, items)}
-        getItemCount={(items) => (items.size || 0)}
-        keyExtractor={(item, index) => String(index)}
-        {...this.props}
-      />
+    return (
+      this.renderEmpty() || (
+        <VirtualizedList
+          ref={component => {
+            this.virtualizedListRef = component;
+          }}
+          data={immutableData}
+          getItem={(items, index) => utils.getValueFromKey(index, items)}
+          getItemCount={items => items.size || 0}
+          keyExtractor={(item, index) => String(index)}
+          {...passThroughProps}
+        />
+      )
     );
   }
-
 }
 
 export default ImmutableVirtualizedList;

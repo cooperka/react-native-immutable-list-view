@@ -2593,7 +2593,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@15.6.0, prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0:
+prop-types@15.6.0, prop-types@^15.5.8, prop-types@^15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
   dependencies:
@@ -2676,7 +2676,7 @@ react-devtools-core@^2.5.0:
   version "0.6.2"
   dependencies:
     immutable ">=3.8"
-    prop-types "^15.5.10"
+    prop-types "^15.6.0"
 
 react-native@0.50.4:
   version "0.50.4"
