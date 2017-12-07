@@ -8,17 +8,7 @@ exports[`EmptyListView renders with custom renderRow 1`] = `
       "items": 1,
     }
   }
-  emptyText="Nothing. Nothing at all."
   enableEmptySections={true}
-  immutableData={
-    Immutable.List [
-      Immutable.List [
-        undefined,
-        undefined,
-        "Nothing. Nothing at all.",
-      ],
-    ]
-  }
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -30,11 +20,9 @@ exports[`EmptyListView renders with custom renderRow 1`] = `
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmptyInList="No data."
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
-  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []}
   stickySectionHeadersEnabled={true}
 >
@@ -58,17 +46,7 @@ exports[`EmptyListView renders with custom text 1`] = `
       "items": 1,
     }
   }
-  emptyText="Nothing. Nothing at all."
   enableEmptySections={true}
-  immutableData={
-    Immutable.List [
-      Immutable.List [
-        undefined,
-        undefined,
-        "Nothing. Nothing at all.",
-      ],
-    ]
-  }
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -80,11 +58,9 @@ exports[`EmptyListView renders with custom text 1`] = `
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmptyInList="No data."
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
-  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []}
   stickySectionHeadersEnabled={true}
 >
@@ -114,17 +90,7 @@ exports[`EmptyListView renders with default text 1`] = `
       "items": 1,
     }
   }
-  emptyText="No data."
   enableEmptySections={true}
-  immutableData={
-    Immutable.List [
-      Immutable.List [
-        undefined,
-        undefined,
-        "No data.",
-      ],
-    ]
-  }
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -136,11 +102,9 @@ exports[`EmptyListView renders with default text 1`] = `
   onScroll={[Function]}
   pageSize={1}
   removeClippedSubviews={false}
-  renderEmptyInList="No data."
   renderRow={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
-  sectionHeaderHasChanged={[Function]}
   stickyHeaderIndices={Array []}
   stickySectionHeadersEnabled={true}
 >
