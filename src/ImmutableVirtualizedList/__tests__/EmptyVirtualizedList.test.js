@@ -13,7 +13,7 @@ describe('EmptyVirtualizedList', () => {
 
   it('renders with custom text', () => {
     const tree = renderer.create(
-      <EmptyVirtualizedList emptyText="Nothing. Nothing at all." />
+      <EmptyVirtualizedList emptyText="Nothing. Nothing at all." />,
     );
     expect(tree.toJSON()).toMatchSnapshot();
   });
@@ -23,7 +23,7 @@ describe('EmptyVirtualizedList', () => {
       <EmptyVirtualizedList
         emptyText="Nothing. Nothing at all."
         renderItem={() => renderers.renderRow('Overridden!')}
-      />
+      />,
     );
     expect(tree.toJSON()).toMatchSnapshot();
   });

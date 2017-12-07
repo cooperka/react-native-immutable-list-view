@@ -13,6 +13,7 @@ import utils from '../utils';
  * Useful e.g. for preserving the ability to pull-refresh an empty list.
  */
 class EmptyVirtualizedList extends PureComponent {
+
   static propTypes = {
     // Pass through any props that VirtualizedList would normally take.
     ...VirtualizedList.propTypes,
@@ -51,7 +52,7 @@ class EmptyVirtualizedList extends PureComponent {
     this.setState({
       listData: listData.set(
         0,
-        Immutable.fromJS([renderEmpty, renderEmptyInList, emptyText])
+        Immutable.fromJS([renderEmpty, renderEmptyInList, emptyText]),
       ),
     });
   }
@@ -78,6 +79,7 @@ class EmptyVirtualizedList extends PureComponent {
       />
     );
   }
+
 }
 
 export { EmptyVirtualizedList };

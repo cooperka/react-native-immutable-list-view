@@ -71,9 +71,10 @@ const mocks = {
   getImmutableListViewWithoutProps() {
     jest.resetModules();
 
-    // eslint-disable-next-line react/prop-types
-    const mockScrollView = props =>
-      React.createElement('ScrollView', {}, props.children);
+    const mockScrollView = (props) => {
+      // eslint-disable-next-line react/prop-types
+      return React.createElement('ScrollView', {}, props.children);
+    };
     jest.doMock('ScrollView', () => mockScrollView);
 
     // eslint-disable-next-line global-require
@@ -93,7 +94,7 @@ const expectors = {
           immutableData={immutableData}
           renderRow={renderers.renderRow}
           {...renderSectionHeaderProps}
-        />
+        />,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -105,7 +106,7 @@ const expectors = {
         <ImmutableVirtualizedList
           immutableData={immutableData}
           renderItem={renderers.renderItem}
-        />
+        />,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -130,7 +131,7 @@ const expectors = {
           renderRow={renderers.renderRow}
           renderEmptyInList={null}
           {...renderSectionHeaderProps}
-        />
+        />,
       )
       .toJSON();
 
@@ -141,7 +142,7 @@ const expectors = {
           dataSource={updatedDataSource}
           renderRow={renderers.renderRow}
           {...renderSectionHeaderProps}
-        />
+        />,
       )
       .toJSON();
 

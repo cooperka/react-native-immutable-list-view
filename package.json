@@ -1,33 +1,28 @@
 {
   "name": "react-native-immutable-list-view",
   "version": "0.6.2",
-  "description": "A drop-in replacement for React Native's ListView, FlatList, and VirtualizedList.",
+  "description":
+    "A drop-in replacement for React Native's ListView, FlatList, and VirtualizedList.",
   "main": "lib/index.js",
-  "files": [
-    "lib",
-    "src"
-  ],
+  "files": ["lib", "src"],
   "scripts": {
     "test": "jest",
-    "lint": "eslint src example/src --ext .js,.jsx",
+    "lint": "eslint src example/src --ext .js,.jsx --fix",
     "clean": "rm -rf lib",
     "build": "npm run clean && babel src --out-dir lib --ignore src/__tests__",
     "prepublish": "npm run build"
   },
   "jest": {
     "preset": "react-native",
-    "setupFiles": [
-      "./scripts/setup-jest.js"
-    ],
+    "setupFiles": ["./scripts/setup-jest.js"],
     "testRegex": "/src/.*__tests__/.+\\.test\\.js$",
-    "modulePathIgnorePatterns": [
-      "<rootDir>/example/"
-    ],
+    "modulePathIgnorePatterns": ["<rootDir>/example/"],
     "verbose": true
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cooperka/react-native-immutable-list-view.git"
+    "url":
+      "git+https://github.com/cooperka/react-native-immutable-list-view.git"
   },
   "keywords": [
     "react",
@@ -44,7 +39,8 @@
   "bugs": {
     "url": "https://github.com/cooperka/react-native-immutable-list-view/issues"
   },
-  "homepage": "https://github.com/cooperka/react-native-immutable-list-view#readme",
+  "homepage":
+    "https://github.com/cooperka/react-native-immutable-list-view#readme",
   "peerDependencies": {
     "react": ">=15.1 || >=16.0.0-alpha.6",
     "react-native": ">=0.28"

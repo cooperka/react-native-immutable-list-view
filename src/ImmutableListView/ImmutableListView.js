@@ -13,6 +13,7 @@ import { EmptyListView } from './EmptyListView';
  * out of the box.
  */
 class ImmutableListView extends PureComponent {
+
   static propTypes = {
     // Pass through any props that ListView would normally take.
     ...ListView.propTypes,
@@ -29,7 +30,7 @@ class ImmutableListView extends PureComponent {
       // because different imports of Immutable.js across files have different class prototypes.
       if (!utils.isImmutableIterable(props[propName])) {
         return new Error(
-          `Invalid prop ${propName} supplied to ${componentName}: Must be instance of Immutable.Iterable.`
+          `Invalid prop ${propName} supplied to ${componentName}: Must be instance of Immutable.Iterable.`,
         );
       }
     },
@@ -150,10 +151,10 @@ class ImmutableListView extends PureComponent {
 
     const updatedDataSource = renderSectionHeader
       ? dataSource.cloneWithRowsAndSections(
-          displayData,
-          utils.getKeys(displayData),
-          utils.getRowIdentities(displayData)
-        )
+        displayData,
+        utils.getKeys(displayData),
+        utils.getRowIdentities(displayData),
+      )
       : dataSource.cloneWithRows(displayData, utils.getKeys(displayData));
 
     this.setState({
@@ -237,7 +238,7 @@ class ImmutableListView extends PureComponent {
     return (
       this.renderEmpty() || (
         <ListView
-          ref={component => {
+          ref={(component) => {
             this.listViewRef = component;
           }}
           dataSource={dataSource}
@@ -246,6 +247,7 @@ class ImmutableListView extends PureComponent {
       )
     );
   }
+
 }
 
 export default ImmutableListView;

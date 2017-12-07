@@ -7,7 +7,7 @@ import utils from '../utils';
 const EMPTY_MAP = Immutable.fromJS({ foo: [], bar: {}, baz: null });
 
 describe('Utils', () => {
-  Object.keys(data).forEach(dataType => {
+  Object.keys(data).forEach((dataType) => {
     const shouldBeEmpty = data[dataType] === data.EMPTY_DATA;
 
     it(`determines that ${dataType} ${shouldBeEmpty

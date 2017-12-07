@@ -14,6 +14,7 @@ import { EmptyVirtualizedList } from './EmptyVirtualizedList';
  */
 // eslint-disable-next-line react/prefer-stateless-function
 class ImmutableVirtualizedList extends PureComponent {
+
   static propTypes = {
     // Pass through any props that VirtualizedList would normally take.
     ...VirtualizedList.propTypes,
@@ -28,11 +29,11 @@ class ImmutableVirtualizedList extends PureComponent {
       // TODO: Add support for Immutable.Map, etc.
       if (Immutable.Map.isMap(props[propName])) {
         return new Error(
-          `Invalid prop ${propName} supplied to ${componentName}: Support for Immutable.Map is coming soon. For now, try an Immutable List, Set, or Range.`
+          `Invalid prop ${propName} supplied to ${componentName}: Support for Immutable.Map is coming soon. For now, try an Immutable List, Set, or Range.`,
         );
       } else if (!utils.isImmutableIterable(props[propName])) {
         return new Error(
-          `Invalid prop ${propName} supplied to ${componentName}: Must be instance of Immutable.Iterable.`
+          `Invalid prop ${propName} supplied to ${componentName}: Must be instance of Immutable.Iterable.`,
         );
       }
     },
@@ -138,18 +139,19 @@ class ImmutableVirtualizedList extends PureComponent {
     return (
       this.renderEmpty() || (
         <VirtualizedList
-          ref={component => {
+          ref={(component) => {
             this.virtualizedListRef = component;
           }}
           data={immutableData}
           getItem={(items, index) => utils.getValueFromKey(index, items)}
-          getItemCount={items => items.size || 0}
+          getItemCount={(items) => items.size || 0}
           keyExtractor={(item, index) => String(index)}
           {...passThroughProps}
         />
       )
     );
   }
+
 }
 
 export default ImmutableVirtualizedList;

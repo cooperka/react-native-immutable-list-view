@@ -22,8 +22,8 @@ const utils = {
     if (__DEV__ && !isImmutableIterable(immutableData)) {
       console.warn(
         `Can't get keys: Data is not Immutable: ${JSON.stringify(
-          immutableData
-        )}`
+          immutableData,
+        )}`,
       );
     }
 
@@ -44,8 +44,8 @@ const utils = {
     if (__DEV__ && !isImmutableIterable(immutableSectionData)) {
       console.warn(
         `Can't get row identities: Data is not Immutable: ${JSON.stringify(
-          immutableSectionData
-        )}`
+          immutableSectionData,
+        )}`,
       );
     }
 
@@ -75,7 +75,7 @@ const utils = {
       return false;
     }
 
-    return immutableData.every(item => !item || item.isEmpty());
+    return immutableData.every((item) => !item || item.isEmpty());
   },
 };
 

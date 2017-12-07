@@ -30,7 +30,7 @@ describe('ImmutableVirtualizedList with renderEmpty', () => {
         immutableData={data.LIST_DATA}
         renderItem={renderers.renderRow}
         renderEmpty={() => renderers.renderRow('No items')}
-      />
+      />,
     );
     expect(tree.toJSON()).toMatchSnapshot();
   });
@@ -41,7 +41,7 @@ describe('ImmutableVirtualizedList with renderEmpty', () => {
         immutableData={data.EMPTY_DATA}
         renderItem={renderers.renderRow}
         renderEmpty={() => renderers.renderRow('No items')}
-      />
+      />,
     );
     expect(tree.toJSON()).toMatchSnapshot();
   });
@@ -55,7 +55,7 @@ describe('ImmutableVirtualizedList with renderEmpty', () => {
         renderItem={renderers.renderRow}
         renderEmpty="No items"
         contentContainerStyle={{ color }}
-      />
+      />,
     );
     expect(tree.toJSON()).toMatchSnapshot();
   });
@@ -67,7 +67,7 @@ describe('ImmutableVirtualizedList with renderEmpty', () => {
         renderItem={renderers.renderRow}
         renderEmpty={null}
         renderEmptyInList={null}
-      />
+      />,
     );
     expect(tree.toJSON()).toMatchSnapshot();
   });
@@ -80,7 +80,7 @@ describe('ImmutableVirtualizedList with renderEmptyInList', () => {
         immutableData={data.LIST_DATA}
         renderItem={renderers.renderRow}
         renderEmptyInList={() => renderers.renderRow('No items')}
-      />
+      />,
     );
     expect(tree.toJSON()).toMatchSnapshot();
   });
@@ -91,7 +91,7 @@ describe('ImmutableVirtualizedList with renderEmptyInList', () => {
         immutableData={data.EMPTY_DATA}
         renderItem={renderers.renderRow}
         renderEmptyInList={() => renderers.renderRow('No items')}
-      />
+      />,
     );
     expect(tree.toJSON()).toMatchSnapshot();
   });
@@ -105,7 +105,7 @@ describe('ImmutableVirtualizedList with renderEmptyInList', () => {
         renderItem={renderers.renderRow}
         renderEmptyInList="No items"
         contentContainerStyle={{ color }}
-      />
+      />,
     );
     expect(tree.toJSON()).toMatchSnapshot();
   });
@@ -117,7 +117,7 @@ describe('ImmutableVirtualizedList with renderEmptyInList', () => {
         renderItem={renderers.renderRow}
         renderEmpty={null}
         renderEmptyInList={null}
-      />
+      />,
     );
     expect(tree.toJSON()).toMatchSnapshot();
   });
