@@ -107,7 +107,7 @@ class ImmutableVirtualizedList extends PureComponent {
   }
 
   render() {
-    const { immutableData } = this.props;
+    const { immutableData, renderEmpty, renderEmptyInList, ...passThroughProps } = this.props;
 
     return this.renderEmpty() || (
       <VirtualizedList
@@ -116,7 +116,7 @@ class ImmutableVirtualizedList extends PureComponent {
         getItem={(items, index) => utils.getValueFromKey(index, items)}
         getItemCount={(items) => (items.size || 0)}
         keyExtractor={(item, index) => String(index)}
-        {...this.props}
+        {...passThroughProps}
       />
     );
   }
