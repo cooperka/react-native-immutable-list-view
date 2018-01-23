@@ -71,6 +71,28 @@ const utils = {
     return immutableData.every((item) => !item || item.isEmpty());
   },
 
+  flattenMap(data) {
+    return data.reduce(
+      (flattened, section, key) => flattened.set(key, section).merge(section),
+      Immutable.OrderedMap().asMutable(),
+    ).asImmutable();
+  },
+
+  isSectionHeader(item) {
+    return Immutable.Map.isMap(item) || Immutable.List.isList(item)
+  },
+
+  getStickyHeaderIndices(items) {
+    return items
+      .valueSeq()
+      .reduce((arr, item, i) => {
+        if (utils.isSectionHeader(item)) {
+          arr.push(i);
+        }
+        return arr;
+      }, []);
+  },
+
 };
 
 export default utils;
