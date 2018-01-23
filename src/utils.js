@@ -79,7 +79,7 @@ const utils = {
   },
 
   isSectionHeader(item) {
-    return Immutable.Map.isMap(item) || Immutable.List.isList(item)
+    return Immutable.Map.isMap(item) || Immutable.List.isList(item);
   },
 
   getStickyHeaderIndices(items) {
