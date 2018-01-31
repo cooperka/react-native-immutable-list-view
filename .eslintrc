@@ -8,8 +8,7 @@
   },
 
   "rules": {
-    "react-native/no-color-literals": "off",
-    "react/no-did-update-set-state": "off"
+    "react-native/no-color-literals": "off"
   },
 
   "globals": {

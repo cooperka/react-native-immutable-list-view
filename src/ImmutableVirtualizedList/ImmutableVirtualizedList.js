@@ -31,24 +31,11 @@ class ImmutableVirtualizedList extends PureComponent {
     },
 
     /**
-     * Whether to treat immutableData as a sectioned list,
-     * applying section headers.
-     */
-    treatAsSections: PropTypes.bool,
-
-    /**
      * A function that returns some {@link PropTypes.element}
      * to be rendered as a section header. It will be passed a List
      * or Map of the section's items, and the section key.
      */
     renderSectionHeader: PropTypes.func,
-
-    /**
-     * A function that returns some {@link PropTypes.element}
-     * to be rendered as a section row. It will be passed the item,
-     * and the item's key.
-     */
-    renderRow: PropTypes.func,
 
     /**
      * A plain string, or a function that returns some {@link PropTypes.element}
@@ -74,23 +61,24 @@ class ImmutableVirtualizedList extends PureComponent {
 
   static defaultProps = {
     ...VirtualizedList.defaultProps,
-    treatAsSections: false,
     renderEmptyInList: 'No data.',
   };
 
   state = {
-    flattenedData: this.props.treatAsSections
+    flattenedData: this.props.renderSectionHeader
       ? utils.flattenMap(this.props.immutableData)
+      : null,
+    stickyHeaderIndices: this.props.renderSectionHeader
+      ? utils.getStickyHeaderIndices(this.props.immutableData)
       : null,
   }
 
-  componentDidUpdate(prevProps) {
-    const { treatAsSections, immutableData } = this.props;
-    if (treatAsSections && prevProps.immutableData !== immutableData) {
-      const flattenedData = utils.flattenMap(immutableData);
+  componentWillReceiveProps(nextProps) {
+    const { renderSectionHeader, immutableData } = nextProps;
+    if (renderSectionHeader && this.props.immutableData !== immutableData) {
       this.setState({
-        flattenedData,
-        stickyHeaderIndices: utils.getStickyHeaderIndices(flattenedData),
+        flattenedData: utils.flattenMap(immutableData),
+        stickyHeaderIndices: utils.getStickyHeaderIndices(immutableData),
       });
     }
   }
@@ -100,7 +88,7 @@ class ImmutableVirtualizedList extends PureComponent {
   }
 
   keyExtractor = (item, index) => (
-    this.props.treatAsSections
+    this.props.renderSectionHeader
       ? this.state.flattenedData
         .keySeq()
         .skip(index)
@@ -124,13 +112,13 @@ class ImmutableVirtualizedList extends PureComponent {
     this.virtualizedListRef && this.virtualizedListRef.recordInteraction(...args);
 
   renderItem = (info) => (
-    this.props.treatAsSections
-      ? utils.isSectionHeader(info.item)
-        ? this.renderSectionHeader(
+    this.props.renderSectionHeader
+      ? this.state.stickyHeaderIndices.includes(info.item)
+        ? this.props.renderSectionHeader(
           info.item,
           this.keyExtractor(info.item, info.index),
         )
-        : this.renderRow(
+        : this.props.renderItem(
           info.item,
           this.keyExtractor(info.item, info.index),
         )
@@ -165,9 +153,10 @@ class ImmutableVirtualizedList extends PureComponent {
   render() {
     const {
       immutableData,
-      treatAsSections,
       renderEmpty,
       renderEmptyInList,
+      renderSectionHeader,
+      renderItem,
       ...passThroughProps
     } = this.props;
 
@@ -176,15 +165,15 @@ class ImmutableVirtualizedList extends PureComponent {
     return this.renderEmpty() || (
       <VirtualizedList
         ref={(component) => { this.virtualizedListRef = component; }}
-        data={treatAsSections ? flattenedData : immutableData}
+        data={renderSectionHeader ? flattenedData : immutableData}
         getItem={(items, index) => (
-          treatAsSections
+          renderSectionHeader
             ? items.skip(index).first()
             : utils.getValueFromKey(index, items)
         )}
         getItemCount={(items) => (items.size || 0)}
         keyExtractor={this.keyExtractor}
-        stickyHeaderIndices={treatAsSections ? stickyHeaderIndices : null}
+        stickyHeaderIndices={renderSectionHeader ? stickyHeaderIndices : null}
         renderItem={this.renderItem}
         {...passThroughProps}
       />
