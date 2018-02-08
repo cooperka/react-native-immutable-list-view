@@ -61,24 +61,27 @@ class ImmutableVirtualizedList extends PureComponent {
 
   static defaultProps = {
     ...VirtualizedList.defaultProps,
+
     renderEmptyInList: 'No data.',
   };
 
   state = {
     flattenedData: this.props.renderSectionHeader
       ? utils.flattenMap(this.props.immutableData)
-      : null,
+      : undefined,
     stickyHeaderIndices: this.props.renderSectionHeader
       ? utils.getStickyHeaderIndices(this.props.immutableData)
-      : null,
-  }
+      : undefined,
+  };
 
   componentWillReceiveProps(nextProps) {
-    const { renderSectionHeader, immutableData } = nextProps;
-    if (renderSectionHeader && this.props.immutableData !== immutableData) {
+    const { immutableData } = this.props;
+    const { nextRenderSectionHeader, nextImmutableData } = nextProps;
+
+    if (nextRenderSectionHeader && immutableData !== nextImmutableData) {
       this.setState({
-        flattenedData: utils.flattenMap(immutableData),
-        stickyHeaderIndices: utils.getStickyHeaderIndices(immutableData),
+        flattenedData: utils.flattenMap(nextImmutableData),
+        stickyHeaderIndices: utils.getStickyHeaderIndices(nextImmutableData),
       });
     }
   }
@@ -87,14 +90,16 @@ class ImmutableVirtualizedList extends PureComponent {
     return this.virtualizedListRef;
   }
 
-  keyExtractor = (item, index) => (
-    this.props.renderSectionHeader
-      ? this.state.flattenedData
+  keyExtractor = (item, index) => {
+    if (this.props.renderSectionHeader) {
+      return this.state.flattenedData
         .keySeq()
         .skip(index)
-        .first()
-      : String(index)
-  )
+        .first();
+    }
+
+    return String(index);
+  };
 
   scrollToEnd = (...args) =>
     this.virtualizedListRef && this.virtualizedListRef.scrollToEnd(...args);
@@ -111,19 +116,19 @@ class ImmutableVirtualizedList extends PureComponent {
   recordInteraction = (...args) =>
     this.virtualizedListRef && this.virtualizedListRef.recordInteraction(...args);
 
-  renderItem = (info) => (
-    this.props.renderSectionHeader
-      ? this.state.stickyHeaderIndices.includes(info.item)
-        ? this.props.renderSectionHeader(
-          info.item,
-          this.keyExtractor(info.item, info.index),
-        )
-        : this.props.renderItem(
-          info.item,
-          this.keyExtractor(info.item, info.index),
-        )
-      : this.props.renderItem(info)
-  )
+  renderItem = (info) => {
+    const { renderSectionHeader, renderItem } = this.props;
+
+    if (renderSectionHeader) {
+      const renderMethod = this.state.stickyHeaderIndices.includes(info.item)
+        ? renderSectionHeader
+        : renderItem;
+
+      return renderMethod(info.item, this.keyExtractor(info.item, info.index));
+    }
+
+    return renderItem(info);
+  };
 
   renderEmpty() {
     const {
@@ -173,7 +178,7 @@ class ImmutableVirtualizedList extends PureComponent {
         )}
         getItemCount={(items) => (items.size || 0)}
         keyExtractor={this.keyExtractor}
-        stickyHeaderIndices={renderSectionHeader ? stickyHeaderIndices : null}
+        stickyHeaderIndices={renderSectionHeader ? stickyHeaderIndices : undefined}
         renderItem={this.renderItem}
         {...passThroughProps}
       />
