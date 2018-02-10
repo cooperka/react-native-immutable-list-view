@@ -122,3 +122,45 @@ describe('ImmutableVirtualizedList with renderEmptyInList', () => {
     expect(tree.toJSON()).toMatchSnapshot();
   });
 });
+
+describe('ImmutableVirtualizedList with section headers', () => {
+  describe('Map of Maps', () => {
+    const tree = renderer.create(
+      <ImmutableVirtualizedList
+        immutableData={data.MAP_DATA_MAP_ROWS}
+        renderItem={renderers.renderRow}
+        renderSectionHeader={renderers.renderSectionHeader}
+      />,
+    );
+
+    it('renders basic Map of Maps', () => {
+      expect(tree.toJSON()).toMatchSnapshot();
+    });
+
+    it('flattens the data as expected', () => {
+      const { flattenedData } = tree.getInstance().state;
+      expect(flattenedData).toBeDefined();
+      expect(flattenedData.size).toBe(4);
+    });
+  });
+
+  describe('Map of Lists', () => {
+    const tree = renderer.create(
+      <ImmutableVirtualizedList
+        immutableData={data.MAP_DATA_LIST_ROWS}
+        renderItem={renderers.renderRow}
+        renderSectionHeader={renderers.renderSectionHeader}
+      />,
+    );
+
+    it('renders basic Map of Lists', () => {
+      expect(tree.toJSON()).toMatchSnapshot();
+    });
+
+    it('flattens the data as expected', () => {
+      const { flattenedData } = tree.getInstance().state;
+      expect(flattenedData).toBeDefined();
+      expect(flattenedData.size).toBe(9);
+    });
+  });
+});

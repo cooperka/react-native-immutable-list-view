@@ -76,7 +76,12 @@ const utils = {
    */
   flattenMap(data) {
     return data.reduce(
-      (flattened, section, key) => flattened.set(key, section).merge(section),
+      (flattened, section, key) =>
+        flattened.set(key, section).merge(
+          Immutable.Map.isMap(section)
+            ? section
+            : section.toMap().mapKeys((i) => `${key}_${i}`),
+        ),
       Immutable.OrderedMap().asMutable(),
     ).asImmutable();
   },
@@ -87,7 +92,7 @@ const utils = {
   getStickyHeaderIndices(immutableData) {
     const indicesReducer = (indices, section) => {
       const lastIndex = indices[indices.length - 1];
-      indices.push(lastIndex + section.size);
+      indices.push(lastIndex + section.size + 1);
       return indices;
     };
 

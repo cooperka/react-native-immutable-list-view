@@ -37,5 +37,15 @@ describe('Utils', () => {
         utils.getStickyHeaderIndices(data.MAP_DATA_MAP_ROWS).length,
       ).toBe(data.MAP_DATA_MAP_ROWS.size);
     });
+
+    it('returns an array of header indices', () => {
+      expect(
+        utils.getStickyHeaderIndices(data.MAP_DATA_MAP_ROWS),
+      ).toEqual([0, 3]);
+
+      expect(
+        utils.getStickyHeaderIndices(data.MAP_DATA_LIST_ROWS),
+      ).toEqual([0, 4, 6, 7]);
+    });
   });
 });
