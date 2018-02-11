@@ -5,6 +5,12 @@
 [![npm version](https://img.shields.io/npm/v/react-native-immutable-list-view.svg)](https://www.npmjs.com/package/react-native-immutable-list-view)
 [![Latest GitHub tag](https://img.shields.io/github/tag/cooperka/react-native-immutable-list-view.svg)](https://github.com/cooperka/react-native-immutable-list-view)
 
+<br>
+
+[![Logo](images/cover.png)](#README)
+
+<br>
+
 A drop-in replacement for React Native's [`ListView`](https://facebook.github.io/react-native/docs/listview.html).
 
 :sparkles: NEW! It also supports the new `VirtualizedList` component (the underlying component used by `FlatList`) as of `v0.3.0`;
