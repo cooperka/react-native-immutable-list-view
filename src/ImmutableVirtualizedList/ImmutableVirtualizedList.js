@@ -120,7 +120,7 @@ class ImmutableVirtualizedList extends PureComponent {
     const { renderSectionHeader, renderItem } = this.props;
 
     if (renderSectionHeader) {
-      const renderMethod = this.state.stickyHeaderIndices.includes(info.item)
+      const renderMethod = this.state.stickyHeaderIndices.includes(info.index)
         ? renderSectionHeader
         : renderItem;
 
