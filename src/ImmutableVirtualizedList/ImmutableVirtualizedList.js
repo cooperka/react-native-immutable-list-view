@@ -124,7 +124,7 @@ class ImmutableVirtualizedList extends PureComponent {
         ? renderSectionHeader
         : renderItem;
 
-      return renderMethod(info.item, this.keyExtractor(info.item, info.index));
+      return renderMethod(info, this.keyExtractor(info.item, info.index));
     }
 
     return renderItem(info);
