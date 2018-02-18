@@ -645,8 +645,9 @@ exports[`ImmutableVirtualizedList with section headers Map of Lists renders basi
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        header={true}
       >
-        {"item":["m","a","p"],"index":0,"separators":{}}
+        first (undefined items)
       </Text>
     </View>
     <View
@@ -693,8 +694,9 @@ exports[`ImmutableVirtualizedList with section headers Map of Lists renders basi
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        header={true}
       >
-        {"item":["foo"],"index":4,"separators":{}}
+        second (undefined items)
       </Text>
     </View>
     <View
@@ -717,8 +719,9 @@ exports[`ImmutableVirtualizedList with section headers Map of Lists renders basi
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        header={true}
       >
-        {"item":[],"index":6,"separators":{}}
+        third (undefined items)
       </Text>
     </View>
     <View
@@ -729,8 +732,9 @@ exports[`ImmutableVirtualizedList with section headers Map of Lists renders basi
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        header={true}
       >
-        {"item":["bar"],"index":7,"separators":{}}
+        fourth (undefined items)
       </Text>
     </View>
     <View
@@ -796,8 +800,9 @@ exports[`ImmutableVirtualizedList with section headers Map of Maps renders basic
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        header={true}
       >
-        {"item":{"row1":"data 1","row2":"data 2"},"index":0,"separators":{}}
+        first (undefined items)
       </Text>
     </View>
     <View
@@ -832,8 +837,9 @@ exports[`ImmutableVirtualizedList with section headers Map of Maps renders basic
         accessible={true}
         allowFontScaling={true}
         ellipsizeMode="tail"
+        header={true}
       >
-        {"item":{},"index":3,"separators":{}}
+        second (undefined items)
       </Text>
     </View>
   </View>
