@@ -11,29 +11,35 @@
 
 <br>
 
-A drop-in replacement for React Native's [`ListView`](https://facebook.github.io/react-native/docs/listview.html).
-
-:sparkles: NEW! It also supports the new `VirtualizedList` component (the underlying component used by `FlatList`) as of `v0.3.0`;
-see the [instructions at the bottom](#immutablevirtualizedlist) for more details and version requirements.
+A drop-in replacement for React Native's [`ListView`](https://facebook.github.io/react-native/docs/listview.html),
+[`FlatList`](https://facebook.github.io/react-native/docs/flatlist.html),
+and [`VirtualizedList`](https://facebook.github.io/react-native/docs/virtualizedlist.html).
 
 ![ImmutableListView screenshot](example/screenshots/listview-cropped.png "ImmutableListView screenshot")
 
-It supports [Immutable](https://facebook.github.io/immutable-js/) data out-of-the-box to give you
-faster performance and less headaches.
+It supports [Immutable.js](https://facebook.github.io/immutable-js/) to give you faster performance and less headaches.
 
 ## Motivation
 
-- Do you find yourself re-implementing `rowHasChanged` and setting `dataSource` over and over?
-- Do you use Immutable data, only to write wrappers for data access in order to use them with a ListView?
-- Do you listen for lifecycle events simply so you can update `dataSource` -- and thus you can't easily use pure functional components with lists?
+- Do you use Immutable data, only to write the same boilerplate over and over in order to display it?
+- Do you want to show 'Loading...', 'No results', and 'Error!' states in your lists?
 - Do you have nested objects in your state so a shallow diff won't cut it for pure rendering?
-- Do you show 'Loading...', 'Empty', and 'Error!' states in your lists?
-- Do you use a navigator and want better performance while animating?
+- Do you want better performance while animating screen transitions?
 
-If you answered yes to ANY of these questions, this project will surely help.
-Check out the [examples](https://github.com/cooperka/react-native-immutable-list-view#how-to-format-your-data) below!
+If you answered yes to ANY of these questions, this project can help. Check out the examples below.
 
 ## How it works
+
+For FlatList and VirtualizedList:
+
+```jsx
+<ImmutableVirtualizedList
+  immutableData={this.state.listData}
+  renderItem={this.renderItem}
+/>
+```
+
+For ListView:
 
 ```jsx
 <ImmutableListView
@@ -42,7 +48,7 @@ Check out the [examples](https://github.com/cooperka/react-native-immutable-list
 />
 ```
 
-The screenshot above shows two different lists. The first simply uses this data:
+The screenshot above shows two different lists. The first uses this data:
 
 ```js
 Immutable.fromJS({
@@ -63,12 +69,6 @@ The second list is even simpler:
 Immutable.Range(1, 100)
 ```
 
-It supports all the props of React Native's [`ListView`](https://facebook.github.io/react-native/docs/listview.html#props),
-but instead of passing in a `dataSource`, you pass in a prop called `immutableData`.
-
-This prop is just the raw data you'd like to display -- `ImmutableListView` will handle creating an efficient `dataSource` for you.
-Other than this small change, everything else will be exactly the same as `ListView`.
-
 There's an example app [here](https://github.com/cooperka/react-native-immutable-list-view/tree/master/example)
 if you'd like to see it in action.
 
@@ -80,19 +80,68 @@ if you'd like to see it in action.
 
 2. Import it in your JS:
 
+    For FlatList and VirtualizedList:
+
+    ```js
+    import { ImmutableVirtualizedList } from 'react-native-immutable-list-view';
+    ```
+
+    For ListView:
+
     ```js
     import { ImmutableListView } from 'react-native-immutable-list-view';
     ```
 
-## Example Usage
+## Example usage -- replacing FlatList
+
+Goodbye, `keyExtractor` boilerplate!
+
+> Note: This example diff looks much better on [GitHub](https://github.com/cooperka/react-native-immutable-list-view#example-usage----replacing-flatlist) than on npm's site.
+> Red means delete, green means add.
+
+```diff
+-import { Text, View, FlatList } from 'react-native';
++import { Text, View } from 'react-native';
++import { ImmutableVirtualizedList } from 'react-native-immutable-list-view';
+
+ import style from './styles';
+ import listData from './listData';
+
+ class App extends Component {
+
+   renderItem({ item, index }) {
+     return <Text style={style.row}>{item}</Text>;
+   }
+
+  render() {
+    return (
+      <View style={style.container}>
+         <Text style={style.welcome}>
+           Welcome to React Native!
+         </Text>
+-        <FlatList
+-          data={listData}
+-          getItem={(items, index) => items.get(index)}
+-          getItemCount={(items) => items.size}
+-          keyExtractor={(item, index) => String(index)}
++        <ImmutableVirtualizedList
++          immutableData={listData}
+           renderItem={this.renderItem}
+         />
+      </View>
+    );
+  }
+
+}
+```
+
+## Example usage -- replacing ListView
 
 You can remove all that boilerplate in your constructor, as well as lifecycle methods like
 `componentWillReceiveProps` if all they're doing is updating your `dataSource`.
 `ImmutableListView` will handle all of this for you.
 
-Check out this example diff:
-
-> Note: This looks much better on [GitHub](https://github.com/cooperka/react-native-immutable-list-view#example-usage) than on npm's site.
+> Note: This example diff looks much better on [GitHub](https://github.com/cooperka/react-native-immutable-list-view#example-usage----replacing-listview) than on npm's site.
 > Red means delete, green means add.
 
 ```diff
@@ -156,29 +205,34 @@ Check out this example diff:
 
 ## Customization
 
-All the props supported by React Native's `ListView` are simply passed through, and should work exactly the same.
-You can read about them [here](https://facebook.github.io/react-native/docs/listview.html#props).
+All the props supported by React Native's underlying List are simply passed through, and should work exactly the same.
+You can see all the [VirtualizedList props](https://facebook.github.io/react-native/docs/virtualizedlist.html#props)
+or [ListView props](https://facebook.github.io/react-native/docs/listview.html#props) on React Native's website.
 
-You can fully customize the look of your list by implementing [`renderRow`](https://facebook.github.io/react-native/docs/listview.html#renderrow)
-and, optionally, [`renderSectionHeader`](https://facebook.github.io/react-native/docs/listview.html#rendersectionheader).
+You can customize the look of your list by implementing [`renderItem`](https://facebook.github.io/react-native/docs/flatlist.html#renderitem) for FlatList and VirtualizedList
+or [`renderRow`](https://facebook.github.io/react-native/docs/listview.html#renderrow) for ListView.
 
-Here are the additional props that `ImmutableListView` accepts:
+Here are the additional props that `ImmutableVirtualizedList` and `ImmutableListView` accept:
 
 | Prop name | Data type | Default value? | Description |
 |-----------|-----------|----------------|-------------|
 | `immutableData` | Any [`Immutable.Iterable`](https://facebook.github.io/immutable-js/docs/#/Iterable/isIterable) | Required. | The data to render. See below for some examples. |
 | `rowsDuringInteraction` | `number` | `undefined` | How many rows of data to initially display while waiting for interactions to finish (e.g. Navigation animations). |
 | `sectionHeaderHasChanged` | `func` | `(prevSectionData, nextSectionData) => false` | Only needed if your section header is dependent on your row data (uncommon; see [`ListViewDataSource`'s constructor](https://facebook.github.io/react-native/docs/listviewdatasource.html#constructor) for details). |
-| `renderEmpty` | `string` or `func` | `undefined` | If your data is empty (e.g. `null`, `[]`, `{}`) and this prop is defined, then this will be rendered instead. Pull-refresh and scrolling functionality will be **lost**. |
-| `renderEmptyInList` | `string` or `func` | `'No data.'` | If your data is empty (e.g. `null`, `[]`, `{}`) and this prop is defined, then this will be rendered instead (inside of an [`EmptyListView`](#emptylistview)). Pull-refresh and scrolling functionality will be **kept**! |
+| `renderEmpty` | `string` or `func` | `undefined` | If your data is empty (e.g. `null`, `[]`, `{}`) and this prop is defined, then this will be rendered instead. Pull-refresh and scrolling functionality will be **lost**. Most of the time you should use `renderEmptyInList` instead. |
+| `renderEmptyInList` | `string` or `func` | `'No data.'` | If your data is empty (e.g. `null`, `[]`, `{}`) and this prop is defined, then this will be rendered instead. Pull-refresh and scrolling functionality will be **kept**! See [below](#loading--empty--error-states) for more details. |
+
+Also see [React Native's `FlatListExample`](https://github.com/facebook/react-native/blob/master/RNTester/js/FlatListExample.js)
+for more inspiration.
 
 ## Methods
 
-Methods such as `scrollTo` and `scrollToEnd` are passed through just like the props described above.
-You can read about them [here](https://facebook.github.io/react-native/docs/listview.html#methods).
+Methods such as `scrollToEnd` are passed through just like the props described above.
+You can read about them [here](https://facebook.github.io/react-native/docs/listview.html#methods) for ListView
+or [here](https://facebook.github.io/react-native/docs/virtualizedlist.html#methods) for FlatList and VirtualizedList.
 
-The references to `ListView` and `VirtualizedList` are available via `getListView()` and `getVirtualizedList()`.
-These references allow you to access any other methods on the List component that you might need.
+The references to the raw `VirtualizedList` or `ListView` component are available via `getVirtualizedList()` or `getListView()`.
+These references allow you to access any other methods on the underlying List that you might need.
 
 ## How to format your data
 
@@ -219,102 +273,30 @@ for list data. Here are some examples:
 
 To try it out yourself, you can use the [example app](https://github.com/cooperka/react-native-immutable-list-view/tree/master/example)!
 
-## Differences from ListView
+Support is coming soon for section headers with `ImmutableVirtualizedList` too, similar to [`SectionList`](https://facebook.github.io/react-native/docs/sectionlist.html).
+See [PR #34](https://github.com/cooperka/react-native-immutable-list-view/pull/34).
 
-When using section headers, `ImmutableListView` treats certain types of `Immutable.Map` slightly differently
-than `ListView` treats an equivalent plain JS `Map`. See the snapshot test output
-[here](https://github.com/cooperka/react-native-immutable-list-view/blob/master/src/__tests__/__snapshots__/ImmutableListView.test.js.snap)
-for an example of how `ImmutableListView` behaves, or try it for yourself.
+## Loading / Empty / Error states
 
-It seems based on the [current documentation](https://facebook.github.io/react-native/releases/0.37/docs/listviewdatasource.html#constructor)
-that **`ImmutableListView` is behaving as expected**, and in fact regular `ListView` is the one being weird.
-In any case, you should make sure to test this behavior yourself if you're using a `Map` with section headers.
-
-Other than this, the two should behave identically. You can verify this with the unit tests
-[here](https://github.com/cooperka/react-native-immutable-list-view/blob/master/src/__tests__/comparison.test.js).
-
-## EmptyListView
-
-This component takes an optional `emptyText` prop and renders an `ImmutableListView` with only a single list item with the text you specified.
-By default, this string is simply `'No data.'`.
-
-Example:
+The optional `renderEmptyInList` prop takes a string and renders an Immutable List displaying the text you specified.
+By default, this text is simply `No data.`, but you can customize this based on your state. For example:
 
 ```jsx
-import { ImmutableListView, EmptyListView } from 'react-native-immutable-list-view';
+render() {
+  const emptyText = this.state.isLoading
+    ? "Loading..."
+    : this.state.errorMsg
+      ? "Error!"
+      : "No data.";
 
-<ImmutableListView
-  immutableData={this.state.listData}
-  renderRow={this.renderRow}
-  renderEmpty={() => <EmptyListView emptyText="Nothing to see here!" />}
-/>
-```
-
-If you need more flexibility, instead of passing `emptyText` to `EmptyListView`, you can pass `renderRow` and display anything you want.
-`EmptyListView` will pass all your props through to `ImmutableListView` (and then through to `ListView`).
-
-If you want to handle something like pull-refresh while empty, you can use the `originalProps`, e.g.:
-
-```jsx
-<ImmutableListView
-  ...
-  refreshControl={<RefreshControl ... />}
-  renderEmpty={(originalProps) =>
-    <EmptyListView
-      refreshControl={originalProps.refreshControl}
-      emptyText="Nothing to see here!"
+  return (
+    <ImmutableVirtualizedList
+      immutableData={this.state.listData}
+      renderItem={this.renderItem}
+      renderEmptyInList={emptyText}
     />
-  }
-/>
+  );
+}
 ```
 
-## ImmutableVirtualizedList
-
-Just as the `ImmutableListView` component helps render a `ListView` using Immutable data,
-`ImmutableVirtualizedList` helps render the new and improved `VirtualizedList` component.
-This is the underlying component that `FlatList` uses.
-
-There's a [Medium article about it](https://medium.com/@cooperka/react-native-new-flatlist-component-30db558c7a5b) if you'd like more context.
-The short version of the setup instructions is below:
-
-#### With React Native v0.43 or higher
-
-1. Make sure you're using at least `v0.5` of this library
-2. Import the component:
-
-    ```js
-    import { ImmutableVirtualizedList } from 'react-native-immutable-list-view';
-    ```
-
-#### With React Native v0.42 or lower
-
-1. Make sure you're using `v0.4.x` of this library
-2. Download the required files into your app's `node_modules` (since these components aren't published in a release quite yet):
-
-    https://gist.github.com/cooperka/c5dd3ab11f588044d4d6ba22d52c4ab0
-
-    or, using the [shell script](https://github.com/cooperka/react-native-immutable-list-view/blob/v0.4.5/bin/download-flatlist.sh) from this library:
-
-    ```bash
-    npm run download-flatlist
-    ```
-
-3. Import the component directly:
-
-    ```js
-    import ImmutableVirtualizedList from 'react-native-immutable-list-view/lib/ImmutableVirtualizedList';
-    ```
-
-#### All React Native versions
-
-After following the above steps, simply render it:
-
-```jsx
-<ImmutableVirtualizedList
-  immutableData={this.state.listData}
-  renderItem={this.renderItem}
-/>
-```
-
-See the [example app](https://github.com/cooperka/react-native-immutable-list-view/tree/master/example) for a working demo,
-or [React Native's `FlatListExample`](https://github.com/facebook/react-native/blob/master/RNTester/js/FlatListExample.js) for an idea of what features are possible.
+The empty list will receive all the same props as your normal list, so things like pull-to-refresh will still work.
