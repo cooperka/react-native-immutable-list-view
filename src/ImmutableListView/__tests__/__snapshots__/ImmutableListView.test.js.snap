@@ -488,6 +488,7 @@ exports[`ImmutableListView renders with empty data 1`] = `
   }
   enableEmptySections={true}
   initialListSize={10}
+  keyExtractor={[Function]}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
   onKeyboardDidHide={undefined}
@@ -765,6 +766,7 @@ exports[`ImmutableListView with renderEmptyInList renders empty with a function 
   }
   enableEmptySections={true}
   initialListSize={10}
+  keyExtractor={[Function]}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
   onKeyboardDidHide={undefined}
@@ -808,6 +810,7 @@ exports[`ImmutableListView with renderEmptyInList renders empty with a string 1`
   }
   enableEmptySections={true}
   initialListSize={10}
+  keyExtractor={[Function]}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
   onKeyboardDidHide={undefined}
