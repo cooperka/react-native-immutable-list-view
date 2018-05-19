@@ -77,6 +77,7 @@ class EmptyVirtualizedList extends PureComponent {
         renderItem={() => this.renderItem()}
         {...passThroughProps}
         immutableData={listData}
+        keyExtractor={() => 'empty'}
       />
     );
   }
