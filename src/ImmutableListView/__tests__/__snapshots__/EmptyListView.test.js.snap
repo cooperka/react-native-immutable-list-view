@@ -10,7 +10,6 @@ exports[`EmptyListView renders with custom renderRow 1`] = `
   }
   enableEmptySections={true}
   initialListSize={10}
-  keyExtractor={[Function]}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
   onKeyboardDidHide={undefined}
@@ -49,7 +48,6 @@ exports[`EmptyListView renders with custom text 1`] = `
   }
   enableEmptySections={true}
   initialListSize={10}
-  keyExtractor={[Function]}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
   onKeyboardDidHide={undefined}
@@ -94,7 +92,6 @@ exports[`EmptyListView renders with default text 1`] = `
   }
   enableEmptySections={true}
   initialListSize={10}
-  keyExtractor={[Function]}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
   onKeyboardDidHide={undefined}
