@@ -11,7 +11,7 @@
 
 <br>
 
-A drop-in replacement for React Native's [`ListView`](https://facebook.github.io/react-native/docs/listview.html),
+Drop-in replacement for React Native's [`ListView`](https://facebook.github.io/react-native/docs/listview.html),
 [`FlatList`](https://facebook.github.io/react-native/docs/flatlist.html),
 and [`VirtualizedList`](https://facebook.github.io/react-native/docs/virtualizedlist.html).
 
