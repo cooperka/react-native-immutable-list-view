@@ -8,6 +8,7 @@
     "src"
   ],
   "scripts": {
+    "install":"npm run build",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx",
     "clean": "rm -rf lib",
