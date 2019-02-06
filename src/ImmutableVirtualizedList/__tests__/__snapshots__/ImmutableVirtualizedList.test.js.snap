@@ -585,3 +585,263 @@ exports[`ImmutableVirtualizedList with renderEmptyInList renders normally when t
   </View>
 </RCTScrollView>
 `;
+
+exports[`ImmutableVirtualizedList with section headers Map of Lists renders basic Map of Lists 1`] = `
+<RCTScrollView
+  data={
+    Immutable.OrderedMap {
+      "first": Immutable.List [
+        "m",
+        "a",
+        "p",
+      ],
+      "first_0": "m",
+      "first_1": "a",
+      "first_2": "p",
+      "second": Immutable.List [
+        "foo",
+      ],
+      "second_0": "foo",
+      "third": Immutable.List [],
+      "fourth": Immutable.List [
+        "bar",
+      ],
+      "fourth_0": "bar",
+    }
+  }
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  renderItem={[Function]}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={
+    Array [
+      0,
+      4,
+      6,
+      7,
+    ]
+  }
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+>
+  <View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        header={true}
+      >
+        first (undefined items)
+      </Text>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+      >
+        {"item":"m","index":1,"separators":{}}
+      </Text>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+      >
+        {"item":"a","index":2,"separators":{}}
+      </Text>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+      >
+        {"item":"p","index":3,"separators":{}}
+      </Text>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        header={true}
+      >
+        second (undefined items)
+      </Text>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+      >
+        {"item":"foo","index":5,"separators":{}}
+      </Text>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        header={true}
+      >
+        third (undefined items)
+      </Text>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        header={true}
+      >
+        fourth (undefined items)
+      </Text>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+      >
+        {"item":"bar","index":8,"separators":{}}
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`ImmutableVirtualizedList with section headers Map of Maps renders basic Map of Maps 1`] = `
+<RCTScrollView
+  data={
+    Immutable.OrderedMap {
+      "first": Immutable.Map {
+        "row1": "data 1",
+        "row2": "data 2",
+      },
+      "row1": "data 1",
+      "row2": "data 2",
+      "second": Immutable.Map {},
+    }
+  }
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  renderItem={[Function]}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={
+    Array [
+      0,
+      3,
+    ]
+  }
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+>
+  <View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        header={true}
+      >
+        first (undefined items)
+      </Text>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+      >
+        {"item":"data 1","index":1,"separators":{}}
+      </Text>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+      >
+        {"item":"data 2","index":2,"separators":{}}
+      </Text>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        header={true}
+      >
+        second (undefined items)
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;

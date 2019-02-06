@@ -71,6 +71,37 @@ const utils = {
     return immutableData.every((item) => !item || item.isEmpty());
   },
 
+  /**
+   * @returns {Immutable.OrderedMap} A new Immutable Map with its section headers flattened.
+   */
+  flattenMap(data) {
+    return data.reduce(
+      (flattened, section, key) =>
+        flattened.set(key, section).merge(
+          Immutable.Map.isMap(section)
+            ? section
+            : section.toMap().mapKeys((i) => `${key}_${i}`),
+        ),
+      Immutable.OrderedMap().asMutable(),
+    ).asImmutable();
+  },
+
+  /**
+   * @returns [Array] An array of all indices which should be sticky section headers.
+   */
+  getStickyHeaderIndices(immutableData) {
+    const indicesReducer = (indices, section) => {
+      const lastIndex = indices[indices.length - 1];
+      indices.push(lastIndex + section.size + 1);
+      return indices;
+    };
+
+    const indices = immutableData.reduce(indicesReducer, [0]);
+    indices.pop();
+
+    return indices;
+  },
+
 };
 
 export default utils;

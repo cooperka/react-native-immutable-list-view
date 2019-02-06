@@ -1,4 +1,3 @@
-import Immutable from 'immutable';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import { Text, VirtualizedList } from 'react-native';
@@ -26,13 +25,17 @@ class ImmutableVirtualizedList extends PureComponent {
     immutableData: (props, propName, componentName) => {
       // Note: It's not enough to simply validate PropTypes.instanceOf(Immutable.Iterable),
       // because different imports of Immutable.js across files have different class prototypes.
-      // TODO: Add support for Immutable.Map, etc.
-      if (Immutable.Map.isMap(props[propName])) {
-        return new Error(`Invalid prop ${propName} supplied to ${componentName}: Support for Immutable.Map is coming soon. For now, try an Immutable List, Set, or Range.`);
-      } else if (!utils.isImmutableIterable(props[propName])) {
+      if (!utils.isImmutableIterable(props[propName])) {
         return new Error(`Invalid prop ${propName} supplied to ${componentName}: Must be instance of Immutable.Iterable.`);
       }
     },
+
+    /**
+     * A function that returns some {@link PropTypes.element}
+     * to be rendered as a section header. It will be passed a List
+     * or Map of the section's items, and the section key.
+     */
+    renderSectionHeader: PropTypes.func,
 
     /**
      * A plain string, or a function that returns some {@link PropTypes.element}
@@ -62,9 +65,41 @@ class ImmutableVirtualizedList extends PureComponent {
     renderEmptyInList: 'No data.',
   };
 
+  state = {
+    flattenedData: this.props.renderSectionHeader
+      ? utils.flattenMap(this.props.immutableData)
+      : undefined,
+    stickyHeaderIndices: this.props.renderSectionHeader
+      ? utils.getStickyHeaderIndices(this.props.immutableData)
+      : undefined,
+  };
+
+  componentWillReceiveProps(nextProps) {
+    const { immutableData } = this.props;
+    const { nextRenderSectionHeader, nextImmutableData } = nextProps;
+
+    if (nextRenderSectionHeader && immutableData !== nextImmutableData) {
+      this.setState({
+        flattenedData: utils.flattenMap(nextImmutableData),
+        stickyHeaderIndices: utils.getStickyHeaderIndices(nextImmutableData),
+      });
+    }
+  }
+
   getVirtualizedList() {
     return this.virtualizedListRef;
   }
+
+  keyExtractor = (item, index) => {
+    if (this.props.renderSectionHeader) {
+      return this.state.flattenedData
+        .keySeq()
+        .skip(index)
+        .first();
+    }
+
+    return String(index);
+  };
 
   scrollToEnd = (...args) =>
     this.virtualizedListRef && this.virtualizedListRef.scrollToEnd(...args);
@@ -80,6 +115,20 @@ class ImmutableVirtualizedList extends PureComponent {
 
   recordInteraction = (...args) =>
     this.virtualizedListRef && this.virtualizedListRef.recordInteraction(...args);
+
+  renderItem = (info) => {
+    const { renderSectionHeader, renderItem } = this.props;
+
+    if (renderSectionHeader) {
+      const renderMethod = this.state.stickyHeaderIndices.includes(info.index)
+        ? renderSectionHeader
+        : renderItem;
+
+      return renderMethod(info, this.keyExtractor(info.item, info.index));
+    }
+
+    return renderItem(info);
+  };
 
   renderEmpty() {
     const {
@@ -107,15 +156,30 @@ class ImmutableVirtualizedList extends PureComponent {
   }
 
   render() {
-    const { immutableData, renderEmpty, renderEmptyInList, ...passThroughProps } = this.props;
+    const {
+      immutableData,
+      renderEmpty,
+      renderEmptyInList,
+      renderSectionHeader,
+      renderItem,
+      ...passThroughProps
+    } = this.props;
+
+    const { flattenedData, stickyHeaderIndices } = this.state;
 
     return this.renderEmpty() || (
       <VirtualizedList
         ref={(component) => { this.virtualizedListRef = component; }}
-        data={immutableData}
-        getItem={(items, index) => utils.getValueFromKey(index, items)}
+        data={renderSectionHeader ? flattenedData : immutableData}
+        getItem={(items, index) => (
+          renderSectionHeader
+            ? items.skip(index).first()
+            : utils.getValueFromKey(index, items)
+        )}
         getItemCount={(items) => (items.size || 0)}
-        keyExtractor={(item, index) => String(index)}
+        keyExtractor={this.keyExtractor}
+        stickyHeaderIndices={renderSectionHeader ? stickyHeaderIndices : undefined}
+        renderItem={this.renderItem}
         {...passThroughProps}
       />
     );

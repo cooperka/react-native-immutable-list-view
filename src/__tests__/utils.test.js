@@ -30,4 +30,22 @@ describe('Utils', () => {
     const isEmpty = utils.isEmptyListView(data.EMPTY_DATA, true);
     expect(isEmpty).toBe(true);
   });
+
+  describe('getStickyHeaderIndices', () => {
+    it('returns an array of the correct size', () => {
+      expect(
+        utils.getStickyHeaderIndices(data.MAP_DATA_MAP_ROWS).length,
+      ).toBe(data.MAP_DATA_MAP_ROWS.size);
+    });
+
+    it('returns an array of header indices', () => {
+      expect(
+        utils.getStickyHeaderIndices(data.MAP_DATA_MAP_ROWS),
+      ).toEqual([0, 3]);
+
+      expect(
+        utils.getStickyHeaderIndices(data.MAP_DATA_LIST_ROWS),
+      ).toEqual([0, 4, 6, 7]);
+    });
+  });
 });
