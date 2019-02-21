@@ -114,7 +114,7 @@ class ImmutableVirtualizedList extends PureComponent {
         ref={(component) => { this.virtualizedListRef = component; }}
         data={immutableData}
         getItem={(items, index) => utils.getValueFromKey(index, items)}
-        getItemCount={(items) => (items.size || 0)}
+        getItemCount={(items) => ((items && items.size) || 0)}
         keyExtractor={(item, index) => String(index)}
         {...passThroughProps}
       />
