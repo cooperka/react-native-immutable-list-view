@@ -2,11 +2,17 @@ import * as React from 'react'
 import * as Immutable from 'immutable'
 import { ListViewProps, VirtualizedListProps } from 'react-native';
 
-type ImmutableSource = Immutable.Iterable<any, any>
+type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
 
-export type ImmutableListViewProps = ListViewProps & {
-  dataSource: never,
-  immutableData: ImmutableSource,
+// Heuristic check if data has necessary functions
+type ImmutableData = {
+  slice: (begin?: number, end?: number) => any;
+  keySeq: () => any
+}
+
+export type ImmutableListViewProps = Omit<ListViewProps, 'dataSource'> & {
+  immutableData: ImmutableData,
+  dataSource?: never,
   sectionHeaderHasChanged?: (prevSectionData:any, nextSectionData:any) => boolean,
   rowsDuringInteraction?: number,
   renderEmpty?: string | React.FC<ImmutableListViewProps>,
@@ -15,15 +21,14 @@ export type ImmutableListViewProps = ListViewProps & {
 
 export declare class ImmutableListView extends React.Component<ImmutableListViewProps> {}
 
-export declare class EmptyListView extends React.Component<ListViewProps & {
-  dataSource: never,
-  renderRow: React.FC<any>,
+export declare class EmptyListView extends React.Component<Omit<ListViewProps, 'dataSource'> & {
+  dataSource?: never,
+  renderRow?: React.FC<any>,
   emptyText?: string,
 }> {}
 
 export type ImmutableVirtualizedListProps<T> = VirtualizedListProps<T> & {
-  dataSource: never,
-  immutableData: ImmutableSource,
+  immutableData: ImmutableData,
   renderEmpty?: string | React.FC<ImmutableVirtualizedListProps<T>>,
   renderEmptyInList?: string | React.FC<ImmutableVirtualizedListProps<T>>,
 }
