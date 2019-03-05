@@ -4,7 +4,7 @@ import { ListViewProps, VirtualizedListProps } from 'react-native';
 
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
 
-// Heuristic check if data has necessary functions
+// Heuristic check if data is Immutable
 type ImmutableData = {
   slice: (begin?: number, end?: number) => any;
   keySeq: () => any
