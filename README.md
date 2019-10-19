@@ -39,7 +39,7 @@ For FlatList and VirtualizedList:
 />
 ```
 
-For ListView:
+For ListView (deprecated as of React Native v0.59):
 
 ```jsx
 <ImmutableListView
@@ -89,7 +89,7 @@ if you'd like to see it in action.
     For ListView:
 
     ```js
-    import { ImmutableListView } from 'react-native-immutable-list-view';
+    import { ImmutableListView } from 'react-native-immutable-list-view/lib/ImmutableListView';
     ```
 
 ## Example usage -- replacing FlatList
@@ -147,7 +147,7 @@ You can remove all that boilerplate in your constructor, as well as lifecycle me
 ```diff
 -import { Text, View, ListView } from 'react-native';
 +import { Text, View } from 'react-native';
-+import { ImmutableListView } from 'react-native-immutable-list-view';
++import { ImmutableListView } from 'react-native-immutable-list-view/lib/ImmutableListView';
 
  import style from './styles';
  import listData from './listData';
