@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 const blacklist = require('metro-config/src/defaults/blacklist');
 
 module.exports = {

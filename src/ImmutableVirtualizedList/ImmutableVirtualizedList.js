@@ -6,6 +6,8 @@ import { Text, VirtualizedList } from 'react-native';
 import styles from '../styles';
 import utils from '../utils';
 
+// ListView renders EmptyListView which renders an empty ListView. Cycle is okay here.
+// eslint-disable-next-line import/no-cycle
 import { EmptyVirtualizedList } from './EmptyVirtualizedList';
 
 /**

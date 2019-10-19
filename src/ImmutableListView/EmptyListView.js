@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import { Text, ListView } from 'react-native';
 
+// ListView renders EmptyListView which renders an empty ListView. Cycle is okay here.
+// eslint-disable-next-line import/no-cycle
 import ImmutableListView from './ImmutableListView';
 
 import styles from '../styles';

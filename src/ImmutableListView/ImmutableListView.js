@@ -6,6 +6,8 @@ import { Text, ListView, InteractionManager } from 'react-native';
 import styles from '../styles';
 import utils from '../utils';
 
+// ListView renders EmptyListView which renders an empty ListView. Cycle is okay here.
+// eslint-disable-next-line import/no-cycle
 import { EmptyListView } from './EmptyListView';
 
 /**
@@ -94,6 +96,7 @@ class ImmutableListView extends PureComponent {
         return utils.getValueFromKey(rowID, rowData);
       },
 
+      // eslint-disable-next-line react/destructuring-assignment
       sectionHeaderHasChanged: this.props.sectionHeaderHasChanged,
 
       getSectionHeaderData: (dataBlob, sectionID) => utils.getValueFromKey(sectionID, dataBlob),

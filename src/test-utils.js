@@ -13,7 +13,6 @@ import ImmutableVirtualizedList from './ImmutableVirtualizedList';
  * @see https://facebook.github.io/react-native/docs/listviewdatasource.html#constructor
  */
 const data = {
-
   EMPTY_DATA: Immutable.List(),
 
   LIST_DATA: Immutable.List([
@@ -64,11 +63,9 @@ const data = {
   ]),
 
   RANGE_DATA: Immutable.Range(3, 10, 3),
-
 };
 
 const renderers = {
-
   /**
    * @param {*} rowData
    */
@@ -88,11 +85,9 @@ const renderers = {
   renderSectionHeader(sectionData, category) {
     return <Text header>{`${category} (${sectionData.size} items)`}</Text>;
   },
-
 };
 
 const mocks = {
-
   /**
    * Mock ScrollView so that it doesn't contain any props when rendered by ListView.
    * This is useful for comparison between ListView and ImmutableListView.
@@ -103,17 +98,15 @@ const mocks = {
     jest.resetModules();
 
     // eslint-disable-next-line react/prop-types
-    const mockScrollView = (props) => React.createElement('ScrollView', {}, props.children);
+    const mockScrollView = ({ children }) => React.createElement('ScrollView', {}, children);
     jest.doMock('ScrollView', () => mockScrollView);
 
     // eslint-disable-next-line global-require
     return require('./ImmutableListView').default;
   },
-
 };
 
 const expectors = {
-
   expectToMatchSnapshotWithData(immutableData, shouldRenderSectionHeaders) {
     const renderSectionHeaderProps = shouldRenderSectionHeaders
       ? { renderSectionHeader: renderers.renderSectionHeader }
@@ -171,7 +164,6 @@ const expectors = {
 
     expect(immutableTree).toEqual(regularTree);
   },
-
 };
 
 export {

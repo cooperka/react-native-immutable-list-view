@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import { Text, VirtualizedList } from 'react-native';
 
+// ListView renders EmptyListView which renders an empty ListView. Cycle is okay here.
+// eslint-disable-next-line import/no-cycle
 import ImmutableVirtualizedList from './ImmutableVirtualizedList';
 
 import styles from '../styles';

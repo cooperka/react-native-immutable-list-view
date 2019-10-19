@@ -9,6 +9,18 @@ const EMPTY_LIST = Immutable.List();
 const MOCK_DELAY = 800;
 
 class GenericListExample extends Component {
+  defaultStateA = {
+    data: undefined, // Will be manually set on mount.
+    isLoading: false,
+    errorMsg: undefined,
+  };
+
+  defaultStateB = {
+    data: undefined, // Will be manually set on mount.
+    isLoading: false,
+    errorMsg: undefined,
+  };
+
   static propTypes = {
     ListComponent: PropTypes.oneOfType([PropTypes.func, PropTypes.element]).isRequired,
     listComponentProps: PropTypes.object.isRequired,
@@ -37,18 +49,6 @@ class GenericListExample extends Component {
       },
     });
   }
-
-  defaultStateA = {
-    data: undefined, // Will be manually set on mount.
-    isLoading: false,
-    errorMsg: undefined,
-  };
-
-  defaultStateB = {
-    data: undefined, // Will be manually set on mount.
-    isLoading: false,
-    errorMsg: undefined,
-  };
 
   changeDataA(delay = 0) {
     const { listA } = this.state;
