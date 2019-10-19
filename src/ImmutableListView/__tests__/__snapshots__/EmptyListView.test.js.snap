@@ -12,10 +12,6 @@ exports[`EmptyListView renders with custom renderRow 1`] = `
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
-  onKeyboardDidHide={undefined}
-  onKeyboardDidShow={undefined}
-  onKeyboardWillHide={undefined}
-  onKeyboardWillShow={undefined}
   onLayout={[Function]}
   onScroll={[Function]}
   pageSize={1}
@@ -27,11 +23,7 @@ exports[`EmptyListView renders with custom renderRow 1`] = `
   stickySectionHeadersEnabled={true}
 >
   <View>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
+    <Text>
       "Overridden!"
     </Text>
   </View>
@@ -50,10 +42,6 @@ exports[`EmptyListView renders with custom text 1`] = `
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
-  onKeyboardDidHide={undefined}
-  onKeyboardDidShow={undefined}
-  onKeyboardWillHide={undefined}
-  onKeyboardWillShow={undefined}
   onLayout={[Function]}
   onScroll={[Function]}
   pageSize={1}
@@ -66,9 +54,6 @@ exports[`EmptyListView renders with custom text 1`] = `
 >
   <View>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "padding": 8,
@@ -94,10 +79,6 @@ exports[`EmptyListView renders with default text 1`] = `
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
-  onKeyboardDidHide={undefined}
-  onKeyboardDidShow={undefined}
-  onKeyboardWillHide={undefined}
-  onKeyboardWillShow={undefined}
   onLayout={[Function]}
   onScroll={[Function]}
   pageSize={1}
@@ -110,9 +91,6 @@ exports[`EmptyListView renders with default text 1`] = `
 >
   <View>
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "padding": 8,

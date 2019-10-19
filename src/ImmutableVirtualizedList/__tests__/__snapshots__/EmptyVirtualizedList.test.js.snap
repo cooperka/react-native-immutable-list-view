@@ -37,11 +37,7 @@ exports[`EmptyVirtualizedList renders with custom renderRow 1`] = `
       onLayout={[Function]}
       style={null}
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
+      <Text>
         "Overridden!"
       </Text>
     </View>
@@ -87,9 +83,6 @@ exports[`EmptyVirtualizedList renders with custom text 1`] = `
       style={null}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "padding": 8,
@@ -142,9 +135,6 @@ exports[`EmptyVirtualizedList renders with default text 1`] = `
       style={null}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "padding": 8,

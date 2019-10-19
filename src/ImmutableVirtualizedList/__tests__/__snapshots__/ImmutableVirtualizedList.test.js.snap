@@ -34,11 +34,7 @@ exports[`ImmutableVirtualizedList renders basic List 1`] = `
       onLayout={[Function]}
       style={null}
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
+      <Text>
         "lists"
       </Text>
     </View>
@@ -46,11 +42,7 @@ exports[`ImmutableVirtualizedList renders basic List 1`] = `
       onLayout={[Function]}
       style={null}
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
+      <Text>
         "are"
       </Text>
     </View>
@@ -58,11 +50,7 @@ exports[`ImmutableVirtualizedList renders basic List 1`] = `
       onLayout={[Function]}
       style={null}
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
+      <Text>
         "great"
       </Text>
     </View>
@@ -98,11 +86,7 @@ exports[`ImmutableVirtualizedList renders basic Range 1`] = `
       onLayout={[Function]}
       style={null}
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
+      <Text>
         3
       </Text>
     </View>
@@ -110,11 +94,7 @@ exports[`ImmutableVirtualizedList renders basic Range 1`] = `
       onLayout={[Function]}
       style={null}
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
+      <Text>
         6
       </Text>
     </View>
@@ -122,11 +102,7 @@ exports[`ImmutableVirtualizedList renders basic Range 1`] = `
       onLayout={[Function]}
       style={null}
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
+      <Text>
         9
       </Text>
     </View>
@@ -173,11 +149,7 @@ exports[`ImmutableVirtualizedList renders nested List 1`] = `
       onLayout={[Function]}
       style={null}
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
+      <Text>
         ["so","are"]
       </Text>
     </View>
@@ -185,11 +157,7 @@ exports[`ImmutableVirtualizedList renders nested List 1`] = `
       onLayout={[Function]}
       style={null}
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
+      <Text>
         ["nested","lists"]
       </Text>
     </View>
@@ -235,9 +203,6 @@ exports[`ImmutableVirtualizedList renders with empty data 1`] = `
       style={null}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "padding": 8,
@@ -280,20 +245,13 @@ exports[`ImmutableVirtualizedList with renderEmpty doesn't render empty with nul
 `;
 
 exports[`ImmutableVirtualizedList with renderEmpty renders empty with a function 1`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
->
+<Text>
   "No items"
 </Text>
 `;
 
 exports[`ImmutableVirtualizedList with renderEmpty renders empty with a string 1`] = `
 <Text
-  accessible={true}
-  allowFontScaling={true}
-  ellipsizeMode="tail"
   style={
     Array [
       Object {
@@ -344,11 +302,7 @@ exports[`ImmutableVirtualizedList with renderEmpty renders normally when there a
       onLayout={[Function]}
       style={null}
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
+      <Text>
         {"item":"lists","index":0,"separators":{}}
       </Text>
     </View>
@@ -356,11 +310,7 @@ exports[`ImmutableVirtualizedList with renderEmpty renders normally when there a
       onLayout={[Function]}
       style={null}
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
+      <Text>
         {"item":"are","index":1,"separators":{}}
       </Text>
     </View>
@@ -368,11 +318,7 @@ exports[`ImmutableVirtualizedList with renderEmpty renders normally when there a
       onLayout={[Function]}
       style={null}
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
+      <Text>
         {"item":"great","index":2,"separators":{}}
       </Text>
     </View>
@@ -444,11 +390,7 @@ exports[`ImmutableVirtualizedList with renderEmptyInList renders empty with a fu
       onLayout={[Function]}
       style={null}
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
+      <Text>
         "No items"
       </Text>
     </View>
@@ -499,9 +441,6 @@ exports[`ImmutableVirtualizedList with renderEmptyInList renders empty with a st
       style={null}
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Object {
             "padding": 8,
@@ -550,11 +489,7 @@ exports[`ImmutableVirtualizedList with renderEmptyInList renders normally when t
       onLayout={[Function]}
       style={null}
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
+      <Text>
         {"item":"lists","index":0,"separators":{}}
       </Text>
     </View>
@@ -562,11 +497,7 @@ exports[`ImmutableVirtualizedList with renderEmptyInList renders normally when t
       onLayout={[Function]}
       style={null}
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
+      <Text>
         {"item":"are","index":1,"separators":{}}
       </Text>
     </View>
@@ -574,11 +505,7 @@ exports[`ImmutableVirtualizedList with renderEmptyInList renders normally when t
       onLayout={[Function]}
       style={null}
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-      >
+      <Text>
         {"item":"great","index":2,"separators":{}}
       </Text>
     </View>
