@@ -1,2 +1,4 @@
-export { default } from './ImmutableVirtualizedList';
+import ImmutableVirtualizedList from './ImmutableVirtualizedList';
+
+export { ImmutableVirtualizedList };
 export * from './EmptyVirtualizedList';
