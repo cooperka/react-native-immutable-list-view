@@ -1,6 +1,7 @@
 node_modules/**/*
 .expo/*
 npm-debug.*
+yarn-error.*
 *.jks
 *.p8
 *.p12
@@ -9,3 +10,5 @@ npm-debug.*
 *.orig.*
 web-build/
 web-report/
+.idea/*
+.DS_Store
