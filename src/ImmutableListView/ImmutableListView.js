@@ -13,7 +13,6 @@ import { EmptyListView } from './EmptyListView';
  * out of the box.
  */
 class ImmutableListView extends PureComponent {
-
   static propTypes = {
     // Pass through any props that ListView would normally take.
     ...ListView.propTypes,
@@ -208,7 +207,6 @@ class ImmutableListView extends PureComponent {
       />
     );
   }
-
 }
 
 export default ImmutableListView;

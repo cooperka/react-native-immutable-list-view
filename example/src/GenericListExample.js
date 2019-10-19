@@ -9,7 +9,6 @@ const EMPTY_LIST = Immutable.List();
 const MOCK_DELAY = 800;
 
 class GenericListExample extends Component {
-
   static propTypes = {
     ListComponent: PropTypes.oneOfType([PropTypes.func, PropTypes.element]).isRequired,
     listComponentProps: PropTypes.object.isRequired,
@@ -221,7 +220,6 @@ class GenericListExample extends Component {
       </View>
     );
   }
-
 }
 
 export default GenericListExample;

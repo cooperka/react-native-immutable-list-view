@@ -14,7 +14,6 @@ import { EmptyVirtualizedList } from './EmptyVirtualizedList';
  */
 // eslint-disable-next-line react/prefer-stateless-function
 class ImmutableVirtualizedList extends PureComponent {
-
   static propTypes = {
     // Pass through any props that VirtualizedList would normally take.
     ...VirtualizedList.propTypes,
@@ -120,7 +119,6 @@ class ImmutableVirtualizedList extends PureComponent {
       />
     );
   }
-
 }
 
 export default ImmutableVirtualizedList;

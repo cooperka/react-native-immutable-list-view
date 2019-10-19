@@ -13,7 +13,6 @@ import utils from '../utils';
  * Useful e.g. for preserving the ability to pull-refresh an empty list.
  */
 class EmptyListView extends PureComponent {
-
   static propTypes = {
     // Pass through any props that ListView would normally take.
     ...ListView.propTypes,
@@ -83,7 +82,6 @@ class EmptyListView extends PureComponent {
       />
     );
   }
-
 }
 
 export { EmptyListView };
